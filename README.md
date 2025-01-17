@@ -2,11 +2,9 @@
 
 This repo is for the "Sulfide" Discord Theme CSS class list.
 
-The basis for the backend was created by [Zerthox](https://github.com/Zerthox) originally from his long-abandoned [DiscordSelectors](https://github.com/zerthox/discordselectors) repo. 
+The basis for the backend was created by [Zerthox](https://github.com/Zerthox) originally from his long-abandoned [DiscordSelectors](https://github.com/zerthox/discordselectors) repo. All functional code is written in [SCSS](https://sass-lang.com/), specifically targeting Dart Sass. [See Sass' documentation for installation](https://sass-lang.com/install/).
 
-All "functional" code is written in [SCSS](https://sass-lang.com/), specifically targeting Dart Sass. [See Sass' documentation for installation](https://sass-lang.com/install/).
-
-For support, feel free to join the [Pyrite Support Server](https://discord.gg/EeQQTWbTf5).
+For support, feel free to join the [Pyrite Support Server](https://discord.gg/EeQQTWbTf5). A channel exists for updates to be forwarded to your server as well.
 
 ## Usage
 
@@ -19,7 +17,7 @@ You should then be able to run `sass` in your command line, though the class lis
 Recommended `npm` functions:
 ```JSON
 "buildTheme": "sass path/to/inputFiles:path/to/outputFiles -I path/to/loadPath",
-"debugClassList": "sass path/to/debug-dump-all.scss path/to/output/debug_dump_classes.css -I path/to/loadPath"
+"debugClassList": "sass path/to/debug-dump-all.scss path/to/output.css -I path/to/loadPath"
 ```
 
 ### Adding as a submodule
@@ -29,6 +27,13 @@ You can add the main `_classes.scss` file to your theme by adding this repo as a
 git submodule add https://github.com/LeafyLuigi/sulfide classes
 ```
 This command will add this repo as a submodule in the "classes" directory in the repo's root. [GitHub have their own blog post on submodules that may have more information](https://github.blog/open-source/git/working-with-submodules/).
+
+#### Updating the submodule
+
+As this repo could (and should) be updated fairly regularly, you'll need to run this command, preferably before any builds or tests to ensure the class list is up to date.
+```bash
+git submodule update --init --recursive --remote
+```
 
 ### Using `_classes.scss`
 
@@ -57,7 +62,7 @@ Expected output, substituting `appMount_suffix` for whatever the class is at pre
 }
 ```
 
-The way I use in my theme, [Pyrite](https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite), is extremely hacky. Using a Symlink at `$pyriteRoot/classes/_classes.scss` pointing to the SCSS file can be done but isn't recommended. Having a "backend" directory with `@forward` pointing to the class list then calling `@use "backend" as *;` in all `.scss` *should* work.
+The way I use in my theme, [Pyrite](https://github.com/LeafyLuigi/discord-themes/tree/master/pyrite), is extremely hacky. Using a Symlink at `$pyriteRoot/classes/_classes.scss` pointing to the SCSS file can be done but isn't recommended. Having a "backend" directory with `@forward` pointing to the class list then calling `@use "backend" as *;` in all `.scss` should work.
 
 <details><summary>File examples</summary>
 
@@ -74,7 +79,7 @@ The way I use in my theme, [Pyrite](https://github.com/LeafyLuigi/discord-themes
 @forward "classes"; // Classes reside here, but it doesn't exist in source/backend/_classes.scss
 ```
 
-`source/classes/_index.scss`
+`source/classes/_index.scss` (included when creating this repo as a submodule)
 ```scss
 @forward "classes"; // Where "_classes.scss" resides.
 ```
@@ -92,7 +97,7 @@ The way I use in my theme, [Pyrite](https://github.com/LeafyLuigi/discord-themes
 
 `source/theme/friends/_friends.scss`
 ```scss
-@use "backend" as *;
+@use "backend" as *; // THIS MUST BE CALLED AT THE START OF ALL SCSS FILES CONTAINING USED FUNCTIONS.
 /* Start Friends Area */
 :is(#{c(main dark)},#{c(main light)}) {
 	:is(#{c(friends container)},#{c(friends multipleIconWrapper)}) {
@@ -182,3 +187,7 @@ Included in this repo is `debug-dump-all.scss` which is a file that contains two
 The former will output a parsed class list containing every CSS class (and ID), excluding aliases. This way a whole list containing (hopefully) unique classes can be dealt with on its own, such as for finding out-of-date classes or finding duplicates.
 
 The latter will output a parsed list containing all CSS classes (and IDs) with an alias linked to it. This will not output the aliases used to point to the class/ID though.
+
+## Want to contribute?
+
+Feel free to open up a pull request with your edits to `_classes.scss`. Any new classes should go into a category relevant to the part of the app the CSS class is found. If you're moving existing classes, replacing the old class with an alias pointing to the new class is required. Removing an existing class (or alias) should not be done without approval.
