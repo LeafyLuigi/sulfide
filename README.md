@@ -17,7 +17,7 @@ You should then be able to run `sass` in your command line, though the class lis
 Recommended `npm` functions:
 ```JSON
 "buildTheme": "sass path/to/inputFiles:path/to/outputFiles -I path/to/loadPath",
-"debugClassList": "sass path/to/debug-dump-all.scss path/to/output.css -I path/to/loadPath"
+"debugClassList": "sass path/to/_debug-dump-all.scss path/to/output.css -I path/to/loadPath"
 ```
 
 ### Adding as a submodule
@@ -182,7 +182,7 @@ Run the project's `buildTheme` function (or equivalent) to see the final output.
 
 ### Debugging/Dumping `_classes.scss`
 
-Included in this repo is `debug-dump-all.scss` which is a file that contains two main functions, `debug_dump_all_classes_yes_i_am_sure()` and `debug_dump_all_aliases_yes_i_am_sure()`. Uncomment (by removing the desired function's prepended `//`) then run your project's `debugClassList` function.
+Included in this repo is `_debug-dump-all.scss` which is a file that contains two main functions, `debug_dump_all_classes_yes_i_am_sure()` and `debug_dump_all_aliases_yes_i_am_sure()`. Uncomment (by removing the desired function's prepended `//`) then run your project's `debugClassList` function.
 
 The former will output a parsed class list containing every CSS class (and ID), excluding aliases. This way a whole list containing (hopefully) unique classes can be dealt with on its own, such as for finding out-of-date classes or finding duplicates.
 
