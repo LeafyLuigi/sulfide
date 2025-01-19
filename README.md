@@ -10,7 +10,7 @@ For support, feel free to join the [Pyrite Support Server](https://discord.gg/Ee
 
 ### Prerequisites
 
-You'll need `sass` installed using the instructions from the link above.
+You'll need `sass` installed using the instructions from the link above. This currently targets Node.js' Sass version 1.83.4 and above.
 
 You should then be able to run `sass` in your command line, though the class list will likely work using another implementation.
 
