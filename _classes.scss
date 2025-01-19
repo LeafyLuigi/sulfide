@@ -75,7 +75,7 @@
 			$aliasList: list.append($aliasList, $item, space);
 			$spaceIndex: string.index($aliasQuery, $substring: " "); // if not found this declared null
 		}
-		$aliasList: append($aliasList, $aliasQuery, space); // adds last item after @while
+		$aliasList: list.append($aliasList, $aliasQuery, space); // adds last item after @while
 		@return #{class($aliasList, $alias:true)}; // thrown back into the class list as the new query
 	}
 	@if string.slice($class,1,1) == "#" {
