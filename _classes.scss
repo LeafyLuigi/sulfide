@@ -22,7 +22,7 @@
 @function class($query, $alias: false) {
 	$class: $classes;
 	@each $el in $query {
-		$class: map-get($class, "#{$el}");
+		$class: map.get($class, "#{$el}");
 		@if not $class {
 			@if $alias {
 				@error "Unknown alias \"#{$el}\" in category: #{$query}. Please fix the classes list.";
@@ -31,15 +31,15 @@
 			}
 		}
 	}
-	@if type-of($class) == map {
+	@if meta.type-of($class) == map {
 		@error "Map used as input: #{$query}. Please fix and try again.";
 	}
-	@if type-of($class) == string {
+	@if meta.type-of($class) == string {
 		@return checkString($class,$alias);
-	} @else if type-of($class) == list {
+	} @else if meta.type-of($class) == list {
 		// stuff for list would go here
 		$list: ":";
-		@if is-bracketed($class) {
+		@if list.is-bracketed($class) {
 			$list: $list+"where(";
 		} @else {
 			$list: $list+"is(";
@@ -47,38 +47,38 @@
 		@each $item in $class {
 			$list: $list+checkString($item,$alias)+",";
 		}
-		$list: str-slice($list,1,-2)+")"; // remove comma at end and add closing bracket
+		$list: string.slice($list,1,-2)+")"; // remove comma at end and add closing bracket
 		@return $list;
 	}
 }
 
 @function checkString($class,$alias: false) {
 	// debug locator string thingy
-	@if str-slice($class,1,1) == "!" {
+	@if string.slice($class,1,1) == "!" {
 		@warn "[DEBUG] The class, \"#{$class}\", was used";
-		$class: str-slice($class,2,-1);
+		$class: string.slice($class,2,-1);
 	}
-	@if str-slice($class,1,1) == "." {
+	@if string.slice($class,1,1) == "." {
 		@error "Dot at start of string within list. Please fix and try again.";
 	}
-	@if str-slice($class,1,6) == "alias " {
+	@if string.slice($class,1,6) == "alias " {
 		// force error on already tested aliases to prevent loops
 		@if $alias == true {
 			@error "Issue caused by \"#{$class}\". Do not point aliases to other aliases as to prevent loops. Please fix this and try again.";
 		}
 		$aliasList: (); // create fake list to be thrown into function again
-		$aliasQuery: str-slice($class, 7, -1); // remove `alias ` from query
-		$spaceIndex: str-index($aliasQuery, $substring: " "); // finds first space
+		$aliasQuery: string.slice($class, 7, -1); // remove `alias ` from query
+		$spaceIndex: string.index($aliasQuery, $substring: " "); // finds first space
 		@while $spaceIndex != null {
-			$item: str-slice($aliasQuery, 1, $spaceIndex - 1);
-			$aliasQuery: str-slice($aliasQuery, $spaceIndex+1,-1);
-			$aliasList: append($aliasList, $item, space);
-			$spaceIndex: str-index($aliasQuery, $substring: " "); // if not found this declared null
+			$item: string.slice($aliasQuery, 1, $spaceIndex - 1);
+			$aliasQuery: string.slice($aliasQuery, $spaceIndex+1,-1);
+			$aliasList: list.append($aliasList, $item, space);
+			$spaceIndex: string.index($aliasQuery, $substring: " "); // if not found this declared null
 		}
 		$aliasList: append($aliasList, $aliasQuery, space); // adds last item after @while
 		@return #{class($aliasList, $alias:true)}; // thrown back into the class list as the new query
 	}
-	@if str-slice($class,1,1) == "#" {
+	@if string.slice($class,1,1) == "#" {
 		@return $class;
 	} @else {
 		@return "."+$class;
@@ -102,9 +102,9 @@
 	@each $item in $l {
 		// nth($item,1); // category name
 		// type-of(nth($item,2)); // whole map
-		@each $subitem in nth($item,2) {
+		@each $subitem in list.nth($item,2) {
 			// $subitem should always be a list, don't question it.
-			$fullClassList: $fullClassList + debug_dump_all_classes_in_list("",nth($subitem,2));
+			$fullClassList: $fullClassList + debug_dump_all_classes_in_list("",list.nth($subitem,2));
 		}
 	}
 	// @debug $fullClassList;
@@ -114,30 +114,30 @@
 	$classesFromList: "";
 	@each $class in $listToDump {
 		// @debug type-of($class) "|" $class;
-		@if type-of($class) == string {
+		@if meta.type-of($class) == string {
 			$checkString: debug_checkString($class);
 			@if $checkString != "" {
 				$classesFromList: $classesFromList + $checkString + "\A";
 			}
-		} @else if type-of($class) == list {
+		} @else if meta.type-of($class) == list {
 			// @debug "it's a list.";
 			// skip first item since that'll be for the list identifier
-			$classesFromList: $classesFromList + debug_dump_all_classes_in_list($classesFromList,nth($class,2));
+			$classesFromList: $classesFromList + debug_dump_all_classes_in_list($classesFromList,list.nth($class,2));
 		}
 	}
 	@return $classesFromList;
 }
 @function debug_checkString($class) {
-	@if str-slice($class,1,1) == "!" {
-		$class: str-slice($class,2,-1); // remove `!`
+	@if string.slice($class,1,1) == "!" {
+		$class: string.slice($class,2,-1); // remove `!`
 	}
-	@if str-slice($class,1,1) == "." {
+	@if string.slice($class,1,1) == "." {
 		@return ""; // despite this actually intending to throw an error, it's better to skip them outright.
 	}
-	@if str-slice($class,1,6) == "alias " {
+	@if string.slice($class,1,6) == "alias " {
 		@return ""; // ignore all aliases
 	}
-	@if str-slice($class,1,1) == "#" {
+	@if string.slice($class,1,1) == "#" {
 		@return $class;
 	} @else {
 		@return "."+$class;
@@ -149,9 +149,9 @@
 	@each $item in $l {
 		// nth($item,1); // category name
 		// type-of(nth($item,2)); // whole map
-		@each $subitem in nth($item,2) {
+		@each $subitem in list.nth($item,2) {
 			// $subitem should always be a list, don't question it.
-			$fullClassList: $fullClassList + debug_dump_all_aliases_in_list("",nth($subitem,2));
+			$fullClassList: $fullClassList + debug_dump_all_aliases_in_list("",list.nth($subitem,2));
 		}
 	}
 	// @debug $fullClassList;
@@ -161,24 +161,24 @@
 	$classesFromList: "";
 	@each $class in $listToDump {
 		// @debug type-of($class) "|" $class;
-		@if type-of($class) == string {
+		@if meta.type-of($class) == string {
 			$checkString: debug_checkString_alias($class);
 			@if $checkString != "" {
 				$classesFromList: $classesFromList + $checkString + "\A";
 			}
-		} @else if type-of($class) == list {
+		} @else if meta.type-of($class) == list {
 			// @debug "it's a list.";
 			// skip first item since that'll be for the list identifier
-			$classesFromList: $classesFromList + debug_dump_all_aliases_in_list($classesFromList,nth($class,2));
+			$classesFromList: $classesFromList + debug_dump_all_aliases_in_list($classesFromList,list.nth($class,2));
 		}
 	}
 	@return $classesFromList;
 }
 @function debug_checkString_alias($class,$alias: false) {
-	@if type-of($class) == list {
+	@if meta.type-of($class) == list {
 		$allClasses: $classes;
 		@each $item in $class {
-			$allClasses: map-get($allClasses, "#{$item}");
+			$allClasses: map.get($allClasses, "#{$item}");
 			@if not $allClasses {
 				@if $alias {
 					@error "Unknown alias \"#{$item}\" in category: #{$class}. Please fix the classes list.";
@@ -189,34 +189,34 @@
 		}
 		$class: $allClasses;
 	}
-	@if type-of($class) == string {
-		@if str-slice($class,1,1) == "!" {
-			$class: str-slice($class,2,-1); // remove `!`
+	@if meta.type-of($class) == string {
+		@if string.slice($class,1,1) == "!" {
+			$class: string.slice($class,2,-1); // remove `!`
 		}
-		@if str-slice($class,1,1) == "." {
+		@if string.slice($class,1,1) == "." {
 			@return ""; // despite this actually intending to throw an error, it's better to skip them outright.
 		}
-		@if str-slice($class,1,6) == "alias " {
+		@if string.slice($class,1,6) == "alias " {
 			// force error on already tested aliases to prevent loops
 			@if $alias == true {
 				@error "Issue caused by \"#{$class}\". Do not point aliases to other aliases as to prevent loops. Please fix this and try again.";
 			}
 			$aliasList: (); // create fake list to be thrown into function again
-			$aliasQuery: str-slice($class, 7, -1); // remove `alias ` from query
-			$spaceIndex: str-index($aliasQuery, $substring: " "); // finds first space
+			$aliasQuery: string.slice($class, 7, -1); // remove `alias ` from query
+			$spaceIndex: string.index($aliasQuery, $substring: " "); // finds first space
 			@while $spaceIndex != null {
-				$item: str-slice($aliasQuery, 1, $spaceIndex - 1);
-				$aliasQuery: str-slice($aliasQuery, $spaceIndex+1,-1);
-				$aliasList: append($aliasList, $item, space);
-				$spaceIndex: str-index($aliasQuery, $substring: " "); // if not found this declared null
+				$item: string.slice($aliasQuery, 1, $spaceIndex - 1);
+				$aliasQuery: string.slice($aliasQuery, $spaceIndex+1,-1);
+				$aliasList: list.append($aliasList, $item, space);
+				$spaceIndex: string.index($aliasQuery, $substring: " "); // if not found this declared null
 			}
-			$aliasList: append($aliasList, $aliasQuery, space); // adds last item after @while
+			$aliasList: list.append($aliasList, $aliasQuery, space); // adds last item after @while
 			// @debug $aliasList;
 			@return #{debug_checkString_alias($aliasList, $alias:true)}; // thrown back into the class list as the new query
 		}
 	}
 	@if $alias == true {
-		@if str-slice($class,1,1) == "#" {
+		@if string.slice($class,1,1) == "#" {
 			@return $class;
 		} @else {
 			@return "."+$class;
@@ -4460,6 +4460,18 @@ $classes: (
 			"actionButtonWrapper": "actionButtonWrapper_dda074", // parent to actionButtonInner
 			"actionButtonInner": "actionButtonInner_dda074",
 		),
+
+		// In voice call, open up the sound board
+		"soundboard": (
+			"modal": "picker_cd703d",
+			"refresh": "refresh_cd703d",
+			"soundboardButton": "soundButton_f40049",
+			"soundboardSoundName": "soundName_f40049",
+			"soundboardAdd": "soundAddButton_c06ee5",
+			"soundboardAddText": "soundAddText_c06ee5",
+			"soundboardSecondaryButton": "secondaryButtonRefresh_f40049",
+			"soundboardHint": "keybindHint_c66e5e",
+		),
 	),
 	// holy shit end of modals
 
@@ -5248,13 +5260,6 @@ $classes: (
 			"directoryAppPremiumContainer": "benefitsContainer_a11d84",
 			"directoryAppPermissionList": "list_a06168",
 			"directoryAppIntentList": "intentsContainer_f6d180",
-			"soundboard": "picker_cd703d",
-			"soundboardButton": "soundButton_f40049",
-			"soundboardSoundName": "soundName_f40049",
-			"soundboardAdd": "soundAddButton_c06ee5",
-			"soundboardAddText": "soundAddText_c06ee5",
-			"soundboardSecondaryButton": "secondaryButtonRefresh_f40049",
-			"soundboardHint": "keybindHint_c66e5e",
 			"homeContainer": "homeContainer_e85cee",
 			"serverGuideMessage": "userProfileOuterThemed_c69a7b",
 			"serverGuideMessageInner": "userCardInner_c69a7b",
@@ -5455,6 +5460,15 @@ $classes: (
 			"pollCreatePopoutAddAnswerIcon": "addAnswerIconDefault_f24a96",
 			"pollCreatePopoutAddAnswerLabel": "addAnswerButtonLabel_f24a96",
 			"superReactionGlow": "burstGlow_ec6b19",
+
+			// SORTED AND NEED ALIASES
+			"soundboard": "picker_cd703d",
+			"soundboardButton": "soundButton_f40049",
+			"soundboardSoundName": "soundName_f40049",
+			"soundboardAdd": "soundAddButton_c06ee5",
+			"soundboardAddText": "soundAddText_c06ee5",
+			"soundboardSecondaryButton": "secondaryButtonRefresh_f40049",
+			"soundboardHint": "keybindHint_c66e5e",
 		),
 	),
 
