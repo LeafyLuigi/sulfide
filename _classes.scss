@@ -19,6 +19,10 @@
 /// Dirty trace. Add a ! to the start of a class to get the used location(s).
 /// Checks for sub-maps and throws error if that's true.
 /// Checks for a hash at front and spits out an ID rather than a class.
+/// 
+/// NOTE: Deprecated listings have @ at the start and cannot be combined with the dirty trace.
+/// It is strongly advised to use a different class, usually in a comment beside the class.
+/// Certain aliases may also be deprecated in the future.
 @function class($query, $alias: false) {
 	$class: $classes;
 	@each $el in $query {
@@ -54,8 +58,12 @@
 
 @function checkString($class,$alias: false) {
 	// debug locator string thingy
-	@if string.slice($class,1,1) == "!" {
-		@warn "[DEBUG] The class, \"#{$class}\", was used";
+	@if string.slice($class,1,1) == "!" or string.slice($class,1,1) == "@" {
+		@if string.slice($class,1,1) == "!" {
+			@warn "[DEBUG] The class, \"#{$class}\", was used.";
+		} @else if string.slice($class,1,1) == "@" {
+			@warn "[DEPRECATED] The specific selector used for \"#{$class}\" is deprecated and may be removed in the future.";
+		}
 		$class: string.slice($class,2,-1);
 	}
 	@if string.slice($class,1,1) == "." {
@@ -128,8 +136,11 @@
 	@return $classesFromList;
 }
 @function debug_checkString($class) {
-	@if string.slice($class,1,1) == "!" {
-		$class: string.slice($class,2,-1); // remove `!`
+	@if string.slice($class,1,1) == "!" or string.slice($class,1,1) == "@" {
+		@if string.slice($class,1,1) == "@" {
+			@warn "[DEPRECATED] The specific selector used for \"#{$class}\" is deprecated and may be removed in the future.";
+		}
+		$class: string.slice($class,2,-1); // remove `!` or `@`
 	}
 	@if string.slice($class,1,1) == "." {
 		@return ""; // despite this actually intending to throw an error, it's better to skip them outright.
@@ -2229,7 +2240,8 @@ $classes: (
 
 		"roleEveryoneContainer": "container_cc7b67",
 		"roleEveryoneIcon": "icon_cc7b67",
-		"roleSearch": "container_c18ec9",
+		"roleSearchPopup": "container_ac201b",
+		"roleSearch": "@alias modals searchPopup container",
 		"roleSearchBar": "searchBar_e0840f", // shared with above in friends list
 		"roleRow": "roleRow_a930f1",
 		"roleRowDisableHover": "roleRowDisableHover_a930f1",
@@ -3516,6 +3528,15 @@ $classes: (
 		"sidebarList": (
 			"wrapper": "wrapper_ba23fe",
 			"list": "list_efd8e6",
+			"scroller": "scroller_d53d65", // maybe? it appears in soundboard at the least. can also appear as main scroller
+			"listItems": "listItems_d53d65",
+			"listHeight": "listHeight_d53d65", // WILL ALWAYS HAVE INLINE STYLE FOR HEIGHT
+
+			// these few appear elsewhere
+			"svg": "svg_afd438",
+			"mask": "mask_bfabc4",
+			"guildIcon": "guildIcon_bfabc4",
+			"lockedCategory": "categoryItemLockIconContainer_bfabc4",
 		),
 		
 		// Emoji wants to be special
@@ -3655,9 +3676,11 @@ $classes: (
 		// Within a user's popup profile, click the + to add roles,
 		// Within server settings, go to members and click "Display role"
 		// Within audit log, click either filter by user or filter by action
+		// Found when you open the soundboard.
 		"searchPopup": (
-			"container": "container_ac201b",
-			"inner": "inner_c18ec9",
+			"container": "container_c18ec9", // For actual search bar; formally (incorrectly) used for entire container
+			"medium": "medium_c18ec9",
+			"inner": "inner_c18ec9", // appears to be used for both a wrapper and <input>
 			"iconLayout": "iconLayout_c18ec9",
 			"iconContainer": "iconContainer_c18ec9",
 			"icon": "alias friends searchIcon",
@@ -3954,7 +3977,7 @@ $classes: (
 
 			"categoryList": "categoryList_a7a485",
 			"categorySeparator": "guildCategorySeparator_a7a485",
-			"listGuildIcon": "guildIcon_bfabc4",
+			"listGuildIcon": "@alias modals sidebarList guildIcon",
 			"category": "stickerCategory_a7a485",
 			"categoryGeneric": "stickerCategoryGeneric_a7a485", // used on freq used
 			"categoryGenericSelected": "stickerCategoryGenericSelected_a7a485",
@@ -4465,13 +4488,119 @@ $classes: (
 		// In voice call, open up the sound board
 		"soundboard": (
 			"modal": "picker_cd703d",
-			"refresh": "refresh_cd703d",
-			"soundboardButton": "soundButton_f40049",
-			"soundboardSoundName": "soundName_f40049",
-			"soundboardAdd": "soundAddButton_c06ee5",
-			"soundboardAddText": "soundAddText_c06ee5",
-			"soundboardSecondaryButton": "secondaryButtonRefresh_f40049",
-			"soundboardHint": "keybindHint_c66e5e",
+			"refresh": "refresh_cd703d", // less compact version, appears to be the "new" version that is being used.
+			"soundboardButton": "@alias modals soundboard sound button button",
+			"soundboardSoundName": "@alias modals soundboard sound button name",
+			"soundboardAdd": "@alias modals soundboard sound add button",
+			"soundboardAddText": "@alias modals soundboard sound add text",
+			"soundboardSecondaryButton": "@alias modals soundboard sound secondary button",
+			"soundboardHint": "@alias modals soundboard keybindHint",
+
+			"header": "header_d0dc1d",
+			"searchWrapper": "wrapper_ba0ffb",
+			"volumeClickArea": "settingsClickArea_ca5acd",
+			"volumeIcon": "settingsIcon_ca5acd", // clicking pops out a menu using `modals menu menu`
+
+			"categoryList": "categoryList_ceda83", // sidebar uses `modals sidebarList wrapper` too
+			"category": "category_ceda83", // individual server or default discord sounds
+			"categoryIcon": "categoryIcon_ceda83", // default discord sounds
+			"categoryIconIcon": "categoryIconIcon_ceda83", // wonderful name, discord. child is path[class=""]
+			"categorySelected": "selected_ceda83", // used for icon-based ones when selected
+
+			"gridNoticeWrapper": "gridNoticeWrapper_d0dc1d", // appears to be empty, may house something in the future?
+			"listWrapper": "listWrapper_d0dc1d", // wrapper to the wrapper
+			"wrapper": "wrapper_ee8ca7", // wrapper to the scroller
+			// scroller uses the same `modals sidebarList scroller` weirdly enough
+			"section": ( // used for each category **HEADER**
+				"container": "sectionContainer_ca5acd",
+				"header": "sectionHeader_ca5acd", // class as [aria-expanded="true"|"false"]
+				"notFirstSection": "notFirstSectionHeader_ca5acd",
+				"content": "sectionHeaderContent_ca5acd",
+				"title": "sectionTitle_ca5acd",
+				"icon": "headerIcon_ca5acd",
+			),
+			"sound": ( // and now for the rows
+				"row": "soundRow_ca5acd",
+				"button": (
+					"button": "soundButton_f40049" "soundButtonRefresh_f40049",
+					"wrapper": "soundButtonWrapper_c06ee5",
+					"interactive": "soundButtonInteractive_f40049" "soundButtonInteractiveRefresh_f40049", // :hover on this to show overlay
+					"name": "soundName_f40049" "soundNameRefresh_f40049",
+
+					"overlay": "buttonOverlay_f40049",
+					"overlayBackground": "buttonOverlayBackground_f40049", // never appears in refresh
+					"overlayActions": "buttonOverlayActions_f40049" "buttonOverlayActionsRefresh_f40049",
+					"absoluteFill": "absoluteFill_f40049", // position absolute; top,left,right,bottom 0
+				),
+				"primaryIcon": "primaryIcon_f40049" "primaryIconRefresh_f40049", // only on refresh for nitro locked
+				"lockIcon": "lockIcon_f40049", // only on refresh for nitro locked without emoji
+				"secondary": ( // action buttons. "play", "favourite" etc
+					"button": "secondaryButton_f40049" "secondaryButtonRefresh_f40049",
+					"icon": "secondaryIcon_f40049",
+					"favourite": "favoriteIconFavorite_f40049", // only shows up when sound is favourited
+				),
+				"focused": "focused_f40049", // arrow keys to navigate work
+				"animated": "animated_f40049",
+				"playing": "playing_f40049",
+				"previewing": "previewing_f40049",
+				"info": "soundInfo_f40049" "soundInfoRefresh_f40049",
+				"emoji": (
+					"hasEmoji": "hasEmoji_f40049",
+					"circle": "emojiCircle_f40049",
+					"emoji": "emoji_f40049",
+				),
+				"add": (
+					"button": "soundAddButton_c06ee5" "soundAddButtonRefresh_c06ee5",
+					"info": "soundAddInfoRefresh_c06ee5", // only appears in refresh
+					"icon": "soundAddIcon_c06ee5" "soundAddIconRefresh_c06ee5",
+					"text": "soundAddText_c06ee5" "soundAddTextRefresh_c06ee5",
+				),
+			),
+			"nitro": ( // because not everyone has nitro
+				"topDivider": (
+					"container": "nitroTopDividerContainer_e8f337",
+					"upper": "nitroTopDividerUpper_e8f337",
+					"shadow": "nitroTopDividerShadow_e8f337",
+					"lock": (
+						"container": "nitroTopDividerLockContainer_e8f337",
+						"border": "nitroTopDividerLockBorder_e8f337", // "left" line
+						"circle": "nitroTopDividerLockCircle_e8f337", // > svg > path[fill]
+						"borderReversed": "nitroTopDividerLockBorderReversed_e8f337", // "right" line
+					),
+					"lower": "nitroTopDividerLower_e8f337",
+				),
+				"sectionLocked": "sectionContainerNitroLocked_ca5acd", // on section/header. has background
+				"rowLocked": "soundRowNitroLocked_ca5acd", // on row. has background like section/header
+				"premiumDisabled": "premiumDisabledRefresh_f40049", // only appears in refresh. on button. hover this also gives emojiCircle background gradient
+
+				"upsell": ( // floating thing at bottom that shows up when scrolling
+					"container": "upsellContainer_ad7baa", // has inline style for transform: translateY(0-120%);opacity: 0-1;
+					"shadow": "upsellContainerShadow_ad7baa",
+					"innerFloating": "upsellContainerFloating_ad7baa",
+					"text": "upsellText_ad7baa",
+					"button": "upsellButton_ad7baa",
+				),
+
+				"cta": (
+					// large container that appears when clicking sound from outside server without nitro
+					// "Express yourself with more sounds"
+					"container": "container_f7a22f",
+					"noParentContainer": "noParentContainer_f7a22f",
+					"close": "closeButton_f7a22f",
+					"contentContainer": "contentContainer_f7a22f",
+					"image": "image_f7a22f",
+					"title": "title_f7a22f",
+					"titleNoSocialProof": "titleNoSocialProof_f7a22f",
+					"body": "body_f7a22f",
+
+					// footer equiv
+					"ctaContainer": "ctaContainer_f7a22f",
+					"secondaryCTA": "secondaryCTA_f7a22f", // "View All Nitro Perks"
+					// the right button does not have a dedicated class
+				)
+			),
+
+			"keybindHint": "keybindHint_c66e5e", // I cannot target this using Vesktop. Classes are likely not complete for it.
 		),
 	),
 	// holy shit end of modals
@@ -4584,6 +4713,7 @@ $classes: (
 		"developerPortalCtaWrapper": "developerPortalCtaWrapper_cfaf72",
 		"focusStroke": "focusStroke_c5f96a",
 		// Random stuff found while attempting to convert ClearVision 6 to this class format. Comments show where the selector is used.
+		// This category **WILL** be removed over time and without warning.
 		"cv": (
 			// below: sorted, has location(s)
 			"noticeTextLink": "textLink_d572b7", // src/app/notice.scss
@@ -4639,7 +4769,6 @@ $classes: (
 			"autocompleteOptionPill": "optionPill_d4df8b",
 			"autocompleteOptionPillSelected": "selectedPill_d4df8b",
 			"autocompleteOptionPillKey": "optionPillKey_d4df8b",
-			"autocompleteUpsellDividerContainer": "nitroTopDividerContainer_e8f337",
 			"autocompleteUpsellEmoji": "premiumEmoji_d4ce86",
 			"autocompleteUpsellHeader": "premiumHeader_f73c14",
 			"textBadge": "textBadge_df8943",
@@ -4926,9 +5055,7 @@ $classes: (
 			"emojiPickerCategoryHeaderWrapper": "wrapper_e06857",
 			"emojiPickerCategoryHeader": "header_e06857",
 			"emojiPickerItemDisabled": "emojiItemDisabled__843ea",
-			"emojiCategoryScroller": "scroller_d53d65",
 			"emojiCategoryGuildItem": "categoryItemGuildCategory_dfa278",
-			"emojiCategoryLockIconContainer": "categoryItemLockIconContainer_bfabc4",
 			"emojiPickerPremiumPromo": "premiumPromo_ca9b56",
 			"emojiPickerPremiumPromoClose": "premiumPromoClose_ca9b56",
 			"emojiPickerPremiumPromoTitle": "premiumPromoTitle_ca9b56",
@@ -5093,7 +5220,6 @@ $classes: (
 			"radioItemDisabled": "disabled_eb92a8",
 			"userSettingsProfilePreview": "container_f4c122",
 			"userSettingsProfilePremiumBackground": "premiumBackground_c6d722",
-			"userSettingsProfileUpsellContainer": "upsellContainer_ad7baa",
 			"userSettingsPrivacyStandingContainer": "container_f7ea1b",
 			"userSettingsPrivacyStandingAvatarBG": "avatarBackground_bb882a",
 			"userSettingsPrivacyStandingLine": "line_f7ea1b",
@@ -5463,13 +5589,6 @@ $classes: (
 			"superReactionGlow": "burstGlow_ec6b19",
 
 			// SORTED AND NEED ALIASES
-			"soundboard": "picker_cd703d",
-			"soundboardButton": "soundButton_f40049",
-			"soundboardSoundName": "soundName_f40049",
-			"soundboardAdd": "soundAddButton_c06ee5",
-			"soundboardAddText": "soundAddText_c06ee5",
-			"soundboardSecondaryButton": "secondaryButtonRefresh_f40049",
-			"soundboardHint": "keybindHint_c66e5e",
 		),
 	),
 

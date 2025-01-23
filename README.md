@@ -190,4 +190,4 @@ The latter will output a parsed list containing all CSS classes (and IDs) with a
 
 ## Want to contribute?
 
-Feel free to open up a pull request with your edits to `_classes.scss`. Any new classes should go into a category relevant to the part of the app the CSS class is found. If you're moving existing classes, replacing the old class with an alias pointing to the new class is required. Removing an existing class (or alias) should not be done without approval.
+Feel free to open up a pull request with your edits to `_classes.scss`. Any new classes should go into a category relevant to the part of the app the CSS class is found. If you're moving existing classes, replacing the old class with an alias pointing to the new class is required. Removing or deprecating an existing class (or alias) should not be done without approval.
