@@ -586,7 +586,7 @@ $classes: (
 		// <rect>
 		"pointerEvents": "pointerEvents__44b0c", // on <rect> usually relates to status
 
-		"speaking": "avatarSpeaking__44b0c", // appears in the sidebar panel when you're speaking
+		"speaking": "avatarSpeaking__44b0c", // appears in the sidebar server panel when you're speaking
 		"decoration": "avatarDecoration__44b0c", // appears under wrapper for people with avatar decorations
 
 		// unsure where both of these classes are
@@ -2790,7 +2790,7 @@ $classes: (
 
 					"actions": "actions__4cd01",
 					"panelButtonContainer": "panelButtonContainer__4cd01",
-					// buttons use #{c(sidebar panel buttons button)}.
+					// buttons use #{c(sidebar server panel buttons button)}.
 
 					// other classes that i don't know where they're used
 					"dropsBadgeWrapper": "dropsBadgeWrapper__5dec7", // likely relates to quest stuff
@@ -3002,48 +3002,48 @@ $classes: (
 		"voiceUsername": "@alias sidebar server channel voice username",
 		"voiceUsernameSpeaking": "@alias sidebar server channel voice usernameSpeaking",
 		"loadingSidebar": "@alias sidebar channelsContainer",
-		"panels": "@alias sidebar panel panels",
-		"panelWrapper": "@alias sidebar panel voice wrapper",
-		"panelUsername": "@alias sidebar panel username",
-		"panelVoiceContainer": "@alias sidebar panel voice container",
-		"panelChannel": "@alias sidebar panel voice channel",
-		"panelActivityContainer": "@alias sidebar panel activity activityPanel",
-		"panelActivityActions": "@alias sidebar panel activityActions",
-		"panelInner": "@alias sidebar panel voice inner",
-		"panelContainer": "@alias sidebar panel container",
-		"panelButtons": "@alias sidebar panel buttons buttons",
-		"panelButton": "@alias sidebar panel buttons button",
-		"panelButtonEnabled": "@alias sidebar panel buttons enabled",
-		"panelButtonDisabled": "@alias sidebar panel buttons disabled",
-		"panelButtonRedIcon": "@alias sidebar panel buttons redIcon",
-		"panelAvatarWrapper": "@alias sidebar panel avatarWrapper",
-		"panelAvatar": "@alias sidebar panel avatar",
-		"panelNameTag": "@alias sidebar panel nameTag",
-		"panelStatusSubtext": "@alias sidebar panel statusSubtext",
-		"panelActionButtons": "@alias sidebar panel voice actionButtons actionButtons",
-		"panelStreaming": "@alias sidebar panel activity panel",
-		"noiseCancellationPopout": "@alias sidebar panel voice noiseCancellationPopout",
-		"noiseCancellationTooltip": "@alias sidebar panel voice noiseCancellationTooltip",
-		"krispLogo": "@alias sidebar panel voice krispLogo",
-		"krispLink": "@alias sidebar panel voice krispLink",
-		"micTestButton": "@alias sidebar panel voice micTestButton",
-		"panelConnection": "@alias sidebar panel voice connection",
-		"panelVoiceUsers": "@alias sidebar panel voice voiceUsers",
-		"panelActionButton": "@alias sidebar panel voice actionButtons button",
-		"panelButtonColor": "@alias sidebar panel voice actionButtons color",
-		"panelButtonActive": "@alias sidebar panel voice actionButtons active",
-		"panelFauxDisabled": "@alias sidebar panel voice actionButtons fauxDisabled",
-		"panelButtonContents": "@alias sidebar panel voice actionButtons contents",
-		"panelButtonIcon": "@alias sidebar panel voice actionButtons icon",
-		"panelWithText": "@alias sidebar panel voice withText",
-		"panelVoicePanelIntroductionHeader": "@alias sidebar panel voice voicePanelIntroductionHeader",
-		"panelVoicePanelIntroductionText": "@alias sidebar panel voice voicePanelIntroductionText",
-		"panelVoicePanelIntroductionButton": "@alias sidebar panel voice voicePanelIntroductionButton",
-		"panelVoicePanelIntroductionWrapper": "@alias sidebar panel voice voicePanelIntroductionWrapper",
-		"panelViewAsRolesWarning": "@alias sidebar panel voice viewAsRolesWarning",
-		"panelViewAsRolesWarningText": "@alias sidebar panel voice viewAsRolesWarningText",
-		"panelViewAsRolesWarningButton": "@alias sidebar panel voice viewAsRolesWarningButton",
-		"panelLottieIcon": "@alias sidebar panel buttons lottieIcon", // used by animated icons such as "noise suppression by kirsp"
+		"panels": "@alias sidebar server panel panels",
+		"panelWrapper": "@alias sidebar server panel voice wrapper",
+		"panelUsername": "@alias sidebar server panel username",
+		"panelVoiceContainer": "@alias sidebar server panel voice container",
+		"panelChannel": "@alias sidebar server panel voice channel",
+		"panelActivityContainer": "@alias sidebar server panel activity activityPanel",
+		"panelActivityActions": "@alias sidebar server panel activityActions",
+		"panelInner": "@alias sidebar server panel voice inner",
+		"panelContainer": "@alias sidebar server panel container",
+		"panelButtons": "@alias sidebar server panel buttons buttons",
+		"panelButton": "@alias sidebar server panel buttons button",
+		"panelButtonEnabled": "@alias sidebar server panel buttons enabled",
+		"panelButtonDisabled": "@alias sidebar server panel buttons disabled",
+		"panelButtonRedIcon": "@alias sidebar server panel buttons redIcon",
+		"panelAvatarWrapper": "@alias sidebar server panel avatarWrapper",
+		"panelAvatar": "@alias sidebar server panel avatar",
+		"panelNameTag": "@alias sidebar server panel nameTag",
+		"panelStatusSubtext": "@alias sidebar server panel statusSubtext",
+		"panelActionButtons": "@alias sidebar server panel voice actionButtons actionButtons",
+		"panelStreaming": "@alias sidebar server panel activity panel",
+		"noiseCancellationPopout": "@alias sidebar server panel voice noiseCancellationPopout",
+		"noiseCancellationTooltip": "@alias sidebar server panel voice noiseCancellationTooltip",
+		"krispLogo": "@alias sidebar server panel voice krispLogo",
+		"krispLink": "@alias sidebar server panel voice krispLink",
+		"micTestButton": "@alias sidebar server panel voice micTestButton",
+		"panelConnection": "@alias sidebar server panel voice connection",
+		"panelVoiceUsers": "@alias sidebar server panel voice voiceUsers",
+		"panelActionButton": "@alias sidebar server panel voice actionButtons button",
+		"panelButtonColor": "@alias sidebar server panel voice actionButtons color",
+		"panelButtonActive": "@alias sidebar server panel voice actionButtons active",
+		"panelFauxDisabled": "@alias sidebar server panel voice actionButtons fauxDisabled",
+		"panelButtonContents": "@alias sidebar server panel voice actionButtons contents",
+		"panelButtonIcon": "@alias sidebar server panel voice actionButtons icon",
+		"panelWithText": "@alias sidebar server panel voice withText",
+		"panelVoicePanelIntroductionHeader": "@alias sidebar server panel voice voicePanelIntroductionHeader",
+		"panelVoicePanelIntroductionText": "@alias sidebar server panel voice voicePanelIntroductionText",
+		"panelVoicePanelIntroductionButton": "@alias sidebar server panel voice voicePanelIntroductionButton",
+		"panelVoicePanelIntroductionWrapper": "@alias sidebar server panel voice voicePanelIntroductionWrapper",
+		"panelViewAsRolesWarning": "@alias sidebar server panel voice viewAsRolesWarning",
+		"panelViewAsRolesWarningText": "@alias sidebar server panel voice viewAsRolesWarningText",
+		"panelViewAsRolesWarningButton": "@alias sidebar server panel voice viewAsRolesWarningButton",
+		"panelLottieIcon": "@alias sidebar server panel buttons lottieIcon", // used by animated icons such as "noise suppression by kirsp"
 	),
 	"store": (
 		"store": "applicationStore_f07d62",
@@ -3496,17 +3496,17 @@ $classes: (
 			// deprecated
 			"dividier": "@alias profile status divider", // TYPO
 			"popoutWrapper": "@alias profile status accountProfilePopoutWrapper",
-			"redIcon": "@alias sidebar panel buttons redIcon",
-			"panelTitleContainer": "@alias sidebar panel titleContainer",
-			"panelSubtextContainer": "@alias sidebar panel subtextContainer",
+			"redIcon": "@alias sidebar server panel buttons redIcon",
+			"panelTitleContainer": "@alias sidebar server panel titleContainer",
+			"panelSubtextContainer": "@alias sidebar server panel subtextContainer",
 			"panel": (
-				"container": "@alias sidebar panel container",
-				"avatarWrapper": "@alias sidebar panel avatarWrapper", // applies to whole thing
-				"avatar": "@alias sidebar panel avatar",
-				"nameTag": "@alias sidebar panel nameTag",
-				"canCopy": "@alias sidebar panel canCopy",
-				"customStatus": "@alias sidebar panel customStatus",
-				"customStatusEmoji": "@alias sidebar panel customStatusEmoji",
+				"container": "@alias sidebar server panel container",
+				"avatarWrapper": "@alias sidebar server panel avatarWrapper", // applies to whole thing
+				"avatar": "@alias sidebar server panel avatar",
+				"nameTag": "@alias sidebar server panel nameTag",
+				"canCopy": "@alias sidebar server panel canCopy",
+				"customStatus": "@alias sidebar server panel customStatus",
+				"customStatusEmoji": "@alias sidebar server panel customStatusEmoji",
 			),
 		),
 
