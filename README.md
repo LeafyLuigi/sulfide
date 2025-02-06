@@ -106,6 +106,25 @@ The way I use in my theme, [Pyrite](https://github.com/LeafyLuigi/discord-themes
 }
 ```
 
+The theme is then compiled with the following command:
+```bash
+sass pyrite/source:pyrite/build -s compressed -I pyrite/source --no-source-map
+```
+<details>
+<summary>Breakdown</summary>
+
+`sass` - Detailed information about the Sass command can be found from [Sass' documentation](https://sass-lang.com/documentation/cli/dart-sass/).
+
+`pyrite/source:pyrite/build` - Compiles using many-to-many mode. Input `.scss` files are located in `pyrite/source` and get compiled to `pyrite/build`. This can be substituted for one-to-one mode.
+
+`-s compressed` - Makes the output style "compressed"; same as `--style=compressed`. This removes as many extra characters as possible, such as spaces between properties and their values, new lines and comments. Not required.
+
+`-I pyrite/source` - Uses `pyrite/source` as the load path; same as `--load-path=pyrite/source`. This essentially uses `pyrite/source` as a faux-"root" directory, needed to not think about directory structure when calling `@use`.
+
+`--no-source-map` - Do not output source maps. Not required.
+
+</details>
+
 </details>
 
 <details><summary>A small snippet from the "test" section from `_classes.scss` is below:</summary>

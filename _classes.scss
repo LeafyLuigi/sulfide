@@ -271,12 +271,19 @@ $classes: (
 
 		"backdrop": "backdrop__78332",
 		"backdropWithLayer": "withLayer__78332",
-		"dark": "theme-dark",
-		"darker": "theme-darker", // no idea where this is used, maybe mobile?
-		"brand": "theme-brand", // no idea where this is used
+
+		// Themes
 		"light": "theme-light",
-		"midnight": "theme-midnight",
-		"customTheme": "custom-theme-background",
+		"dark": "theme-dark",
+		"darker": "theme-darker", // visual refresh has option for darker. class is added to html.theme-dark
+		"midnight": "theme-midnight", // visual refresh has option for midnight. class is added to html.theme-dark
+		"brand": "theme-brand", // no idea where this is used; does not appear using secret color theme
+		"customTheme": "custom-theme-background", // Settings > Appearance > select any "color theme".
+
+		// Images
+		"imagesLight": "images-light",
+		"imagesDark": "images-dark",
+
 		"mouseMode": "mouse-mode",
 		"keyboardMode": "keyboard-mode",
 		"focused": "app-focused",
@@ -299,7 +306,9 @@ $classes: (
 
 		"ring": "focus-rings-ring", // tab around to see this, other extra classes may appear in other areas.
 
-		"visualRefresh": "visual-refresh", // Experiment that causes the app to look much more like the mobile app. Fun.
+		// Visual Refresh stuff
+		"visualRefresh": "visual-refresh", // 2024-05_desktop_visual_refresh (Desktop Visual Refresh); select treatments 1-4
+		"visualRefreshChatInput": "visual-refresh-chat-input", // same experiment, select treatment 1 or 2.
 
 		// no idea what these classes are about
 		"backgroundOpacity": (
@@ -2674,174 +2683,6 @@ $classes: (
 				),
 			),
 
-			// Panels include your avatar, username, mic, headphones and settings icons
-			// as well as voice related stuff
-			"panel": (
-				"panels": "panels_c48ade",
-				
-				// Non-voice stuff
-				"container": "container__37e49",
-				"avatarWrapper": "avatarWrapper__37e49", // contains avatar, username, nickname and status
-				"avatar": "avatar__37e49",
-				"nameTag": "nameTag__37e49",
-				"canCopy": "canCopy__37e49",
-				"titleContainer": "panelTitleContainer__37e49", // holds nickname
-				"username": "title_b6c092", // username, also used when in activity and streaming
-				"subtextContainer": "panelSubtextContainer__37e49", // holds username and status
-				"statusSubtext": "subtext__339d0", // holds username and status
-				"statusHoverRoll": "hoverRoll__0263c",
-				"statusForceHover": "forceHover__0263c",
-				"statusHovered": "hovered__0263c", // holds username
-				"statusDefault": "default__0263c", // holds status when not invisible, otherwise "invisible"
-				"customStatus": "customStatus__37e49", // when not invisible
-				"customStatusEmoji": "emoji__37e49", // when you've got an emoji in status
-
-				// Voice stuff
-				"voice": (
-					"wrapper": "wrapper_e131a9",
-					"container": "container_e131a9", // has border bottom
-					"connection": "connection_e131a9", // contains the name of the channel you're connected to, noise suppression and disconnect buttons
-					"inner": "inner_e131a9", // contains name of channel you're connected to
-					// Within "inner".
-					"rtcConnection": (
-						"statusWrapper": "rtcConnectionStatusWrapper__06d62", // contains the "Voice Connected" thing and an icon
-						"status": "rtcConnectionStatus__06d62",
-
-						// within labelWrapper
-						"label": "rtcConnectionStatusLabel__06d62",
-						"connected": "rtcConnectionStatusConnected__06d62",
-						"connecting": "rtcConnectionStatusConnecting__06d62",
-						"error": "rtcConnectionStatusError__06d62",
-
-						// likely how good the connection is; these apply color to pingForeground
-						"fine": "rtcConnectionQualityFine__06d62", // color: var(--text-positive);
-						"average": "rtcConnectionQualityAverage__06d62", // pingForeground:not(:last-child) color: var(--text-warning);
-						"bad": "rtcConnectionQualityBad__06d62", // pingForeground:first-child color: var(--status-danger);
-					),
-					"ping": "ping__06d62", // also within the "inner" element, this is an svg
-					"labelWrapper": "labelWrapper__06d62", // also within the "inner" element, contains a button. contents of button are a hover roll thing.
-					// sibling to rtcConnection status is <a class href="">. this contains the channel name.
-					"channel": "channel_e131a9",
-
-					// This contains the "noise suppression" and "disconnect" buttons.
-					"voiceButtonsContainer": "voiceButtonsContainer_e131a9",
-
-					// There's a row of buttons in this panel. These are not to be confused with the "noise suppression" and "disconnect" buttons.
-					"actionButtons": (
-						"actionButtons": "actionButtons_e131a9",
-						"button": "button_e131a9",
-						"color": "buttonColor_e131a9",
-						"active": "buttonActive_e131a9",
-						"fauxDisabled": "fauxDisabled_e131a9",
-						"disabled": "disabled_e131a9",
-						"contents": "buttonContents_e131a9", // shared with #{c(button contents)}
-						"icon": "buttonIcon_e131a9", // shared with lottieIcon
-
-						// Determining which button is which:
-						// These will go from parent "buttons" class to where the first svg is. The `button` element contains aria-label with the relevant string for the language.
-						// 
-						// No Camera Connected - actionButtons > button.color.fauxDisabled[aria-expanded=false][iconcolor=currentColor] > contents > icon > svg
-						// Enable Camera - actionButtons > button.color[aria-expanded=false][iconcolor=currentColor] > contents > icon > svg
-						// Disable Camera - actionButtons > button.color.active[aria-expanded=true][iconcolor=currentColor] > contents > icon > svg
-						// Share Screen - actionButtons > button.color > contents > icon > svg
-						// Stop Sharing Screen - actionButtons > button.color.active > contents > icon > svg
-						// Start Activity - actionButtons > button.color > contents > icon > svg
-						// Stop Activity - actionButtons > button.color.active > contents > icon > svg
-						// Open Soundboard - actionButtons > <div> > button.color[aria-expanded=false] > contents > icon > svg
-						// Opened Soundboard - actionButtons > <div> > button.color.active[aria-expanded=true] > contents > icon > svg
-						// Disabled Soundboard (deafened) - actionButtons > <div> > <span>.button.color.#{c(button disabledButtonWrapper)} > button.color.disabled > contents > icon > svg
-					),
-
-					// other classes that idk too much about
-					"hotspot": "hotspot_e131a9",
-					"customStatusContainer": "customStatusContainer_e131a9",
-					"noiseCancellationPopout": "noiseCancellationPopout_e131a9", // click the noise suppression button
-					"noiseCancellationTooltip": "noiseCancellationTooltip_e131a9", // hover over the noise suppression button
-					"krispLogo": "krispLogo_e131a9", // in NC popout; parent is clickable to https://api.krisp.ai/v2/resource/link/discord
-					"krispLink": "krispLink_e131a9", // in NC popout; clickable to a support article from discord
-					"micTestButton": "micTestButton_e131a9", // in NC popout
-					"beta": "beta_e131a9",
-					"voiceUsers": "voiceUsers_e131a9",
-					"withText": "withText_e131a9", // relates to buttons
-					"voicePanelIntroductionWrapper": "voicePanelIntroductionWrapper_e131a9",
-					"voicePanelIntroductionHeader": "voicePanelIntroductionHeader_e131a9",
-					"voicePanelIntroductionText": "voicePanelIntroductionText_e131a9",
-					"voicePanelIntroductionButton": "voicePanelIntroductionButton_e131a9",
-					"viewAsRolesWarning": "viewAsRolesWarning_e131a9",
-					"viewAsRolesWarningText": "viewAsRolesWarningText_e131a9", // appears as child of viewAsRolesWarning
-					"viewAsRolesWarningButton": "viewAsRolesWarningButton_e131a9", // appears as child of viewAsRolesWarning
-				),
-
-				// Appears when streaming something or when you're in an activity
-				"activity": (
-					"panel": "panel__5dec7", // has background with theme dark/light
-					"activityPanel": "activityPanel_c48ade", // has border bottom
-					"body": "body__5dec7",
-					"gameWrapper": "gameWrapper__5dec7",
-					// when streaming these show up
-					"streamingWrapper": "wrapper_a629d4", // child svg__2338f
-					"streamingIcon": "icon_a629d4", // inline style for background color
-					"streamingBadge": "badge_a629d4", // old camera representation
-					// when in activity these show up
-					"gameIcon": "gameIcon__5dec7",
-					"activityName": "activityName__5dec7",
-					// also uses statusSubtext for elapsed time
-
-					"info": "info__5dec7",
-
-					"actions": "actions__4cd01",
-					"panelButtonContainer": "panelButtonContainer__4cd01",
-					// buttons use #{c(sidebar server panel buttons button)}.
-
-					// other classes that i don't know where they're used
-					"dropsBadgeWrapper": "dropsBadgeWrapper__5dec7", // likely relates to quest stuff
-					"dropsBadge": "dropsBadge__5dec7",
-					"liveIndicator": "liveIndicator__5dec7", // appears as child of gameWrapper
-					"sparkleContainer": "sparkleContainer__5dec7",
-					"sparkles": "sparkles__5dec7",
-					"infoWithDrops": "infoWithDrops__5dec7",
-					"channel": "channel__5dec7",
-					"perksDemoContainer": "perksDemoContainer__5dec7",
-					"perksDemoText": "perksDemoText__5dec7",
-				),
-
-				// Buttons such as "mute", "deafen" and "settings".
-				"buttons": (
-					"buttons": "buttons__37e49",
-					"micButtonParent": "micButtonParent__37e49", // why is this separate ffs
-					"button": "button__67645", // the actual button
-					"enabled": "enabled__67645", // you can interact with it
-					"disabled": "disabled__67645", // you cannot interact with it
-
-					"redIcon": "redIcon__37e49", // used when server deafened, applied to #{c(button contents)}
-					"lottieIcon": "lottieIcon__5eb9b",
-
-					// Determining which button is which:
-					// These will go from parent "buttons" class to where the first svg is. The `button` element contains aria-label with the relevant string for the language.
-					// 
-					// Regular Buttons
-					// Unmuted - buttons > micButtonParent > button[aria-checked=false] > buttonContents > lottieIcon[style^="--__lottieIconColor: currentColor;"] > svg
-					// Muted - buttons > micButtonParent > button[aria-checked=true] > buttonContents > lottieIcon[style^="--__lottieIconColor: var(--status-danger);"] > svg
-					// Server Muted (or cannot speak in stage) - buttons > micButtonParent > button[aria-checked=true] > buttonContents > svg
-					// Undeafened - buttons > button[aria-checked=false] > buttonContents > lottieIcon[style^="--__lottieIconColor: currentColor;"] > svg
-					// Deafened - buttons > button[aria-checked=true] > buttonContents > lottieIcon[style^="--__lottieIconColor: var(--status-danger);"] > svg
-					// Server Deafened - buttons > button[aria-checked=true] > buttonContents.redIcon > svg
-					// Settings - buttons > button > buttonContents > lottieIcon > svg
-					// 
-					// Voice Buttons
-					// Noise Suppression (always) - voiceButtonsContainer > button > buttonContents > lottieIcon > svg
-					// Mute Music (stage) - voiceButtonsContainer > button > buttonContents > svg
-					// Unmute Music (stage) - voiceButtonsContainer > button > buttonContents > svg
-					// Disconnect (call) / Disconnect Quietly (stage) - voiceButtonsContainer > button > buttonContents > lottieIcon > svg
-					// Stop Streaming - panelButtonContainer > button > buttonContents > svg
-					// 
-					// There is no "stop watching" button in the panel.
-				),
-
-				// Dunno where these go
-				"activityActions": "actions_bf1a22",
-			),
-
 			// Weird "other" stuff that kinda doesn't fit with "Category" and "Channel".
 			// "Events", "Browse Channels", "Members", "Channels & Roles" etc above start of channel list
 			// The overall container can likely be targeted as #{c(sidebar server scroller)}>ul>:is(li,div):not([class],[style]) {}
@@ -2853,6 +2694,174 @@ $classes: (
 			),
 
 			// UNKNOWNS
+		),
+
+		// Panels include your avatar, username, mic, headphones and settings icons
+		// as well as voice related stuff
+		"panel": (
+			"panels": "panels_c48ade",
+			
+			// Non-voice stuff
+			"container": "container__37e49",
+			"avatarWrapper": "avatarWrapper__37e49", // contains avatar, username, nickname and status
+			"avatar": "avatar__37e49",
+			"nameTag": "nameTag__37e49",
+			"canCopy": "canCopy__37e49",
+			"titleContainer": "panelTitleContainer__37e49", // holds nickname
+			"username": "title_b6c092", // username, also used when in activity and streaming
+			"subtextContainer": "panelSubtextContainer__37e49", // holds username and status
+			"statusSubtext": "subtext__339d0", // holds username and status
+			"statusHoverRoll": "hoverRoll__0263c",
+			"statusForceHover": "forceHover__0263c",
+			"statusHovered": "hovered__0263c", // holds username
+			"statusDefault": "default__0263c", // holds status when not invisible, otherwise "invisible"
+			"customStatus": "customStatus__37e49", // when not invisible
+			"customStatusEmoji": "emoji__37e49", // when you've got an emoji in status
+
+			// Voice stuff
+			"voice": (
+				"wrapper": "wrapper_e131a9",
+				"container": "container_e131a9", // has border bottom
+				"connection": "connection_e131a9", // contains the name of the channel you're connected to, noise suppression and disconnect buttons
+				"inner": "inner_e131a9", // contains name of channel you're connected to
+				// Within "inner".
+				"rtcConnection": (
+					"statusWrapper": "rtcConnectionStatusWrapper__06d62", // contains the "Voice Connected" thing and an icon
+					"status": "rtcConnectionStatus__06d62",
+
+					// within labelWrapper
+					"label": "rtcConnectionStatusLabel__06d62",
+					"connected": "rtcConnectionStatusConnected__06d62",
+					"connecting": "rtcConnectionStatusConnecting__06d62",
+					"error": "rtcConnectionStatusError__06d62",
+
+					// likely how good the connection is; these apply color to pingForeground
+					"fine": "rtcConnectionQualityFine__06d62", // color: var(--text-positive);
+					"average": "rtcConnectionQualityAverage__06d62", // pingForeground:not(:last-child) color: var(--text-warning);
+					"bad": "rtcConnectionQualityBad__06d62", // pingForeground:first-child color: var(--status-danger);
+				),
+				"ping": "ping__06d62", // also within the "inner" element, this is an svg
+				"labelWrapper": "labelWrapper__06d62", // also within the "inner" element, contains a button. contents of button are a hover roll thing.
+				// sibling to rtcConnection status is <a class href="">. this contains the channel name.
+				"channel": "channel_e131a9",
+
+				// This contains the "noise suppression" and "disconnect" buttons.
+				"voiceButtonsContainer": "voiceButtonsContainer_e131a9",
+
+				// There's a row of buttons in this panel. These are not to be confused with the "noise suppression" and "disconnect" buttons.
+				"actionButtons": (
+					"actionButtons": "actionButtons_e131a9",
+					"button": "button_e131a9",
+					"color": "buttonColor_e131a9",
+					"active": "buttonActive_e131a9",
+					"fauxDisabled": "fauxDisabled_e131a9",
+					"disabled": "disabled_e131a9",
+					"contents": "buttonContents_e131a9", // shared with #{c(button contents)}
+					"icon": "buttonIcon_e131a9", // shared with lottieIcon
+
+					// Determining which button is which:
+					// These will go from parent "buttons" class to where the first svg is. The `button` element contains aria-label with the relevant string for the language.
+					// 
+					// No Camera Connected - actionButtons > button.color.fauxDisabled[aria-expanded=false][iconcolor=currentColor] > contents > icon > svg
+					// Enable Camera - actionButtons > button.color[aria-expanded=false][iconcolor=currentColor] > contents > icon > svg
+					// Disable Camera - actionButtons > button.color.active[aria-expanded=true][iconcolor=currentColor] > contents > icon > svg
+					// Share Screen - actionButtons > button.color > contents > icon > svg
+					// Stop Sharing Screen - actionButtons > button.color.active > contents > icon > svg
+					// Start Activity - actionButtons > button.color > contents > icon > svg
+					// Stop Activity - actionButtons > button.color.active > contents > icon > svg
+					// Open Soundboard - actionButtons > <div> > button.color[aria-expanded=false] > contents > icon > svg
+					// Opened Soundboard - actionButtons > <div> > button.color.active[aria-expanded=true] > contents > icon > svg
+					// Disabled Soundboard (deafened) - actionButtons > <div> > <span>.button.color.#{c(button disabledButtonWrapper)} > button.color.disabled > contents > icon > svg
+				),
+
+				// other classes that idk too much about
+				"hotspot": "hotspot_e131a9",
+				"customStatusContainer": "customStatusContainer_e131a9",
+				"noiseCancellationPopout": "noiseCancellationPopout_e131a9", // click the noise suppression button
+				"noiseCancellationTooltip": "noiseCancellationTooltip_e131a9", // hover over the noise suppression button
+				"krispLogo": "krispLogo_e131a9", // in NC popout; parent is clickable to https://api.krisp.ai/v2/resource/link/discord
+				"krispLink": "krispLink_e131a9", // in NC popout; clickable to a support article from discord
+				"micTestButton": "micTestButton_e131a9", // in NC popout
+				"beta": "beta_e131a9",
+				"voiceUsers": "voiceUsers_e131a9",
+				"withText": "withText_e131a9", // relates to buttons
+				"voicePanelIntroductionWrapper": "voicePanelIntroductionWrapper_e131a9",
+				"voicePanelIntroductionHeader": "voicePanelIntroductionHeader_e131a9",
+				"voicePanelIntroductionText": "voicePanelIntroductionText_e131a9",
+				"voicePanelIntroductionButton": "voicePanelIntroductionButton_e131a9",
+				"viewAsRolesWarning": "viewAsRolesWarning_e131a9",
+				"viewAsRolesWarningText": "viewAsRolesWarningText_e131a9", // appears as child of viewAsRolesWarning
+				"viewAsRolesWarningButton": "viewAsRolesWarningButton_e131a9", // appears as child of viewAsRolesWarning
+			),
+
+			// Appears when streaming something or when you're in an activity
+			"activity": (
+				"panel": "panel__5dec7", // has background with theme dark/light
+				"activityPanel": "activityPanel_c48ade", // has border bottom
+				"body": "body__5dec7",
+				"gameWrapper": "gameWrapper__5dec7",
+				// when streaming these show up
+				"streamingWrapper": "wrapper_a629d4", // child svg__2338f
+				"streamingIcon": "icon_a629d4", // inline style for background color
+				"streamingBadge": "badge_a629d4", // old camera representation
+				// when in activity these show up
+				"gameIcon": "gameIcon__5dec7",
+				"activityName": "activityName__5dec7",
+				// also uses statusSubtext for elapsed time
+
+				"info": "info__5dec7",
+
+				"actions": "actions__4cd01",
+				"panelButtonContainer": "panelButtonContainer__4cd01",
+				// buttons use #{c(sidebar server panel buttons button)}.
+
+				// other classes that i don't know where they're used
+				"dropsBadgeWrapper": "dropsBadgeWrapper__5dec7", // likely relates to quest stuff
+				"dropsBadge": "dropsBadge__5dec7",
+				"liveIndicator": "liveIndicator__5dec7", // appears as child of gameWrapper
+				"sparkleContainer": "sparkleContainer__5dec7",
+				"sparkles": "sparkles__5dec7",
+				"infoWithDrops": "infoWithDrops__5dec7",
+				"channel": "channel__5dec7",
+				"perksDemoContainer": "perksDemoContainer__5dec7",
+				"perksDemoText": "perksDemoText__5dec7",
+			),
+
+			// Buttons such as "mute", "deafen" and "settings".
+			"buttons": (
+				"buttons": "buttons__37e49",
+				"micButtonParent": "micButtonParent__37e49", // why is this separate ffs
+				"button": "button__67645", // the actual button
+				"enabled": "enabled__67645", // you can interact with it
+				"disabled": "disabled__67645", // you cannot interact with it
+
+				"redIcon": "redIcon__37e49", // used when server deafened, applied to #{c(button contents)}
+				"lottieIcon": "lottieIcon__5eb9b",
+
+				// Determining which button is which:
+				// These will go from parent "buttons" class to where the first svg is. The `button` element contains aria-label with the relevant string for the language.
+				// 
+				// Regular Buttons
+				// Unmuted - buttons > micButtonParent > button[aria-checked=false] > buttonContents > lottieIcon[style^="--__lottieIconColor: currentColor;"] > svg
+				// Muted - buttons > micButtonParent > button[aria-checked=true] > buttonContents > lottieIcon[style^="--__lottieIconColor: var(--status-danger);"] > svg
+				// Server Muted (or cannot speak in stage) - buttons > micButtonParent > button[aria-checked=true] > buttonContents > svg
+				// Undeafened - buttons > button[aria-checked=false] > buttonContents > lottieIcon[style^="--__lottieIconColor: currentColor;"] > svg
+				// Deafened - buttons > button[aria-checked=true] > buttonContents > lottieIcon[style^="--__lottieIconColor: var(--status-danger);"] > svg
+				// Server Deafened - buttons > button[aria-checked=true] > buttonContents.redIcon > svg
+				// Settings - buttons > button > buttonContents > lottieIcon > svg
+				// 
+				// Voice Buttons
+				// Noise Suppression (always) - voiceButtonsContainer > button > buttonContents > lottieIcon > svg
+				// Mute Music (stage) - voiceButtonsContainer > button > buttonContents > svg
+				// Unmute Music (stage) - voiceButtonsContainer > button > buttonContents > svg
+				// Disconnect (call) / Disconnect Quietly (stage) - voiceButtonsContainer > button > buttonContents > lottieIcon > svg
+				// Stop Streaming - panelButtonContainer > button > buttonContents > svg
+				// 
+				// There is no "stop watching" button in the panel.
+			),
+
+			// Dunno where these go
+			"activityActions": "actions_bf1a22",
 		),
 
 		// can't remember where these are. suffix seems like they belong in sidebar>server>header
