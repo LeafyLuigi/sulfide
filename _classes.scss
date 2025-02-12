@@ -552,11 +552,11 @@ $classes: (
 
 		"win": (
 			"platform": "platform-win",
-			"wordmark": "wordmarkWindows__421ed",
-			"type": "typeWindows__421ed",
-			"button": "winButton__421ed",
-			"buttonClose": "winButtonClose__421ed",
-			"buttonMinMax": "winButtonMinMax__421ed",
+			"wordmark": "wordmarkWindows__421ed", // does not appear in refresh
+			"type": "typeWindows__421ed", // does not appear in refresh
+			"button": "winButton__421ed", // does not appear in refresh
+			"buttonClose": "winButtonClose__421ed", // does not appear in refresh
+			"buttonMinMax": "winButtonMinMax__421ed", // does not appear in refresh
 		),
 
 		"mac": (
@@ -936,6 +936,7 @@ $classes: (
 		"chatSidebarOpen": "chatSidebarOpen_d880dc",
 		"threadSidebarOpen": "threadSidebarOpen_f75fb0",
 		"threadSidebarFloating": "threadSidebarFloating_f75fb0",
+		"subtitleContainer": "subtitleContainer_f75fb0", // parent to #{c(header header)}
 		"noChat": "noChat_f75fb0",
 		"chatContent": "content_f75fb0",
 		"messagesWrapper": "messagesWrapper__36d07",
@@ -1015,7 +1016,7 @@ $classes: (
 		"zalgoBlocker": "zalgo_c19a55",
 		"messageContent": "messageContent_c19a55",
 
-		// in same line as chat-$suffix
+		// in same line as chat_$suffix
 		"cursorPointer": "cursorPointer_f75fb0",
 		"parentChannelName": "parentChannelName_f75fb0",
 		"guildBreadcrumbContainer": "guildBreadcrumbContainer_f75fb0",
@@ -1919,6 +1920,56 @@ $classes: (
 		// deprecated
 		"itemCardSeperator": "@alias friends itemCardSeparator", // TYPO
 	),
+	// kinda bad name. in desktop visual refresh, appears at the top as the first child under #{c(main base)}.
+	"topBar": (
+		"bar": "bar_c38106",
+		
+		// these appear for opening settings or ca full screen modal, does not appear for web/vesktop
+		// this bar appears under #app-mount and the preceding sibling to #{c(main appAsidePanelWrapper)}.
+		"systemBar": "systemBar_c38106", // z-index 99999; display none; justify-content flex-end
+		"fixed": "fixed_c38106", // position fixed
+		"show": "show_c38106", // display flex (used to overwrite systemBar)
+
+		// appears in middle, contains the active server icon or another icon along with the name of the channel
+		"title": (
+			"container": "title_c38106", // parent class
+			"title": "title__85643", // parent to an SVG icon (friends list, dms) or the server icon along with the name
+			// In the different areas:
+			// DMs, Friends list, Nitro and Shop all contain the same as above with the amount of paths changing. DMs = 1 path, Friends+Shop = 2 path, Nitro = 3 path.
+			// title >
+			//			svg:not([class]) > path[class][fill="var(--interactive-normal)"]
+			//			<div #{c(text textNormalDefaultColor)} #{c(text lineClamp1)} (then one of the text-sm/medium classes) >text</div>
+			//
+			// Server:
+			// title > div .serverIcon (here) [style$="background-image: url(...)"] + div
+			"serverIcon": "guildIcon__85643",
+
+			// other classes
+			"icon": "icon__85643", // does not get applied to svgs, unsure on usage.
+		),
+		// appears on left, probably contains mac os close/min/fullscreen buttons; cannot test as not on mac
+		"leading": (
+			"container": "leading_c38106",
+		),
+		// appears on right, contains inbox, help link and windows min/max/close buttons
+		"trailing": (
+			"container": "trailing_c38106",
+			"recentsIcon": "recentsIcon_c99c29", // inbox icon
+			// for the help link, target #{c(topBar trailing container)}>a[href="https://support.discord.com"]
+			"button": "button__85643", // child icons. css has a rule for .visualRefresh .button svg {} -- despite that svg having a class lol
+
+			// windows buttons have different classes compared to before. see os > windows for the old classes.
+			"winButtons": "winButtons_c38106",
+			"winButtonsWithDivider": "winButtonsWithDivider_c38106", // has ::before, does not appear in bar under #app-mount
+			"winButton": "winButton_c38106",
+			"winButtonMinMax": "winButtonMinMax_c38106", // to target either one, use :first-child or :nth-child(2) for min / max
+			"winButtonClose": "winButtonClose_c38106",
+		),
+
+		// extra classes that idk what they do
+		"shortBar": "shortBar_c38106",
+
+	),
 	"header": (
 		"header": "container__9293f",
 		"headerTitle": "title_f75fb0", // used with above, not always though
@@ -2282,8 +2333,8 @@ $classes: (
 		"expandedFolderIconWrapper": "expandedFolderIconWrapper__48112",
 		"serversInFolderStack": "stack_dbd263", // servers in folder
 		"dragOver": "dragOver_d144f8",
-		"dragCenterTarget": "centerTarget_d144f8", //green thing when merging
-		"dragTarget": "target_d144f8", //green thing when dragging
+		"dragCenterTarget": "centerTarget_d144f8", // green thing when merging
+		"dragTarget": "target_d144f8", // green thing when dragging
 
 		// more drag classes - unsure about usage other than drag stuff because cant freeze in time
 		"dragWrapper": "wrapper_d144f8",
@@ -2380,6 +2431,9 @@ $classes: (
 	"sidebar": (
 		"sidebar": "sidebar_c48ade",
 		"hasNotice": "hasNotice_c48ade",
+		"list": "sidebarList_c48ade", // appears in redesign as parent to #{c(sidebar private channels)} and #{c(sidebar server container)}.
+		"listRounded": "sidebarListRounded_c48ade", // appears in redesign, adds border top left radius
+		"resizeHandle": "sidebarResizeHandle_c48ade", // appears in redesign
 
 		// Private Messages, Direct Messages.
 		"private": (
