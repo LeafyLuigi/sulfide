@@ -5280,17 +5280,516 @@ $classes: (
 	// Client Mods
 	// Powercord and Replugged support have been dropped.
 	"vencord": (
-		// only classes that are required to be themed are in this list.
-		"addonCard": "vc-addon-card",
-		"pluginsInfoButton": "vc-plugins-info-button",
-		"authorModalName": "vc-author-modal-name",
-		"authorModalLinks": "vc-author-modal-links",
+		// genericish classes
 
-		// he who shall not be named
-		"shcAllowed": "shc-lock-screen-allowed-users-and-roles-container",
+		// numbers are margin for side in px
+		"margin": (
+			"top": (
+				"8": "vc-m-top-8",
+				"16": "vc-m-top-16",
+				"20": "vc-m-top-20",
+			),
+			"bottom": (
+				"8": "vc-m-bottom-8",
+				"16": "vc-m-bottom-16",
+				"20": "vc-m-bottom-20",
+			),
+			"left": (
+				"8": "vc-m-left-8",
+				"16": "vc-m-left-16",
+				"20": "vc-m-left-20",
+			),
+			"right": (
+				"8": "vc-m-right-8",
+				"16": "vc-m-right-16",
+				"20": "vc-m-right-20",
+			),
+		),
 
-		// spotify
-		"spotifyPlayer": "#vc-spotify-player",
+		
+		"icon": "vc-icon",
+		// list of icons used and in what places. most do not have any css applied to them.
+		"icons": (
+			"heart": "vc-heart-icon", // Vencord page > donation card
+			"log": "vc-log-icon", // Vencord page > quick actions
+			"paintbrush": "vc-paintbrush-icon", // Vencord page > quick actions, Themes page > Local > Quick Actions
+			"restart": "vc-restart-icon", // Vencord page > quick actions, Themes page > Local > Quick Actions
+			"folder": "vc-folder-icon", // Vencord page > quick actions, Themes page > Local > Quick Actions
+			"cogWheel": "vc-cog-wheel", // Plugin page > plugin has settings
+			"info": "vc-info-icon", // Plugin page > plugin lacks settings
+
+			// below were found in js(x) files, could be used anywhere
+			"link": "vc-link-icon",
+			"copy": "vc-copy-icon",
+			"openExternal": "vc-open-external-icon",
+			"image": "vc-image-icon",
+			"ownerCrown": "vc-owner-crown-icon",
+			"screenshare": "vc-screenshare-icon",
+			"imageVisible": "vc-image-visible",
+			"imageInvisible": "vc-image-invisible",
+			"microphone": "vc-microphone",
+			"reply": "vc-reply-icon",
+			"delete": "vc-delete-icon",
+			"plus": "vc-plus-icon",
+			"noEntrySign": "vc-no-entry-sign-icon",
+			"safety": "vc-safety-icon",
+			"notes": "vc-notes-icon",
+			"pencil": "vc-pencil-icon",
+			// Both GitHub and a generic "Website" lack classes
+		),
+
+		// --- Settings ---
+		
+		// -- "Vencord" page --
+
+		// these relate to the donation card
+		"donationCard": (
+			"card": "vc-special-card",
+			"cardSpecial": "vc-special-card-special",
+			"flex": "vc-special-card-flex",
+			"flexMain": "vc-special-card-flex-main",
+			"title": "vc-special-title",
+			"subtitle": "vc-special-subtitle",
+			"text": "vc-special-text",
+			"donateButton": "vc-donate-button",
+			"imageContainer": "vc-special-image-container",
+			"image": "vc-special-image",
+			"separator": "vc-special-seperator", // [sic]
+			"hyperlink": "vc-special-hyperlink",
+			"hyperlinkText": "vc-special-hyperlink-text",
+		),
+		"quickActions": (
+			"card": "vc-settings-quickActions-card", // background overwritten by cardPrimary
+			"pill": "vc-settings-quickActions-pill", // has background as does :hover
+			"image": "vc-settings-quickActions-img",
+		),
+		
+		// -- Plugins page --
+		// also Themes page
+
+		// Card up top about plugin management
+		"pluginsInfo": (
+			"card": "vc-plugins-info-card", // background overwritten by cardPrimary
+			"button": "vc-plugins-info-button",
+		),
+
+		"pluginsGrid": "vc-plugins-grid", // grid of available plugins
+
+		// Also used with themes. Mostly.
+		"addon": (
+			"disabled": "vc-addon-card-disabled", // relates to "Required" plugins only, opacity .6
+			"card": "vc-addon-card", // has background
+			"header": "vc-addon-header", // contains the name, author, settings/info and toggle
+			"nameAuthor": "vc-addon-name-author", // contains the name and author
+			"name": "vc-addon-name", // contains titleContainer
+			"titleContainer": "vc-addon-title-container", // contains title
+			"title": "vc-addon-title",
+			"author": "vc-addon-author", // has ::before
+
+			"switchSlider": "vc-switch-slider",
+
+			"note": "vc-addon-note", // description
+
+			// General plugin stuff
+			"infoButton": "vc-plugins-info-button",
+			"infoIcon": "vc-plugins-info-icon",
+		),
+
+		// Used in Themes
+		"tabBar": (
+			"bar": "vc-settings-tab-bar",
+			"item": "vc-settings-tab-bar-item",
+		),
+
+		"settingsCard": "vc-settings-card", // background overwritten by cardPrimary
+		"textSelectable": "vc-text-selectable", // Online themes has this
+		"themeLinks": "vc-settings-theme-links",
+
+		// -- Backup & Restore page --
+		"backupRestoreCard": "vc-backup-restore-card",
+
+
+		// -- other non-plugin classes --
+		"errorCard": "vc-error-card",
+
+		// click on the (i) or settings of a plugin for this modal
+		"pluginModal": (
+			"info": "vc-plugin-modal-info",
+			"description": "vc-plugin-modal-description",
+		),
+
+		// click on the plugin author's avatar for this modal
+		"authorModal": (
+			"root": "vc-author-modal-root",
+			"header": "vc-author-modal-header",
+			"name": "vc-author-modal-name",
+			"avatar": "vc-author-modal-avatar",
+			"links": "vc-author-modal-links",
+			"plugins": "vc-author-modal-plugins",
+		),
+
+		// vencord's own notification system
+		"notification": (
+			"root": "vc-notification-root", // actual notification itself
+			"notification": "vc-notification",
+			"content": "vc-notification-content",
+			"header": "vc-notification-header",
+			"title": "vc-notification-title",
+			"closeButton": "vc-notification-close-btn",
+			"icon": "vc-notification-icon",
+			"progressBar": "vc-notification-progressbar",
+			"p": "vc-notification-p",
+			"img": "vc-notification-img",
+
+			"log": (
+				"empty": "vc-notification-log-empty",
+				"container": "vc-notification-log-container",
+				"wrapper": "vc-notification-log-wrapper",
+				"removing": "vc-notification-log-removing",
+				"body": "vc-notification-log-body",
+				"timestamp": "vc-notification-log-timestamp",
+				"dangerButton": "vc-notification-log-danger-btn",
+			),
+		),
+
+		// --- PLUGINS ---
+
+		// show hidden channels - bc ur a lil sneaky :3
+		"shc": (
+			"container": "vc-shc-container",
+			"logo": "vc-shc-logo",
+			"headingContainer": "vc-shc-heading-container",
+			"headingNsfwIcon": "vc-shc-heading-nsfw-icon",
+			"topicContainer": "vc-shc-topic-container",
+			"defaultEmojiContainer": "vc-shc-default-emoji-container",
+			"tagsContainer": "vc-shc-tags-container",
+			"tags": "vc-shc-tags",
+			"allowedUsersAndRolesContainer": "vc-shc-allowed-users-and-roles-container",
+			"allowedUsersAndRolesContainerTitle": "vc-shc-allowed-users-and-roles-container-title",
+			"allowedUsersAndRolesContainerToggleBtn": "vc-shc-allowed-users-and-roles-container-toggle-btn",
+			"allowedUsersAndRolesContainerPermdetailsBtn": "vc-shc-allowed-users-and-roles-container-permdetails-btn",
+			"hiddenChannelIcon": "vc-shc-hidden-channel-icon",
+		),
+
+		// spotify - music platform stuff
+		"spotify": (
+			"player": "#vc-spotify-player",
+			"button": "vc-spotify-button",
+			"buttonIcon": "vc-spotify-button-icon",
+			"shuffle": "vc-spotify-shuffle",
+			"repeat": "vc-spotify-repeat",
+			"repeatContext": "vc-spotify-repeat-context",
+			"repeatTrack": "vc-spotify-repeat-track",
+			"shuffleOn": "vc-spotify-shuffle-on",
+			"tooltipText": "vc-spotify-tooltip-text",
+			"repeat1": "vc-spotify-repeat-1",
+			"buttonRow": "vc-spotify-button-row",
+			"infoWrapper": "#vc-spotify-info-wrapper",
+			"albumImage": "#vc-spotify-album-image",
+			"albumExpandedWrapper": "#vc-spotify-album-expanded-wrapper",
+			"titles": "#vc-spotify-titles",
+			"songTitle": "#vc-spotify-song-title",
+			"ellipoverflow": "vc-spotify-ellipoverflow",
+			"artist": "vc-spotify-artist",
+			"album": "vc-spotify-album",
+			"comma": "vc-spotify-comma",
+			"albumTitle": "#vc-spotify-album-title",
+			"progressBar": "#vc-spotify-progress-bar",
+			"progressText": "#vc-spotify-progress-text",
+			"progressTime": "vc-spotify-progress-time",
+			"timeLeft": "vc-spotify-time-left",
+			"timeRight": "vc-spotify-time-right",
+			"fallback": "vc-spotify-fallback",
+		),
+
+		// dearrow - plugin that changes youtube titles and thumbnails to better represent the video
+		"dearrow": (
+			"toggleOff": "vc-dearrow-toggle-off",
+			"toggleOn": "vc-dearrow-toggle-on",
+			"icon": "vc-dearrow-icon",
+		),
+
+		// client theme - allows for custom gradient themes akin to an old experiment
+		"clientTheme": (
+			"settings": "vc-clientTheme-settings",
+			"container": "vc-clientTheme-container",
+			"labels": "vc-clientTheme-labels",
+			"warningText": "vc-clientTheme-warning-text",
+			"contrastWarning": "vc-clientTheme-contrast-warning",
+		),
+
+		// copy file contents - adds a button to text files
+		"cfcButton": "vc-cfc-button",
+
+		// decor - allows for custom avatar decorations
+		"decor": (
+			"dangerBtn": "vc-decor-danger-btn",
+			"changeDecorationModalContent": "vc-decor-change-decoration-modal-content",
+			"changeDecorationModalPreview": "vc-decor-change-decoration-modal-preview",
+			"changeDecorationModalDecoration": "vc-decor-change-decoration-modal-decoration",
+			"changeDecorationModalFooter": "vc-decor-change-decoration-modal-footer",
+			"changeDecorationModalFooterBtnContainer": "vc-decor-change-decoration-modal-footer-btn-container",
+			"createDecorationModalContent": "vc-decor-create-decoration-modal-content",
+			"createDecorationModalFormPreviewContainer": "vc-decor-create-decoration-modal-form-preview-container",
+			"modalHeader": "vc-decor-modal-header",
+			"modalFooter": "vc-decor-modal-footer",
+			"createDecorationModalForm": "vc-decor-create-decoration-modal-form",
+			"sectionedGridListContainer": "vc-decor-sectioned-grid-list-container",
+			"sectionedGridListGrid": "vc-decor-sectioned-grid-list-grid",
+			"sectionRemoveMargin": "vc-decor-section-remove-margin",
+		),
+
+		// fake profile themes - 3y3 encoding my beloved
+		"fptPreview": "vc-fpt-preview",
+
+		// hide media - hide attachments per message 
+		"hideAttachments": (
+			"accessory": "vc-hideAttachments-accessory",
+			"noContent": "vc-hideAttachments-no-content",
+		),
+
+		// member count - show how many are in a server
+		"memberCount": (
+			"widget": "vc-membercount-widget",
+			"tooltip": "vc-membercount-tooltip",
+			"memberList": "vc-membercount-member-list",
+			"online": "vc-membercount-online",
+			"total": "vc-membercount-total",
+			"onlineDot": "vc-membercount-online-dot",
+			"totalDot": "vc-membercount-total-dot",
+		),
+
+		// mention avatars - show avatars and role icons in @ mentions
+		"mentionAvatars": (
+			"icon": "vc-mentionAvatars-icon",
+			"roleIcon": "vc-mentionAvatars-role-icon",
+		),
+
+		// message logger - bots do it already, why shouldn't you?
+		"messageLogger": (
+			"deleted": "messagelogger-deleted",
+			"deletedAttachment": "messagelogger-deleted-attachment",
+			"edited": "messagelogger-edited",
+			"editMarker": "messagelogger-edit-marker",
+		),
+
+		// message latency - ping!
+		"ml": (
+			"modalTimestamp": "vc-ml-modal-timestamp",
+			"modalTabBar": "vc-ml-modal-tab-bar",
+		),
+
+		// permissions viewer - server backend info is useful
+		"permViewer": (
+			"userHeaderContainer": "vc-permviewer-user-header-container",
+			"userHeaderBtns": "vc-permviewer-user-header-btns",
+			"userHeaderBtn": "vc-permviewer-user-header-btn",
+			"modal": (
+				"content": "vc-permviewer-modal-content",
+				"title": "vc-permviewer-modal-title",
+				"noPerms": "vc-permviewer-modal-no-perms",
+				"container": "vc-permviewer-modal-container",
+				"list": "vc-permviewer-modal-list",
+				"listItemBtn": "vc-permviewer-modal-list-item-btn",
+				"listItem": "vc-permviewer-modal-list-item",
+				"listItemActive": "vc-permviewer-modal-list-item-active",
+				"listItemText": "vc-permviewer-modal-list-item-text",
+				"roleCircle": "vc-permviewer-modal-role-circle",
+				"roleImage": "vc-permviewer-modal-role-image",
+				"userImg": "vc-permviewer-modal-user-img",
+				"divider": "vc-permviewer-modal-divider",
+				"perms": "vc-permviewer-modal-perms",
+				"permsItem": "vc-permviewer-modal-perms-item",
+				"permsItemIcon": "vc-permviewer-modal-perms-item-icon",
+			),
+			"roleButton": "vc-permviewer-role-button",
+			"grantedByContainer": "vc-permviewer-granted-by-container",
+			"grantedByContent": "vc-permviewer-granted-by-content",
+		),
+
+		// picture in picture - mobile app might have this
+		"pipButton": "vc-pip-button",
+
+		// pin dms - you can do this on mobile
+		"pinDms": (
+			"sectionContainer": "vc-pindms-section-container",
+			"modalContent": "vc-pindms-modal-content",
+			"collapseIcon": "vc-pindms-collapse-icon",
+			"collapsed": "vc-pindms-collapsed",
+		),
+
+		// platform indicator - here you can see that i'm actually on web not desktop
+		"platformIndicator": "vc-platform-indicator",
+
+		// read all notifications button - (1)
+		"ranbButton": "vc-ranb-button",
+
+		// reply timestamp - (read at 17:53)
+		"replyTimestamp": "vc-reply-timestamp",
+
+		// review db - review your fellow discord users and servers (you can opt out on the website)
+		"reviewDB": (
+			"view": "vc-rdb-view",
+			"badge": "vc-rdb-badge",
+			"input": "vc-rdb-input",
+			"modalFooterWrapper": "vc-rdb-modal-footer-wrapper",
+			"placeholder": "vc-rdb-placeholder",
+			"input": "vc-rdb-input",
+			"modalFooter": "vc-rdb-modal-footer",
+			"modalHeader": "vc-rdb-modal-header",
+			"modalReviews": "vc-rdb-modal-reviews",
+			"review": "vc-rdb-review",
+			"reviewComment": "vc-rdb-review-comment",
+			"blockedBadge": "vc-rdb-blocked-badge",
+			"blockModalHeader": "vc-rdb-block-modal-header",
+			"blockModal": "vc-rdb-block-modal",
+			"buttonGrid": "vc-rdb-button-grid",
+			"blockModalRow": "vc-rdb-block-modal-row",
+			"blockModalAvatar": "vc-rdb-block-modal-avatar",
+			"blockModalUsername": "vc-rdb-block-modal-username",
+			"blockModalUnblock": "vc-rdb-block-modal-unblock",
+		),
+
+		// send timestamps - don't wanna deal with an external website tyvm
+		"sendTimestamps": (
+			"datePicker": "vc-st-date-picker",
+			"formatSelect": "vc-st-format-select",
+			"formatLabel": "vc-st-format-label",
+			"modalHeader": "vc-st-modal-header",
+			"modalTitle": "vc-st-modal-title",
+			"modalCloseButton": "vc-st-modal-close-button",
+			"previewText": "vc-st-preview-text",
+		),
+
+		// server info - get more info about a server!
+		"serverInfo": (
+			"root": "vc-gp-root",
+			"banner": "vc-gp-banner",
+			"header": "vc-gp-header",
+			"icon": "vc-gp-icon",
+			"nameAndDescription": "vc-gp-name-and-description",
+			"name": "vc-gp-name",
+			"tabTar": "vc-gp-tab-bar",
+			"tab": "vc-gp-tab",
+			"tabContent": "vc-gp-tab-content",
+			"selected": "vc-gp-selected",
+			"info": "vc-gp-info",
+			"serverInfoPair": "vc-gp-server-info-pair",
+			"owner": "vc-gp-owner",
+			"ownerAvatar": "vc-gp-owner-avatar",
+			"scroller": "vc-gp-scroller",
+		),
+
+		// shiki codeblocks - bc vscodium does it better
+		"shiki": (
+			"container": "vc-shiki-container",
+			"root": "vc-shiki-root",
+			"code": "vc-shiki-code",
+			"devicon": "vc-shiki-devicon",
+			"plain": "vc-shiki-plain",
+			"btns": "vc-shiki-btns",
+			"btn": "vc-shiki-btn",
+			"spinnerContainer": "vc-shiki-spinner-container",
+			"preview": "vc-shiki-preview",
+			"lang": "vc-shiki-lang",
+			"table": "vc-shiki-table",
+			"tableRow": "vc-shiki-table-row",
+			"tableCell": "vc-shiki-table-cell",
+		),
+
+		// show connections - because the user popout not crowded enough
+		"showConnections": (
+			"userConnection": "vc-user-connection",
+			"tooltip": "vc-sc-tooltip",
+			"connectionName": "vc-sc-connection-name",
+			"tooltipIcon": "vc-sc-tooltip-icon",
+		),
+
+		// show me your name - no nicks pls
+		"smynSuffix": "vc-smyn-suffix",
+
+		// show timeout duration - because it's useful to know that someone else can type again in 2d23h48m24s
+		"stdWrapper": "vc-std-wrapper",
+
+		// sort friend requests - ...you guys get friend requests?
+		"sfr": (
+			"wrapper": "vc-sortFriendRequests-wrapper",
+			"tooltip": "vc-sortFriendRequests-tooltip",
+			"date": "vc-sortFriendRequests-date",
+		),
+
+		// translate - parce que je ne parle pas français
+		"translate": (
+			"modalContent": "vc-trans-modal-content",
+			"modalHeader": "vc-trans-modal-header",
+			"modalTitle": "vc-trans-modal-title",
+			"accessory": "vc-trans-accessory",
+			"accessoryIcon": "vc-trans-accessory-icon",
+			"dismiss": "vc-trans-dismiss",
+			"autoTranslate": "vc-trans-auto-translate",
+			"chatButton": "vc-trans-chat-button",
+		),
+
+		// typing indicator - (...)
+		"typingIndicator": (
+			"indicator": "vc-typing-indicator",
+			"avatars": "vc-typing-indicator-avatars",
+			"dots": "vc-typing-indicator-dots",
+		),
+
+		// user voice show - server icon has an indicator when someone's in voice
+		"uvs": (
+			"speaker": "vc-uvs-speaker",
+			"clickable": "vc-uvs-clickable",
+			"tooltipContainer": "vc-uvs-tooltip-container",
+			"tooltipContent": "vc-uvs-tooltip-content",
+			"name": "vc-uvs-name",
+			"guildIcon": "vc-uvs-guild-icon",
+			"vcMembers": "vc-uvs-vc-members",
+		),
+
+		// vencord toolbox - it holds the wrenches and code :3
+		"toolbox": (
+			"btn": "vc-toolbox-btn",
+			"icon": "vc-toolbox-icon",
+		),
+
+		// voice download - download voice messages directly
+		"voiceDownload": "vc-voice-download",
+
+		// voice messages - JUST LIKE ON MOBILE!!!
+		"vmsg": (
+			"modal": "vc-vmsg-modal"
+			"buttons": "vc-vmsg-buttons"
+			"preview": "vc-vmsg-preview"
+			"previewIndicator": "vc-vmsg-preview-indicator"
+			"previewRecording": "vc-vmsg-preview-recording"
+			"previewTime": "vc-vmsg-preview-time"
+			"previewLabel": "vc-vmsg-preview-label"
+		),
+
+		// --- no idea where these go ---
+		"positionInherit": "vc-position-inherit",
+		"imageModal": "vc-image-modal",
+		"switchSlider": "vc-switch-slider",
+		"pluginsSettingsButton": "vc-plugins-settings-button",
+		"pluginsFilterControls": "vc-plugins-filter-controls",
+		"pluginsBadge": "vc-plugins-badge",
+		"pluginsDepName": "vc-plugins-dep-name",
+		"pluginsRestartCard": "vc-plugins-restart-card",
+		"pluginsRestartButton": "vc-plugins-restart-button",
+		"cloudSettingsSyncGrid": "vc-cloud-settings-sync-grid",
+		"cloudEraseDataDangerBtn": "vc-cloud-erase-data-danger-btn",
+		"updaterModal": "vc-updater-modal",
+		"updaterModalCloseButton": "vc-updater-modal-close-button",
+		"chatbarButton": "vc-chatbar-button",
+		"settingsModalLinkIcon": "vc-settings-modal-link-icon",
+		"settingsModalLinks": "vc-settings-modal-links",
+		"settingsDonate": "vc-settings-donate",
+		"settingsThemeGrid": "vc-settings-theme-grid",
+		"settingsThemeCard": "vc-settings-theme-card",
+		"settingsThemeCardText": "vc-settings-theme-card-text",
+		"settingsThemeAuthor": "vc-settings-theme-author",
 	),
 
 	"bd": (
