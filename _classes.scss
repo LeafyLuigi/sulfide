@@ -1543,6 +1543,9 @@ $classes: (
 	),
 	"chatForm": (
 		"form": "form_f75fb0",
+		"formWithLoadedChatInput": "formWithLoadedChatInput_f75fb0", // visual refresh chat input only
+		"channelBottomBarArea": "channelBottomBarArea_f75fb0", // visual refresh chat input only
+
 		// the two below were both applied on a disabled chat and an enabled one. second one has the background. still unsure about it.
 		"channelTextAreaBase": "channelTextArea__74017", // base being applied to *every* form
 		"channelTextAreaMain": "channelTextArea_f75fb0", // used at bottom of text channels
@@ -1568,6 +1571,11 @@ $classes: (
 		"buttonContainer": "buttonContainer__74017",
 		"buttonInner": "button__24af7",
 		"buttonWrapper": "buttonWrapper__24af7",
+
+		// appears in chat form refresh; contains attachment button and main message toolbar stuff
+		"accessoryBar": "accessoryBar__74017",
+		"accessoryBarLeft": "accessoryBarLeft__74017", // contains uploadInput, attachWrapper and users typing
+		"accessoryBarRight": "accessoryBarRight__74017", // contains buttons
 
 		"emojiButton": "emojiButton__04eed",
 
@@ -2487,6 +2495,18 @@ $classes: (
 
 			"channelBadgeIcon": "badgeIconPrivateMessages__80f39", // can't remember where this is
 			"badgeIconSettingsMenu": "badgeIconSettingsMenu__80f39", // dunno where this is; paired with above class in css
+
+			// when you've recently partook in an activity, a small container shows up in the dms area with "play again" as the title
+			"recentActivities": (
+				"container": "container__675e5",
+				"headerContainer": "headerContainer__675e5", // element also contains #{c(sidebar private headerContainer)} class
+				"plusIcon": "plusIcon__675e5",
+				"itemContainer": "itemContainer__675e5",
+				"clickable": "clickable__675e5", // the activity itself
+				"iconContainer": "iconContainer__675e5",
+				"icon": "icon_bd6d20", // might be used elsewhere in app
+				"iconCard": "iconCard__675e5",
+			),
 		),
 
 		// Stuff found in servers
