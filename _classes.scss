@@ -537,8 +537,14 @@ $classes: (
 		"authBox": "authBox__921c5", // paired up with a dark mode and the next class
 		"authBoxExpanded": "authBoxExpanded__921c5", // ...even with a thin screen this pops up
 		"mainLoginContainer": "mainLoginContainer__1d5fc", // could potentially be mainLoginContainer__86e92
+		"chooseAccountAuthBox": "chooseAccountAuthBox_df9c06",
+		"centeringWrapper": "centeringWrapper__921c5",
 		"header": "header__1d5fc",
 		"title": "title__921c5",
+		"qrLogin": "qrLogin_e16417",
+		"measurement": "measurement__6ba63",
+		"qrLoginInner": "qrLoginInner_e16417",
+		"qrCodeContainer": "qrCodeContainer_e16417",
 		"qrCodeOverlay": "qrCodeOverlay_e16417",
 		"inputField": "inputField_d64f22",
 	),
@@ -1984,6 +1990,7 @@ $classes: (
 		"headerTitle": "title_f75fb0", // used with above, not always though
 		"themed": "themed__9293f",
 		"transparent": "transparent__9293f",
+		"upperContainer": "upperContainer__9293f"
 		"children": "children__9293f",
 		"divider": "divider__9293f",
 		"iconWrapper": "iconWrapper__9293f",
