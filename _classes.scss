@@ -986,6 +986,7 @@ $classes: (
 		"unreadPillCapStroke": "unreadPillCapStroke__908e2",
 		"newMessagesBar": "newMessagesBar__0f481",
 		"repliedMessage": "repliedMessage_c19a55",
+		"repliedMessageClickableSpine": "repliedMessageClickableSpine_c19a55",
 		"repliedTextPreview": "repliedTextPreview_c19a55",
 		"repliedTextContent": "repliedTextContent_c19a55",
 		"replyBadge": "replyBadge_c19a55",
@@ -2000,6 +2001,7 @@ $classes: (
 		"icon": "icon__9293f",
 		"iconClickable": "clickable__9293f",
 		"title": "title__9293f",
+		"titleWrapper": "titleWrapper__9293f",
 		"spacer": "spacer__488b1", // no nick nor channel desc, has zero width
 		"akaBadge": "akaBadge__488b1",
 		"input": "input__4f074",
@@ -2476,6 +2478,7 @@ $classes: (
 			"avatar": "avatar__20a53", // applies to groups, individuals, friends+nitro+shop
 			// children of "avatar" include the generic avatar wrapper class or the class below.
 			"linkButtonIcon": "linkButtonIcon__972a0", // used for friends+nitro+shop
+			"newBadge": "newBadge__4ed1a",
 
 			"content": "content__20a53", // holds the name, activity and status
 			"nameAndDecorators": "nameAndDecorators__20a53",
