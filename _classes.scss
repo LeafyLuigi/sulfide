@@ -1558,6 +1558,8 @@ $classes: (
 		"channelTextAreaBase": "channelTextArea__74017", // base being applied to *every* form
 		"channelTextAreaMain": "channelTextArea_f75fb0", // used at bottom of text channels
 		"channelTextAreaDisabled": "channelTextAreaDisabled__74017", // you can't type into this channel
+		"channelAppLauncher": "channelAppLauncher_e6e74", // opens activities and bot commands
+		"buttonContainer": "buttonContainer_e6e74f", // contains the apps button
 		"themedBackground": "themedBackground__74017", // has background
 		"stackedBars": "stackedBars__74017", // also has background
 		"stackedAttachedBar": "stackedAttachedBar_bdf0de",
@@ -2012,6 +2014,8 @@ $classes: (
 		"searchOpen": "open__97492",
 		"searchBar": "searchBar__97492",
 		"searchIconAdd": "plusIcon__56fec", // in dropdown
+		"draftEditorRoot":"DraftEditor-root",
+		"publicDraftEditorPlaceholderRoot": "public-DraftEditorPlaceholder-root",
 		"iconBadge": "iconBadge__9293f",
 		"topic": "topic__6ec1a",
 		"topicExpandable": "expandable__6ec1a",
@@ -2611,9 +2615,13 @@ $classes: (
 				"iconVisibility": "iconVisibility__29444",
 				"wrapper": "wrapper__29444",
 				"wrapperCommon": "wrapperCommon__29444",
+				"linkTop": "linkTop__2ea32",
 				"clickable": "clickable__29444",
 				"collapsed": "collapsed__29444",
 				"muted": "muted__29444",
+
+				"modeUnreadImport": "modeUnreadImportant__2ea32",
+				"modeSelected": "modeSelected__2ea32",
 
 				"mainContent": "mainContent__29444",
 				"icon": "icon__29444", // hide/unhide toggle
