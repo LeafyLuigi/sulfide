@@ -967,6 +967,7 @@ $classes: (
 		"markup": "markup__75297",
 		"markupInlineFormat": "inlineFormat__75297",
 		"message": "message__5126c",
+		"isSystemMessage": "isSystemMessage_c19a55",
 		"messageWrapper": "wrapper_c19a55",
 		"replying": "replying__5126c",
 		"mentioned": "mentioned__5126c",
@@ -1012,6 +1013,7 @@ $classes: (
 		"nonMediaAttachmentsContainer": "nonVisualMediaItemContainer_f4758a",
 		"nonMediaAttachmentItem": "nonVisualMediaItem_f4758a",
 		"chatAvatar": "avatar_c19a55",
+		"chatAvatarDecoration": "avatarDecoration_c19a55",
 		"chatIconContainer": "iconContainer__235ca", // usually used for pinned message, welcome message and kicked from gc stuff
 		"chatHeaderUsername": "header_c19a55",
 		"chatHeaderText": "headerText_c19a55",
@@ -1625,11 +1627,16 @@ $classes: (
 		"inlineUploadContainer": "uploadContainer_aa605f",
 		"inlineActionBarIcon": "actionBarIcon_a7e304",
 
+		"typingBaseBar": "barBase__0f481",
 		"typingBase": "base_b88801",
 		"typing": "typing_b88801",
 		"typingText": "text_b88801",
-		"typingDots": "dots__5ad89",
+		"typingDots": "typingDots_b88801",
+		"Dot": "dots__5ad89",
 		"typingDotsThemed": "themed__5ad89", // found in chatHome's widgets may not apply elsewhere
+		
+		"channelAppLauncher": "channelAppLauncher_e6e74f",
+		"buttonContainer": "buttonContainer_e6e74f",
 
 		"sendButtonContainer": "buttonContainer_aa63ab",
 		"sendButton": "button_aa63ab",
@@ -2137,6 +2144,7 @@ $classes: (
 		"hiddenMembers": "hiddenMembers_c8ffbb",
 		"members": "members_c8ffbb",
 		"group": "membersGroup_c8ffbb",
+		"childContainer": "childContainer__91a9",
 		"member": "member__5d473",
 		"memberBackground": "member_c8ffbb",
 		"memberClickable": "clickable__91a9d",
@@ -2302,6 +2310,7 @@ $classes: (
 		"hidden": "hidden_ef3116", // unsure about usage but exists on same line as wrapper above
 		"tree": "tree_ef3116",
 		"scroller": "scroller_ef3116",
+		"itemsContainer": "itemsContainer_ef3116",
 		"homeContainer": "tutorialContainer__1f388",
 		"listItemWrapper": "listItemWrapper_dfb2f8", // seems to be only on home, add new and discovery
 		"listItem": "listItem__650eb",
@@ -3649,6 +3658,8 @@ $classes: (
 
 		"disableAccountButton": "disableButton_d286c5",
 
+		"box": "box_f8c98c",
+
 		"contentRegion": "contentRegion__23e6b",
 		"contentRegionScroller": "contentRegionScroller__23e6b",
 		"contentColumn": "contentColumn__23e6b",
@@ -3667,6 +3678,7 @@ $classes: (
 		"radioBar": "radioBar__001a7",
 		"radioBarInfo": "info__001a7",
 		"radioIconForeground": "radioIconForeground__001a7", // selected radio button's circle inner
+		"radioIndicatorChecked": "radioIndicatorChecked__001a7",
 
 		"formNotice": "formNotice_f43ba5", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top | formNoticeBody_f43ba5 formNoticeTitle_f43ba5 icon_f43ba5 whiteText_f43ba5
 
@@ -5964,6 +5976,8 @@ $classes: (
 			// unknown areas or i couldn't be bothered sorting.
 			"membersChannelContainer": "mainTableContainer_dd2627",
 
+			"fullscreen": "fullscreen_f8dc05",
+
 			// below: known to not exist elsewhere in this file
 			"autocompleteOptionPill": "optionPill__1464f",
 			"autocompleteOptionPillSelected": "selectedPill__1464f",
@@ -6050,6 +6064,7 @@ $classes: (
 			"friendActivity": "activity__19b6d",
 			"friendsAddFriendInput": "addFriendInput__72ba7",
 			"friendsAddFriendHint": "addFriendHint__72ba7",
+			"libraryContainer": "container_ad5cdf",
 			"libraryScroller": "scroller__4a84a",
 			"libraryTable": "table_adb41f",
 			"libraryTableHeader": "header_adb41f",
@@ -6628,6 +6643,7 @@ $classes: (
 			"shopPageWrapper": "pageWrapper__6db1d",
 			"shopHeader": "headerBar__80679",
 			"shopWhatsNew": "whatsNewSectionBackground_c880e8",
+			"shopViewWrapper": "shopViewWrapper__6db1d",
 			"shopLoadingSkeleton": "skeleton__72fa0",
 			"shopLoadingBanner": "bannerBody__72fa0",
 			"shopLoadingCard": "cardBody__72fa0",
