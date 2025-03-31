@@ -345,10 +345,6 @@ $classes: (
 			"fullMotion": "full-motion", // A11y > "enable reduced motion" unticked
 			"reduceMotion": "reduce-motion", // A11y > "enable reduced motion" ticked
 		),
-
-
-		// deprecated
-		"loadingContainer": "@alias loading container",
 	),
 	"slider": ( // Checkbox with extra steps
 		"container": "container__87bf1",
@@ -671,10 +667,6 @@ $classes: (
 		"colorRed": "colorRed__201d5",
 		"colorTransparent": "colorTransparent__201d5",
 		"colorWhite": "colorWhite__201d5",
-
-
-		// deprecated
-		"sizeSmal": "@alias button sizeSmall", // i made a typo before...
 	),
 	"call": (
 		// There's a bit of overlap with "stage". feel free to jump down to there.
@@ -782,15 +774,6 @@ $classes: (
 		"channelChatWrapper": "channelChatWrapper_cb9592", // invisible class to the right side of the call. 0 width.
 
 		"chatButtonContainer": "buttonContainer_ffab0d",
-
-
-		// deprecated
-		"crossBase": "@alias modals upload pop base",
-		"cross": "@alias modals upload pop cross",
-		"crossBlurple": "@alias modals upload pop crossBlurple",
-		"crossGrey": "@alias modals upload pop crossGrey",
-		"crossWhite": "@alias modals upload pop crossWhite",
-		"live": "@alias friends live",
 	),
 	"stage": ( // heavily relates to call
 		"container": "container__722ff", // sibling to uploadArea, child of chat
@@ -881,10 +864,6 @@ $classes: (
 		"participantsButton": "participantsButton__211d1",
 		"rtsButtonContainer": "buttonContainer__664ff",
 		"active": "active_f1ceac",
-
-
-		// deprecated
-		"channelNotice": "@alias sidebar eventNotice notice",
 	),
 	"card": (
 		// These are likely all over the app but are best found in settings.
@@ -932,10 +911,6 @@ $classes: (
 		"webhookAvatarUploader": "avatarUploaderInner_eafb9c",
 
 		"followedChannelCard": "card_ebafdd",
-
-
-		// deprecated
-		"inviteDefault": "@alias removeButton default",
 	),
 	"chat": (
 		"cozy": "cozy_c19a55",
@@ -1045,10 +1020,6 @@ $classes: (
 			"markdownContent": "spoilerMarkdownContent__54ab5",
 			"obscuredTextContent": "obscuredTextContent__54ab5",
 			"obscuredTextContentInner": "obscuredTextContentInner__54ab5",
-
-
-			// deprecated
-			"sensitiveContentWarning": "@alias chat spoiler explicitContentWarning", // class was renamed
 		),
 
 		"chatWelcomeContainer": "container__235ca",
@@ -1194,19 +1165,6 @@ $classes: (
 			"small": "small_a2c9e8",
 			"close": "close_a2c9e8",
 			"tooltipPill": "tooltipPill_a2c9e8",
-		),
-
-
-		// deprecated
-		"channelsDismissable": ( // TYPO IN CATEGORY NAME
-			"container": "@alias pages channelsDismissible container", // background
-			"nuxContent": "@alias pages channelsDismissible nuxContent",
-			"adminUpsell": "@alias pages channelsDismissible adminUpsell", // combined with container has background
-			"closeButton": "@alias pages channelsDismissible closeButton",
-			"image": "@alias pages channelsDismissible image",
-			"heading": "@alias pages channelsDismissible heading",
-			"tip": "@alias pages channelsDismissible tip",
-			"checkItOut": "@alias pages channelsDismissible checkItOut",
 		),
 	),
 	"forums": ( // Named so because aria-label for the chat bubble icon is "Forum" in English
@@ -1465,15 +1423,7 @@ $classes: (
 				"unknown": "unknown__41ea0",
 				"video": "video__41ea0",
 				"webcode": "webcode__41ea0",
-
-
-				// deprecated
-				"image": "@alias forums upload media",
 			),
-
-
-			// deprecated
-			"imageContainer": "@alias forums upload mediaContainer",
 		),
 
 		// post has been opened, this is the chat
@@ -1500,10 +1450,6 @@ $classes: (
 				"active": "active__34c2c",
 			),
 		),
-
-
-		// deprecated
-		"listScroller": "@alias forums list list",
 	),
 	"threads": (
 		"jump": "jump__5126c",
@@ -1650,12 +1596,6 @@ $classes: (
 
 		// extra button on side that's kinda useless ngl
 		"appsButton": "button_e6e74f",
-
-
-		// deprecated
-		"button": "@alias button button",
-		"lookBlank": "@alias button lookBlank",
-		"inlineSpoilerTag": "@alias forums upload altTag",
 	),
 	// kinda going through a rewrite on discord's end so i'm leaving this alone :)
 	"discover": (
@@ -1842,10 +1782,6 @@ $classes: (
 			"victorStyles": "victorStyles_a1443c",
 			"votedStyles": "votedStyles_a1443c",
 		),
-
-
-		// deprecated
-		"gameCoverImageBlured": "@alias embeds gameCoverImageBlurred", // TYPO
 	),
 	// heavily related to embeds
 	"media": (
@@ -1940,10 +1876,6 @@ $classes: (
 		"explorePublicIcon": "icon_a14595",
 		"explorePublicText": "text_a14595",
 		"explorePublicArrow": "arrow_a14595",
-
-
-		// deprecated
-		"itemCardSeperator": "@alias friends itemCardSeparator", // TYPO
 	),
 	// kinda bad name. in desktop visual refresh, appears at the top as the first child under #{c(main base)}.
 	"topBar": (
@@ -2030,11 +1962,6 @@ $classes: (
 		"addFriend": "addFriend__133bf",
 		"tabBarItem": "item__133bf",
 		"followButton": "followButton_f75fb0",
-
-
-		// deprecated
-		"status": "@alias avatar pointerEvents",
-		"searchIcon": "@alias modals searchBar icon",
 	),
 	"hljs": (
 
@@ -2164,12 +2091,6 @@ $classes: (
 		"placeholderAvatar": "placeholderAvatar__27cc6",
 		"placeholderUsername": "placeholderUsername__27cc6",
 		"placeholderUsernameMultiple": "mulitplePlaceholderUsername__27cc6", // discord typo in class name
-
-
-		// deprecated
-		"avatarWrapper": "@alias avatar wrapper",
-		"avatarMask": "@alias avatar mask",
-		"status": "@alias avatar pointerEvents",
 	),
 	// this area doesn't show up if you don't have any pending requests.
 	// it can be accessed by going to https://discord.com/message-requests
@@ -2223,10 +2144,6 @@ $classes: (
 		"completeSteps": "notice__30f28", // contents: "You must complete a few more steps before you can start talking in this server."
 		"viewServerAsRole": "notice_c9e42f", // contents: "You are viewing this server as $count role(s)."
 		"previewServerNotice": "notice_c5cd6a", // contents: "You are currently in preview mode. Join this server to start chatting!"
-
-
-		// deprecated
-		"colorPlaystation": "@alias notice colorPlayStation", // typo on my end
 	),
 	// These appear to be shared between profile popout and server settings. likely used elsewhere too.
 	// DOES NOT APPLY TO TOP OF CHAT CHANNEL AREA.
@@ -2301,10 +2218,6 @@ $classes: (
 		"noResultsImage": "noResultsImage_a9e706",
 		"emptyResultsText": "emptyResultsText_a9e706",
 		"noResults": "noResults_a9e706", // paired with above
-
-
-		// deprecated
-		"channel": "@alias search channelNameText",
 	),
 	"serverList": (
 		"servers": "guilds_c48ade",
@@ -2395,23 +2308,6 @@ $classes: (
 			"close": "close_d71945",
 			"coachmarkTextContainer": "coachmarkTextContainer_d71945",
 		),
-
-
-		// deprecated
-		"unreadMention2Container": "@alias sidebar server unreadBar container",
-		"unreadMention2Top": "@alias sidebar server unreadBar top",
-		"unreadMention2Bottom": "@alias sidebar server unreadBar bottom",
-		"unreadMention2ContainerPadding": "@alias sidebar server unreadBar containerPadding",
-		"unreadMention2Bar": "@alias sidebar server unreadBar bar",
-		"unreadMention2Empty": "@alias sidebar server unreadBar empty",
-		"unreadMention2Mention": "@alias sidebar server unreadBar mentionsBar",
-		"unreadMention2UnreadIcon": "@alias sidebar server unreadBar unreadIcon",
-		"unreadMention2VoiceChannelsIcon": "@alias sidebar server unreadBar voiceChannelsIcon",
-		"unreadMention2VoiceChannelsUsers": "@alias sidebar server unreadBar voiceChannelsUsers",
-		"unreadMention2Text": "@alias sidebar server unreadBar text",
-		"unreadMentionBar": "@alias sidebar unreadBar old bar",
-		"mentionBar": "@alias sidebar unreadBar old mention",
-		"unreadMention": "@alias sidebar unreadBar old unread",
 	),
 	"serverSettings": (
 		"serverIconUploadInner": "avatarUploaderInner_cd0bbe",
@@ -2449,13 +2345,6 @@ $classes: (
 		"enableCommunityFeatureCard": "featureCard_bebc5b",
 		"enableCommunityFeatureIcon": "featureIcon_bebc5b",
 		"enableCommunityGuildDetails": "guildDetails_bebc5b",
-
-
-		// deprecated
-		"roleSearch": "@alias modals searchPopup container",
-		"rolePageScroller": "@alias userSettings customScroller",
-		"emojiRemoveDefault": "@alias removeButton default",
-		"auditScroller": "@alias userSettings customScroller",
 	),
 	"sidebar": (
 		"sidebar": "sidebar_c48ade",
@@ -3013,145 +2902,6 @@ $classes: (
 			"joinButton": "joinButton_e2d7b8",
 			"closeIcon": "closeIcon_e2d7b8",
 		),
-
-
-		// deprecated
-		"panelAvatarSpeaking": "@alias avatar speaking",
-		"scroller": "@alias sidebar private scroller", // turns out this was private only
-		"privateChannels": "@alias sidebar private channels",
-		"searchBar": "@alias sidebar private searchBar",
-		"searchBarComponent": "@alias sidebar private searchBarComponent",
-		"privateChannelsHeaderContainer": "@alias sidebar private headerContainer",
-		"privateChannelsHeader": "@alias sidebar private headerText",
-		"privateChannelRecipientsInviteButtonIcon": "@alias sidebar private inviteButtonIcon",
-		"privateChannel": "@alias sidebar private channel",
-		"privateChannelInteractive2": "@alias sidebar private interactive", // swapped to other prefix 
-		"privateChannelInteractive": "@alias sidebar private interactiveBG",
-		"privateChannelSelected": "@alias sidebar private selectedBG",
-		"privateChannelMuted": "@alias sidebar private mutedBG",
-		"privateChannelLink": "@alias sidebar private link",
-		"privateChannelActivity": "@alias sidebar private activity",
-		"privateChannelSubtext": "@alias sidebar private subtextLayout",
-		"privateChannelAvatar": "@alias sidebar private avatar",
-		"privateChannelLayout": "@alias sidebar private layout",
-		"privateChannelName": "@alias sidebar private name",
-		"privateChannelHighlighted": "@alias sidebar private highlighted",
-		"privateChannelLinkButton": "@alias sidebar private linkButton",
-		"privateChannelInteractiveSelected": "@alias sidebar private interactiveSelected",
-		"privateChannelLoadingEmpty": "@alias sidebar private loadingEmpty",
-		"privateChannelBadgeIcon": "@alias sidebar private channelBadgeIcon",
-		"channelsContainer": "@alias sidebar server container",
-		"channelsScroller": "@alias sidebar server scroller",
-		"channelsHeaderContainer": "@alias sidebar server header container",
-		"channelsHeaderClickable": "@alias sidebar server header clickable",
-		"channelsHeaderContainerSelected": "@alias sidebar server header selected",
-		"channelsHeader": "@alias sidebar server header header",
-		"communityInfoVisible": "@alias sidebar server header communityInfoVisible",
-		"serverName": "@alias sidebar server name",
-		"serverNameButton": "@alias sidebar server header headerButton",
-		"hasBanner": "@alias sidebar server header hasBanner",
-		"bannerVisible": "@alias sidebar server header bannerVisible",
-		"animatedContainer": "@alias sidebar server header bannerContainer",
-		"bannerImage": "@alias sidebar server header bannerImage",
-		"containerDragAfter": "@alias sidebar server dragAfter",
-		"containerDragBefore": "@alias sidebar server dragBefore",
-		"categoryContainerDefault": "@alias sidebar server category container",
-		"categoryWrapper": "@alias sidebar server category wrapper",
-		"categoryClickable": "@alias sidebar server category clickable",
-		"categoryMainContent": "@alias sidebar server category mainContent",
-		"categoryMuted": "@alias sidebar server category muted",
-		"categoryCollapsed": "@alias sidebar server category collapsed",
-		"categoryName": "@alias sidebar server category name",
-		"categoryOverflow": "@alias sidebar server overflow",
-		"categoryChildren": "@alias sidebar server category children",
-		"categoryArrow": "@alias sidebar server category icon",
-		"categoryAddButtonIcon": "@alias sidebar server category addButtonIcon",
-		"channelUnreadBanners": "@alias sidebar unreadBar old unreadParent",
-		"channelContainerDefault": "@alias sidebar server channel container",
-		"channelContainerSelected": "@alias sidebar server channel selected",
-		"channelWrapper": "@alias sidebar server channel wrapper",
-		"channelModeMuted": "@alias sidebar server channel modeMuted",
-		"channelModeSelected": "@alias sidebar server channel modeSelected",
-		"channelModeUnreadImportant": "@alias sidebar server channel modeUnreadImportant",
-		"channelModeConnected": "@alias sidebar server channel modeConnected",
-		"channelModeLocked": "@alias sidebar server channel modeLocked",
-		"channelLink": "@alias sidebar server channel link",
-		"channelLinkTop": "@alias sidebar server channel linkTop",
-		"channelIconContainer": "@alias sidebar server channel iconContainer",
-		"channelIcon": "@alias sidebar server channel icon",
-		"channelName": "@alias sidebar server channel name",
-		"channelChildren": "@alias sidebar server channel children",
-		"channelItemIcon": "@alias sidebar server channel iconItem",
-		"channelActionIcon": "@alias sidebar server channel actionIcon",
-		"channelStatusText": "@alias sidebar server channel statusText",
-		"channelStatusPencilIcon": "@alias sidebar server channel pencilIcon",
-		"channelUserLimitWrapper": "@alias sidebar server channel voiceLimitWrapper",
-		"channelUsers": "@alias sidebar server channel voiceLimitUsers",
-		"channelTotal": "@alias sidebar server channel voiceLimitTotal",
-		"channelUnreadBlob": "@alias sidebar server channel unreadBlob",
-		"channelUnreadBlobImportant": "@alias sidebar server channel unreadBlobImportant",
-		"channelDragBefore": "@alias sidebar server channel dragBefore",
-		"channelDragAfter": "@alias sidebar server channel dragAfter",
-		"channelDragOver": "@alias sidebar server channel userOver",
-		"threadsTypeThread": "@alias sidebar server channel typeThread",
-		"voiceListDefault": "@alias sidebar server channel voice listDefault",
-		"voiceListCollapse": "@alias sidebar server channel voice listCollapse",
-		"voiceList": "@alias sidebar server channel voice listGeneric",
-		"voiceCollapsed": "@alias sidebar server channel voice collapsed",
-		"voiceUserDraggable": "@alias sidebar server channel voice userDraggable",
-		"voiceUser": "@alias sidebar server channel voice user",
-		"voiceUserClickable": "@alias sidebar server channel voice clickable",
-		"voiceUserOverlap": "@alias sidebar server channel voice overlap",
-		"voiceUserSelected": "@alias sidebar server channel voice selected",
-		"voiceUserContent": "@alias sidebar server channel voice userContent",
-		"voiceAvatarContainer": "@alias sidebar server channel voice avatarContainer",
-		"voiceAvatar": "@alias sidebar server channel voice avatar",
-		"voiceSpeaking": "@alias sidebar server channel voice avatarSpeaking",
-		"voiceUsername": "@alias sidebar server channel voice username",
-		"voiceUsernameSpeaking": "@alias sidebar server channel voice usernameSpeaking",
-		"loadingSidebar": "@alias sidebar channelsContainer",
-		"panels": "@alias sidebar server panel panels",
-		"panelWrapper": "@alias sidebar server panel voice wrapper",
-		"panelUsername": "@alias sidebar server panel username",
-		"panelVoiceContainer": "@alias sidebar server panel voice container",
-		"panelChannel": "@alias sidebar server panel voice channel",
-		"panelActivityContainer": "@alias sidebar server panel activity activityPanel",
-		"panelActivityActions": "@alias sidebar server panel activityActions",
-		"panelInner": "@alias sidebar server panel voice inner",
-		"panelContainer": "@alias sidebar server panel container",
-		"panelButtons": "@alias sidebar server panel buttons buttons",
-		"panelButton": "@alias sidebar server panel buttons button",
-		"panelButtonEnabled": "@alias sidebar server panel buttons enabled",
-		"panelButtonDisabled": "@alias sidebar server panel buttons disabled",
-		"panelButtonRedIcon": "@alias sidebar server panel buttons redIcon",
-		"panelAvatarWrapper": "@alias sidebar server panel avatarWrapper",
-		"panelAvatar": "@alias sidebar server panel avatar",
-		"panelNameTag": "@alias sidebar server panel nameTag",
-		"panelStatusSubtext": "@alias sidebar server panel statusSubtext",
-		"panelActionButtons": "@alias sidebar server panel voice actionButtons actionButtons",
-		"panelStreaming": "@alias sidebar server panel activity panel",
-		"noiseCancellationPopout": "@alias sidebar server panel voice noiseCancellationPopout",
-		"noiseCancellationTooltip": "@alias sidebar server panel voice noiseCancellationTooltip",
-		"krispLogo": "@alias sidebar server panel voice krispLogo",
-		"krispLink": "@alias sidebar server panel voice krispLink",
-		"micTestButton": "@alias sidebar server panel voice micTestButton",
-		"panelConnection": "@alias sidebar server panel voice connection",
-		"panelVoiceUsers": "@alias sidebar server panel voice voiceUsers",
-		"panelActionButton": "@alias sidebar server panel voice actionButtons button",
-		"panelButtonColor": "@alias sidebar server panel voice actionButtons color",
-		"panelButtonActive": "@alias sidebar server panel voice actionButtons active",
-		"panelFauxDisabled": "@alias sidebar server panel voice actionButtons fauxDisabled",
-		"panelButtonContents": "@alias sidebar server panel voice actionButtons contents",
-		"panelButtonIcon": "@alias sidebar server panel voice actionButtons icon",
-		"panelWithText": "@alias sidebar server panel voice withText",
-		"panelVoicePanelIntroductionHeader": "@alias sidebar server panel voice voicePanelIntroductionHeader",
-		"panelVoicePanelIntroductionText": "@alias sidebar server panel voice voicePanelIntroductionText",
-		"panelVoicePanelIntroductionButton": "@alias sidebar server panel voice voicePanelIntroductionButton",
-		"panelVoicePanelIntroductionWrapper": "@alias sidebar server panel voice voicePanelIntroductionWrapper",
-		"panelViewAsRolesWarning": "@alias sidebar server panel voice viewAsRolesWarning",
-		"panelViewAsRolesWarningText": "@alias sidebar server panel voice viewAsRolesWarningText",
-		"panelViewAsRolesWarningButton": "@alias sidebar server panel voice viewAsRolesWarningButton",
-		"panelLottieIcon": "@alias sidebar server panel buttons lottieIcon", // used by animated icons such as "noise suppression by kirsp"
 	),
 	"store": (
 		"store": "applicationStore_f07d62",
@@ -3479,13 +3229,6 @@ $classes: (
 			"guildAvatar": "guildAvatar_aafe31",
 			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon_aafe31",
 			"guildNick": "guildNick_aafe31",
-
-
-			// deprecated
-			"overlay": "@alias profile overlay",
-			"outer": "@alias profile outer",
-			"inner": "@alias profile inner",
-			"noteTextarea": "@alias profile noteTextarea",
 		),
 
 		// Panel: Go to the DMs of someone while your screen is larger than
@@ -3514,10 +3257,6 @@ $classes: (
 			"collapseButton": "collapseBtn_a4a127",
 			"collapseButtonContent": "collapseBtnContent_a4a127",
 			"collapseButtonIcon": "iconWrapper_a4a127",
-
-
-			// deprecated
-			"avatar": "@alias profile avatar panel",
 		),
 
 		// Popoout: click on user in chat or member list
@@ -3540,26 +3279,6 @@ $classes: (
 			),
 
 			"desaturateUserColors": "desaturateUserColors__41f68",
-
-
-			// deprecated
-			"overlayBackground": "@alias profile overlay",
-			"outer": "@alias profile outer",
-			"banner": "@alias profile banner banner",
-			"avatarClickable": "@alias profile avatar clickable",
-			"nameTag": "@alias nameTag nameTag",
-			"username": "@alias nameTag username",
-			"memberSinceContainer": "@alias profile memberSince container",
-			"discordIcon": "@alias profile memberSince discordIcon",
-			"memberSinceDivider": "@alias profile memberSince divider",
-			"rolesRoot": "@alias role root",
-			"role": "@alias role role",
-			"roleRemoveButton": "@alias role removeButton",
-			"roleName": "@alias role name",
-			"roleAddButton": "@alias role addButton",
-			"roleActionButton": "@alias role actionButton",
-			"addButtonIcon": "@alias role addButtonIcon",
-			"noteTextarea": "@alias profile noteTextarea",
 		),
 
 		// for status picker, has a bit of overlap with popout
@@ -3599,23 +3318,6 @@ $classes: (
 			// in other rules
 			"statusPickerModalMenu": "statusPickerModalMenu_af7fb7",
 			"modal": "modal_ad5fac",
-
-
-			// deprecated
-			"dividier": "@alias profile status divider", // TYPO
-			"popoutWrapper": "@alias profile status accountProfilePopoutWrapper",
-			"redIcon": "@alias sidebar server panel buttons redIcon",
-			"panelTitleContainer": "@alias sidebar server panel titleContainer",
-			"panelSubtextContainer": "@alias sidebar server panel subtextContainer",
-			"panel": (
-				"container": "@alias sidebar server panel container",
-				"avatarWrapper": "@alias sidebar server panel avatarWrapper", // applies to whole thing
-				"avatar": "@alias sidebar server panel avatar",
-				"nameTag": "@alias sidebar server panel nameTag",
-				"canCopy": "@alias sidebar server panel canCopy",
-				"customStatus": "@alias sidebar server panel customStatus",
-				"customStatusEmoji": "@alias sidebar server panel customStatusEmoji",
-			),
 		),
 
 		// Within settings, it's in Profiles. Chances are overlap with popout exist here.
@@ -3778,15 +3480,6 @@ $classes: (
 		"closeButtonContainer": "container_c2b141",
 		"closeButton": "closeButton_c2b141",
 		"closeButtonKeybind": "keybind_c2b141",
-
-
-		// deprecated
-		"nitroMarketingRefreshTeir1Graphic": "@alias userSettings nitroMarketingRefreshTier1Graphic", // TYPO
-		"sessionsDecription": "@alias userSettings sessionsDescription", // TYPO
-		"subscriptionsSectionDescroption": "@alias userSettings subscriptionsSectionDescription", // TYPO
-		"cardPrimary": "@alias card primary",
-		"cardPrimaryEditable": "@alias card primaryEditable",
-		"cardPrimaryOutline": "@alias card primaryOutline",
 	),
 	// subset of userSettings
 	"appSettings": (
@@ -3850,11 +3543,6 @@ $classes: (
 		"addGamePopout": "addGamePopout_cc46f0",
 
 		"contentTransitionWrap": "contentTransitionWrap__23e6b",
-
-
-		// deprecated
-		"appearencePreview": "@alias appSettings appearancePreview", // TYPO
-		"keybindRemoveFilled": "@alias removeButton filled",
 	),
 	// There's (at least) two different lines for reactions.
 	// One's for *chat* and the other's for *forum posts*.
@@ -4031,10 +3719,6 @@ $classes: (
 			"header": "container__4efb4",
 			"guildIcon": "guildIcon__88264",
 			"rsvpCount": "rsvpCount_b5010b",
-
-
-			// deprecated
-			"warning": "@alias card warning", // also applies when changing another's username
 		),
 
 		// Clicking on an invite in your browser while not signed in and being redirect to the app
@@ -4336,10 +4020,6 @@ $classes: (
 				"navigation--next": "react-datepicker__navigation--next",
 				"navigation--previous": "react-datepicker__navigation--previous",
 				"navigation-icon": "react-datepicker__navigation-icon",
-
-
-				// deprecated
-				"currnetMonth": "@alias modals calendar react currentMonth",
 			),
 
 			"datePickerHint": "datePickerHint__56fec",
@@ -4388,10 +4068,6 @@ $classes: (
 			"iconContainer": "iconContainer_a45028",
 			"iconVisible": "visible_a45028",
 			"iconClear": "clear_a45028",
-
-
-			// deprecated
-			"icon": "@alias friends searchIcon",
 		),
 
 		// Within server settings, click "members" and then "prune" at the top
@@ -4690,10 +4366,6 @@ $classes: (
 			"stickerSearchSuggestion": "searchSuggestion_e94b8c", // search result empty
 			
 			"standardStickerShortcut": "standardStickerShortcut__3ad28", // removed from tree once scrolled past. fun.
-
-
-			// deprecated
-			"listGuildIcon": "@alias modals sidebarList guildIcon",
 		),
 
 		// Emoji within charbar combined popout
@@ -4765,10 +4437,6 @@ $classes: (
 
 				"upsellContainer": "upsellContainer_a3bc57", // "Unlock these emojis with Nitro" shows up when reacting
 			),
-
-
-			// deprecated
-			"inExpressionPicker": "@alias modals emoji hasTabWrapper",
 		),
 
 		// Right click!
@@ -5152,10 +4820,6 @@ $classes: (
 				"art": "art__3ec70",
 				"sparkleBadge": "sparkleBadge__3ec70",
 				"newBadge": "newBadge__3ec70",
-
-
-				// deprecated
-				"hedaer": "@alias modals upload fail header", // typo
 			),
 		),
 
@@ -5311,15 +4975,6 @@ $classes: (
 			),
 
 			"keybindHint": "keybindHint__46002", // I cannot target this using Vesktop. Classes are likely not complete for it.
-
-
-			// deprecated
-			"soundboardButton": "@alias modals soundboard sound button button",
-			"soundboardSoundName": "@alias modals soundboard sound button name",
-			"soundboardAdd": "@alias modals soundboard sound add button",
-			"soundboardAddText": "@alias modals soundboard sound add text",
-			"soundboardSecondaryButton": "@alias modals soundboard sound secondary button",
-			"soundboardHint": "@alias modals soundboard keybindHint",
 		),
 	),
 	// holy shit end of modals
