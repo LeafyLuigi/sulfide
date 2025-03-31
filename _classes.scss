@@ -17,7 +17,7 @@
 /// Lists. You can uses lists for multiple classes to preform the same function. You can use [bracketed lists] for :where() and non-bracketed for :is().
 /// Minor SCSS syntax changes.
 /// Dirty trace. Add a ! to the start of a class to get the used location(s).
-/// Checks for sub-maps and throws error if that's true.
+/// Checks for sub-maps and throws error if that's true. It does allow for the option of an `_index` that can be called as if the sub-map was a class.
 /// Checks for a hash at front and spits out an ID rather than a class.
 /// 
 /// NOTE: Deprecated listings have @ at the start and cannot be combined with the dirty trace.
@@ -34,9 +34,24 @@
 				@error "Unknown class or ID \"#{$el}\" in category: #{$query}. Was the classes file not saved?";
 			}
 		}
+		@if list.nth($el,-1) == "_index" {
+			@debug "You don't need to add \"_index\" to the end of your query if it already exists.";
+		}
 	}
 	@if meta.type-of($class) == map {
-		@error "Map used as input: #{$query}. Please fix and try again.";
+		// check if `_index` exists; this allows for calling the map object as if it was a valid class.
+		// oddly enough the debug dump all classes won't have nay issues.
+		@if map.has-key($class,"_index") {
+			$index: map.get($class,"_index");
+			@if meta.type-of($index) != string {
+				@error "\"_index\" exists in #{$query} but it's not a string. Please fix and try again.";
+			} @else {
+				@return checkString($index,$alias);
+			}
+		} @else {
+			// Will only error if no `_index` exists in the sub-map.
+			@error "Map used as input: #{$query}. Please fix and try again.";
+		}
 	}
 	@if meta.type-of($class) == string {
 		@return checkString($class,$alias);
@@ -284,6 +299,13 @@ $classes: (
 		"imagesLight": "images-light",
 		"imagesDark": "images-dark",
 
+		// UI Density
+		"density": (
+			"compact": "density-compact",
+			"default": "density-default",
+			"cozy": "density-cozy", // "Spacious"
+		),
+
 		"mouseMode": "mouse-mode",
 		"keyboardMode": "keyboard-mode",
 		"focused": "app-focused",
@@ -339,6 +361,8 @@ $classes: (
 				"24": "group-spacing-24",
 			),
 
+			"hardwareAcceleration": "hardware-acceleration", // (cannot change on Vesktop at present)
+
 			// a11y
 			"desaturateUserColors": "desaturate-user-colors", // A11y > "Apply to custom colour choices" for saturation slider
 			"decorateLinks": "decorate-links", // A11y > "Always underline links"
@@ -347,17 +371,19 @@ $classes: (
 		),
 	),
 	"slider": ( // Checkbox with extra steps
+		"_index": "slider__87bf1",
 		"container": "container__87bf1",
-		"slider": "slider__87bf1",
+		"slider": "@alias slider",
 		"checked": "checked__87bf1",
 		"disabled": "disabled__87bf1",
 		"input": "input__87bf1",
 	),
 	"checkbox": (
+		"_index": "checkbox_f525d3",
 		// Some of these may not be *JUST* checkboxes.
 		"wrapper": "checkboxWrapper_f525d3",
 		"wrapperDisabled": "checkboxWrapperDisabled_f525d3",
-		"checkbox": "checkbox_f525d3",
+		"checkbox": "@alias checkbox",
 		"checked": "checked_f525d3",
 
 		// input stuffs
@@ -517,8 +543,9 @@ $classes: (
 		"disabled": "disabled_b3f026",
 	),
 	"flowerStar": ( // used in a few places around the app. best seen next to the name of a server with boosts or in community servers.
+		"_index": "flowerStar__3e3b0",
 		"container": "flowerStarContainer__3e3b0",
-		"flowerStar": "flowerStar__3e3b0",
+		"flowerStar": "@alias flowerStar",
 		"childContainer": "childContainer__3e3b0",
 		"redesignIconChildContainer": "redesignIconChildContainer__3e3b0",
 	),
@@ -553,7 +580,8 @@ $classes: (
 		"withBackgroundOverride": "withBackgroundOverride__421ed",
 
 		"win": (
-			"platform": "platform-win",
+			"_index": "platform-win",
+			"platform": "@alias os win",
 			"wordmark": "wordmarkWindows__421ed", // does not appear in refresh
 			"type": "typeWindows__421ed", // does not appear in refresh
 			"button": "winButton__421ed", // does not appear in refresh
@@ -562,7 +590,8 @@ $classes: (
 		),
 
 		"mac": (
-			"platform": "platform-osx",
+			"_index": "platform-osx",
+			"platform": "@alias is mac",
 			"wordmark": "wordmarkMacOS__421ed",
 			"type": "typeMacOS__421ed",
 			"typeWithFrame": "typeMacOSWithFrame__421ed",
@@ -591,7 +620,8 @@ $classes: (
 		// <foreignObject>
 		// one child
 		"stack": "avatarStack__44b0c", // <div> ; child <img>
-		"avatar": "avatar__44b0c", // <img> ; has ::before
+		"_index": "avatar__44b0c",
+		"avatar": "@alias avatar", // <img> ; has ::before
 		// <svg>
 		"cursorDefault": "cursorDefault__44b0c", // on <svg> tag. child <mask> with similar stuff again
 		// <rect>
@@ -620,7 +650,8 @@ $classes: (
 	// 	"perk": "perk-19D_HN",
 	// ),
 	"button": (
-		"button": "button__201d5",
+		"_index": "button__201d5",
+		"button": "@alias button",
 		"contents": "contents__201d5", // DO NOT FORGET TO UPDATE MIXINS FILE IF UPDATING THIS CLASS
 		"lookFilled": "lookFilled__201d5",
 		"lookOutlined": "lookOutlined__201d5",
@@ -868,7 +899,8 @@ $classes: (
 	"card": (
 		// These are likely all over the app but are best found in settings.
 		// Some things labelled "card_" aren't from here and are instead unique to that area.
-		"card": "card__73069",
+		"_index": "card__73069",
+		"card": "@alias card",
 		"outline": "outline__73069",
 		"editable": "editable__73069",
 
@@ -915,7 +947,8 @@ $classes: (
 	"chat": (
 		"cozy": "cozy_c19a55",
 		"compact": "compact_c19a55",
-		"chat": "chat_f75fb0",
+		"_index": "chat_f75fb0",
+		"chat": "@alias chat",
 		"chatSidebarOpen": "chatSidebarOpen_d880dc",
 		"threadSidebarOpen": "threadSidebarOpen_f75fb0",
 		"threadSidebarFloating": "threadSidebarFloating_f75fb0",
@@ -1151,7 +1184,8 @@ $classes: (
 			"tabBar": "tabBar__0b563",
 			"tabBarItem": "tabBarItem__0b563",
 			"newBadge": "newBadge__0b563",
-			"header": "header__0b563", // has background, overwritten from different rule
+			"_index": "header__0b563", // has background, overwritten from different rule
+			"header": "@alias pages header",
 			"innerHeader": "innerHeader__0b563",
 		),
 
@@ -1234,7 +1268,8 @@ $classes: (
 			"headerCloseButton": "clickable_ca49a1",
 
 			"descriptionContainer": "descriptionContainer_ca49a1",
-			"guidelines": "guidelines_ca49a1",
+			"_index": "guidelines_ca49a1",
+			"guidelines": "@alias forums guidelines",
 			"showMore": "showMore_ca49a1",
 			"gradient": "gradient_ca49a1",
 			"showMoreLinkContainer": "linkContainer_ca49a1", // clicking this opens a modal
@@ -1255,8 +1290,8 @@ $classes: (
 
 		// grid posts
 		"grid": (
-			"grid": "grid_f369db",
-			// these all could be 559438
+			"_index": "grid_f369db",
+			"grid": "@alias forums grid",
 			"card": "container__9a337",
 			"isOpen": "isOpen__9a337",
 			"dots": "dots__9a337",
@@ -1303,7 +1338,8 @@ $classes: (
 
 		// list posts (though a few classes do show up under grid)
 		"list": (
-			"list": "list_f369db",
+			"_index": "list_f369db",
+			"list": "@alias forums list",
 			"card": "container_faa96b",
 			"dots": "dots_faa96b",
 			"isOpen": "isOpen_faa96b",
@@ -1341,7 +1377,8 @@ $classes: (
 
 		// reactions (more classes under list)
 		"reactions": (
-			"reactions": "reactions__23977",
+			"_index": "reactions__23977",
+			"reactions": "@alias forums reactions",
 			"reactionBtn": "reactionBtn__23977",
 			"active": "active__23977",
 			"visible": "visible__23977",
@@ -1355,7 +1392,8 @@ $classes: (
 			"count": "reactionCount__23977",
 			"remaining": "remainingReactions__23977",
 			"tooltip": (
-				"tooltip": "reactionTooltip_b49891",
+				"_index": "reactionTooltip_b49891",
+				"tooltip": "@alias forums reactions tooltip",
 				"emoji": "reactionTooltipEmoji_b49891",
 				"text": "reactionTooltipText_b49891",
 				"inner": "reactionTooltipInner_b49891",
@@ -1435,7 +1473,8 @@ $classes: (
 				"container": "container__7e6bb",
 				"iconWrapper": "iconWrapper__7e6bb",
 				"icon": "icon__7e6bb",
-				"header": "header__7e6bb",
+				"_index": "header__7e6bb",
+				"header": "@alias forums open header",
 			),
 			// Contains Follow, Share and if possible, a reaction
 			"topBar": (
@@ -1890,7 +1929,7 @@ $classes: (
 		// appears in middle, contains the active server icon or another icon along with the name of the channel
 		"title": (
 			"container": "title_c38106", // parent class
-			"title": "title__85643", // parent to an SVG icon (friends list, dms) or the server icon along with the name
+			"_index": "title__85643", // parent to an SVG icon (friends list, dms) or the server icon along with the name
 			// In the different areas:
 			// DMs, Friends list, Nitro and Shop all contain the same as above with the amount of paths changing. DMs = 1 path, Friends+Shop = 2 path, Nitro = 3 path.
 			// title >
@@ -1903,6 +1942,8 @@ $classes: (
 
 			// other classes
 			"icon": "icon__85643", // does not get applied to svgs, unsure on usage.
+
+			"title": "@alias topBar title",
 		),
 		// appears on left, probably contains mac os close/min/fullscreen buttons; cannot test as not on mac
 		"leading": (
@@ -1928,7 +1969,8 @@ $classes: (
 
 	),
 	"header": (
-		"header": "container__9293f",
+		"_index": "container__9293f",
+		"header": "@alias header",
 		"headerTitle": "title_f75fb0", // used with above, not always though
 		"themed": "themed__9293f",
 		"transparent": "transparent__9293f",
@@ -1979,7 +2021,8 @@ $classes: (
 		// This class list DOES NOT include languages. You can find a list of languages in the codelangs file.
 
 		// Any comments within HLJS relate to the color between that comment and the next one
-		"hljs": "hljs",
+		"_index": "hljs",
+		"hljs": "@alias hljs",
 		// var interactive muted
 		"comment": "hljs-comment",
 		"quote": "hljs-quote",
@@ -2048,7 +2091,8 @@ $classes: (
 		"ready": "ready_a2f514",
 		"content": "content_a2f514",
 		"problems": (
-			"problems": "problems_a2f514",
+			"_index": "problems_a2f514",
+			"problems": "@alias loading problems",
 			"slideIn": "slideIn_a2f514",
 			"text": "problemsText_a2f514",
 			"links": "links_a2f514",
@@ -2112,18 +2156,21 @@ $classes: (
 	),
 	// shared classes. used as aliases from elsewhere.
 	"nameTag": (
-		"nameTag": "nameTag__05e81",
+		"_index": "nameTag__05e81",
+		"nameTag": "@alias nameTag",
 		"username": "username__05e81",
 		"bot": "bot__05e81",
 	),
 	// shared classes. used in multiple places, mainly as a "remove this row" kind of thing
 	"removeButton": (
-		"button": "button_e18686",
+		"_index": "button_e18686",
+		"button": "@alias removeButton",
 		"default": "default_e18686",
 		"filled": "filled_e18686",
 	),
 	"notice": (
-		"base": "notice__6e2b9",
+		"_index": "notice__6e2b9",
+		"base": "@alias notice",
 		"button": "button__6e2b9",
 		"closeButton": "closeButton__6e2b9", // "X" on right
 		"colorWarning": "colorWarning__6e2b9", // shown when nitro is about to end when you don't have a payment option. on same line as other notice stuff
@@ -2149,7 +2196,8 @@ $classes: (
 	// DOES NOT APPLY TO TOP OF CHAT CHANNEL AREA.
 	"role": (
 		"root": "root__48c1c",
-		"role": "role_dfa8b6",
+		"_index": "role_dfa8b6",
+		"role": "@alias role",
 		"removeButton": "roleRemoveButton__48c1c",
 		"dot": "roleDot__48c1c",
 		"flowerStar": "roleFlowerStar__48c1c",
@@ -2347,7 +2395,8 @@ $classes: (
 		"enableCommunityGuildDetails": "guildDetails_bebc5b",
 	),
 	"sidebar": (
-		"sidebar": "sidebar_c48ade",
+		"_index": "sidebar_c48ade",
+		"sidebar": "@alias sidebar",
 		"hasNotice": "hasNotice_c48ade",
 		"list": "sidebarList_c48ade", // appears in redesign as parent to #{c(sidebar private channels)} and #{c(sidebar server container)}.
 		"listRounded": "sidebarListRounded_c48ade", // appears in redesign, adds border top left radius
@@ -6494,6 +6543,16 @@ $classes: (
 			// below is only commented because vscode thinks it's funny to have a fake syntax error show up
 			// "brackets": ["item7" "item8" "item9" "item with spaces"], // also outputs a :where() list //
 		),
+		// category to test for finding `_index` and `_index` being a valid string, allowing for `#{c(test g)}` to work
+		"g": (
+			"_index": "valid", // calling `#{c(test g _index)}` will also work.
+		),
+		// similar to g except it's not a string and therefore WRONG.
+		"h": (
+			"_index": ( // tho calling `#{c(test h _index fail)}` will work.
+				"fail": "fail",
+			),
+		)
 	),
 
 );
