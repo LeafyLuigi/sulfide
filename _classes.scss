@@ -2968,6 +2968,7 @@ $classes: (
 		"left": "tooltipLeft__382e7",
 		"center": "tooltipCenter__382e7",
 		"pointer": "tooltipPointer__382e7",
+		"bg": "tooltipPointerBg__382e7",
 
 		"primary": "tooltipPrimary__382e7",
 		"black": "tooltipBlack__382e7",
@@ -2991,7 +2992,8 @@ $classes: (
 
 		"showOutOfBoundaryComponents": "showOutOfBoundaryComponents_c69a7b", // no idea what this is for tbh
 
-		"themed": "custom-profile-theme",
+		"themed": "custom-user-profile-theme", // profile has a custom theme
+		"themedBackground": "custom-theme-background", // profile has a custom background, usually paired with above
 		"overlay": "overlay_c0bea0",
 		"biteSize": "biteSize_c0bea0",
 		"fullSize": "fullSize_c0bea0",
