@@ -329,8 +329,8 @@ $classes: (
 		"ring": "focus-rings-ring", // tab around to see this, other extra classes may appear in other areas.
 
 		// Visual Refresh stuff
-		"visualRefresh": "visual-refresh", // 2024-05_desktop_visual_refresh (Desktop Visual Refresh); select treatments 1-4
-		"visualRefreshChatInput": "visual-refresh-chat-input", // same experiment, select treatment 1 or 2.
+		"visualRefresh": "visual-refresh", // formerly 2024-05_desktop_visual_refresh (Desktop Visual Refresh); select treatments 1-4. experiment since removed.
+		"visualRefreshChatInput": "@visual-refresh-chat-input", // [REMOVED] same experiment, select treatment 1 or 2.
 
 		// no idea what these classes are about
 		"backgroundOpacity": (
@@ -1514,6 +1514,7 @@ $classes: (
 		"page": "page_c791b2",
 		"scroller": "scroller_d20375",
 		"container": "container_c791b2", // contains the sortable, searchable list of members. classes may cross over with members page in server settings.
+		"header": "header_c791b2", // for some reason this has a height on it?
 
 		// for some reason it's in the same line as a bunch of text shit. despite that some of the elements aren't using those classes???
 		"loaderBar": "loaderBar__09a38",
@@ -1844,6 +1845,8 @@ $classes: (
 		"audioMetadata": "audioMetadata_cf09d8",
 		"audioControls": "audioControls_cf09d8",
 		"bubble": "bubble_b26b79",
+
+		"audioNewMosaicStyle": "newMosaicStyle_cf09d8",
 	),
 	"error": (
 		"page": "errorPage_a57b28",
@@ -2064,6 +2067,33 @@ $classes: (
 		"deletion": "hljs-deletion",
 		// formula uses a background of #073642, kinda grey-dark-blue
 		"formula": "hljs-formula",
+		// ansi stuff
+		"ansi": (
+			"controlSequence": "hljs-ansi-control-sequence",
+			"bold": "hljs-ansi-style-bold",
+			"underline": "hljs-ansi-style-underline",
+			// ansi colors
+			"background": (
+				"black": "hljs-ansi-background-black",
+				"red": "hljs-ansi-background-red",
+				"green": "hljs-ansi-background-green",
+				"yellow": "hljs-ansi-background-yellow",
+				"blue": "hljs-ansi-background-blue",
+				"magenta": "hljs-ansi-background-magenta",
+				"cyan": "hljs-ansi-background-cyan",
+				"white": "hljs-ansi-background-white",
+			),
+			"foreground": (
+				"black": "hljs-ansi-foreground-black",
+				"red": "hljs-ansi-foreground-red",
+				"green": "hljs-ansi-foreground-green",
+				"yellow": "hljs-ansi-foreground-yellow",
+				"blue": "hljs-ansi-foreground-blue",
+				"magenta": "hljs-ansi-foreground-magenta",
+				"cyan": "hljs-ansi-foreground-cyan",
+				"white": "hljs-ansi-foreground-white",
+			),
+		),
 		// no more colors apply after this
 		"emphasis": "hljs-emphasis",
 		"strong": "hljs-strong",
@@ -2071,6 +2101,13 @@ $classes: (
 		"blockquote": "blockquote_d285a6",
 		"codeInline": "codeInline_d285a6",
 		"paragraph": "paragraph_d285a6",
+		// other weird classes
+		"misc": (
+			"language": "language_",
+			"class": "class_",
+			"inherited": "inherited__",
+			"function": "function_",
+		),
 	),
 	// Obviously best seen in Settings > App Settings > Keybinds. Can also be brought up by pressing CTRL+/
 	"keybinds": (
