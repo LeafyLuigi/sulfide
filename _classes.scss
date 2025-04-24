@@ -3032,8 +3032,8 @@ $classes: (
 		"themed": "custom-user-profile-theme", // profile has a custom theme
 		"themedBackground": "custom-theme-background", // profile has a custom background, usually paired with above
 		"overlay": "overlay_c0bea0",
-		"biteSize": "biteSize_c0bea0",
-		"fullSize": "fullSize_c0bea0",
+		"biteSize": "@alias profile popout", // removed
+		"fullSize": "@alias profile modal", // removed
 		"outer": "outer_c0bea0",
 		"inner": "inner_c0bea0",
 
@@ -3273,6 +3273,7 @@ $classes: (
 		// Modal: right click on user in same spots and click "View Profile"
 		"modal": (
 			"root": "root__24502",
+			"_index": "user-profile-modal",
 			"headerInner": "headerInner__24502",
 
 			"body": "body__24502",
@@ -3350,6 +3351,7 @@ $classes: (
 
 		// Popoout: click on user in chat or member list
 		"popout": (
+			"_index": "user-profile-popout",
 			"bitesize": (
 				"header": "header__5be3e",
 				"body": "body__5be3e",
