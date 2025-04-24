@@ -3032,10 +3032,29 @@ $classes: (
 		"themed": "custom-user-profile-theme", // profile has a custom theme
 		"themedBackground": "custom-theme-background", // profile has a custom background, usually paired with above
 		"overlay": "overlay_c0bea0",
-		"biteSize": "@alias profile popout", // removed
-		"fullSize": "@alias profile modal", // removed
+		"biteSize": "@alias profile popout",
+		"fullSize": "@alias profile modal",
 		"outer": "outer_c0bea0",
 		"inner": "inner_c0bea0",
+
+		// stuff related to themeColor i guess
+		"themeColor": (
+			"_index": "themeColor_fb7f94",
+			// colors
+			"primary": "primary_fb7f94",
+			"secondary": "secondary_fb7f94",
+			"hoverColor": "hoverColor_fb7f94",
+			"bannerColor": "bannerColor_fb7f94",
+			// elements
+			"button": "button_fb7f94", // message / add friend button
+			"buttonInner": "buttonInner_fb7f94", // button inner
+			"icon": "icon_fb7f94", // icon of message button
+			"banner": "banner_fb7f94",
+			"textBanner": "textBanner_fb7f94",
+			// states
+			"hover": "hover_fb7f94",
+			"visible": "visible_fb7f94",
+		),
 
 		// Banners are in their own line. The SVG Wrapper is in its own line.
 		"banner": (
@@ -3281,6 +3300,10 @@ $classes: (
 			"usernameContainer": "container__63ed3",
 			"usernameRow": "usernameRow__63ed3",
 			"nickname": "nickname__63ed3",
+
+			"bodyContainer": "container_d1d9f3", // contains tab bar, note, connections, scrollers etc
+			"tabBar": "tabBar_d1d9f3",
+			"tabBarItem": "tabBarItem_d1d9f3",
 
 			// cannot find these but they're in the same rule as connections
 			"connections": (
