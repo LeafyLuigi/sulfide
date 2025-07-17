@@ -2,6 +2,9 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
+@use "@sass-fairy/list" as listFairy;
+@use "@sass-fairy/string" as stringFairy;
+// @use "@sass-fairy/map" as mapFairy;
 
 ////////////////////
 /// VERY IMPORTANT INFO FOR SEARCHING OR ADDING CLASS NAMES
@@ -13,7 +16,9 @@
 /// Get a class from the Classes Map. Code stolen entirely from Zerthox.
 /// Changes to Zerthox's code:
 /// Class list lacks proceeding dot to allow for quick html element copy class list.
-/// Aliasing. You can start a string with "alias " and fill the rest out as if it was #{c(STRING HERE)}.
+/// Two types of aliasing:
+/// 1 - You can start a string with "alias " and fill the rest out as if it was #{c(STRING HERE)}.
+/// 2 - Entire sub-maps can be aliased to another (sub-)map. Supports both relative and absolute relationships.
 /// Lists. You can uses lists for multiple classes to preform the same function. You can use [bracketed lists] for :where() and non-bracketed for :is().
 /// Minor SCSS syntax changes.
 /// Dirty trace. Add a ! to the start of a class to get the used location(s).
@@ -25,8 +30,23 @@
 /// Certain aliases may also be deprecated in the future.
 @function class($query, $alias: false) {
 	$class: $classes;
+	$currentQuery: ();
+	$l: 0;
 	@each $el in $query {
-		$class: map.get($class, "#{$el}");
+		$l: $l + 1;
+		@if $el == "_alias" {
+			@error "Do not call \"_alias\" anywhere in the function. Aborting.";
+		}
+		// @debug $class;
+		@if map.has-key($class,"_alias") {
+			$a: aliasMapCheck($currentQuery,$query,$class);
+
+			$currentQuery: map.get($a,"query");
+			$class: map.get(map.get($a,"class"), "#{$el}");
+		} @else {
+			$currentQuery: list.append($currentQuery,$el);
+			$class: map.get($class, "#{$el}");
+		}
 		@if not $class {
 			@if $alias {
 				@error "Unknown alias \"#{$el}\" in category: #{$query}. Please fix the classes list.";
@@ -41,6 +61,9 @@
 	@if meta.type-of($class) == map {
 		// check if `_index` exists; this allows for calling the map object as if it was a valid class.
 		// oddly enough the debug dump all classes won't have nay issues.
+		@if map.has-key($class,"_alias") {
+			$class: map.get(aliasMapCheck($currentQuery, $query, $class),"class");
+		}
 		@if map.has-key($class,"_index") {
 			$index: map.get($class,"_index");
 			@if meta.type-of($index) != string {
@@ -71,20 +94,71 @@
 	}
 }
 
+@function aliasMapCheck($currentQuery,$query,$class) {
+	@if list.length(map.keys($class)) != 1 {
+		@warn "There are unreachable classes in \"#{$currentQuery}\". Fix the classes file to use them.";
+	}
+	$target: map.get($class,"_alias");
+	@if meta.type-of($target) != string or $target == "" {
+		@error "Targeted alias for \"#{$currentQuery}\" is not a string or is an empty string.";
+	}
+	// parse the target
+	@if string.slice($target,1,2) == ". " {
+		// relative targets from the end of the query. note that this tests for `. `, with the space.
+		// the initial `. ` indicates it is relative to the current layer
+		// each extra instance of `. ` indicates to remove ONE "layer" of the currentQuery, then put the rest on the end.
+		// example: `test i foo` where `test i` == ". a" => `test a foo`
+		// example: `test k deep deep deep foo` where `test k deep deep deep` == `. . . . a` => `test a foo`
+		// note that relative aliases that use an excessive amounts of `. ` WILL error.
+		
+		$j: 0; // $j will be how many "layers" to remove from the current query
+		@while stringFairy.starts-with($target, ". ") {
+			$j: $j + 1;
+			@if $j > list.length($currentQuery) {
+				@error "Relative alias for \"#{$currentQuery}\" reaches the root of $classes. Use an absolute alias or reduce the amount of \". \"s used.";
+			}
+			$target: string.slice($target,3);
+		}
+		$targetHeader: listFairy.reverse(listFairy.slice(listFairy.reverse($currentQuery),$j + 1));
+		$target: list.join($targetHeader,stringFairy.split(string.unquote($target)," "));
+	} @else {
+		$target: stringFairy.split(string.unquote($target)," ");
+	}
+
+	// test the target to check if it's a map
+	$class2: $classes;
+	@each $le in $target {
+		$class2: map.get($class2, "#{$le}");
+		@if meta.type-of($class2) != map {
+			@error "The target for \"#{$target}\" is not a map. Fix the alias in the class list at \"#{$currentQuery}\".";
+		}
+	}
+	
+	// fix current query to be correct
+	@each $j in $query {
+		@if list.index($currentQuery,$j) == null {
+			$target: list.append($target,$j);
+		}
+	}
+
+	// combine it into one map for easy output
+	@return ("query":$target,"class":$class2);
+}
+
 @function checkString($class,$alias: false) {
 	// debug locator string thingy
-	@if string.slice($class,1,1) == "!" or string.slice($class,1,1) == "@" {
-		@if string.slice($class,1,1) == "!" {
+	@if stringFairy.starts-with($class,"!") or stringFairy.starts-with($class,"@") {
+		@if stringFairy.starts-with($class,"!") {
 			@warn "[DEBUG] The class, \"#{$class}\", was used.";
-		} @else if string.slice($class,1,1) == "@" {
+		} @else if stringFairy.starts-with($class,"@") {
 			@warn "[DEPRECATED] The specific selector used for \"#{$class}\" is deprecated and may be removed in the future.";
 		}
 		$class: string.slice($class,2,-1);
 	}
-	@if string.slice($class,1,1) == "." {
+	@if stringFairy.starts-with($class,".") {
 		@error "Dot at start of string within list. Please fix and try again.";
 	}
-	@if string.slice($class,1,6) == "alias " {
+	@if stringFairy.starts-with($class,"alias ") {
 		// force error on already tested aliases to prevent loops
 		@if $alias == true {
 			@error "Issue caused by \"#{$class}\". Do not point aliases to other aliases as to prevent loops. Please fix this and try again.";
@@ -101,7 +175,7 @@
 		$aliasList: list.append($aliasList, $aliasQuery, space); // adds last item after @while
 		@return #{class($aliasList, $alias:true)}; // thrown back into the class list as the new query
 	}
-	@if string.slice($class,1,1) == "#" {
+	@if stringFairy.starts-with($class,"#") {
 		@return $class;
 	} @else {
 		@return "."+$class;
@@ -251,6 +325,82 @@
 		@return ""; // return empty for non-aliases.
 	}
 }
+
+// This did not work and i can't be fucked.
+// // Due to the excessively repeated amounts of classes like `heading-sm\/normal_{$suffix}`, this is a test.
+// // All gen'd classes get merged to $classes under "text".
+// // Due to the classes used, back slashes will need to be escaped.
+// // This function gets ran at the bottom of the list.
+// $textClasses: mapFairy.empty(); // things will be merged into this for the time being.
+// // 
+// // Formatting:
+// // $suffix: string. must start with `_`.
+// // $list: a list of strings for the classes, excluding the suffix. space sep'd, bracketed. dot at start of class name gets removed.
+// // $cl: class list. do not touch this one.
+// @function textGen($suffix, $list, $cl: $textClasses) {
+// 	@if meta.type-of($suffix) != string {
+// 		@error "The suffix is not a string. Aborting.";
+// 	} @else if not stringFairy.starts-with($suffix,"_") {
+// 		@error "Invalid suffix. Aborting.";
+// 	}
+// 	@if meta.type-of($list) != list {
+// 		@error "The list of classes is not a list. Aborting.";
+// 	}
+// 	@if meta.type-of($cl) != map {
+// 		@error "The input for $cl is not a map. Aborting.";
+// 	}
+
+// 	@each $class in $list {
+// 		@debug $class;
+// 		@if meta.type-of($class) != string {
+// 			@warn "One of the classes was not a string. Skipping.";
+// 		} @else {
+// 			@if stringFairy.starts-with($class,".") {
+// 				$class: string.slice($class,2);
+// 			}
+
+// 			// for parsing
+// 			$tmp: $class;
+// 			// replace a few substrings for better sorting
+// 			$tmp: stringFairy.replace($tmp,"deprecated-12","deprecated12");
+// 			$tmp: stringFairy.replace($tmp,"heading-18","heading18");
+// 			$tmp: stringFairy.replace($tmp,"message-preview","messagePreview");
+// 			$tmp: stringFairy.replace($tmp,"channel-title","channelTitle");
+// 			$tmp: stringFairy.replace($tmp,"\\/","-");
+// 			// split into different parts by `-` and `\/`
+// 			@if stringFairy.includes($tmp,"-") {
+// 				$tmp: string.split($tmp,"-");
+// 			} @else {
+// 				$tmp: list.append(listFairy.empty(auto,true),$tmp);
+// 			}
+// 			$len: list.length($tmp);
+// 			$i: 0;
+// 			$m: mapFairy.empty();
+// 			$cwd: mapFairy.empty();
+
+// 			// make the map
+// 			@each $item in $tmp {
+// 				$i: $i + 1;
+// 				@if $len == 1 {
+// 					$cwd: map.set($cwd, $item, $class + $suffix);
+// 				} @else if $i != $len {
+// 					$cwd: map.set($cwd, $item, mapFairy.empty());
+// 					$m: map.get($cwd, $item);
+// 				// } @else {
+// 				// 	$m: map.set($m, $item, $class + $suffix);
+// 				// 	$cwd: map.deep-merge($cwd, $m);
+// 				}
+// 				@debug $m;
+// 			}
+
+// 			// merge the map
+// 			$cl: map.deep-merge($cl, $cwd);
+
+// 		}
+// 	}
+
+// 	@return $cl;
+// }
 
 ////////////////
 // IT SHOULD BE WORTH NOTING:
@@ -432,7 +582,7 @@ $classes: (
 
 		// Due to the sheer amount of repeated usage of the format below...
 		// I strongly advise against using these classes.
-		// Yes, there really are 10 different classes in the complete css class scrape as of 2024-09-19.
+		// Yes, there really are 13 different classes in the complete css class scrape as of 2025-07-01.
 		// I would've put a generator function of sorts in but find+replace tool wouldn't have found that
 		"code": "code_f9d828" "code_a8af02" "code__4ed1a" "code_a39fe9" "code_aabef9" "code_c23051" "code_cf4812" "code_b717a1" "code_df8943" "code_ec1c2d",
 		"fontScaling": "fontScaling_f9d828" "fontScaling_a8af02" "fontScaling__4ed1a" "fontScaling_a39fe9" "fontScaling_aabef9" "fontScaling_c23051" "fontScaling_cf4812" "fontScaling_b717a1" "fontScaling_df8943" "fontScaling_ec1c2d",
@@ -501,7 +651,7 @@ $classes: (
 				"medium": "redesign\/channel-title\/medium_f9d828" "redesign\/channel-title\/medium_a8af02" "redesign\/channel-title\/medium__4ed1a" "redesign\/channel-title\/medium_a39fe9" "redesign\/channel-title\/medium_aabef9" "redesign\/channel-title\/medium_c23051" "redesign\/channel-title\/medium_cf4812" "redesign\/channel-title\/medium_b717a1" "redesign\/channel-title\/medium_df8943" "redesign\/channel-title\/medium_ec1c2d",
 				"semibold": "redesign\/channel-title\/semibold_f9d828" "redesign\/channel-title\/semibold_a8af02" "redesign\/channel-title\/semibold__4ed1a" "redesign\/channel-title\/semibold_a39fe9" "redesign\/channel-title\/semibold_aabef9" "redesign\/channel-title\/semibold_c23051" "redesign\/channel-title\/semibold_cf4812" "redesign\/channel-title\/semibold_b717a1" "redesign\/channel-title\/semibold_df8943" "redesign\/channel-title\/semibold_ec1c2d",
 				"bold": "redesign\/channel-title\/bold_f9d828" "redesign\/channel-title\/bold_a8af02" "redesign\/channel-title\/bold__4ed1a" "redesign\/channel-title\/bold_a39fe9" "redesign\/channel-title\/bold_aabef9" "redesign\/channel-title\/bold_c23051" "redesign\/channel-title\/bold_cf4812" "redesign\/channel-title\/bold_b717a1" "redesign\/channel-title\/bold_df8943" "redesign\/channel-title\/bold_ec1c2d",
-			)
+			),
 		),
 		"text": (
 			"xxs": (
@@ -533,8 +683,8 @@ $classes: (
 				"medium": "text-lg\/medium_f9d828" "text-lg\/medium_a8af02" "text-lg\/medium__4ed1a" "text-lg\/medium_a39fe9" "text-lg\/medium_aabef9" "text-lg\/medium_c23051" "text-lg\/medium_cf4812" "text-lg\/medium_b717a1" "text-lg\/medium_df8943" "text-lg\/medium_ec1c2d",
 				"semibold": "text-lg\/semibold_f9d828" "text-lg\/semibold_a8af02" "text-lg\/semibold__4ed1a" "text-lg\/semibold_a39fe9" "text-lg\/semibold_aabef9" "text-lg\/semibold_c23051" "text-lg\/semibold_cf4812" "text-lg\/semibold_b717a1" "text-lg\/semibold_df8943" "text-lg\/semibold_ec1c2d",
 				"bold": "text-lg\/bold_f9d828" "text-lg\/bold_a8af02" "text-lg\/bold__4ed1a" "text-lg\/bold_a39fe9" "text-lg\/bold_aabef9" "text-lg\/bold_c23051" "text-lg\/bold_cf4812" "text-lg\/bold_b717a1" "text-lg\/bold_df8943" "text-lg\/bold_ec1c2d"
-			)
-		)
+			),
+		),
 	),
 	"tab": ( // Found in multiple locations but best seen in friends list. Each location has other classes attached to the elements. Listed locations may be used in other areas too
 		"header": "header_b3f026", // used in sidebar of settings areas
@@ -550,6 +700,7 @@ $classes: (
 		"item": "item_b3f026", // an individual tab
 		"brand": "brand_b3f026", // user settings > profile at top, server/channel settings > roles > (click edit for any) at top
 		"themed": "themed_b3f026", // friends list header, channel search, inbox dropdown, profile popout, settings sidebar
+		"destructive": "destructive_b3f026", // stuff like "log out" or "delete channel"
 
 		"selected": "selected_b3f026",
 		"disabled": "disabled_b3f026",
@@ -560,6 +711,19 @@ $classes: (
 		"flowerStar": "@alias flowerStar",
 		"childContainer": "childContainer__3e3b0",
 		"redesignIconChildContainer": "redesignIconChildContainer__3e3b0",
+	),
+	"input": ( // used mainly in settings
+		"wrapper": "inputWrapper__0f084",
+		"_index": "input__0f084",
+		"error": "error__0f084",
+		"success": "success__0f084",
+		"disabled": "disabled__0f084",
+		"editable": "editable__0f084",
+		"focused": "focused__0f084",
+		"default": "inputDefault__0f084",
+		"mini": "inputMini__0f084",
+		"prefix": "inputPrefix__0f084",
+		"inputError": "inputError__0f084", // it's a different class for some reason
 	),
 	"login": (
 		"wrapper": "wrapper_d4fa29",
@@ -662,6 +826,71 @@ $classes: (
 	// 	"perk": "perk-19D_HN",
 	// ),
 	"button": (
+		// BUTTONS WERE OVERHAULED. OLD CLASSES WILL NOT BE MAPPED TO NEW CLASSES AS THEY STILL EXIST IN THE CSS.
+		"text": (
+			"_index": "textButton__98277",
+			"button": "button__98277", // haven't seen this be used yet.
+
+			// colors
+			"primary": "primary__98277",
+			"secondary": "secondary__98277",
+			"alwaysWhite": "always-white__98277",
+			"critical": "critical__98277",
+
+			// contents
+			"text": "text__98277",
+		),
+		"filled": (
+			// "look" of sorts -- also seems like there's no "border" style anymore
+			"_index": "button__6af3a",
+
+			"iconOnly": "icon-only__6af3a",
+			"hasText": "hasText__6af3a", // only if it has text
+
+			// size
+			"sm": "sm__6af3a",
+			"md": "md__6af3a",
+
+			// colors
+			"primary": "primary__6af3a",
+			"secondary": "secondary__6af3a",
+			"tertiary": "tertiary__6af3a",
+			"criticalPrimary": "critical-primary__6af3a",
+			"criticalSecondary": "critical-secondary__6af3a",
+
+			// not entirely sure about this but it wraps around the button
+			"expressive": "expressive__6af3a",
+			"expressiveRive": "expressiveRive__6af3a",
+			"expressiveBackground": "expressiveBackground__6af3a",
+			"expressiveFill": "expressiveFill__6af3a",
+			"expressiveHoverContainer": "expressiveHoverContainer__6af3a",
+			"expressiveWrapper": "expressiveWrapper__6af3a",
+
+			// contents
+			"childrenWrapper": "buttonChildrenWrapper__6af3a",
+			"children": "buttonChildren__6af3a",
+			"icon": "icon__6af3a",
+
+			// other classes i'm not sure about
+			"loading": "loading__6af3a",
+			"spinnerWrapper": "spinnerWrapper__6af3a",
+			"fadeIn": "fadeIn__6af3a",
+			"fadeOut": "fadeOut__6af3a",
+			"fullWidth": "fullWidth__6af3a",
+			"spinnerItem": "spinnerItem__6af3a",
+			"spinner": "spinner__6af3a",
+			"spinnerSm": "spinner-sm__6af3a",
+			"spinnerMd": "spinner-md__6af3a",
+			"spinnerLg": "spinner-lg__6af3a",
+			"active": "active__6af3a",
+			"overlayPrimary": "overlay-primary__6af3a",
+			"overlaySecondary": "overlay-secondary__6af3a",
+			"colorMix": "color-mix__6af3a",
+			"rounded": "rounded__6af3a",
+		),
+
+
+		// BELOW: OLD STYLE BUTTONS -- THESE STILL EXIST IN THE CSS AND ARE STILL USED IN SOME PARTS.
 		"_index": "button__201d5",
 		"button": "@alias button",
 		"contents": "contents__201d5", // DO NOT FORGET TO UPDATE MIXINS FILE IF UPDATING THIS CLASS
@@ -880,7 +1109,7 @@ $classes: (
 
 		"rtsContentContainer": "contentContainer__664ff",
 		"rtsDividerDefault": "dividerDefault__0d850", // see comment below this!!!
-		"rtsAllowFromEveryoneContainer": "container__0d850", // control__0d850 disabled__0d850 labelRow__0d850 note__0d850 title__0d850 titleDefault__6c390 titleMini_ddd437
+		"rtsAllowFromEveryoneContainer": "container__0d850",
 		"rtsToggle": "toggle__664ff", // paired with ^
 		"rtsLabelRow": "labelRow__0d850",
 		"rtsDivider": "divider_ae36e5",
@@ -924,37 +1153,6 @@ $classes: (
 		"primary": "cardPrimary__73069",
 		"primaryEditable": "editable__73069",
 		"primaryOutline": "outline__73069",
-	),
-	"channelSettings": (
-		"overview": "channel-settings-overview", // class found within JS rather than CSS
-
-		"roleScroller": "scroller_ff90b2",
-		"settingsCard": "settingCard_dd864e",
-		"settingsCardActive": "active_dd864e",
-		"cardContent": "cardContent_f62fce",
-		"cardFolder": "cardFolder_dd864e",
-		"folderHeader": "folderHeader_dd864e",
-		"adminWarning": "adminWarning_dd864e", // no idea what this is used for
-		"folderRoleMemberList": "memberRow_dd864e",
-
-		"permGroup": "group__344e6",
-		"permDisabled": "disabled__344e6",
-		"permItem": "item__344e6",
-		"permSelected": "selected__344e6",
-		"permDeny": "deny__344e6",
-		"permNoop": "passthrough__344e6",
-		"permAllow": "allow__344e6",
-
-		"inviteRow": "inviteSettingsInviteRow__1de14",
-		"revokeInvite": "revokeInvite__1de14",
-
-		"integrationCard": "card_dc2e44",
-		"integrationIconWrapper": "iconWrapper__4a3a5",
-
-		"webhookCard": "card_eafb9c",
-		"webhookAvatarUploader": "avatarUploaderInner_eafb9c",
-
-		"followedChannelCard": "card_ebafdd",
 	),
 	"chat": (
 		"page": "page_c48ade", // parent to a div which is a parent to chat
@@ -1229,7 +1427,7 @@ $classes: (
 		"formContainer": "formContainer_d9be46",
 		"form": "form_d9be46",
 		"titleContainer": "titleContainer_d9be46",
-		"inputWrapper": "inputWrapper__0f084", // other shit on same line: disabled__0f084 editable__0f084 error__0f084 focused__0f084 input__0f084 inputDefault__0f084 inputMini__0f084 inputPrefix__0f084 success_f8bc55
+		"inputWrapper": "@alias input wrapper",
 		"title": "title_d9be46",
 		"searchIcon": "searchIcon_d9be46",
 		"closeIcon": "closeIcon_d9be46",
@@ -2408,43 +2606,6 @@ $classes: (
 			"coachmarkTextContainer": "coachmarkTextContainer_d71945",
 		),
 	),
-	"serverSettings": (
-		"serverIconUploadInner": "avatarUploaderInner_cd0bbe",
-
-		"rolePage": "contentColumnMinimal__23e6b",
-
-		"noticeRegion": "noticeRegion__23e6b",
-		"noticeContainer": "container_fcf29c",
-
-		"roleEveryoneContainer": "container_d8f25b",
-		"roleEveryoneIcon": "icon_d8f25b",
-		"roleSearchPopup": "container__3dde2",
-		"roleSearchBar": "searchBar__5ec2f", // shared with above in friends list
-		"roleRow": "roleRow_a930f1",
-		"roleRowDisableHover": "roleRowDisableHover_a930f1",
-		"roleCircleButton": "circleButton_a930f1",
-		"roleEditButton": "editButton_a930f1",
-		// below "role"s are shown by clicking edit
-		"roleContentContainer": "contentContainer__91dc3",
-		"roleSidebar": "sidebar_e29cd7",
-		"roleTitleContainer": "titleContainer_e29cd7",
-		"roleHeader": "header_c6bf1b",
-		"roleHeaderStickyElevated": "stickyHeaderElevated_c6bf1b",
-		"roleHeaderSticky": "stickyHeader_c6bf1b",
-		"rolePreviewContainer": "previewContainer__05e8e",
-
-		"emojiRow": "emojiRow_e7d73e",
-		"emojiAliasPlaceholder": "emojiAliasPlaceholder_e7d73e",
-		"emojiAliasInput": "emojiAliasInput_e7d73e",
-		"emojiInput": "emojiInput_e7d73e",
-
-		"templateDescriptionBox": "descriptionBox__981f7",
-		"templateDescriptionIcon": "descriptionIcon__981f7",
-
-		"enableCommunityFeatureCard": "featureCard_bebc5b",
-		"enableCommunityFeatureIcon": "featureIcon_bebc5b",
-		"enableCommunityGuildDetails": "guildDetails_bebc5b",
-	),
 	"sidebar": (
 		"_index": "sidebar_c48ade",
 		"sidebar": "@alias sidebar",
@@ -3074,6 +3235,7 @@ $classes: (
 			"banner": "banner__68edb",
 			"gifTag": "gifTag__68edb",
 			"mask": "mask__68edb",
+			"clickable": "clickable_faf576", // ONLY used in the settings area.
 		),
 
 		// shared between modal+panel+popout+status+settings>profile
@@ -3452,59 +3614,328 @@ $classes: (
 
 		// Within settings, it's in Profiles. Chances are overlap with popout exist here.
 		"settings": (
-			"badgeList": "badgeList__1fed1",
+			"badgeList": "@alias settings myAccount security profileCard badgeList",
+		),
+	),
+
+	// TODO: add the *settings submaps into this in a similar way to modals
+	"settings": (
+		"standardSidebarView": "standardSidebarView__23e6b", // main view of everything
+		"sidebar": ( // sidebar that contains search bar, headers, buttons, build info
+			"region": "sidebarRegion__23e6b",
+			"regionScroller": "sidebarRegionScroller__23e6b",
+			"_index": "sidebar__23e6b",
+			"side": "alias tab side", // acts as scroller without inline height
+
+			// the rest of the related classes use modals > searchBar
+			"searchBar": (
+				"_index": "searchBar_c7e907",
+			),
+
+			// headers, tabs and separators are controlled using tab header (et al)
+
+			"premiumTab": "premiumTab__581ea", // literally just nitro
+
+			"socialLinks": "socialLinks__7df54",
+			"link": (
+				"_index": "link__7df54",
+				"foreground": "foreground__7df54",
+			),
+
+			"info": (
+				"clickable": "clickable__2debe",
+				"_index": "info__2debe",
+				"line": "line__2debe",
+				"versionHash": "versionHash__2debe",
+			),
+		),
+		// general page components
+		"content": (
+			"_index": "contentRegion__23e6b",
+			"transitionWrap": "contentTransitionWrap__23e6b",
+			"regionScroller": "contentRegionScroller__23e6b",
+			"regionShownSidebar": "contentRegionShownSidebar__23e6b",
+			"column": (
+				"_index": "contentColumn__23e6b",
+				"default": "contentColumnDefault__23e6b",
+				"wide": "contentColumnWide__23e6b",
+			),
+			"customScroller": "customScroller__23e6b", // used in the following: server>roles (but not when looking at permissions), server>invites, server>audit log, channel>invites [unchecked: settings>windows, settings>linux]
+
+			// these margins aren't used in the sidebar, only in the content area
+			"margin": (
+				"reset": "marginReset_fd297e",
+				"centerHorz": "marginCenterHorz_fd297e",
+				"top": (
+					"4": "marginTop4_fd297e",
+					"8": "marginTop8_fd297e",
+					"20": "marginTop20_fd297e",
+					"40": "marginTop40_fd297e",
+					"60": "marginTop60_fd297e",
+				),
+				"bottom": (
+					"4": "marginBottom4_fd297e",
+					"8": "marginBottom8_fd297e",
+					"20": "marginBottom20_fd297e",
+					"40": "marginBottom40_fd297e",
+					"60": "marginBottom60_fd297e",
+				),
+				"left": (
+					"8": "marginLeft8_fd297e",
+				),
+			),
+			
+			// things are split into sections
+			"section": (
+				"sectionTitle": "sectionTitle__7bffb",
+				"children": "children__7bffb",
+			),
+
+			// "forms" of sorts
+			"form": (
+				"text": "formText_ddd181",
+				"default": "default_ddd181",
+				"labelDescriptor": "labelDescriptor_ddd181",
+				"labelSelected": "labelSelected_ddd181",
+				"placeholder": "placeholder_ddd181",
+				"labelBold": "labelBold_ddd181",
+				"description": "description_ddd181",
+				"modeDefault": "modeDefault_ddd181",
+				"modeSelectable": "modeSelectable_ddd181",
+				"modeDisabled": "modeDisabled_ddd181",
+				"error": "error_ddd181",
+				"success": "success_ddd181",
+			),
+		),
+		// more often than not just the "esc" close button
+		"tools": (
+			"toolsContainer": "toolsContainer__23e6b",
+			"closeIconOnly": "closeIconOnly__23e6b", // sometimes included for some reason? unused outside of mobile stuff
+			"_index": "tools__23e6b",
+			"container": "container_c2b141",
+			"closeButton": "closeButton_c2b141",
+			"keybind": "keybind_c2b141",
+		),
+
+		// individual pages are below.
+		// there may be some overlap in which class goes where; these such classes will be moved into a common category.
+		// for pages with a tab bar of sorts at the top (like My Account, Voice & Video), classes will be listed in order from first to last tab
+
+		// SORTING ORDER:
+		// (found by pressing ctrl+comma; historically collectively user settings and app settings)
+		// "User Settings" (My Account, Profiles, Content & Social, etc)
+		// "Payment Settings" (Nitro, Server Boost, Subscriptions, etc)
+		// "App Settings" (Appearance, Accessibility, Voice & Video, etc)
+		// Platform-specific settings (Windows, Linux)
+		// "Activity Settings"
+		// 
+		// (server settings)
+		// "[server name]" (Server Profile, Server Tag, Engagement, Boost Perks)
+		// "Expression" (Emoji, Stickers, Soundboard)
+		// "People" (Members, Roles, Invites, Access)
+		// "Apps" (Integrations ONLY)
+		// "Moderation" (Safety Setup, Audit Log, Bans, AutoMod)
+		// Community stuff (Comm. Overview, Onboarding, Server Insights, Welcome Screen, Server Web Page, Monetisation)
+		// Other stuff (Server Boost Status, Server Template)
+		// 
+		// (channel settings) -- in this order: text, forum, voice, stage
+		// Overview
+		// Permissions
+		// Invites
+		// Integrations
+		// 
+		// (also found by pressing ctrl+comma but sorted outside bc dev)
+		// "Developer Only" (requires plugin to view these)
+
+		// USER SETTINGS
+		"myAccount": (
+			"_index": "#my-account-tab", // located on content column
+			"settingsPage": "settingsPage_f131e9",
+			"tabBar": (
+				"_index": "tabBar_f8303a", // also #{c(tab top)}
+				"tab": "tab_f8303a", // also #{c(tab item)}
+				"panel": "tabBarPanel_f8303a", // the main page it seems
+				"selected": "selected_f8303a",
+				"tabbedSettingsContainer": "tabbedSettingsContainer_f8303a",
+				"vertical": "vertical_f8303a", // appears in css attached to multiple classes
+			),
+			"security": (
+				"_index": "#account_security_tab-tab", // paired on tabBar panel
+				"profileCard": (
+					"account": "accountProfileCard__1fed1",
+					"userInfo": "userInfo__1fed1",
+					"avatar": "avatar__1fed1", // also #{c(avatar wrapper)}
+					"usernameRow": "profileCardUsernameRow__1fed1",
+					"userTag": "userTag__1fed1",
+					"info": "info_f4bc97", // paired with userTag
+					"overflowMenuButton": "overflowMenuButton__1fed1",
+					"overflowMenuIcon": "overflowMenuIcon__1fed1", // three dots svg
+					"badgeList": "badgeList__1fed1",
+					"badgeListContainer": "container__8061a", // paired with badgeList
+					"background": "background__1fed1", // used for the field list -- display name, username, email, phone number
+					"field": (
+						"list": "fieldList__1fed1",
+						"_index": "field__1fed1",
+						"spacerBottom": "fieldSpacerBottom__1fed1", // has bottom margin
+						"spacer": "fieldSpacer__1fed1", // has top margin
+						
+						"constrainedRow": "constrainedRow__1fed1",
+						"usernameRow": "usernameRow__1fed1",
+						"title": "fieldTitle__1fed1",
+						"usernameInnerRow": "usernameInnerRow__1fed1",
+						"button": "fieldButton__1fed1",
+					),
+				),
+				"userSettingsSecurity": "userSettingsSecurity__2666b",
+				"isEnabled": "isEnabled__2666b", // 2fa stuff
+				"lockIcon": "lockIcon__2666b", // 2fa stuff
+				"changePasswordButton": "changePasswordButton__2666b",
+				"settings": "settings__6c75d", // no idea what this one's for other than it's a parent to "Security Keys"
+				"disableAccountButton": "disableButton_d286c5",
+			),
+			"standing": (
+				"_index": "#privacy_and_safety_standing-tab", // paired on tabBar panel
+				"pageContainer": "container_d74ef8",
+				"container": "container_d878e7",
+				"profile": "profile_d878e7",
+				"avatarBackground": "avatarBackground_eb2508",
+				"avatar": "avatar_eb2508",
+				"indicator": "indicator_eb2508",
+				"status": "status_d878e7",
+				"title": "title_d878e7",
+				"health": "health_d878e7",
+				"line": "line_d878e7",
+				"statusOption": "statusOption_d878e7",
+				"marker": "marker_d878e7",
+				"statusLabel": "statusLabel_d878e7",
+				"empty": "empty_d878e7",
+			),
+		),
+		"profiles": (
+			"_index": "#profile-customization-tab", // located on content column
+			"tabBar": (
+				"_index": "tabBar_d6f9e9",
+				"item": "tabBarItem_d6f9e9",
+				"divider": "divider_d6f9e9",
+				"newBadge": "newBadge_d6f9e9",
+			),
+			// Main Profile Page
+			// upsell up top "Give your profile a fresh look" with a button to go to the shop
+			"upsell": (
+				"_index": "container__8279f",
+				"artContainer": "artContainer__8279f",
+				"art": "art__8279f",
+				"mainColumn": "mainColumn__8279f",
+				"title": "title__8279f",
+				"ctaButton": "ctaButton__8279f",
+			),
+			"customisationSection": (
+				"profile": "profileCustomizationSection__44061",
+				"baseLayout": "baseLayout__44061",
+				// left: fill out the fields
+				"sectionsContainer": "sectionsContainer_def11f",
+				"_index": "customizationSection_ace4f5",
+				"customisationTitle": "title_ace4f5",
+				"withDivider": "withDivider_ace4f5",
+				"sectionDescription": "sectionDescription_ace4f5",
+				"colorSwatch": "colorSwatch__2d060",
+				"swatch": "swatch__2d060",
+				"editPencilIcon": "editPencilIcon__2d060",
+				"bio": (
+					"container": "bioTextAreaContainer__6a919",
+					"_index": "bioTextArea__6a919",
+				),
+				"tag": (
+					"container": "container_e7c728", // within dropdown, not actual tag
+					"guildPrefixContainer": "guildPrefixContainer_e7c728",
+					"guildPrefixIcon": "guildPrefixIcon_e7c728",
+					"details": "details_e7c728",
+					"guildName": "guildName_e7c728",
+					"tagContainer": "tagContainer_e7c728",
+					"_index": "tag_e7c728", // tag itself here
+				),
+				"legacyUsernameBadge": ( // might be used elsewhere
+					"container": "container__0d850",
+					"labelRow": "labelRow__0d850",
+					"title": "title__0d850",
+					"control": "control__0d850",
+				),
+				// right: what does it look like?
+				"preview": (
+					"_index": "preview__44061",
+					"column": "column__5a2c6",
+					"profile": (
+						"_index": "container__5a2c6", // actual container holding the profile. paired with #{c(profile outer)}
+						"header": "header__5a2c6",
+						"avatar": (
+							"_index": "avatar_d28e10",
+							"clickable": "clickable_d28e10",
+							"overlay": "overlay_d28e10",
+							"overlayIcon": "overlayIcon_d28e10",
+						),
+					),
+				),
+			),
 		),
 	),
 
 	// probably want to rewrite/reorder the settings stuff akin to the modals.
 	"userSettings": (
-		"standardSidebarView": "standardSidebarView__23e6b",
-		"sidebarRegion": "sidebarRegion__23e6b",
-		"sidebarRegionScroller": "sidebarRegionScroller__23e6b",
-		"sidebar": "sidebar__23e6b",
-		"sidebarSocialLinks": "socialLinks__7df54",
-		"sidebarInfo": "info__2debe",
+		"standardSidebarView": "@alias settings standardSidebarView",
+		"sidebarRegion": "@alias settings sidebar region",
+		"sidebarRegionScroller": "@alias settings sidebar regionScroller",
+		"sidebar": "@alias settings sidebar",
+		"sidebarSocialLinks": "@alias settings sidebar socialLinks",
+		"sidebarInfo": "@alias settings sidebar info",
+		
+		"contentRegion": "@alias settings content",
+		"contentRegionScroller": "@alias settings content regionScroller",
+		"contentColumn": "@alias settings content column",
+		"contentColumnWide": "@alias settings content column wide",
 
-		"customScroller": "customScroller__23e6b", // used in a few places, i'm not entirely sure what's different about it
+		"closeButtonContainer": "@alias settings tools container",
+		"closeButton": "@alias settings tools closeButton",
+		"closeButtonKeybind": "@alias settings tools keybind",
+		
+		"customScroller": "@alias settings content customScroller", // used in a few places, i'm not entirely sure what's different about it
+		
+		"marginReset": "@alias settings content margin reset",
+		"marginCenterHorz": "@alias settings content margin centerHorz",
+		"marginTop4": "@alias settings content margin top 4",
+		"marginTop8": "@alias settings content margin top 8",
+		"marginTop20": "@alias settings content margin top 20",
+		"marginTop40": "@alias settings content margin top 40",
+		"marginTop60": "@alias settings content margin top 60",
+		"marginBottom4": "@alias settings content margin bottom 4",
+		"marginBottom8": "@alias settings content margin bottom 8",
+		"marginBottom20": "@alias settings content margin bottom 20",
+		"marginBottom40": "@alias settings content margin bottom 40",
+		"marginBottom60": "@alias settings content margin bottom 60",
+		"marginLeft8": "@alias settings content margin left 8",
+
+		// ^^ done ^^ | vv not done vv
 
 		"premiumFeatureBorder": "premiumFeatureBorder__65c15",
-		"featureBorder": "featureBorder_fbfab6c6d722",
+		"featureBorder": "featureBorder__65c15",
 		"featureBackground": "background__65c15",
 
-		"sectionTitle": "sectionTitle__7bffb",
-		"children": "children__7bffb",
-		"marginReset": "marginReset_fd297e",
-		"marginCenterHorz": "marginCenterHorz_fd297e",
-		"marginTop4": "marginTop4_fd297e",
-		"marginTop8": "marginTop8_fd297e",
-		"marginTop20": "marginTop20_fd297e",
-		"marginTop40": "marginTop40_fd297e",
-		"marginTop60": "marginTop60_fd297e",
-		"marginBottom4": "marginBottom4_fd297e",
-		"marginBottom8": "marginBottom8_fd297e",
-		"marginBottom20": "marginBottom20_fd297e",
-		"marginBottom40": "marginBottom40_fd297e",
-		"marginBottom60": "marginBottom60_fd297e",
-		"marginLeft8": "marginLeft8_fd297e",
+		"sectionTitle": "@alias settings content section title",
+		"children": "@alias settings content section children",
 		"divider": "divider__46c3b",
-		"description": "description_ddd181",
+		"description": "@alias settings content form description",
 		"title": "title_b717a1",
 
-		"disableAccountButton": "disableButton_d286c5",
+		"disableAccountButton": "@alias settings myAccount security disableAccountButton",
 
 		"box": "box_f8c98c",
 
-		"contentRegion": "contentRegion__23e6b",
-		"contentRegionScroller": "contentRegionScroller__23e6b",
-		"contentColumn": "contentColumn__23e6b",
-		"contentColumnWide": "contentColumnWide__23e6b",
 
-		"accountProfile": "accountProfileCard__1fed1",
-		"accountProfileAvatar": "avatar__1fed1",
-		"accountProfileBackground": "background__1fed1",
-		"fieldList": "fieldList__1fed1",
-		"field": "field__1fed1",
-		"accountSettingsSecurity": "userSettingsSecurity__2666b",
+		"accountProfile": "@alias settings myAccount security profileCard account",
+		"accountProfileAvatar": "@alias settings myAccount security profileCard avatar",
+		"accountProfileBackground": "@alias settings myAccount security profileCard background",
+		"fieldList": "@alias settings myAccount security profileCard field list",
+		"field": "@alias settings myAccount security profileCard field",
+		"accountSettingsSecurity": "@alias settings myAccount security userSettingsSecurity",
 
 		"profileImageUploader": "imageUploader_e4d0bf",
 
@@ -3606,10 +4037,6 @@ $classes: (
 		"giftPromotionCard": "promotionCard_d4883c",
 
 		"codeRedemptionRedirect": "codeRedemptionRedirect_a706ba",
-
-		"closeButtonContainer": "container_c2b141",
-		"closeButton": "closeButton_c2b141",
-		"closeButtonKeybind": "keybind_c2b141",
 	),
 	// subset of userSettings
 	"appSettings": (
@@ -3672,8 +4099,77 @@ $classes: (
 		"gameRemove": "removeGame_cc46f0",
 		"addGamePopout": "addGamePopout_cc46f0",
 
-		"contentTransitionWrap": "contentTransitionWrap__23e6b",
+		"contentTransitionWrap": "@alias settings content transitionWrap",
 	),
+	"channelSettings": (
+		"overview": "channel-settings-overview", // class found within JS rather than CSS
+
+		"roleScroller": "scroller_ff90b2",
+		"settingsCard": "settingCard_dd864e",
+		"settingsCardActive": "active_dd864e",
+		"cardContent": "cardContent_f62fce",
+		"cardFolder": "cardFolder_dd864e",
+		"folderHeader": "folderHeader_dd864e",
+		"adminWarning": "adminWarning_dd864e", // no idea what this is used for
+		"folderRoleMemberList": "memberRow_dd864e",
+
+		"permGroup": "group__344e6",
+		"permDisabled": "disabled__344e6",
+		"permItem": "item__344e6",
+		"permSelected": "selected__344e6",
+		"permDeny": "deny__344e6",
+		"permNoop": "passthrough__344e6",
+		"permAllow": "allow__344e6",
+
+		"inviteRow": "inviteSettingsInviteRow__1de14",
+		"revokeInvite": "revokeInvite__1de14",
+
+		"integrationCard": "card_dc2e44",
+		"integrationIconWrapper": "iconWrapper__4a3a5",
+
+		"webhookCard": "card_eafb9c",
+		"webhookAvatarUploader": "avatarUploaderInner_eafb9c",
+
+		"followedChannelCard": "card_ebafdd",
+	),
+	"serverSettings": (
+		"serverIconUploadInner": "avatarUploaderInner_cd0bbe",
+
+		"rolePage": "contentColumnMinimal__23e6b",
+
+		"noticeRegion": "noticeRegion__23e6b",
+		"noticeContainer": "container_fcf29c",
+
+		"roleEveryoneContainer": "container_d8f25b",
+		"roleEveryoneIcon": "icon_d8f25b",
+		"roleSearchPopup": "container__3dde2",
+		"roleSearchBar": "searchBar__5ec2f", // shared with above in friends list
+		"roleRow": "roleRow_a930f1",
+		"roleRowDisableHover": "roleRowDisableHover_a930f1",
+		"roleCircleButton": "circleButton_a930f1",
+		"roleEditButton": "editButton_a930f1",
+		// below "role"s are shown by clicking edit
+		"roleContentContainer": "contentContainer__91dc3",
+		"roleSidebar": "sidebar_e29cd7",
+		"roleTitleContainer": "titleContainer_e29cd7",
+		"roleHeader": "header_c6bf1b",
+		"roleHeaderStickyElevated": "stickyHeaderElevated_c6bf1b",
+		"roleHeaderSticky": "stickyHeader_c6bf1b",
+		"rolePreviewContainer": "previewContainer__05e8e",
+
+		"emojiRow": "emojiRow_e7d73e",
+		"emojiAliasPlaceholder": "emojiAliasPlaceholder_e7d73e",
+		"emojiAliasInput": "emojiAliasInput_e7d73e",
+		"emojiInput": "emojiInput_e7d73e",
+
+		"templateDescriptionBox": "descriptionBox__981f7",
+		"templateDescriptionIcon": "descriptionIcon__981f7",
+
+		"enableCommunityFeatureCard": "featureCard_bebc5b",
+		"enableCommunityFeatureIcon": "featureIcon_bebc5b",
+		"enableCommunityGuildDetails": "guildDetails_bebc5b",
+	),
+
 	// There's (at least) two different lines for reactions.
 	// One's for *chat* and the other's for *forum posts*.
 	// This lot is for the former.
@@ -6013,7 +6509,6 @@ $classes: (
 			"authModalScopeTimes": "iconWrapper_cf14a8",
 			"userProfileStatusBubbleOuter": "statusBubbleOuter_d0a252",
 			"userProfileStatusBubble": "statusBubble_d0a252",
-			"userProfileBadgeList": "container__8061a",
 			"userProfileOverlayScroller": "scroller_fcb628",
 			"userProfileNote": "note_fcb628",
 			"discoverSearchBox": "searchBox_d727b3",
@@ -6083,13 +6578,10 @@ $classes: (
 			"statusPickerDescription": "description_e0f739",
 			"searchHubHeader": "searchHeader__83bd4",
 			"settingsContentSidebarScrollable": "sidebarScrollable_ff90b2",
-			"settingsToolsContainer": "toolsContainer__23e6b",
-			"settingsTools": "tools__23e6b",
 			"settingsImageUploaderInner": "imageUploaderInner_e4d0bf",
 			"settingsImageUploaderIcon": "imageUploaderIcon_e4d0bf",
 			"settingsAttendeeCTA": "attendeeCTA_ca5ce6",
 			"settingsColorPickerCustom": "customColorPicker__459fb",
-			"settingsSocialLink": "link__7df54",
 			"guildFeatureAvailabilityIndicator": "availabilityIndicator__40463",
 			"guildSettingsMembersMoved": "movedTable_dd2627",
 			"guildSettingsShowMembersInChannelList": "bannerContainer__71cd5",
@@ -6217,11 +6709,6 @@ $classes: (
 			"radioItemDisabled": "disabled__001a7",
 			"userSettingsProfilePreview": "container_ba7f98",
 			"userSettingsProfilePremiumBackground": "premiumBackground__65c15",
-			"userSettingsPrivacyStandingContainer": "container_d878e7",
-			"userSettingsPrivacyStandingAvatarBG": "avatarBackground_eb2508",
-			"userSettingsPrivacyStandingLine": "line_d878e7",
-			"userSettingsPrivacyStandingMarker": "marker_d878e7",
-			"userSettingsPrivacyStandingMarkerEmpty": "empty_d878e7",
 			"userSettingsFamilyContainers": "container__5dbf8" "container__8cc9a" "container__5b321",
 			"userSettingsFamilyBox": "box_d9914b",
 			"userSettingsFamilyCircle": "circle__8cc9a",
@@ -6568,8 +7055,6 @@ $classes: (
 			"fileProgress": "progress_b52bef",
 			"attachmentCancelButton": "cancelButton_b52bef",
 			"attachmentButton": "downloadButton__3fb6d" "cancelButton_b52bef",
-			"input": "input__0f084",
-			"inputFocused": "focused__0f084",
 			"searchResultHighlight": "highlight",
 			"questPanelContentExpanded": "contentExpanded__636a2",
 			"upsellTooltipCaretRightCenter": "caretRightCenter__675aa",
@@ -6584,8 +7069,6 @@ $classes: (
 			"pollCreatePopoutAddAnswerIcon": "addAnswerIconDefault_d97f89",
 			"pollCreatePopoutAddAnswerLabel": "addAnswerButtonLabel_d97f89",
 			"superReactionGlow": "burstGlow__23977",
-
-			// SORTED AND NEED ALIASES
 		),
 	),
 
@@ -6634,9 +7117,58 @@ $classes: (
 				"fail": "fail",
 			),
 		),
+		// category redirections
+		"i": (
+			"_alias": ". a", // should end up at #{c(test a ??)}
+		),
+		"k": (
+			"sameCat": (
+				"_alias": ". maybe", // should end up at #{c(test k maybe ??)}
+			),
+			"something": (
+				"_alias": ". deep shallow", // should end up at #{c(test k deep shallow ??)}
+			),
+			"deep": (
+				"deep": (
+					"deep": (
+						"_alias": ". . . . a", // should also end up at #{c(test a ??)}
+					),
+				),
+				"shallow": (
+					"_index": "barfoo",
+					"bazbaz": "bazbaz",
+				),
+			),
+			"alt": (
+				"_alias": "test e" // should also end up at #{c(test e ??)}
+			),
+			"maybe": (
+				"_index": "foo",
+				"bar": "baz",
+			),
+			// calling these should throw warns or errors
+			"intentionalyUnreachable": ( // warn: unreachable classes
+				"_alias": ". maybe",
+				"foo": "bar",
+			),
+			"borked": (
+				"_alias": "", // error: invalid alias
+			),
+			"borked2": (
+				"_alias": ("this is a list!"), // error: invalid alias
+			),
+			"borked3": (
+				"_alias": ". . . . . . . . a", // error: too deep!
+			),
+			"borked4": (
+				"_alias": "test invalid", // error: invalid alias target
+			)
+		),
 	),
-
 );
+
+// @debug #{c(text heading sm normal)};
+// @debug textGen("__84522", ("code", "display-lg", "heading-sm\\/medium", "heading-deprecated-12\\/extrabold"));
 
 // Known things to get classes for:
 // in-voice, click noise suppression button for popout

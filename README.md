@@ -14,6 +14,19 @@ You'll need `sass` installed using the instructions from the link above. This cu
 
 You should then be able to run `sass` in your command line, though the class list will likely work using another implementation.
 
+The following npm packages are also required:
+- @sass-fairy/list
+- @sass-fairy/string
+
+The following npm packages may also be of use:
+- @sass-fairy/break
+- @sass-fairy/color
+- @sass-fairy/exception
+- @sass-fairy/map
+- @sass-fairy/math
+- @sass-fairy/meta
+- @sass-fairy/url
+
 Recommended `npm` functions:
 ```JSON
 "buildTheme": "sass path/to/inputFiles:path/to/outputFiles -I path/to/loadPath",
@@ -164,6 +177,13 @@ $classes: (
 			"spaceSep": "item4" "item5" "item6", // outputs an :is() list
 			"brackets": ["item7" "item8" "item9" "item with spaces"], // also outputs a :where() list
 		),
+		// sub-map aliasing
+		"i": (
+			"_alias": ". a", // should end up at #{c(test a ??)}. the example below uses #{c(test i foo)}.
+		),
+		"k": (
+			"_alias": "test e", // an absolute path for an alias. should end up at #{c(test e ??)}. the example below uses #{c(test k hash)}.
+		),
 	),
 );
 ```
@@ -193,6 +213,10 @@ $classes: (
 /* test f foo */ :where(.item1,.item2,.item3) {}
 /* test f spaceSep */ :is(.item4,.item5,.item6) {}
 /* test f brackets */ :where(.item7,.item8,.item9,.item with spaces) {} /* ".item with spaces" is invalid CSS but is still outputted. */
+
+/* test i foo */ .bar {}
+
+/* test k hash */ #hash {}
 ```
 
 </details>
