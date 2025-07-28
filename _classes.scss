@@ -1902,6 +1902,7 @@ $classes: (
 		"codeblockInline": "markup__75297 code.inline",
 		"embedIframe": "embedIframe__623de",
 
+		// note that some of these still show up for a loading-in invite
 		"invite": "wrapper_d5f3cd",
 		"inviteDestinationExpired": "inviteDestinationExpired_d5f3cd",
 		"inviteServerIcon": "guildIcon_d5f3cd",
@@ -1911,6 +1912,22 @@ $classes: (
 		"inviteSplash": "inviteSplash_d5f3cd",
 		"inviteSplashImage": "inviteSplashImage_d5f3cd",
 		"inviteSplashImageLoaded": "inviteSplashImageLoaded_d5f3cd",
+		
+		"inviteNew": (
+			"_index": "guildInviteContainer__083ae",
+			"clickable": "clickable__083ae",
+			"cardHeightMeasure": "cardHeightMeasure__083ae",
+			"banner": "banner__083ae",
+			"mainContent": "mainContent__083ae",
+			"footer": "footer__083ae",
+			"floatingFooter": "floatingFooter__083ae",
+			"gradient": "gradient__083ae",
+			"footerContent": "footerContent__083ae",
+			"collapsedFooterContent": "collapsedFooterContent__083ae",
+			"buttonContainer": "buttonContainer__083ae",
+			"hideDetailsButtonContainer": "hideDetailsButtonContainer__083ae",
+			"inviteTitle": "inviteTitle__083ae",
+		),
 
 		"giftContainer": "giftCodeContainer_b7e1cb",
 		"gift": "tile__72090",
