@@ -3151,14 +3151,19 @@ $classes: (
 		"communityInfoPill": "communityInfoPill_f37cb1",
 		"communityInfoIcon": "communityIcon_f37cb1",
 
-		"boostContainer": "container_eff079",
-		"boostTextArea": "textArea_eff079",
-		"boostGoalTextContainer": "goalTextContainer_eff079",
-		"boostGoalText": "goalText_eff079",
-		"boostProgressFraction": "progressFraction_eff079",
-		"boostBar": "bar_eff079",
-		"boostProgressBar": "progressBar_eff079", // boost background
-		"boostProgressBarContainer": "progressBarContainer_eff079", // dark background
+		// since this was updated :)
+		"boostBar": (
+			"container": "container__0d0f9", // container in sidebar
+			"containerWithMargin": "containerWithMargin__0d0f9", // paired with above
+			"contentContainer": "contentContainer__0d0f9",
+			"progressContainer": "progressContainer__0d0f9", // background-color: background base low
+			"progress": "progress__0d0f9", // has boost color background
+			"progressLow": "progressLow__0d0f9", // paired with above; empty. no boosts.
+			"textContainer": "textContainer__0d0f9",
+			"textContentContainer": "textContentContainer__0d0f9",
+			"text": "text__0d0f9",
+			"boostCountText": "boostCountText__0d0f9",
+		),
 
 		"threadsContainer": "container__5b40b",
 		"threadsSpine": "spine__5b40b",
