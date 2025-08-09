@@ -2551,12 +2551,23 @@ $classes: (
 		"noResults": "noResults_a9e706", // paired with above
 	),
 	"serverList": (
-		"servers": "guilds_c48ade",
+		"_index": "guilds_c48ade", // class set for suffix appears all over the place
 		"wrapper": "wrapper_ef3116",
 		"hidden": "hidden_ef3116", // unsure about usage but exists on same line as wrapper above
 		"tree": "tree_ef3116",
 		"scroller": "scroller_ef3116",
+		"scrolling": "scrolling_ef3116",
 		"itemsContainer": "itemsContainer_ef3116",
+		"unreadMentionsBar": (
+			"_index": "unreadMentionsBar_ef3116",
+			"top": "unreadMentionsIndicatorTop_ef3116",
+			"bottom": "unreadMentionsIndicatorBottom_ef3116",
+			"fixedFooter": "unreadMentionsFixedFooter_ef3116", // unsure on usage
+			"fixedFooterBottomNotifCenterEntrypoint": "unreadMentionsFixedFooterBottomNotifCenterEntrypoint_ef3116", // unsure on usage, long ass name smh
+		),
+		"discoveryIcon": "discoveryIcon_ef3116", // unsure on usage
+		"bottomRailNotifCenterButton": "bottomRailNotifCenterButton_ef3116", // unsure on usage
+
 		"homeContainer": "tutorialContainer__1f388",
 		"listItemWrapper": "listItemWrapper_dfb2f8", // seems to be only on home, add new and discovery
 		"listItem": "listItem__650eb",
@@ -2579,18 +2590,18 @@ $classes: (
 		"acronymFolder": "acronym_f34534", // above but within a folder
 		"serverIcon": "icon__6e9f8",
 		"selected": "selected__6e9f8",
-		"addServerContainer": "tutorialContainer__650eb",
-		"addServer": "circleIconButton__5bc7e",
-		"addServerSelected": "selected__5bc7e",
-		"addServerIcon": "circleIcon__5bc7e",
+		"addServer": (
+			"container": "tutorialContainer__650eb",
+			"_index": "circleIconButton__5bc7e",
+			"disabled": "disabled__5bc7e",
+			"selected": "selected__5bc7e",
+			"icon": "circleIcon__5bc7e",
+		)
 		"lowerBadge": "lowerBadge_cc5dd2",
 		"numberBadge": "numberBadge__2b1f5",
 		"upperBadge": "upperBadge_cc5dd2",
 		"iconBadge": "iconBadge__650eb",
 		"participating": "isCurrentUserConnected__650eb", // also used in header for some reason?
-		"unreadMentionsBar": "unreadMentionsBar_ef3116",
-		"unreadMentionsBarTop": "unreadMentionsIndicatorTop_ef3116",
-		"unreadMentionsBarBottom": "unreadMentionsIndicatorBottom_ef3116",
 
 		"folderParentWrapper": "wrapper__48112",
 		"folderParentWrapperCollapsed": "collapsed", // class found in JS
@@ -2639,6 +2650,15 @@ $classes: (
 			"close": "close_d71945",
 			"coachmarkTextContainer": "coachmarkTextContainer_d71945",
 		),
+
+		// old stuff
+		"servers": "@alias serverList",
+		"unreadMentionsBarTop": "@alias serverList unreadMentionsBar top",
+		"unreadMentionsBarBottom": "@alias serverList unreadMentionsBar bottom",
+		"addServerContainer": "@alias serverList addServer container",
+		"addServerDisabled": "@alias serverList addServer disabled",
+		"addServerSelected": "@alias serverList addServer selected",
+		"addServerIcon": "@alias serverList addServer icon",
 	),
 	"sidebar": (
 		"_index": "sidebar_c48ade",
