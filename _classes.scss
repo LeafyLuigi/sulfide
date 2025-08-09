@@ -2596,26 +2596,29 @@ $classes: (
 			"disabled": "disabled__5bc7e",
 			"selected": "selected__5bc7e",
 			"icon": "circleIcon__5bc7e",
-		)
+		),
 		"lowerBadge": "lowerBadge_cc5dd2",
 		"numberBadge": "numberBadge__2b1f5",
 		"upperBadge": "upperBadge_cc5dd2",
 		"iconBadge": "iconBadge__650eb",
 		"participating": "isCurrentUserConnected__650eb", // also used in header for some reason?
 
-		"folderParentWrapper": "wrapper__48112",
-		"folderParentWrapperCollapsed": "collapsed", // class found in JS
-		"folderParentWrapperExpanded": "expanded", // class found in JS
-		"folder": "folder__48112",
-		"folderCollapsed": "collapsed__48112",
-		"folderHover": "hover__48112",
-		"closedFolderIconWrapper": "closedFolderIconWrapper__48112",
-		"folderGuildIcon": "guildIcon__48112", // tiny server icons
-		"folderNoIcon": "noIcon_f11207", // shared in settings/boosts?
-		"expandedFolderBackground": "expandedFolderBackground__48112",
-		"folderIconWrapper": "folderIconWrapper__48112",
-		"expandedFolderIconWrapper": "expandedFolderIconWrapper__48112",
-		"serversInFolderStack": "stack_dbd263", // servers in folder
+		"folder": (
+			"parentWrapper": "wrapper__48112",
+			"parentCollapsed": "collapsed", // class found in JS
+			"parentExpanded": "expanded", // class found in JS
+			"_index": "folder__48112",
+			"collapsed": "collapsed__48112",
+			"hover": "hover__48112",
+			"closedFolderIconWrapper": "closedFolderIconWrapper__48112",
+			"guildIcon": "guildIcon__48112", // tiny server icons
+			"noIcon": "noIcon_f11207", // shared in settings/boosts?
+			"expandedFolderBackground": "expandedFolderBackground__48112",
+			"folderIconWrapper": "folderIconWrapper__48112",
+			"expandedFolderIconWrapper": "expandedFolderIconWrapper__48112",
+			"stack": "stack_dbd263", // servers in folder
+		),
+
 		"dragOver": "dragOver_d144f8",
 		"dragCenterTarget": "centerTarget_d144f8", // green thing when merging
 		"dragTarget": "target_d144f8", // green thing when dragging
@@ -2659,6 +2662,18 @@ $classes: (
 		"addServerDisabled": "@alias serverList addServer disabled",
 		"addServerSelected": "@alias serverList addServer selected",
 		"addServerIcon": "@alias serverList addServer icon",
+		"folderParentWrapper": "@alias serverList folder parentWrapper",
+		"folderParentWrapperCollapsed": "@alias serverList folder parentCollapsed",
+		"folderParentWrapperExpanded": "@alias serverList folder parentExpanded",
+		"folderCollapsed": "@alias serverList folder collapsed",
+		"folderHover": "@alias serverList folder hover",
+		"closedFolderIconWrapper": "@alias serverList folder closedFolderIconWrapper",
+		"folderGuildIcon": "@alias serverList folder guildIcon",
+		"folderNoIcon": "@alias serverList folder noIcon",
+		"expandedFolderBackground": "@alias serverList folder expandedFolderBackground",
+		"folderIconWrapper": "@alias serverList folder folderIconWrapper",
+		"expandedFolderIconWrapper": "@alias serverList folder expandedFolderIconWrapper",
+		"serversInFolderStack": "@alias serverList folder stack",
 	),
 	"sidebar": (
 		"_index": "sidebar_c48ade",
