@@ -2784,6 +2784,10 @@ $classes: (
 				"bannerContainer": "animatedContainer_f37cb1", // uses inline styling to animate
 				"bannerImage": "bannerImage_f37cb1", // wrapper, uses inline to animate
 				"bannerImg": "bannerImg_f37cb1", // <img>
+				// part of the animated container stuff
+				"eclipseBackdrop": "headerEllipseForeground_f37cb1",
+				"eclipseForeground": "headerEllipseForeground_f37cb1",
+				"glass": "headerGlass_f37cb1",
 			),
 			"name": "name_f37cb1", // it's in the header but here feels better
 
