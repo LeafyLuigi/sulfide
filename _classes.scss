@@ -2201,7 +2201,7 @@ $classes: (
 		// appears on right, contains inbox, help link and windows min/max/close buttons
 		"trailing": (
 			"container": "trailing_c38106",
-			"recentsIcon": "recentsIcon_c99c29", // inbox icon
+			"recentsIcon": "clickable_c99c29", // inbox icon
 			// for the help link, target #{c(topBar trailing container)}>a[href="https://support.discord.com"]
 			"button": "button__85643", // child icons. css has a rule for .visualRefresh .button svg {} -- despite that svg having a class lol
 
@@ -2725,7 +2725,14 @@ $classes: (
 			"activityIcon": "icon_c9d15c", // shows up when a user is playing a game or listening to music -- SHARED IN OTHER PLACES IN APP
 			"activityQuestsIcon": "questsIcon_c9d15c", // presumably this is used with quests. -- SHARED IN OTHER PLACES IN APP
 
+			"iconsContainer": "iconsContainer__972a0",
+			"nameplated": "nameplated__972a0",
 			"closeButton": "closeButton__972a0", // click to close dm or leave group chat
+			"closeButtonNameplated": "closeButtonPlated__972a0",
+			"reducedClickTarget": "reducedClickTarget__972a0",
+			"innerCloseButtonPlated": "innerCloseButtonPlated__972a0",
+			"closeIcon": "closeIcon__972a0",
+			"closeIconPlated": "closeIconPlated__972a0",
 
 			"loadingEmpty": "empty__99e7c", // you'll quickly see it when you reload on the friends list
 
@@ -2785,7 +2792,7 @@ $classes: (
 				"bannerImage": "bannerImage_f37cb1", // wrapper, uses inline to animate
 				"bannerImg": "bannerImg_f37cb1", // <img>
 				// part of the animated container stuff
-				"eclipseBackdrop": "headerEllipseForeground_f37cb1",
+				"eclipseBackdrop": "headerEllipseBackdrop_f37cb1",
 				"eclipseForeground": "headerEllipseForeground_f37cb1",
 				"glass": "headerGlass_f37cb1",
 			),
@@ -3269,6 +3276,13 @@ $classes: (
 
 		// different css lines
 		"stageListenerPill": "stageListenerPill_b1f768",
+		"inbox": (
+			"_index": "tooltip__4e35b",
+			"caretIcon": "caretIcon__4e35b", // svg
+			"caretFill": "caretFill__4e35b", // path
+			"caretStroke": "caretStroke__4e35b", // path again
+			"tooltipContent": "tooltipContent__4e35b",
+		)
 	),
 
 	// Profiles are for anything involving an Avatar, Username, #0000 number and optionally customization.
@@ -3550,9 +3564,9 @@ $classes: (
 
 			"body": "body__24502",
 
-			"usernameContainer": "container__63ed3",
-			"usernameRow": "usernameRow__63ed3",
-			"nickname": "nickname__63ed3",
+			"usernameContainer": "@alias profile username container",
+			"usernameRow": "@alias profile username usernameRow",
+			"nickname": "@alias profile username nickname",
 
 			"bodyContainer": "container_d1d9f3", // contains tab bar, note, connections, scrollers etc
 			"tabBar": "tabBar_d1d9f3",
@@ -3628,7 +3642,7 @@ $classes: (
 			"collapseButtonIcon": "iconWrapper_a4a127",
 		),
 
-		// Popoout: click on user in chat or member list
+		// Popoout: click on user in chat or member list, also appears in settings
 		"popout": (
 			"_index": "user-profile-popout",
 			"bitesize": (
@@ -3693,6 +3707,35 @@ $classes: (
 		// Within settings, it's in Profiles. Chances are overlap with popout exist here.
 		"settings": (
 			"badgeList": "@alias settings myAccount security profileCard badgeList",
+		),
+
+		// People paid for it, might as well include it.
+		"nameplate": (
+			"container": "container__4bbc6",
+			"fadeIn": "fadeIn__4bbc6",
+			"img": "img__4bbc6",
+			"hover": "hover__4bbc6",
+			"selected": "selected__4bbc6",
+			"channel": "channel__4bbc6", // private DM
+			"account": "account__4bbc6", // VERY LIKELY ON PANEL; I DO NOT HAVE ANY NAMEPLATES AND CANNOT TEST.
+			"preview": "preview__4bbc6", // member list
+			"miniPreview": "mini_preview__4bbc6",
+			"videoContainer": "videoContainer__4bbc6",
+
+			// only called that as it appears there.
+			"settingsPreview": (
+				// these are all affected by density-(cozy|default|compact) for height.
+				"_index": "nameplatePreview_fdeafc",
+				"large": "large_fdeafc",
+				"xlarge": "xlarge_fdeafc",
+				"overlayContainer": "overlayContainer_fdeafc",
+				"avatarContainer": "avatarContainer_fdeafc",
+				"avatar": "avatar_fdeafc",
+				"avatarVisible": "avatarVisible_fdeafc",
+				"nameplatePurchased": "nameplatePurchased_fdeafc",
+				"placeholderUsername": "placeholderUsername_fdeafc",
+				"tagChiplet": "tagChiplet_fdeafc",
+			),
 		),
 	),
 
@@ -3941,6 +3984,8 @@ $classes: (
 				// right: what does it look like?
 				"preview": (
 					"_index": "preview__44061",
+					"hideDivider": "hideDivider_ace4f5",
+					"viewFullProfileButton": "viewFullProfileButton_ace4f5",
 					"column": "column__5a2c6",
 					"profile": (
 						"_index": "container__5a2c6", // actual container holding the profile. paired with #{c(profile outer)}
@@ -3952,8 +3997,12 @@ $classes: (
 							"overlayIcon": "overlayIcon_d28e10",
 						),
 					),
+					"nameplate": ( // for all other classes, check #{c(profiles nameplate settingsPreview *)}
+						"_index": "nameplatePreview__39749",
+					),
 				),
 			),
+			// Per-Server
 		),
 	),
 
