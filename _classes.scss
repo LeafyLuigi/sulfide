@@ -479,8 +479,7 @@ $classes: (
 		"ring": "focus-rings-ring", // tab around to see this, other extra classes may appear in other areas.
 
 		// Visual Refresh stuff
-		"visualRefresh": "visual-refresh", // formerly 2024-05_desktop_visual_refresh (Desktop Visual Refresh); select treatments 1-4. experiment since removed.
-		"visualRefreshChatInput": "@visual-refresh-chat-input", // [REMOVED] same experiment, select treatment 1 or 2.
+		"visualRefresh": "visual-refresh", // formerly 2024-05_desktop_visual_refresh (Desktop Visual Refresh). Class not really used in CSS outside of variables now.
 
 		// There's another refresh experiment.
 		// dev://experiment/2025-04_desktop_refresh_fast_follows
@@ -493,6 +492,9 @@ $classes: (
 		"refreshFastFollowAvatars": "refresh-fast-follow-avatars", // 1, 3 and 5
 		"refreshFastFollowBackground": "refresh-fast-follow-guild-bg", // 2 and 3
 		"refreshFastFollowBorders": "refresh-fast-follow-distinct-borders", // 4 and 5
+
+		// Bottom-Aligned Chat Input
+		"alignChatInput": "align-chat-input", // 2025-05_align_chat_input; appears to be on everyone now.
 
 		// no idea what these classes are about
 		"backgroundOpacity": (
