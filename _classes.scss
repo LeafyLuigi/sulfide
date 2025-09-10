@@ -1168,6 +1168,10 @@ $classes: (
 		"subtitleContainer": "subtitleContainer_f75fb0", // parent to #{c(header header)}
 		"noChat": "noChat_f75fb0",
 		"chatContent": "content_f75fb0",
+		"gradient": ( // from alignChatInput experiment
+			"_index": "chatGradient__36d07",
+			"base": "chatGradientBase__36d07", 
+		),
 		"messagesWrapper": "messagesWrapper__36d07",
 		"chatScroller": "scroller__36d07",
 		"chatScrollerInner": "scrollerInner__36d07",
