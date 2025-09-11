@@ -502,6 +502,7 @@ $classes: (
 			"medium": "background-opacity-medium",
 			"high": "background-opacity-high",
 		),
+		"hasWebkitScrollbar": "has-webkit-scrollbar",
 
 		// for things like font scaling and a11y.
 		"options": (
@@ -4333,29 +4334,109 @@ $classes: (
 	"modals": (
 		"layer": "layer_bc663c",
 		"hidden": "hidden_bc663c", // best way to get this class is to change banner/avi and click gifs
-		"focusLock": "focusLock__49fc1",
-		"root": "root__49fc1",
-		"header": "header__49fc1",
-		// header text doesn't have its own class per se but can be targeted with header>h2
-		"close": "close__49fc1", // most modals that have this also have a second class attached
-		"closeWithCircleBackground": "closeWithCircleBackground__49fc1",
-		"closeIcon": "closeIcon__49fc1",
-		"body": "content__49fc1",
-		"footer": "footer__49fc1", // apparently it still uses theme-dark and theme-light. wankers.
 
-		// sizes
-		"small": "small__49fc1",
-		"medium": "medium__49fc1",
-		"large": "large__49fc1",
+		// modals have appeared to have been reworked since this section was last updated. mind you, not all modals use the new style.
+		"old": (
+			"focusLock": "focusLock__49fc1",
+			"root": "root__49fc1",
+			"header": "header__49fc1",
+			// header text doesn't have its own class per se but can be targeted with header>h2
+			"close": "close__49fc1", // most modals that have this also have a second class attached
+			"closeWithCircleBackground": "closeWithCircleBackground__49fc1",
+			"closeIcon": "closeIcon__49fc1",
+			"body": "content__49fc1",
+			"footer": "footer__49fc1", // apparently it still uses theme-dark and theme-light. wankers.
 
-		"fullscreenMobile": "fullscreenOnMobile__49fc1",
-		"hideOnFullscreen": "hideOnFullscreen__49fc1",
-		"rootWithShadow": "rootWithShadow__49fc1",
-		"spinnerContainer": "spinnerContainer__49fc1",
+			// sizes
+			"small": "small__49fc1",
+			"medium": "medium__49fc1",
+			"large": "large__49fc1",
 
-		// both rules are basically box shadows
-		"separator": "separator__49fc1",
-		"footerSeparator": "footerSeparator__49fc1",
+			"fullscreenMobile": "fullscreenOnMobile__49fc1",
+			"hideOnFullscreen": "hideOnFullscreen__49fc1",
+			"rootWithShadow": "rootWithShadow__49fc1",
+			"spinnerContainer": "spinnerContainer__49fc1",
+
+			// both rules are basically box shadows
+			"separator": "separator__49fc1",
+			"footerSeparator": "footerSeparator__49fc1",
+		),
+		"new": (
+			"scrim": (
+				"_index": "scrim_d9cec8",
+				"lightbox": "lightbox_d9cec8",
+				"pointerEventsNone": "pointerEventsNone_d9cec8",
+			),
+			"outerContainer": "outerContainer__53cea",
+			"container": "container__53cea",
+			"padding-size-sm": "padding-size-sm__53cea",
+			"padding-size-lg": "padding-size-lg__53cea",
+			"size-sm": "size-sm__53cea",
+			"size-md": "size-md__53cea",
+			"size-lg": "size-lg__53cea",
+			"size-xl": "size-xl__53cea",
+			"fullScreenOnMobile": "fullScreenOnMobile__53cea",
+			"section": "section__53cea",
+			"header": (
+				"_index": "header__53cea",
+				"centered": "headerCentered__53cea",
+				"layout": "headerLayout__53cea",
+				"gradient": "headerGradient__53cea",
+				"graphic": (
+					"_index": "headerGraphic__53cea",
+					"container": "headerGraphicContainer__53cea",
+					"animated": "headerGraphicAnimated__53cea",
+				),
+				"leading": "headerLeading__53cea",
+				"leadingSpacer": "headerLeadingSpacer__53cea",
+				"leadingAbsolute": "headerLeadingAbsolute__53cea",
+				"trailing": "headerTrailing__53cea",
+				"trailingSpacer": "headerTrailingSpacer__53cea",
+				"trailingAbsolute": "headerTrailingAbsolute__53cea",
+				"main": "headerMain__53cea",
+				"subtitle": "headerSubtitle__53cea",
+				"title": "headerTitle__53cea",
+				"badge": "headerBadge__53cea",
+			),
+			"body": (
+				"_index": "body__53cea",
+				"list": "bodyList__53cea",
+				"spacerTop": "bodySpacerTop__53cea",
+				"spacerTopBorder": "bodySpacerTopBorder__53cea",
+				"spacerBottom": "bodySpacerBottom__53cea",
+				"spacerBottomBorder": "bodySpacerBottomBorder__53cea",
+				"controls": "bodyControls__53cea",
+				"controlsWithFade": "bodyControlsWithFade__53cea",
+				"inner": "bodyInner__53cea",
+				"innerShouldScroll": "bodyInnerShouldScroll__53cea",
+			),
+			"footer": "footer__53cea",
+			"actionBar": (
+				"_index": "actionBar__53cea",
+				"leading": "actionBarLeading__53cea",
+				"trailing": "actionBarTrailing__53cea",
+				"trailingFullWidth": "actionBarTrailingFullWidth__53cea",
+				"buttonWrapper": "actionButtonWrapper__53cea",
+			),
+		),
+
+		"focusLock": "@alias modals old focusLock",
+		"root": "@alias modals old root",
+		"header": "@alias modals old header",
+		"close": "@alias modals old close",
+		"closeWithCircleBackground": "@alias modals old closeWithCircleBackground",
+		"closeIcon": "@alias modals old closeIcon",
+		"body": "@alias modals old content",
+		"footer": "@alias modals old footer",
+		"small": "@alias modals old small",
+		"medium": "@alias modals old medium",
+		"large": "@alias modals old large",
+		"fullscreenMobile": "@alias modals old fullscreenOnMobile",
+		"hideOnFullscreen": "@alias modals old hideOnFullscreen",
+		"rootWithShadow": "@alias modals old rootWithShadow",
+		"spinnerContainer": "@alias modals old spinnerContainer",
+		"separator": "@alias modals old separator",
+		"footerSeparator": "@alias modals old footerSeparator",
 
 		// animations are in own group
 		"translate": "translate_faf9c0",
