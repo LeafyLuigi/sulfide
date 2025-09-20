@@ -459,7 +459,8 @@ $classes: (
 		"mouseMode": "mouse-mode",
 		"keyboardMode": "keyboard-mode",
 		"focused": "app-focused",
-		"layerContainer": "layerContainer_da8173",
+		"layerContainer": "layerContainer__59d0d",
+		"clickTrapContainer": "clickTrapContainer__59d0d",
 		"container": "container_c48ade",
 		"content": "content_c48ade",
 		"layer": "layer_da8173",
@@ -4483,53 +4484,57 @@ $classes: (
 			"searchBar": "searchBar__3e00d", // make a private channel and click next
 
 			// more -- i cannot remember how to pull this up.
-			"modal": "modal_b545d5",
-			"modalContent": "modalContent_b545d5",
-			"modalFooter": "modalFooter_b545d5",
-			"footer": "footer_b545d5",
-			"description": "description_b545d5",
-			"name": "name_b545d5",
-			"type": "type_b545d5",
-			"icon": "icon_b545d5",
-			"error": "error_b545d5",
-			"header": "header_b545d5",
-			"title": "title_b545d5",
-			"subtitle": "subtitle_b545d5",
-			"subtitleIcon": "subtitleIcon_b545d5",
-			"closeButton": "closeButton_b545d5",
-			"sectionTitle": "sectionTitle_b545d5",
-			"clone": "clone_b545d5",
-			"permissionsTitle": "permissionsTitle_b545d5",
-			"background": "background_b545d5",
-			"foreground": "foreground_b545d5",
-			"inputWrapper": "inputWrapper_b545d5",
-			"inputInner": "inputInner_b545d5",
-			"inputPrefix": "inputPrefix_b545d5",
-			"switchIcon": "switchIcon_b545d5",
-			"channelTypeDescription": "channelTypeDescription_b545d5",
-			"storeChannelOptionSelector": "storeChannelOptionSelector_b545d5",
-			"username": "username_b545d5",
-			"emptyRoles": "emptyRoles_b545d5",
-			"owner": "owner_b545d5",
-			"addMembersContainer": "addMembersContainer_b545d5",
-			"addMemberError": "addMemberError_b545d5",
-			"createError": "createError_b545d5",
-			"channelNameNote": "channelNameNote_b545d5",
-			"radioLabelName": "radioLabelName_b545d5",
-			"radioLabelDescription": "radioLabelDescription_b545d5",
-			"newBadge": "newBadge_b545d5",
-			"radioBar": "radioBar_b545d5",
-			"radioBarLabel": "radioBarLabel_b545d5",
-			"radioBarIcon": "radioBarIcon_b545d5",
-			"radioItemName": "radioItemName_b545d5",
+			"modal": "modal_ac72c6",
+			"modalContent": "modalContent_ac72c6",
+			"modalFooter": "modalFooter_ac72c6",
+			"footer": "footer_ac72c6",
+			"description": "description_ac72c6",
+			"name": "name_ac72c6",
+			"type": "type_ac72c6",
+			"nameInput": "nameInput_ac72c6",
+			"emojiButton": "emojiButton_ac72c6",
+			"icon": "icon_ac72c6",
+			"error": "error_ac72c6",
+			"header": "header_ac72c6",
+			"searchHelpText": "searchHelpText_ac72c6",
+			"membersList": "membersList_ac72c6",
+			"title": "title_ac72c6",
+			"subtitle": "subtitle_ac72c6",
+			"subtitleIcon": "subtitleIcon_ac72c6",
+			"closeButton": "closeButton_ac72c6",
+			"sectionTitle": "sectionTitle_ac72c6",
+			"clone": "clone_ac72c6",
+			"permissionsTitle": "permissionsTitle_ac72c6",
+			"background": "background_ac72c6",
+			"foreground": "foreground_ac72c6",
+			"inputWrapper": "inputWrapper_ac72c6",
+			"inputInner": "inputInner_ac72c6",
+			"inputPrefix": "inputPrefix_ac72c6",
+			"switchIcon": "switchIcon_ac72c6",
+			"channelTypeDescription": "channelTypeDescription_ac72c6",
+			"storeChannelOptionSelector": "storeChannelOptionSelector_ac72c6",
+			"username": "username_ac72c6",
+			"emptyRoles": "emptyRoles_ac72c6",
+			"owner": "owner_ac72c6",
+			"addMembersContainer": "addMembersContainer_ac72c6",
+			"addMemberError": "addMemberError_ac72c6",
+			"createError": "createError_ac72c6",
+			"channelNameNote": "channelNameNote_ac72c6",
+			"radioLabelName": "radioLabelName_ac72c6",
+			"radioLabelDescription": "radioLabelDescription_ac72c6",
+			"newBadge": "newBadge_ac72c6",
+			"radioBar": "radioBar_ac72c6",
+			"radioBarLabel": "radioBarLabel_ac72c6",
+			"radioBarIcon": "radioBarIcon_ac72c6",
+			"radioItemName": "radioItemName_ac72c6",
 		),
 
 		// When creating a new event
 		"createEvent": (
-			"container": "container_f2ceaa",
-			"progressBar": "progressBar_f2ceaa", // tab at top, unselected
-			"progressBarSelected": "selectedProgressBar_f2ceaa", // above selected
-			"stepContainer": "stepContainer_f2ceaa",
+			"container": "container__5537c", // wraps the progress bars
+			"progressBar": "progressBar__5537c", // tab at top, unselected
+			"progressBarSelected": "selectedProgressBar__5537c", // above selected
+			"stepContainer": "stepContainer__5537c",
 
 			"textInput": "textInput__97cfe", // different line for some reason
 			"previewCard": "previewCard_f70348",
@@ -4548,7 +4553,7 @@ $classes: (
 		// Within modal above, click an event
 		// two major rules apply to this modal
 		"eventFull": (
-			"modal": "root__4325e",
+			"modal": "container__53cea",
 			"banner": "banner__4325e",
 			"container": "container__4325e",
 			"contentContainer": "contentContainer__4325e",
@@ -4563,7 +4568,7 @@ $classes: (
 			"rsvpCount": "rsvpCount_b5010b",
 		),
 
-		// Clicking on an invite in your browser while not signed in and being redirect to the app
+		// Clicking on an invite in your browser while not signed in and being redirected to the app
 		// above: [broken? non-linux only? firefox settings likely]
 		// Not sure how to get this anymore. 
 		"browserInvite": (
@@ -4580,6 +4585,18 @@ $classes: (
 			"pillIconOnline": "pillIconOnline__921c5",
 			"pillMessage": "pillMessage_b83a05",
 			"pillIconTotal": "pillIconTotal__921c5",
+			
+			// edit server settings
+			"profile": (
+				"editProfileContainer": "editProfileContainer__42179",
+				"opened": "opened__42179",
+				"customisationSection": "customizationSection__42179",
+				"header": "header__42179",
+				"headerIconWrapper": "headerIconWrapper__42179",
+				"title": "title__42179",
+				"caret": "caret__42179",
+				"serverNickname": "serverNickname__42179",
+			),
 		),
 
 		// Click "Invite People" in the server header dropdown
@@ -4593,15 +4610,21 @@ $classes: (
 			"groupBar": "group__3d4a0",
 			"item": "item__3d4a0",
 
-			// there are many more classes in the group below
 			"selectorButton": "selectorButton__0907c",
 			"selectorButtonSelected": "selectorButtonSelected__0907c",
+			"selectorText": "selectorText__0907c",
+			"selectorTextSelected": "selectorTextSelected__0907c",
 		),
 
 		// Click the x next to a pinned message OR pin a message WITHOUT holding shift
 		// Not to be confused with pinned; this isn't a dropdown
 		"pin": (
 			"message": "message__89466",
+
+			// other classes in same line
+			"spacing": "spacing__89466",
+			"spacingTop": "spacingTop__89466",
+			"closeButton": "closeButton__89466",
 		),
 
 		// Get an incoming call
@@ -4688,10 +4711,29 @@ $classes: (
 		),
 
 		// Join a server with "Welcome Screen" set up
+		// Alternatively, preview it.
 		"welcome": (
-			"main": "main__949ab", // modal itself
+			"main": "@main__949ab", // CLASS NO LONGER EXISTS
 			"options": "options__949ab",
 			"optionContainer": "optionContainer__949ab",
+
+			"headerGuildName": "headerGuildName__949ab",
+			"headerGuildBadge": "headerGuildBadge__949ab",
+			"flowerStar": "flowerStar__949ab",
+			"modalContent": "modalContent__949ab",
+			"guildIcon": "guildIcon__949ab",
+			"header": "header__949ab",
+			"guildDescription": "guildDescription__949ab",
+			"choiceHeader": "choiceHeader__949ab",
+			"optionTextContainer": "optionTextContainer__949ab",
+			"optionArrow": "optionArrow__949ab",
+			"optionEmoji": "optionEmoji__949ab",
+			"channelIcon": "channelIcon__949ab",
+			"channelTitleIcon": "channelTitleIcon__949ab",
+			"channelDescription": "channelDescription__949ab",
+			"skip": "skip__949ab",
+			"skipColor": "skipColor__949ab",
+
 		),
 
 		// @everyone with a larger server
@@ -4706,10 +4748,20 @@ $classes: (
 
 		// Write a message and select some text
 		"formattingToolbar": (
-			"toolbar": "toolbar_bba883",
+			"_index": "toolbar_bba883",
+			"toolbar": "@alias modals formattingToolbar",
+			"buttons": "buttons_bba883",
+			"staticToolbar": "staticToolbar_bba883",
+			"button": "button_bba883",
+			"staticButtons": "staticButtons_bba883",
+			"emojiButton": "emojiButton_bba883",
+			"divider": "divider_bba883",
+			"icon": "icon_bba883",
+			"staticIcon": "staticIcon_bba883",
+			"staticDivider": "staticDivider_bba883",
 		),
 
-		// On a message with reactions, right click and click "Show reactions"
+		// On a message with reactions, right click and click "View reactions"
 		"reactions": (
 			"modal": "container_cc2dff",
 			"sidebar": "scroller_cc2dff",
@@ -4870,13 +4922,14 @@ $classes: (
 
 		// Click on a banned user under the bans tab in server settings
 		"bannedUser": (
-			"modal": "bannedUserModal_a73dc3",
-			"header": "header_a73dc3",
-			"username": "userUsername_a73dc3",
-			"discrim": "userDiscrim_a73dc3",
-			"content": "content_a73dc3", // contains reason
-			"reasonHeader": "reasonHeader_a73dc3",
-			"footer": "footer_a73dc3",
+			// note: some of these classes may not actually exist
+			"modal": "bannedUserModal_cdb2b0",
+			"header": "header_cdb2b0",
+			"username": "userUsername_cdb2b0",
+			"discrim": "userDiscrim_cdb2b0",
+			"content": "content_cdb2b0", // contains reason
+			"reasonHeader": "reasonHeader_cdb2b0",
+			"footer": "footer_cdb2b0",
 		),
 
 		// Change Nickname of another user in a server
