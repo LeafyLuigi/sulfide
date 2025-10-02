@@ -2213,6 +2213,7 @@ $classes: (
 		"trailing": (
 			"container": "trailing_c38106",
 			"recentsIcon": "clickable_c99c29", // inbox icon
+			"badge": "badge_c99c29", // inbox badge
 			// for the help link, target #{c(topBar trailing container)}>a[href="https://support.discord.com"]
 			"button": "button__85643", // child icons. css has a rule for .visualRefresh .button svg {} -- despite that svg having a class lol
 
