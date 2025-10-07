@@ -536,6 +536,12 @@ $classes: (
 			"fullMotion": "full-motion", // A11y > "enable reduced motion" unticked
 			"reduceMotion": "reduce-motion", // A11y > "enable reduced motion" ticked
 		),
+
+		// placed on certain things, presumably for a11y reasons.
+		"a11y": (
+			"hiddenVisually": "hiddenVisually_b18fe2",
+			"showOnFocus": "showOnFocus_b18fe2",
+		),
 	),
 	"slider": ( // Checkbox with extra steps
 		"_index": "slider__87bf1",
