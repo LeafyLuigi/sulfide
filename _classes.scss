@@ -464,12 +464,12 @@ $classes: (
 		"clickTrapContainer": "clickTrapContainer__59d0d",
 		"container": "container_c48ade",
 		"content": "content_c48ade",
-		"layer": "layer_da8173",
+		"layer": "layer__59d0d",
 		"mediaEngineVideo": "media-engine-video", // class found within JS
 		"base": "base_c48ade",
 		"baseContent": "content_c48ade", // same line as base
-		"loadingSquare": "wanderingCubes__0b5bb",
-		"loadingSquareItem": "item__0b5bb",
+		"loadingSquare": "wanderingCubes__46696",
+		"loadingSquareItem": "item__46696",
 		"pictureInPicture": "pictureInPicture__6341f",
 		"pictureInPictureWindow": "pictureInPictureWindow__6341f",
 		"anchorLink": "anchor_edefb8",
@@ -544,12 +544,12 @@ $classes: (
 		),
 	),
 	"slider": ( // Checkbox with extra steps
-		"_index": "slider__87bf1",
-		"container": "container__87bf1",
+		"_index": "slider__3f21e",
+		"container": "container__3f21e",
 		"slider": "@alias slider",
-		"checked": "checked__87bf1",
-		"disabled": "disabled__87bf1",
-		"input": "input__87bf1",
+		"checked": "checked__3f21e",
+		"disabled": "disabled__3f21e",
+		"input": "input__3f21e",
 	),
 	"checkbox": (
 		"_index": "checkbox_f525d3",
@@ -724,17 +724,17 @@ $classes: (
 		"redesignIconChildContainer": "redesignIconChildContainer__3e3b0",
 	),
 	"input": ( // used mainly in settings
-		"wrapper": "inputWrapper__0f084",
-		"_index": "input__0f084",
-		"error": "error__0f084",
+		"wrapper": "inputWrapper__0ed4f",
+		"_index": "input__0ed4f",
+		"error": "error__0ed4f",
 		"success": "success__0f084",
-		"disabled": "disabled__0f084",
-		"editable": "editable__0f084",
-		"focused": "focused__0f084",
+		"disabled": "disabled__0ed4f",
+		"editable": "editable__0ed4f",
+		"focused": "focused__0ed4f",
 		"default": "inputDefault__0f084",
 		"mini": "inputMini__0f084",
 		"prefix": "inputPrefix__0f084",
-		"inputError": "inputError__0f084", // it's a different class for some reason
+		"inputError": "inputError__0ed4f", // it's a different class for some reason
 	),
 	"login": (
 		"wrapper": "wrapper_d4fa29",
@@ -839,65 +839,65 @@ $classes: (
 	"button": (
 		// BUTTONS WERE OVERHAULED. OLD CLASSES WILL NOT BE MAPPED TO NEW CLASSES AS THEY STILL EXIST IN THE CSS.
 		"text": (
-			"_index": "textButton__98277",
-			"button": "button__98277", // haven't seen this be used yet.
+			"_index": "textButton__7a01b",
+			"button": "button__7a01b", // haven't seen this be used yet.
 
 			// colors
-			"primary": "primary__98277",
-			"secondary": "secondary__98277",
-			"alwaysWhite": "always-white__98277",
-			"critical": "critical__98277",
+			"primary": "primary__7a01b",
+			"secondary": "secondary__7a01b",
+			"alwaysWhite": "always-white__7a01b",
+			"critical": "critical__7a01b",
 
 			// contents
-			"text": "text__98277",
+			"text": "text__7a01b",
 		),
 		"filled": (
 			// "look" of sorts -- also seems like there's no "border" style anymore
-			"_index": "button__6af3a",
+			"_index": "button_a22cb0",
 
-			"iconOnly": "icon-only__6af3a",
-			"hasText": "hasText__6af3a", // only if it has text
+			"iconOnly": "icon-only_a22cb0",
+			"hasText": "hasText_a22cb0", // only if it has text
 
 			// size
-			"sm": "sm__6af3a",
-			"md": "md__6af3a",
+			"sm": "sm_a22cb0",
+			"md": "md_a22cb0",
 
 			// colors
-			"primary": "primary__6af3a",
-			"secondary": "secondary__6af3a",
+			"primary": "primary_a22cb0",
+			"secondary": "secondary_a22cb0",
 			"tertiary": "tertiary__6af3a",
-			"criticalPrimary": "critical-primary__6af3a",
-			"criticalSecondary": "critical-secondary__6af3a",
+			"criticalPrimary": "critical-primary_a22cb0",
+			"criticalSecondary": "critical-secondary_a22cb0",
 
 			// not entirely sure about this but it wraps around the button
-			"expressive": "expressive__6af3a",
-			"expressiveRive": "expressiveRive__6af3a",
-			"expressiveBackground": "expressiveBackground__6af3a",
-			"expressiveFill": "expressiveFill__6af3a",
-			"expressiveHoverContainer": "expressiveHoverContainer__6af3a",
-			"expressiveWrapper": "expressiveWrapper__6af3a",
+			"expressive": "expressive_a22cb0",
+			"expressiveRive": "expressiveRive_a22cb0",
+			"expressiveBackground": "expressiveBackground_a22cb0",
+			"expressiveFill": "expressiveFill_a22cb0",
+			"expressiveHoverContainer": "expressiveHoverContainer_a22cb0",
+			"expressiveWrapper": "expressiveWrapper_a22cb0",
 
 			// contents
-			"childrenWrapper": "buttonChildrenWrapper__6af3a",
-			"children": "buttonChildren__6af3a",
-			"icon": "icon__6af3a",
+			"childrenWrapper": "buttonChildrenWrapper_a22cb0",
+			"children": "buttonChildren_a22cb0",
+			"icon": "icon_a22cb0",
 
 			// other classes i'm not sure about
-			"loading": "loading__6af3a",
-			"spinnerWrapper": "spinnerWrapper__6af3a",
-			"fadeIn": "fadeIn__6af3a",
-			"fadeOut": "fadeOut__6af3a",
-			"fullWidth": "fullWidth__6af3a",
-			"spinnerItem": "spinnerItem__6af3a",
-			"spinner": "spinner__6af3a",
-			"spinnerSm": "spinner-sm__6af3a",
-			"spinnerMd": "spinner-md__6af3a",
-			"spinnerLg": "spinner-lg__6af3a",
-			"active": "active__6af3a",
-			"overlayPrimary": "overlay-primary__6af3a",
-			"overlaySecondary": "overlay-secondary__6af3a",
-			"colorMix": "color-mix__6af3a",
-			"rounded": "rounded__6af3a",
+			"loading": "loading_a22cb0",
+			"spinnerWrapper": "spinnerWrapper_a22cb0",
+			"fadeIn": "fadeIn_a22cb0",
+			"fadeOut": "fadeOut_a22cb0",
+			"fullWidth": "fullWidth_a22cb0",
+			"spinnerItem": "spinnerItem_a22cb0",
+			"spinner": "spinner_a22cb0",
+			"spinnerSm": "spinner-sm_a22cb0",
+			"spinnerMd": "spinner-md_a22cb0",
+			"spinnerLg": "spinner-lg_a22cb0",
+			"active": "active_a22cb0",
+			"overlayPrimary": "overlay-primary_a22cb0",
+			"overlaySecondary": "overlay-secondary_a22cb0",
+			"colorMix": "color-mix_a22cb0",
+			"rounded": "rounded_a22cb0",
 		),
 
 
@@ -1047,7 +1047,7 @@ $classes: (
 		"status": "status_f910d0",
 		"videoBorder": "border__2f4f7",
 		"videoSpeaking": "speaking__2f4f7",
-		"streamBackground": "root_e605a1",
+		"streamBackground": "root_ccf174",
 		"liveQualityIndicator": "liveQualityIndicator__30845",
 		"lowQualityWarningIcon": "warningIcon__14990",
 		"watchStreamButton": "cta_a3a802",
@@ -1066,7 +1066,7 @@ $classes: (
 		"scroller": "scroller__56ccd", // child
 		// children being div no class, headerContainer, rowContainer, divider, roleContainer, participants, spacer
 		"headerContainer": "container__05cdc",
-		"rowContainer": "rowContainer__8a920", // child of everywhere content
+		"rowContainer": "rowContainer__1e702", // child of everywhere content
 		"spaceBetweenTiles": "spaceBetweenTiles_fa73d7", // child, children of tileOuter (see call)
 		"tile": "tile_fdc206", // child of call tileInner, not to be confused with every other fucking tile class 
 
@@ -1171,7 +1171,7 @@ $classes: (
 		"compact": "compact_c19a55",
 		"_index": "chat_f75fb0",
 		"chat": "@alias chat",
-		"chatSidebarOpen": "chatSidebarOpen_d880dc",
+		"chatSidebarOpen": "sidebarOpen_cb9592",
 		"threadSidebarOpen": "threadSidebarOpen_f75fb0",
 		"threadSidebarFloating": "threadSidebarFloating_f75fb0",
 		"subtitleContainer": "subtitleContainer_f75fb0", // parent to #{c(header header)}
@@ -1194,7 +1194,7 @@ $classes: (
 		"chatGatedSeparator": "separator_def860", // no idea how to actually get it :)
 		"chatGatedAction": "action__7184c", // buttons
 		"chatContentInner": "chatContent_f75fb0",
-		"chatLoadingWrapper": "wrapper_d852db",
+		"chatLoadingWrapper": "wrapper__6c798",
 		"scrollerSpacer": "scrollerSpacer__36d07", // placed at bottom of message list
 		"messageLoadingWrapper": "wrapper_fc8177",
 		"noChannel": "noChannel__01d5c", // in a server without any channels or loading in
@@ -1213,6 +1213,8 @@ $classes: (
 		"messageSelected": "selected__5126c",
 		"buttons": "buttons__5126c",
 		"buttonWrapper": "wrapper_f7ecac",
+		"buttonsInner": "buttonsInner__5126c",
+		"buttonsPopover": "popover_f84418",
 		"buttonSeparator": "separator_f84418",
 		"button": "button_f7ecac",
 		"buttonSelected": "selected_f7ecac",
@@ -1305,7 +1307,7 @@ $classes: (
 		"compactButton": "compactButton__7ff28", // send wave sticker
 		"welcomeCTA": "welcomeCTA_f5d1e2",
 
-		"channelLinkUserMentionWrapper": "wrapper_f61d60",
+		"channelLinkUserMentionWrapper": "wrapper_d852db",
 
 		"ephemeral": "ephemeral__5126c",
 		"ephemeralAccessories": "ephemeralAccessories_b7ab2c",
@@ -1983,7 +1985,7 @@ $classes: (
 		"embedGridContainer": "gridContainer__623de",
 		"embedSuppressButton": "embedSuppressButton__623de",
 		"embedVideo": "embedVideo__623de",
-		"attachment": "file__0ccae", // attachmentInner_b52bef cancelButton_b52bef downloadButton__3fb6d downloadWrapper_b46225 fileNameLink_b52bef filename_b52bef filenameLinkWrapper_b52bef filenameWrapper_b52bef icon_b52bef metadata_b52bef newMosaicStyle_b52bef progress_b52bef progressContainer_b52bef rate__50023 size_b52bef
+		"attachment": "file__0ccae", // fileInner__0ccae cancelButton__0ccae downloadButton__3fb6d downloadWrapper_b46225 fileNameLink__0ccae filename__0ccae filenameLinkWrapper__0ccae filenameWrapper__0ccae icon__0ccae metadata__0ccae newMosaicStyle_b52bef progress__0ccae progressContainer__0ccae rate__50023 size__0ccae
 		"textContainerUp": "container__4d95d", // parent of below class
 		"textContainer": "textContainer__4d95d",
 		"textContainerDownload": "downloadButton__4d95d",
@@ -2008,7 +2010,7 @@ $classes: (
 		"gameName": "name__4d3fa",
 		"gameFullHeight": "fullHeight__4d3fa",
 		"gameArtwork": "artwork__4d3fa",
-		"uploadProgressBar": "progressBar__89dcd",
+		"uploadProgressBar": "progressBar__5a6ab",
 		"videoPlayWrapper": "wrapper_cf09d8",
 		"threadContainer": "container__9271d",
 
@@ -2154,7 +2156,7 @@ $classes: (
 		"nowPlayingContainer": "container__7d20c",
 		"nowPlayingScroller": "scroller__7d20c",
 		"nowPlayingHeader": "header__7d20c",
-		"consentCard": "card__2eab1",
+		"consentCard": "card_eafb9c",
 		"emptyCard": "emptyCard__7e549",
 		"itemCard": "itemCard__7e549",
 		"itemCardWrapper": "wrapper__00943", // on same element as itemCard
@@ -2465,7 +2467,7 @@ $classes: (
 	),
 	// shared classes. used in multiple places, mainly as a "remove this row" kind of thing
 	"removeButton": (
-		"_index": "button_e18686",
+		"_index": "button__9a406",
 		"button": "@alias removeButton",
 		"default": "default_e18686",
 		"filled": "filled_e18686",
@@ -2553,7 +2555,7 @@ $classes: (
 		"message": "message__02a39",
 		"blocked": "resultsBlocked_c68065",
 		"buttonContainer": "buttonsContainer__02a39",
-		"navContainer": "container__3f123",
+		"navContainer": "container__0c185",
 		"pageControlContainer": "pageControlContainer_c15210",
 		"pageControl": "pageControl_c15210",
 		"button": "button__02a39",
@@ -2623,17 +2625,17 @@ $classes: (
 		"participating": "isCurrentUserConnected__650eb", // also used in header for some reason?
 
 		"folder": (
-			"parentWrapper": "wrapper__48112",
+			"parentWrapper": "folderGroup__48112",
 			"parentCollapsed": "collapsed", // class found in JS
 			"parentExpanded": "expanded", // class found in JS
-			"_index": "folder__48112",
+			"_index": "folderHeader__48112",
 			"collapsed": "collapsed__48112",
 			"hover": "hover__48112",
-			"closedFolderIconWrapper": "closedFolderIconWrapper__48112",
-			"guildIcon": "guildIcon__48112", // tiny server icons
-			"noIcon": "noIcon_f11207", // shared in settings/boosts?
-			"expandedFolderBackground": "expandedFolderBackground__48112",
-			"folderIconWrapper": "folderIconWrapper__48112",
+			"closedFolderIconWrapper": "folderPreview__48112",
+			"guildIcon": "folderPreviewGuildIcon__48112", // tiny server icons
+			"noIcon": "noIcon_f34534", // shared in settings/boosts?
+			"expandedFolderBackground": "folderGroupBackground__48112",
+			"folderIconWrapper": "folderPreviewWrapper__48112",
 			"expandedFolderIconWrapper": "expandedFolderIconWrapper__48112",
 			"stack": "stack_dbd263", // servers in folder
 		),
@@ -2991,13 +2993,13 @@ $classes: (
 					"avatar": "avatar__07f91",
 					"avatarSmall": "avatarSmall__07f91",
 
-					"container": "container__91e7c", // contains usernameContainer + chipletParent
-					"usernameContainer": "usernameContainer__91e7c",
+					"container": "container__394db", // contains usernameContainer + chipletParent
+					"usernameContainer": "usernameContainer__394db",
 					"usernameFont": "usernameFont__07f91",
 					"username": "username__07f91",
 					"usernameSpeaking": "usernameSpeaking__07f91",
-					"chipletParent": "chipletParent__91e7c",
-					"chipletContainer": "chipletContainer__91e7c",
+					"chipletParent": "chipletParent__394db",
+					"chipletContainer": "chipletContainer__394db",
 
 					"icons": "icons__07f91",
 					"iconsGroup": "iconGroup__07f91",
@@ -3034,7 +3036,7 @@ $classes: (
 			// The overall container can likely be targeted as #{c(sidebar server scroller)}>ul>:is(li,div):not([class],[style]) {}
 			// Weirdly enough "Members" is that lone <div> which wraps around <li>
 			"extras": (
-				"focusTarget": "focusTarget__89030",
+				"focusTarget": "focusTarget__54e4b",
 				"basicChannelRowLink": "basicChannelRowLink__2ea32",
 				"content": "content__65844",
 			),
@@ -3240,7 +3242,7 @@ $classes: (
 		"loadingChannelName": "channelName__3b43f",
 
 		// below are for things that get added to the top of the sidebar, above the channel list.
-		"upsellContainer": "container__6e9be", // always exists, usually empty.
+		"upsellContainer": "container__8475b", // always exists, usually empty.
 		// shit name - used for Quickswitch, Boost this server (inc friends, community and "box picture"), Student Hubs...
 		// it's not just about nitro here
 		"upsellNotice": ( // better name: "bannerUpsellNotice"
@@ -3346,7 +3348,7 @@ $classes: (
 			"banner": "banner__68edb",
 			"gifTag": "gifTag__68edb",
 			"mask": "mask__68edb",
-			"clickable": "clickable_faf576", // ONLY used in the settings area.
+			"clickable": "clickable__8c853", // ONLY used in the settings area.
 		),
 
 		// shared between modal+panel+popout+status+settings>profile
@@ -3356,9 +3358,9 @@ $classes: (
 			"clickableUsername": "clickableUsername__63ed3",
 			"nickname": "nickname__63ed3",
 			"userTagUsername": "userTagUsername__63ed3",
-			"biteSize": "biteSize__63ed3",
+			"biteSize": "@alias profile popout",
 			"panel": "panel__63ed3",
-			"fullSize": "fullSize__63ed3",
+			"fullSize": "@alias profile modal",
 			"nicknameIcons": "nicknameIcons__63ed3",
 			"usernameRow": "usernameRow__63ed3",
 			"tags": "tags__63ed3",
@@ -3375,21 +3377,21 @@ $classes: (
 		// "more" (click to show tooltip to block, report profile and copy user id)
 		// "edit profile"
 		"firendsMoreEditProfileButtons": (
-			"wrapper": "wrapper_da5890",
-			"biteSize": "biteSize_da5890",
-			"fullSize": "fullSize_da5890",
+			"wrapper": "wrapper__6c798",
+			"biteSize": "@alias profile popout",
+			"fullSize": "@alias profile modal",
 			"panel": "panel_da5890"
 		),
 
 		// (!) icon. shared between modal+panel+popout
-		"missingConnection": "container__23ba6", // theme the (!) icon with (this)>svg>path{fill}
+		"missingConnection": "container_de50c1", // theme the (!) icon with (this)>svg>path{fill}
 
 		// there seems to be a line with things related to the avatars, hense this subcategory.
 		// these mostly apply to popout from what i can tell
 		"avatar": (
 			"avatar": "avatar__75742",
-			"biteSize": "biteSize__75742",
-			"fullSize": "fullSize__75742",
+			"biteSize": "@alias profile popout",
+			"fullSize": "@alias profile modal",
 			"panel": "panel__75742",
 			"withReactReply": "withReactReply__75742",
 			"hoisted": "hoisted__75742",
@@ -3589,7 +3591,7 @@ $classes: (
 
 			"bodyContainer": "container_d1d9f3", // contains tab bar, note, connections, scrollers etc
 			"tabBar": "tabBar_d1d9f3",
-			"tabBarItem": "tabBarItem_d1d9f3",
+			"tabBarItem": "tabBarItem__37bfc",
 
 			// cannot find these but they're in the same rule as connections
 			"connections": (
@@ -3639,19 +3641,19 @@ $classes: (
 
 			"activity": "activity__486c9",
 
-			"body": "body__486c9",
-			"bodyOverlay": "overlay__486c9", // used over "about me/member since" container
+			"body": "body_b32ca4",
+			"bodyOverlay": "overlay_b32ca4", // used over "about me/member since" container
 
 			"colorOverlay": "overlay_c0bea0", // has background color to it
 
-			"guildProfile": "guildNick_b26403", // nickname
-			"guildAvatar": "guildAvatar_b26403", // not for icons but rather people with nitro and custom avi
-			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon_b26403",
+			"guildProfile": "guildNick_aafe31", // nickname
+			"guildAvatar": "guildAvatar_aafe31", // not for icons but rather people with nitro and custom avi
+			"guildAvatarWithoutIcon": "guildAvatarWithoutIcon_aafe31",
 
 			// encompass both mutual servers and mutual friends
-			"connectionsOverlay": "overlay__325ce",
-			"connectionsList": "list__325ce",
-			"connectionsDivider": "divider__325ce",
+			"connectionsOverlay": "overlay__3b260",
+			"connectionsList": "list__3b260",
+			"connectionsDivider": "divider__3b260",
 
 			// individual list for mutual friends/servers
 			"connectionList": "connectionList_a4a127",
@@ -3696,10 +3698,10 @@ $classes: (
 			"divider": "divider_ad5fac", // used after about me/joined discord
 
 			// submenu for picking status
-			"statusItem": "statusItem_af7fb7",
-			"icon": "icon_af7fb7", // >foreignObject>div has inline style
-			"status": "status_af7fb7", // contains text
-			"description": "description_af7fb7", // used with do not disturb and invis
+			"statusItem": "statusItem_ce8328",
+			"icon": "icon_ce8328", // >foreignObject>div has inline style
+			"status": "status_ce8328", // contains text
+			"description": "description_ce8328", // used with do not disturb and invis
 
 			"accountSwitcher": (
 				"focused": "focused_d40c56", // put on a parent class, one actually with an "item-" class
@@ -3719,7 +3721,7 @@ $classes: (
 			"accountProfilePopoutWrapper": "accountProfilePopoutWrapper__37e49",
 
 			// in other rules
-			"statusPickerModalMenu": "statusPickerModalMenu_af7fb7",
+			"statusPickerModalMenu": "statusPickerModalMenu_ce8328",
 			"modal": "modal_ad5fac",
 		),
 
@@ -4067,7 +4069,7 @@ $classes: (
 
 		"sectionTitle": "@alias settings content section title",
 		"children": "@alias settings content section children",
-		"divider": "divider__46c3b",
+		"divider": "divider__44f7f",
 		"description": "@alias settings content form description",
 		"title": "title_b717a1",
 
@@ -4085,11 +4087,11 @@ $classes: (
 
 		"profileImageUploader": "imageUploader_e4d0bf",
 
-		"radioGroupItem": "item__001a7",
-		"radioBar": "radioBar__001a7",
-		"radioBarInfo": "info__001a7",
+		"radioGroupItem": "item__1bda4",
+		"radioBar": "radioBar__1bda4",
+		"radioBarInfo": "info__1bda4",
 		"radioIconForeground": "radioIconForeground__001a7", // selected radio button's circle inner
-		"radioIndicatorChecked": "radioIndicatorChecked__001a7",
+		"radioIndicatorChecked": "radioIndicatorChecked__1bda4",
 
 		"formNotice": "formNotice_f43ba5", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top | formNoticeBody_f43ba5 formNoticeTitle_f43ba5 icon_f43ba5 whiteText_f43ba5
 
@@ -4160,9 +4162,9 @@ $classes: (
 		"boostGuildSubscriptionHeading": "!guildSubscriptionHeading_d5703d",
 		"boostGuildBlurb": "!guildsBlurb__73a25",
 		"boostGuilds": "!guilds__66a9b",
-		"boostCardWrapper": "!cardWrapper_bc8d2a",
+		"boostCardWrapper": "!cardWrapper_aae012",
 		"boostCard": "!card__11580",
-		"boostCardNoIcon": "!noIcon_f11207",
+		"boostCardNoIcon": "!noIcon_f34534",
 		"boostCardGemContainer": "!gemIndicatorContainer_b03ca0",
 		"boostDealWrapper": "!wrapper_adaea0", // thing at bottom. contains the classic as an svg.
 		"boostDealAction": "!action__5de76",
@@ -4223,7 +4225,7 @@ $classes: (
 		"soundRowDividerDefault": "dividerDefault__0d850",
 
 		"keybindDefault": "defaultKeybind__740f2",
-		"keybindCard": "card_b846e5",
+		"keybindCard": "card__4bb93",
 		"keybindGroup": "defaultKeybindGroup__740f2",
 		"keybindGroupDescription": "defaultKeybindGroupDescription__740f2",
 		"keybindGroupHeader": "defaultKeybindGroupHeader__740f2",
@@ -4311,9 +4313,9 @@ $classes: (
 		"templateDescriptionBox": "descriptionBox__981f7",
 		"templateDescriptionIcon": "descriptionIcon__981f7",
 
-		"enableCommunityFeatureCard": "featureCard_bebc5b",
-		"enableCommunityFeatureIcon": "featureIcon_bebc5b",
-		"enableCommunityGuildDetails": "guildDetails_bebc5b",
+		"enableCommunityFeatureCard": "featureCard__7dd5e",
+		"enableCommunityFeatureIcon": "featureIcon__7dd5e",
+		"enableCommunityGuildDetails": "guildDetails__7dd5e",
 	),
 
 	// There's (at least) two different lines for reactions.
@@ -4322,7 +4324,7 @@ $classes: (
 	// Any others (likely ones in modals) would be with their respective classes.
 	"reaction": (
 		"reactions": "reactions_f8896c",
-		"reactionBtn": "reactionBtn_f8896c",
+		"reactionBtn": "reactionBtn__23977",
 		"icon": "icon_f8896c",
 		"active": "active_f8896c",
 		"visible": "visible_f8896c",
@@ -4343,7 +4345,7 @@ $classes: (
 	),
 	"modals": (
 		"layer": "layer_bc663c",
-		"hidden": "hidden_bc663c", // best way to get this class is to change banner/avi and click gifs
+		"hidden": "inactive_bc663c", // best way to get this class is to change banner/avi and click gifs
 
 		// modals have appeared to have been reworked since this section was last updated. mind you, not all modals use the new style.
 		"old": (
@@ -4373,60 +4375,60 @@ $classes: (
 		),
 		"new": (
 			"scrim": (
-				"_index": "scrim_d9cec8",
-				"lightbox": "lightbox_d9cec8",
-				"pointerEventsNone": "pointerEventsNone_d9cec8",
+				"_index": "scrim__40128",
+				"lightbox": "lightbox__40128",
+				"pointerEventsNone": "pointerEventsNone__40128",
 			),
-			"outerContainer": "outerContainer__53cea",
-			"container": "container__53cea",
-			"padding-size-sm": "padding-size-sm__53cea",
-			"padding-size-lg": "padding-size-lg__53cea",
-			"size-sm": "size-sm__53cea",
-			"size-md": "size-md__53cea",
-			"size-lg": "size-lg__53cea",
-			"size-xl": "size-xl__53cea",
-			"fullScreenOnMobile": "fullScreenOnMobile__53cea",
-			"section": "section__53cea",
+			"outerContainer": "outerContainer__8a031",
+			"container": "container__8a031",
+			"padding-size-sm": "padding-size-sm__8a031",
+			"padding-size-lg": "padding-size-lg__8a031",
+			"size-sm": "size-sm__8a031",
+			"size-md": "size-md__8a031",
+			"size-lg": "size-lg__8a031",
+			"size-xl": "size-xl__8a031",
+			"fullScreenOnMobile": "fullScreenOnMobile__8a031",
+			"section": "section__8a031",
 			"header": (
-				"_index": "header__53cea",
-				"centered": "headerCentered__53cea",
-				"layout": "headerLayout__53cea",
-				"gradient": "headerGradient__53cea",
+				"_index": "header__8a031",
+				"centered": "headerCentered__8a031",
+				"layout": "headerLayout__8a031",
+				"gradient": "headerGradient__8a031",
 				"graphic": (
-					"_index": "headerGraphic__53cea",
-					"container": "headerGraphicContainer__53cea",
-					"animated": "headerGraphicAnimated__53cea",
+					"_index": "headerGraphic__8a031",
+					"container": "headerGraphicContainer__8a031",
+					"animated": "headerGraphicAnimated__8a031",
 				),
-				"leading": "headerLeading__53cea",
-				"leadingSpacer": "headerLeadingSpacer__53cea",
-				"leadingAbsolute": "headerLeadingAbsolute__53cea",
-				"trailing": "headerTrailing__53cea",
-				"trailingSpacer": "headerTrailingSpacer__53cea",
-				"trailingAbsolute": "headerTrailingAbsolute__53cea",
-				"main": "headerMain__53cea",
-				"subtitle": "headerSubtitle__53cea",
-				"title": "headerTitle__53cea",
-				"badge": "headerBadge__53cea",
+				"leading": "headerLeading__8a031",
+				"leadingSpacer": "headerLeadingSpacer__8a031",
+				"leadingAbsolute": "headerLeadingAbsolute__8a031",
+				"trailing": "headerTrailing__8a031",
+				"trailingSpacer": "headerTrailingSpacer__8a031",
+				"trailingAbsolute": "headerTrailingAbsolute__8a031",
+				"main": "headerMain__8a031",
+				"subtitle": "headerSubtitle__8a031",
+				"title": "headerTitle__8a031",
+				"badge": "headerBadge__8a031",
 			),
 			"body": (
-				"_index": "body__53cea",
-				"list": "bodyList__53cea",
-				"spacerTop": "bodySpacerTop__53cea",
-				"spacerTopBorder": "bodySpacerTopBorder__53cea",
-				"spacerBottom": "bodySpacerBottom__53cea",
-				"spacerBottomBorder": "bodySpacerBottomBorder__53cea",
-				"controls": "bodyControls__53cea",
-				"controlsWithFade": "bodyControlsWithFade__53cea",
-				"inner": "bodyInner__53cea",
-				"innerShouldScroll": "bodyInnerShouldScroll__53cea",
+				"_index": "body__8a031",
+				"list": "bodyList__8a031",
+				"spacerTop": "bodySpacerTop__8a031",
+				"spacerTopBorder": "bodySpacerTopBorder__8a031",
+				"spacerBottom": "bodySpacerBottom__8a031",
+				"spacerBottomBorder": "bodySpacerBottomBorder__8a031",
+				"controls": "bodyControls__8a031",
+				"controlsWithFade": "bodyControlsWithFade__8a031",
+				"inner": "bodyInner__8a031",
+				"innerShouldScroll": "bodyInnerShouldScroll__8a031",
 			),
-			"footer": "footer__53cea",
+			"footer": "footer__8a031",
 			"actionBar": (
-				"_index": "actionBar__53cea",
-				"leading": "actionBarLeading__53cea",
-				"trailing": "actionBarTrailing__53cea",
-				"trailingFullWidth": "actionBarTrailingFullWidth__53cea",
-				"buttonWrapper": "actionButtonWrapper__53cea",
+				"_index": "actionBar__8a031",
+				"leading": "actionBarLeading__8a031",
+				"trailing": "actionBarTrailing__8a031",
+				"trailingFullWidth": "actionBarTrailingFullWidth__8a031",
+				"buttonWrapper": "actionButtonWrapper__8a031",
 			),
 		),
 
@@ -4562,7 +4564,7 @@ $classes: (
 		// Within modal above, click an event
 		// two major rules apply to this modal
 		"eventFull": (
-			"modal": "container__53cea",
+			"modal": "container__8a031",
 			"banner": "banner__4325e",
 			"container": "container__4325e",
 			"contentContainer": "contentContainer__4325e",
@@ -4696,7 +4698,7 @@ $classes: (
 			"footer": "footer_b962dc",
 			"submitButton": "submitButton_b962dc",
 			"formItem": "formItem_b962dc",
-			"resendButton": "resendButton_b962dc",
+			"resendButton": "resendButtonContainer_b962dc",
 			"confirmation": "confirmation_b962dc",
 			"confirmationContent": "confirmationContent_b962dc",
 			"confirmationButtonRow": "confirmationButtonRow_b962dc",
@@ -4812,7 +4814,7 @@ $classes: (
 		// Shoody name? Yes. Multiple modals use it? Also yes, sadly.
 		// It's in the Emojis, Command Autocomplete and Stickers. Open any of them.
 		"sidebarList": (
-			"wrapper": "wrapper__4e6ce",
+			"wrapper": "wrapper__71152",
 			"list": "list_b1e4f3",
 			"scroller": "scroller_affa7e", // maybe? it appears in soundboard at the least. can also appear as main scroller
 			"listItems": "listItems_affa7e",
@@ -4856,7 +4858,7 @@ $classes: (
 		// Submit feedback in above 
 		"submitFeedback": (
 			// literally on own rule for no margin
-			"title": "title__62160",
+			"title": "title_b6c092",
 		),
 
 		// Get timed out. Use an alt to time you out. Best not to attempt it on any non-private servers
@@ -4869,7 +4871,7 @@ $classes: (
 			"button": "button__65338",
 
 			"spamBanner": "spamBanner_a2eac3",
-			"bannerIcon": "bannerIcon__1d97f",
+			"bannerIcon": "bannerIcon_cbe8c4",
 			"bannerText": "bannerText_a2eac3",
 		),
 
@@ -4932,13 +4934,13 @@ $classes: (
 		// Click on a banned user under the bans tab in server settings
 		"bannedUser": (
 			// note: some of these classes may not actually exist
-			"modal": "bannedUserModal_cdb2b0",
-			"header": "header_cdb2b0",
-			"username": "userUsername_cdb2b0",
-			"discrim": "userDiscrim_cdb2b0",
-			"content": "content_cdb2b0", // contains reason
+			"modal": "bannedUserModal__4b8d8",
+			"header": "header__4b8d8",
+			"username": "userUsername__4b8d8",
+			"discrim": "userDiscrim__4b8d8",
+			"content": "content__4b8d8", // contains reason
 			"reasonHeader": "reasonHeader_cdb2b0",
-			"footer": "footer_cdb2b0",
+			"footer": "footer__4b8d8",
 		),
 
 		// Change Nickname of another user in a server
@@ -5167,7 +5169,7 @@ $classes: (
 
 		// Ctrl+N or click the green + at the bottom of the server list
 		"addServer": (
-			"modal": "container__024d4",
+			"modal": "container__5662e",
 
 			// first screen "Create a server"
 			"templateButton": "container_eb2cd2",
@@ -5246,7 +5248,7 @@ $classes: (
 		"sticker": (            
 			"wrapper": "wrapper__8ef02", // has ID on it
 			"header": "header__8ef02",
-			"searchWrapper": "wrapper_cdf8a9",
+			"searchWrapper": "wrapper__71152",
 			// for the bar, use child of above
 			"listWrapper": "listWrapper__8ef02",
 			"gridWrapper": "wrapper_e94b8c", // holds stickers in grid
@@ -5390,7 +5392,7 @@ $classes: (
 
 			// Change status
 			"mainStatusIcon": "mainStatusIcon_ad5fac",
-			"statusItem": "statusItem_af7fb7", // within submenu 
+			"statusItem": "statusItem_ce8328", // within submenu 
 			"statusMask": "mask_a423bd",
 			"status": "status_a423bd", // inline background color
 		),
@@ -5521,7 +5523,7 @@ $classes: (
 
 				// Click the "mark inbox as read" button and another modal pops up
 				"markAll": (
-					"content": "content__1688d",
+					"content": "content__444a0",
 				)
 			),
 		),
@@ -5775,7 +5777,7 @@ $classes: (
 			"refresh": "refresh__09f65", // less compact version, appears to be the "new" version that is being used.
 
 			"header": "header__0856d",
-			"searchWrapper": "wrapper__0d1ef",
+			"searchWrapper": "wrapper__6c798",
 			"volumeClickArea": "settingsClickArea__61424",
 			"volumeIcon": "settingsIcon__61424", // clicking pops out a menu using `modals menu menu`
 
@@ -5787,7 +5789,7 @@ $classes: (
 
 			"gridNoticeWrapper": "gridNoticeWrapper__0856d", // appears to be empty, may house something in the future?
 			"listWrapper": "listWrapper__0856d", // wrapper to the wrapper
-			"wrapper": "wrapper__0c74f", // wrapper to the scroller
+			"wrapper": "wrapper__71152", // wrapper to the scroller
 			// scroller uses the same `modals sidebarList scroller` weirdly enough
 			"section": ( // used for each category **HEADER**
 				"container": "sectionContainer__61424",
@@ -5800,38 +5802,38 @@ $classes: (
 			"sound": ( // and now for the rows
 				"row": "soundRow__61424",
 				"button": (
-					"button": "soundButton__6d4ed" "soundButtonRefresh__6d4ed",
-					"wrapper": "soundButtonWrapper__58c6c",
-					"interactive": "soundButtonInteractive__6d4ed" "soundButtonInteractiveRefresh__6d4ed", // :hover on this to show overlay
-					"name": "soundName__6d4ed" "soundNameRefresh__6d4ed",
+					"button": "soundButton__9be63" "soundButtonRefresh__9be63",
+					"wrapper": "soundButtonWrapper_da9eb2",
+					"interactive": "soundButtonInteractive__9be63" "soundButtonInteractiveRefresh__9be63", // :hover on this to show overlay
+					"name": "soundName__9be63" "soundNameRefresh__9be63",
 
-					"overlay": "buttonOverlay__6d4ed",
-					"overlayBackground": "buttonOverlayBackground__6d4ed", // never appears in refresh
-					"overlayActions": "buttonOverlayActions__6d4ed" "buttonOverlayActionsRefresh__6d4ed",
-					"absoluteFill": "absoluteFill__6d4ed", // position absolute; top,left,right,bottom 0
+					"overlay": "buttonOverlay__9be63",
+					"overlayBackground": "buttonOverlayBackground__9be63", // never appears in refresh
+					"overlayActions": "buttonOverlayActions__9be63" "buttonOverlayActionsRefresh__9be63",
+					"absoluteFill": "absoluteFill__9be63", // position absolute; top,left,right,bottom 0
 				),
-				"primaryIcon": "primaryIcon__6d4ed" "primaryIconRefresh__6d4ed", // only on refresh for nitro locked
-				"lockIcon": "lockIcon__6d4ed", // only on refresh for nitro locked without emoji
+				"primaryIcon": "primaryIcon__9be63" "primaryIconRefresh__9be63", // only on refresh for nitro locked
+				"lockIcon": "lockIcon__9be63", // only on refresh for nitro locked without emoji
 				"secondary": ( // action buttons. "play", "favourite" etc
-					"button": "secondaryButton__6d4ed" "secondaryButtonRefresh__6d4ed",
-					"icon": "secondaryIcon__6d4ed",
-					"favourite": "favoriteIconFavorite__6d4ed", // only shows up when sound is favourited
+					"button": "secondaryButton__9be63" "secondaryButtonRefresh__9be63",
+					"icon": "secondaryIcon__9be63",
+					"favourite": "favoriteIconFavorite__9be63", // only shows up when sound is favourited
 				),
-				"focused": "focused__6d4ed", // arrow keys to navigate work
-				"animated": "animated__6d4ed",
-				"playing": "playing__6d4ed",
-				"previewing": "previewing__6d4ed",
-				"info": "soundInfo__6d4ed" "soundInfoRefresh__6d4ed",
+				"focused": "focused__9be63", // arrow keys to navigate work
+				"animated": "animated__9be63",
+				"playing": "playing__9be63",
+				"previewing": "previewing__9be63",
+				"info": "soundInfo__9be63" "soundInfoRefresh__9be63",
 				"emoji": (
-					"hasEmoji": "hasEmoji__6d4ed",
-					"circle": "emojiCircle__6d4ed",
-					"emoji": "emoji__6d4ed",
+					"hasEmoji": "hasEmoji__9be63",
+					"circle": "emojiCircle__9be63",
+					"emoji": "emoji__9be63",
 				),
 				"add": (
-					"button": "soundAddButton__58c6c" "soundAddButtonRefresh__58c6c",
-					"info": "soundAddInfoRefresh__58c6c", // only appears in refresh
-					"icon": "soundAddIcon__58c6c" "soundAddIconRefresh__58c6c",
-					"text": "soundAddText_c06ee5" "soundAddTextRefresh__58c6c",
+					"button": "soundAddButton_da9eb2" "soundAddButtonRefresh_da9eb2",
+					"info": "soundAddInfoRefresh_da9eb2", // only appears in refresh
+					"icon": "soundAddIcon__58c6c" "soundAddIconRefresh_da9eb2",
+					"text": "soundAddText_c06ee5" "soundAddTextRefresh_da9eb2",
 				),
 			),
 			"nitro": ( // because not everyone has nitro
@@ -5849,7 +5851,7 @@ $classes: (
 				),
 				"sectionLocked": "sectionContainerNitroLocked__61424", // on section/header. has background
 				"rowLocked": "soundRowNitroLocked__61424", // on row. has background like section/header
-				"premiumDisabled": "premiumDisabledRefresh__6d4ed", // only appears in refresh. on button. hover this also gives emojiCircle background gradient
+				"premiumDisabled": "premiumDisabledRefresh__9be63", // only appears in refresh. on button. hover this also gives emojiCircle background gradient
 
 				"upsell": ( // floating thing at bottom that shows up when scrolling
 					"container": "upsellContainer__0b69f", // has inline style for transform: translateY(0-120%);opacity: 0-1;
@@ -6486,7 +6488,7 @@ $classes: (
 	// These classes may be paired with another though.
 	// Shit definitely needs sorting.
 	"other": (
-		"developerPortalCtaWrapper": "developerPortalCtaWrapper_bf485f",
+		"developerPortalCtaWrapper": "developerPortalCtaWrapper__540ed",
 		"focusStroke": "focusStroke_cc5dd2",
 		// Random stuff found while attempting to convert ClearVision 6 to this class format. Comments show where the selector is used.
 		// This category **WILL** be removed over time and without warning.
@@ -6516,7 +6518,7 @@ $classes: (
 			"rtcConnectionPing": "ping_c0cb95", // src/channels/panels.scss
 			"panelLiveBadge": "liveBadge__8c6c2", // src/channels/panels.scss
 			"privateChannelActivityContainer": "container__9fa5a", // src/channels/privateChannels.scss
-			"privateChannelActivityIcon": "icon_ad923e", // src/channels/privateChannels.scss; src/??/members.scss by means of "memberActivityIcon"
+			"privateChannelActivityIcon": "icon_c9d15c", // src/channels/privateChannels.scss; src/??/members.scss by means of "memberActivityIcon"
 			"callInviteButton": "button_c6e099", // src/chat/call.scss
 			"gifPickerSearchInput": "input_a45028", // src/popouts/gifPicker.scss
 			"operations": "operations_bab751", // src/messages/message.scss
@@ -6570,13 +6572,13 @@ $classes: (
 			"gameVerifiedIcon": "gameVerifiedIcon_cc46f0",
 			"nitroTrialBadge": "premiumTrialAcknowledgedBadge__4c1e4",
 			"scrollerWrap": "wrapper__28a87",
-			"spinner": "spinner__0b5bb",
-			"spinnerCircle": "spinningCircle__0b5bb",
-			"spinnerCircleInner": "spinningCircleInner__0b5bb",
-			"spinnerCirclePath": "path__0b5bb",
-			"spinnerCirclePath3": "path3__0b5bb",
+			"spinner": "spinner__46696",
+			"spinnerCircle": "spinningCircle__46696",
+			"spinnerCircleInner": "spinningCircleInner__46696",
+			"spinnerCirclePath": "path__46696",
+			"spinnerCirclePath3": "path3__46696",
 			"spinnerPulsingEllipsisPopout": "spinner_e90879",
-			"spinnerPulsingEllipsis": "pulsingEllipsis__0b5bb",
+			"spinnerPulsingEllipsis": "pulsingEllipsis__46696",
 			"premiumLabel": "premiumLabel_e681d1",
 			"serverBoostIcon": "icon_cbe0b4",
 			"tooltipNested": "tooltipNested__382e7",
@@ -6588,7 +6590,7 @@ $classes: (
 			"newGuildTooltip": "container_be6a5c",
 			"newGuildTooltipPointer": "tooltipPointer_be6a5c",
 			"newGuildTooltipCard": "container_cfbfb9",
-			"guildsFooter": "footer_f8ec41",
+			"guildsFooter": "footer__214dc",
 			"guildBadgeIcon": "icon__2b1f5",
 			"guildFolderIcon": "icon_f34534",
 			"guildFolderIconSizeSmol": "iconSizeSmol_f34534",
@@ -6607,12 +6609,12 @@ $classes: (
 			"headerSearchBackButton": "backButton_fed6d3",
 			"headerChannelNameOuter": "outer__4f074",
 			"nitroPremiumScroller": "mainPageScroller_ca1a02",
-			"nitroCard": "card_f8e6bf",
-			"nitroCardDescription": "cardDescription_f8e6bf",
+			"nitroCard": "card_b5493b",
+			"nitroCardDescription": "cardDescription_b5493b",
 			"nitroSeePerksButton": "seeAllPerksButton_ca1a02",
 			"nitroGiftContainer": "giftNitro_ca1a02",
 			"nitroGiftTextContainer": "textContainer_da4aee",
-			"nitroFooterInnerWrapper": "innerWrapper_c511e4",
+			"nitroFooterInnerWrapper": "innerWrapper__70f7f",
 			"nitroPerksScroller": "allPerksScroller_ca1a02",
 			"nitroPerksScrollerOpen": "open_ca1a02",
 			"nitroPerksBackButton": "backButton_b9abc5",
@@ -6625,7 +6627,7 @@ $classes: (
 			"friendActivity": "activity__19b6d",
 			"friendsAddFriendInput": "addFriendInput__72ba7",
 			"friendsAddFriendHint": "addFriendHint__72ba7",
-			"libraryContainer": "container_ad5cdf",
+			"libraryContainer": "container_ab5930",
 			"libraryScroller": "scroller__4a84a",
 			"libraryTable": "table_adb41f",
 			"libraryTableHeader": "header_adb41f",
@@ -6682,7 +6684,7 @@ $classes: (
 			"activityInviteMoreUsers": "moreUsers__4d3fa",
 			"activityInviteHelpIcon": "helpIcon__4d3fa",
 			"activityInviteTextLink": "textLink__4d3fa",
-			"attachment": "attachment_b52bef",
+			"attachment": "fileWrapper__0ccae",
 			"attachmentEmbedWrapper": "embedWrapper_b7e1cb",
 			"codeInline": "inline",
 			"codeActions": "codeActions__75297",
@@ -6762,9 +6764,9 @@ $classes: (
 			"quickswitcherResult": "result__71961",
 			"quickswitcherPing": "wrapper_dc0b29",
 			"nitroPaymentNote": "paymentNote_a8c622",
-			"nitroPaymentWrapper": "wrapper__4106a",
+			"nitroPaymentWrapper": "wrapper_f61d60",
 			"nitroPaymentBody": "body_c6f1a4",
-			"nitroPaymentTable": "table__58ce9",
+			"nitroPaymentTable": "table_fda3e4",
 			"nitroPaymentDiscount": "planOptionDiscount_b13085",
 			"nitroPaymentCardInputWrapper": "cardNumberWrapper__8b579",
 			"nitroPaymentCardInput": "cardInput__8b579",
@@ -6785,8 +6787,8 @@ $classes: (
 			"botInviteModalContent": "contentBackground__3d3b0",
 			"authModalInApp": "inApp_c5a065",
 			"authModalScopeTimes": "iconWrapper_cf14a8",
-			"userProfileStatusBubbleOuter": "statusBubbleOuter_d0a252",
-			"userProfileStatusBubble": "statusBubble_d0a252",
+			"userProfileStatusBubbleOuter": "statusBubbleOuter_af9888",
+			"userProfileStatusBubble": "statusBubble_af9888",
 			"userProfileOverlayScroller": "scroller_fcb628",
 			"userProfileNote": "note_fcb628",
 			"discoverSearchBox": "searchBox_d727b3",
@@ -6812,7 +6814,7 @@ $classes: (
 			"discoverQuestHeaderBackdrop": "backdrop__8a7fc",
 			"discoverQuest": "scroller__23746",
 			"discoverQuestTabSelected": "selected__65d41",
-			"discoverQuestItem": "container_cec934",
+			"discoverQuestItem": "container__0c185",
 			"discoverQuestItemGradient": "darkThemeGradient_b5b7aa",
 			"discoverQuestItemDescription": "rewardDescriptionContainer__956c6",
 			"discoverQuestItemName": "questName__956c6",
@@ -6865,35 +6867,35 @@ $classes: (
 			"guildSettingsShowMembersInChannelList": "bannerContainer__71cd5",
 			"guildSettingsRoleList": "list_e29cd7",
 			"guildSettingsRoleListRow": "row_e29cd7",
-			"guildSettingsRoleViewAsDropdown": "container__09ccc",
+			"guildSettingsRoleViewAsDropdown": "container__32c39",
 			"guildSettingsEmojiRemove": "emojiRemove_e7d73e",
 			"guildSettingsStickersUploadCard": "wrapper__83b1d",
-			"guildSettingsStickersTierLock": "tierLock_f15dca",
+			"guildSettingsStickersTierLock": "tierLock_a36dee",
 			"guildSettingsSafetyChangeLog": "changelog_abe1fa",
 			"guildSettingsSafetyChecklist": "safetyChecklist_eae0ef",
 			"guildSettingsSafetyPill": "valuePill__5dac8",
-			"guildSettingsBanContainer": "scrollerContainer_cdb2b0",
-			"guildSettingsBannedUser": "bannedUser_cdb2b0",
+			"guildSettingsBanContainer": "scrollerContainer__4b8d8",
+			"guildSettingsBannedUser": "bannedUser__4b8d8",
 			"guildSettingsSafetyItemWrapper": "simpleItemWrapper__5dac8",
-			"guildSettingsCommunityUpsell": "upsellContainer__4cfe2",
-			"guildSettingsCommunityUpsellFooter": "upsellFooter__4cfe2",
+			"guildSettingsCommunityUpsell": "upsellContainer__73000",
+			"guildSettingsCommunityUpsellFooter": "upsellFooter__73000",
 			"guildSettingsInsightsAnalyticsCard": "analyticsCard__5931c",
-			"guildSettingsInsightsNotEnoughMembers": "notEnoughMembersError_bf485f",
+			"guildSettingsInsightsNotEnoughMembers": "notEnoughMembersError__540ed",
 			"guildSettingsInsightsMemberInsights": "memberInsightsContainer_cfaf72",
 			"guildSettingsInsightsActions": "insightsActions_cfaf72",
 			"guildSettingsDiscoveryChecklist": "checklist__5afba",
-			"guildSettingsDiscoveryHeader": "header__812a7",
-			"guildSettingsDiscoverySeparator": "separator__812a7",
+			"guildSettingsDiscoveryHeader": "header__99871",
+			"guildSettingsDiscoverySeparator": "separator__99871",
 			"guildSettingsWelcomeEnable": "enableContainer__5ea8c",
-			"guildSettingsWelcomePreview": "previewContainer__5579e",
+			"guildSettingsWelcomePreview": "previewContainer__74a6a",
 			"guildSettingsWelcomeEditCircle": "editCircle__5ea8c",
-			"guildSettingsWelcomeChannel": "welcomeChannel__5579e",
-			"guildSettingsWelcomeChannelIcon": "channelIcon__5579e",
+			"guildSettingsWelcomeChannel": "welcomeChannel__74a6a",
+			"guildSettingsWelcomeChannelIcon": "channelIcon__74a6a",
 			"guildSettingsBoostBackground": "background_c44edb",
 			"guildSettingsBoostTierInProgress": "tierInProgress_c44edb",
-			"guildSettingsBoostTierLocked": "tierHeaderLocked_f15dca",
-			"guildSettingsBoostTierUnlocked": "tierHeaderUnlocked_f15dca",
-			"guildSettingsBoostTierBody": "tierBody_f15dca",
+			"guildSettingsBoostTierLocked": "tierHeaderLocked_a36dee",
+			"guildSettingsBoostTierUnlocked": "tierHeaderUnlocked_a36dee",
+			"guildSettingsBoostTierBody": "tierBody_a36dee",
 			"automodBadge": "textBadge__0034b",
 			"automodEditCard": "editCard_a25a68",
 			"automodEditCardToggled": "toggled_a25a68",
@@ -6909,8 +6911,8 @@ $classes: (
 			"automodCollapseableCardToggled": "toggled__217b7",
 			"automodCollapseableHeaderContainer": "container_e5c5d5",
 			"automodCollapseableHeaderClickable": "clickableContainer_e5c5d5",
-			"automodCollapsedContainer": "groupCollapsedContainer_b6a9f9",
-			"automodCollapseablePointer": "pointer_b6a9f9",
+			"automodCollapsedContainer": "groupCollapsedContainer__6f5a6",
+			"automodCollapseablePointer": "pointer__6f5a6",
 			"automodCollapseableRadioBackground": "backgroundModifierContainer_e5c5d5",
 			"automodCollapseableRadioSelected": "selected_e5c5d5",
 			"automodKeywordsTextArea": "keywordsTextArea__6a631",
@@ -6930,16 +6932,16 @@ $classes: (
 			"guildSettingsOnboardingUpsellCheckbox": "checkbox_d9161f",
 			"onboardingEduPopout": "educationUpsell__4a4f2",
 			"onboardingEduPopoutArrow": "educationUpsellArrow__4a4f2",
-			"onboardingProgressBarContainer": "progressBarContainer__008b2",
-			"onboardingProgressBar": "progressBar__008b2",
-			"onboardingProgressBarCurrent": "progressBarCurrent__008b2",
+			"onboardingProgressBarContainer": "progressBarContainer_c3ab2b",
+			"onboardingProgressBar": "progressBar_c3ab2b",
+			"onboardingProgressBarCurrent": "progressBarCurrent_c3ab2b",
 			"onboardingFooterContainer": "container__4a4f2",
 			"onboardingChannelRow": "channelRow__1ea09",
 			"onboardingChannelRowDisabled": "disabled__1ea09",
 			"onboardingChannelRowSeparator": "separator__1ea09",
 			"onboardingChannelListHeader": "header__75906",
 			"onboardingChannelListHeaderContainer": "container_e9b3cb",
-			"onboardingChannelListProgressBar": "progressBar__58525",
+			"onboardingChannelListProgressBar": "progressBar__67225",
 			"onboardingChannelListProgressIcon": "icon_e9b3cb",
 			"onboardingChannelList": "channelList__75906",
 			"onboardingChannelChattableIndicator": "chattableIndicator__75906",
@@ -6984,8 +6986,8 @@ $classes: (
 			"loading": "loading__6ef4d",
 			"replyCloseButton": "closeButton_e876a8",
 			"replySeperator": "separator__841c8",
-			"radioItemDisabled": "disabled__001a7",
-			"userSettingsProfilePreview": "container_ba7f98",
+			"radioItemDisabled": "disabled__1bda4",
+			"userSettingsProfilePreview": "container__5a2c6",
 			"userSettingsProfilePremiumBackground": "premiumBackground__65c15",
 			"userSettingsFamilyContainers": "container__5dbf8" "container__8cc9a" "container__5b321",
 			"userSettingsFamilyBox": "box_d9914b",
@@ -7115,7 +7117,7 @@ $classes: (
 			"forumSetupRoleList": "rolesList_a68543",
 			"forumPinIcon": "pinIcon__08166",
 			"forumIncreasedReplyPreview": "replies__1b03e",
-			"forumEmpty": "container__93db4",
+			"forumEmpty": "container__5a2c6",
 			"forumEmptyCTA": "cta__93db4",
 			"forumExample": "container_ee8e87",
 			"forumExampleTag": "tag_ee8e87",
@@ -7142,7 +7144,7 @@ $classes: (
 			"directorySearchBar": "search_aabd24",
 			"directorySearchCategoryActive": "category_fa8ebf.activeCategory_fa8ebf", // SPLIT ME UP INTO MULTIPLE!!!
 			"directoryAppCategory": "category_d169f5",
-			"directoryAppSupportServer": "card__6faf3",
+			"directoryAppSupportServer": "card_c59071",
 			"directoryAppCommandList": "list_e0307d",
 			"directoryAppCommand": "commandName_e0307d",
 			"directoryAppPremiumCardHeader": "cardHeader_a11d84",
@@ -7178,7 +7180,7 @@ $classes: (
 			"avatarEditingContainer": "editingContainer__11787",
 			"avatarDecoItem": "decorationGridItem_dfa67d",
 			"avatarDecoItemSelected": "selected_dfa67d",
-			"avatarDecoItemLock": "iconBadge_dfa67d",
+			"avatarDecoItemLock": "iconBadge__03991",
 			"avatarDecoPreview": "decorationPreview__51743",
 			"avatarDecoPreviewSmall": "smallDecorationPreviewsContainer__51743",
 			"avatarDecoPreviewUpsell": "shopPreviewContainer__51743",
@@ -7195,7 +7197,7 @@ $classes: (
 			"shopPageWrapper": "pageWrapper__6db1d",
 			"shopHeader": "headerBar__80679",
 			"shopViewWrapper": "shopViewWrapper__6db1d",
-			"shopWhatsNew": "whatsNewSectionBackground_c880e8",
+			"shopWhatsNew": "whatsNewSectionContainer_c880e8",
 			"shopLoadingSkeleton": "skeleton__72fa0",
 			"shopLoadingBanner": "bannerBody__72fa0",
 			"shopLoadingCard": "cardBody__72fa0",
@@ -7309,7 +7311,7 @@ $classes: (
 			"clipInChatFooter": "container_b9f75c",
 			"subEnabledServers": "integrationWrapper_c7f964",
 			"freeBoost": "header__99020",
-			"nitroTrial": "tile_ff4e03",
+			"nitroTrial": "tile__076c1",
 			"channelSettingsCategory": "category__3ddc0",
 			"previewServerHomeContainerInner": "container__29699",
 			"previewServerHomeIcon": "icon_ac2d0d",
@@ -7321,18 +7323,18 @@ $classes: (
 			"previewServerConversationReply": "replySpine__081f6",
 			"previewServerConversationMessage": "conversationMessage__3c425",
 			"channelsSidebarHidden": "hidden_c48ade",
-			"attachmentIcon": "icon_b52bef",
-			"attachmentInner": "attachmentInner_b52bef",
-			"fileNameLinkWrapper": "filenameLinkWrapper_b52bef",
-			"fileNameLink": "fileNameLink_b52bef",
-			"fileMetadata": "metadata_b52bef",
+			"attachmentIcon": "icon__0ccae",
+			"attachmentInner": "fileInner__0ccae",
+			"fileNameLinkWrapper": "filenameLinkWrapper__0ccae",
+			"fileNameLink": "fileNameLink__0ccae",
+			"fileMetadata": "metadata__0ccae",
 			"attachmentDownloadButton": "downloadButton__3fb6d",
-			"fileNameWrapper": "filenameWrapper_b52bef",
-			"fileName": "filename_b52bef",
-			"fileSize": "size_b52bef",
-			"fileProgress": "progress_b52bef",
-			"attachmentCancelButton": "cancelButton_b52bef",
-			"attachmentButton": "downloadButton__3fb6d" "cancelButton_b52bef",
+			"fileNameWrapper": "filenameWrapper__0ccae",
+			"fileName": "filename__0ccae",
+			"fileSize": "size__0ccae",
+			"fileProgress": "progress__0ccae",
+			"attachmentCancelButton": "cancelButton__0ccae",
+			"attachmentButton": "downloadButton__3fb6d" "cancelButton__0ccae",
 			"searchResultHighlight": "highlight",
 			"questPanelContentExpanded": "contentExpanded__636a2",
 			"upsellTooltipCaretRightCenter": "caretRightCenter__675aa",
