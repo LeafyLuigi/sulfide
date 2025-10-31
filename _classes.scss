@@ -462,12 +462,12 @@ $classes: (
 		"focused": "app-focused",
 		"layerContainer": "layerContainer__59d0d",
 		"clickTrapContainer": "clickTrapContainer__59d0d",
-		"container": "container_c48ade",
-		"content": "content_c48ade",
+		"container": "container__5e434",
+		"content": "content__5e434",
 		"layer": "layer__59d0d",
 		"mediaEngineVideo": "media-engine-video", // class found within JS
-		"base": "base_c48ade",
-		"baseContent": "content_c48ade", // same line as base
+		"base": "base__5e434",
+		"baseContent": "content__5e434", // same line as base
 		"loadingSquare": "wanderingCubes__46696",
 		"loadingSquareItem": "item__46696",
 		"pictureInPicture": "pictureInPicture__6341f",
@@ -476,7 +476,7 @@ $classes: (
 		"anchorLinkUnderlineOnHover": "anchorUnderlineOnHover_edefb8",
 		"desaturate": "desaturate_c7819f", // has a filter relating to the saturation factor variable
 
-		"loader": "loader_c48ade", // probably used elsewhere but 100% used for loading "Browse Channels" for the first time during a session.
+		"loader": "loader__5e434", // probably used elsewhere but 100% used for loading "Browse Channels" for the first time during a session.
 
 		"ring": "focus-rings-ring", // tab around to see this, other extra classes may appear in other areas.
 
@@ -1166,7 +1166,7 @@ $classes: (
 		"primaryOutline": "outline__73069",
 	),
 	"chat": (
-		"page": "page_c48ade", // parent to a div which is a parent to chat
+		"page": "page__5e434", // parent to a div which is a parent to chat
 		"cozy": "cozy_c19a55",
 		"compact": "compact_c19a55",
 		"_index": "chat_f75fb0",
@@ -2572,7 +2572,7 @@ $classes: (
 		"noResults": "noResults_a9e706", // paired with above
 	),
 	"serverList": (
-		"_index": "guilds_c48ade", // class set for suffix appears all over the place
+		"_index": "guilds__5e434", // class set for suffix appears all over the place
 		"wrapper": "wrapper_ef3116",
 		"hidden": "hidden_ef3116", // unsure about usage but exists on same line as wrapper above
 		"tree": "tree_ef3116",
@@ -2697,21 +2697,21 @@ $classes: (
 		"serversInFolderStack": "@alias serverList folder stack",
 	),
 	"sidebar": (
-		"_index": "sidebar_c48ade",
+		"_index": "sidebar__5e434",
 		"sidebar": "@alias sidebar",
-		"hasNotice": "hasNotice_c48ade",
-		"list": "sidebarList_c48ade", // appears in redesign as parent to #{c(sidebar private channels)} and #{c(sidebar server container)}.
-		"listRounded": "sidebarListRounded_c48ade", // appears in redesign, adds border top left radius
-		"resizeHandle": "sidebarResizeHandle_c48ade", // appears in redesign
+		"hasNotice": "hasNotice__5e434",
+		"list": "sidebarList__5e434", // appears in redesign as parent to #{c(sidebar private channels)} and #{c(sidebar server container)}.
+		"listRounded": "sidebarListRounded__5e434", // appears in redesign, adds border top left radius
+		"resizeHandle": "sidebarResizeHandle__5e434", // appears in redesign
 
 		// Private Messages, Direct Messages.
 		"private": (
-			"channels": "privateChannels__35e86",
-			"searchBar": "searchBar__35e86",
-			"searchBarComponent": "searchBarComponent__35e86", // placeholder text "find or start a converstation"
+			"channels": "privateChannels_e6b769",
+			"searchBar": "searchBar_e6b769",
+			"searchBarComponent": "searchBarComponent_e6b769", // placeholder text "find or start a converstation"
 			"scroller": "scroller__99e7c",
 			"headerContainer": "privateChannelsHeaderContainer__99e7c", // Similar to category for servers
-			"friendsButtonContainer": "friendsButtonContainer__35e86",
+			"friendsButtonContainer": "friendsButtonContainer_e6b769",
 			"headerText": "headerText__99e7c",
 			"inviteButtonIcon": "privateChannelRecipientsInviteButtonIcon__99e7c", // Create new message button; can be used to create group dms. Appears to be nested: div.$this.$clickable.$iconWrapper > svg.$this.$icon
 			"channel": "channel__972a0", // used for groups, individuals, friends+nitro+shop
@@ -3047,7 +3047,7 @@ $classes: (
 		// Panels include your avatar, username, mic, headphones and settings icons
 		// as well as voice related stuff
 		"panel": (
-			"panels": "panels_c48ade",
+			"panels": "panels__5e434",
 			
 			// Non-voice stuff
 			"container": "container__37e49",
@@ -3146,7 +3146,7 @@ $classes: (
 			// Appears when streaming something or when you're in an activity
 			"activity": (
 				"panel": "panel__5dec7", // has background with theme dark/light
-				"activityPanel": "activityPanel_c48ade", // has border bottom
+				"activityPanel": "activityPanel__5e434", // has border bottom
 				"body": "body__5dec7",
 				"gameWrapper": "gameWrapper__5dec7",
 				// when streaming these show up
@@ -7322,7 +7322,7 @@ $classes: (
 			"previewServerConversationRoot": "conversationRoot_bed0b3",
 			"previewServerConversationReply": "replySpine__081f6",
 			"previewServerConversationMessage": "conversationMessage__3c425",
-			"channelsSidebarHidden": "hidden_c48ade",
+			"channelsSidebarHidden": "hidden__5e434",
 			"attachmentIcon": "icon__0ccae",
 			"attachmentInner": "fileInner__0ccae",
 			"fileNameLinkWrapper": "filenameLinkWrapper__0ccae",
