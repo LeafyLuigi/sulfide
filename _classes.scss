@@ -498,6 +498,9 @@ $classes: (
 		// Bottom-Aligned Chat Input
 		"alignChatInput": "align-chat-input", // 2025-05_align_chat_input; appears to be on everyone now.
 
+		// Something to do with text inputs
+		"manaTextInputs": "mana-text-inputs",
+
 		// no idea what these classes are about
 		"backgroundOpacity": (
 			"low": "background-opacity-low",
@@ -528,7 +531,8 @@ $classes: (
 				"24": "group-spacing-24",
 			),
 
-			"hardwareAcceleration": "hardware-acceleration", // (cannot change on Vesktop at present)
+			"hardwareAcceleration": "hardware-acceleration",
+			"hardwareAccelerationDisabled": "hardware-acceleration-disabled",
 
 			// a11y
 			"desaturateUserColors": "desaturate-user-colors", // A11y > "Apply to custom colour choices" for saturation slider
@@ -724,6 +728,7 @@ $classes: (
 		"redesignIconChildContainer": "redesignIconChildContainer__3e3b0",
 	),
 	"input": ( // used mainly in settings
+		// NOTE: suffix `_0f084` (used in `container__0f084`) may have been seriously altered.
 		"wrapper": "inputWrapper__0ed4f",
 		"_index": "input__0ed4f",
 		"error": "error__0ed4f",
@@ -734,6 +739,7 @@ $classes: (
 		"default": "inputDefault__0f084",
 		"mini": "inputMini__0f084",
 		"prefix": "inputPrefix__0f084",
+		"container": "container__0f084",
 		"inputError": "inputError__0ed4f", // it's a different class for some reason
 	),
 	"login": (
@@ -2633,7 +2639,9 @@ $classes: (
 			"hover": "hover__48112",
 			"closedFolderIconWrapper": "folderPreview__48112",
 			"guildIcon": "folderPreviewGuildIcon__48112", // tiny server icons
-			"noIcon": "noIcon_f34534", // shared in settings/boosts?
+			"icon": "icon_f34534", // shared in settings
+			"iconSizeSmol": "iconSizeSmol_f34534", // shared in settings
+			"noIcon": "noIcon_f34534", // shared in settings
 			"expandedFolderBackground": "folderGroupBackground__48112",
 			"folderIconWrapper": "folderPreviewWrapper__48112",
 			"expandedFolderIconWrapper": "expandedFolderIconWrapper__48112",
@@ -3358,6 +3366,26 @@ $classes: (
 			"sinistre": "sinistre__89a31",
 			"zillaSlab": "zillaSlab__89a31",
 		),
+		// ...and text effects now too.
+		"textEffects": (
+			"container": "container_dfb989", // if found will contain a few variables in inline styles.
+			"inProfile": "inProfile_dfb989",
+			"innerContainer": "innerContainer_dfb989",
+			"chicle": "chicle_dfb989", // slight edits for this specified font for certain effects
+			"underlineOnHover": "underlineOnHover_dfb989",
+			"glowContainer": "glowContainer_dfb989",
+			"emoji": "emoji_dfb989",
+			"showEffect": "showEffect_dfb989",
+			"animated": "animated_dfb989",
+			"loop": "loop_dfb989",
+			
+			"solid": "solid_dfb989", // declared an effect. default of sorts.
+			"gradient": "gradient_dfb989",
+			"neon": "neon_dfb989",
+			"neonGlow": "neonGlow_dfb989", // used as a secondary text to neon
+			"toon": "toon_dfb989", // uses ::before for text fill `background-clip: text`, DO NOT INCLUDE `CONTENT: ""`
+			"pop": "pop_dfb989", // also uses ::before in a similar way to toon.
+		),
 
 		// Banners are in their own line. The SVG Wrapper is in its own line.
 		"banner": (
@@ -3818,6 +3846,7 @@ $classes: (
 				"default": "contentColumnDefault__23e6b",
 				"wide": "contentColumnWide__23e6b",
 			),
+			"page": "settingsPage_f131e9",
 			"customScroller": "customScroller__23e6b", // used in the following: server>roles (but not when looking at permissions), server>invites, server>audit log, channel>invites [unchecked: settings>windows, settings>linux]
 
 			// these margins aren't used in the sidebar, only in the content area
@@ -3905,11 +3934,129 @@ $classes: (
 		// (also found by pressing ctrl+comma but sorted outside bc dev)
 		// "Developer Only" (requires plugin to view these)
 
+		// WHAT'S DONE?
+		// CONVENTIONAL SETTINGS, ctrl+comma:
+		// -- User Settings --
+		// My Account ✓
+		// ├─ Security ✓
+		// └─ Standing ✓
+		// Profiles ✓
+		// ├─ Main Profile ✓
+		// └─ Per-server Profiles ✓
+		// Content & Social
+		// ├─ Discord
+		// └─ Connected Games
+		// Data & Privacy
+		// Family Centre
+		// ├─ Activity
+		// ├─ My Family
+		// └─ Settings
+		// Authorised Apps
+		// Devices
+		// Connections
+		// Clips
+		// └─ Privacy
+		// -- Payment Settings --
+		// Nitro
+		// Server Boost
+		// Subscriptions
+		// Gift Inventory
+		// Billing
+		// -- App Settings --
+		// Appearance
+		// Accessibility
+		// Voice & Video
+		// ├─ Voice
+		// ├─ Video
+		// ├─ Soundboard
+		// └─ Debugging
+		// Chat
+		// Notifications
+		// Keybinds
+		// Language
+		// Streamer Mode
+		// Advanced
+		// (actually above streamer mode lol) Windows Settings / Linux Settings
+		// -- Activity Settings --
+		// Activity Privacy
+		// Registered Games (windows)
+		// Game Overlay (windows)
+		// -- Developer Only --
+		// Experiments
+		// Developer Options (unlikely to be themed)
+		// ├─ Overrides
+		// ├─ Manual Triggers
+		// ├─ Developer  Flags
+		// ├─ Logging
+		// └─ Design Tools
+
+		// SERVER SETTINGS: (* means not on every sever)
+		// -- (Server Name) --
+		// Server Profile
+		// Server Tag
+		// Engagement
+		// Boost Perks
+		// -- Expression --
+		// Emoji
+		// Stickers
+		// Soundboard
+		// -- People --
+		// Members (this may redirect to the dedicated members page on some servers)
+		// Roles
+		// ├─ (main list)
+		// └─ (editing individual role)
+		// Invites
+		// Access
+		// ├─ ("Invite Only" selected)
+		// ├─ ("Apply to Join" selected)
+		// └─ ("Discoverable" selected)
+		// -- Apps --
+		// Integrations
+		// ├─ Webhooks
+		// ├─ Channels Followed
+		// └─ ("Bots and Apps" item selected)
+		// (App Directory is not included due to it being a link to elsewhere)
+		// -- Moderation --
+		// Safety Setup
+		// ├─ (On its own kind of thing, "AutoMod" is not found here)
+		// ├─ (List of sorts, "AutoMod" is found in list, tho sorted below)
+		// ├─ Raid Protection and CAPTCHA
+		// ├─ DM and Spam Protection
+		// └─ Permissions
+		// Audit Log
+		// Bans
+		// AutoMod* (may be under "Safety Setup" on some servers)
+		// --
+		// Enable Community*
+		// (usually above or below only)
+		// Community Overview*
+		// Onboarding*
+		// ├─ Default Channels
+		// ├─ Questions
+		// └─ Server Guide
+		// Server Insights* (note that "Go to Server Insights" will open its own page in browser)
+		// Welcome Screen*
+		// Server Web Page*
+		// --
+		// Server Boost Status
+		// Server Template
+		
+		// CHANNEL SETTINGS:
+		// Overview
+		// Permissions
+		// Invites
+		// Integrations (this MIGHT be a copy of the server settings lot)
+		// ├─ Webhooks
+		// └─ Channels Followed
+		
+
 		// USER SETTINGS
 		"myAccount": (
 			"_index": "#my-account-tab", // located on content column
-			"settingsPage": "settingsPage_f131e9",
+			"settingsPage": "@alias settings content page",
 			"tabBar": (
+				// also shared with:
+				// content and social
 				"_index": "tabBar_f8303a", // also #{c(tab top)}
 				"tab": "tab_f8303a", // also #{c(tab item)}
 				"panel": "tabBarPanel_f8303a", // the main page it seems
@@ -3993,12 +4140,39 @@ $classes: (
 				// left: fill out the fields
 				"sectionsContainer": "sectionsContainer_def11f",
 				"_index": "customizationSection_ace4f5",
+				"disabled": "disabled_ace4f5", // used on per-server when you don't have nitro
 				"customisationTitle": "title_ace4f5",
 				"withDivider": "withDivider_ace4f5",
 				"sectionDescription": "sectionDescription_ace4f5",
 				"colorSwatch": "colorSwatch__2d060",
 				"swatch": "swatch__2d060",
 				"editPencilIcon": "editPencilIcon__2d060",
+				"avatar": (
+					"buttonsContainer": "buttonsContainer__28d5e",
+					"removeButton": "removeButton__28d5e",
+					"buttonHighlighted": "buttonHighlighted__28d5e",
+					"newBadge": "newBadge__28d5e",
+				),
+				"decoration": (
+					"buttonsContainer": "buttonsContainer__89253",	
+					"removeButton": "removeButton__89253",
+					"buttonHighlighted": "buttonHighlighted__89253",
+				),
+				"nameStyle": (
+					"buttonsContainer": "buttonsContainer__4962e",
+					"newBadge": "newBadge__4962e",
+				),
+				"effect": (
+					"buttonsContainer": "buttonsContainer_fd47ae",
+					"removeButton": "removeButton_fd47ae",
+					"buttonHighlighted": "buttonHighlighted_fd47ae",
+					"newBadge": "newBadge_fd47ae",	
+				),
+				"banner": (
+					"buttonsContainer": "buttonsContainer_ffefd9",
+					"removeButton": "removeButton_ffefd9",
+					"buttonHighlighted": "buttonHighlighted_ffefd9",
+				),
 				"bio": (
 					"container": "bioTextAreaContainer__6a919",
 					"_index": "bioTextArea__6a919",
@@ -4038,8 +4212,53 @@ $classes: (
 						"_index": "nameplatePreview__39749",
 					),
 				),
+				// Nitro Preview -- NOTE I CANNOT TEST WHAT HAPPENS WHEN THE USER HAS NITRO.
+				"nitroPreview": (
+					"_index": "tryItOutSection__9d295", // the main box
+					"premiumFeatureBorder": "premiumFeatureBorder__65c15", // on main box
+					"featureBorder": "featureBorder__65c15", // on main box
+
+					"premiumBackground": "premiumBackground__65c15",
+					"background": "background__65c15",
+
+					"tryItOutLayout": "tryItOutLayout__9d295",
+
+					// has profile theme, banner, animated avatar, display name buttons
+					"editor": "editor__9d295",
+					// if you want to target the header area, use `#{c($editor)}>div`. h2 child for "Try out Nitro!"
+					"headerDescription": "description__9d295",
+					"customisationSection": "customizationSection__9d295",
+					"sectionContainer": "sectionContainer__04485",
+					"sparkleContainer": "sparkleContainer__04485",
+					"colorSwatchLabel": "colorSwatchLabel__04485",
+				),
 			),
 			// Per-Server
+			"dropdownSection": (
+				"section": "section__999b5",
+				"container": "container__5a838",
+				"control": "control__5a838",
+				"inputContainer": "container__72c38",
+				"inputWrapper": "wrapper__72c38",
+				"guildSelectOptionIcon": "guildSelectOptionIcon__999b5",
+			),
+			"perServer": (
+				"sectionsContainer": "sectionsContainer__722a8",
+				"nitroWheel": "nitroWheel__722a8",
+				"upsell": (
+					"overlay": "upsellOverlay__0f7dc",
+					"image": "upsellImage__0f7dc",
+					"textContainer": "upsellTextContainer__0f7dc",
+				),
+			),
+		),
+		"contentAndSocial": (
+			"_index": "#content-&-social-tab", // located on content column
+			"tabBar": (
+				"_alias": ". . myAccount tabBar"
+			),
+			// Discord
+			
 		),
 	),
 
@@ -4051,18 +4270,14 @@ $classes: (
 		"sidebar": "@alias settings sidebar",
 		"sidebarSocialLinks": "@alias settings sidebar socialLinks",
 		"sidebarInfo": "@alias settings sidebar info",
-		
 		"contentRegion": "@alias settings content",
 		"contentRegionScroller": "@alias settings content regionScroller",
 		"contentColumn": "@alias settings content column",
 		"contentColumnWide": "@alias settings content column wide",
-
 		"closeButtonContainer": "@alias settings tools container",
 		"closeButton": "@alias settings tools closeButton",
 		"closeButtonKeybind": "@alias settings tools keybind",
-		
 		"customScroller": "@alias settings content customScroller", // used in a few places, i'm not entirely sure what's different about it
-		
 		"marginReset": "@alias settings content margin reset",
 		"marginCenterHorz": "@alias settings content margin centerHorz",
 		"marginTop4": "@alias settings content margin top 4",
@@ -4076,24 +4291,13 @@ $classes: (
 		"marginBottom40": "@alias settings content margin bottom 40",
 		"marginBottom60": "@alias settings content margin bottom 60",
 		"marginLeft8": "@alias settings content margin left 8",
-
-		// ^^ done ^^ | vv not done vv
-
-		"premiumFeatureBorder": "premiumFeatureBorder__65c15",
-		"featureBorder": "featureBorder__65c15",
-		"featureBackground": "background__65c15",
-
+		"premiumFeatureBorder": "@alias settings profile customisationSection nitroPreview premiumFeatureBorder", // nitro preview
+		"featureBorder": "@alias settings profile customisationSection nitroPreview featureBorder", // nitro preview
+		"featureBackground": "@alias settings profile customisationSection nitroPreview background", // nitro preview
 		"sectionTitle": "@alias settings content section title",
 		"children": "@alias settings content section children",
-		"divider": "divider__44f7f",
 		"description": "@alias settings content form description",
-		"title": "title_b717a1",
-
 		"disableAccountButton": "@alias settings myAccount security disableAccountButton",
-
-		"box": "box_f8c98c",
-
-
 		"accountProfile": "@alias settings myAccount security profileCard account",
 		"accountProfileAvatar": "@alias settings myAccount security profileCard avatar",
 		"accountProfileBackground": "@alias settings myAccount security profileCard background",
@@ -4101,13 +4305,12 @@ $classes: (
 		"field": "@alias settings myAccount security profileCard field",
 		"accountSettingsSecurity": "@alias settings myAccount security userSettingsSecurity",
 
-		"profileImageUploader": "imageUploader_e4d0bf",
-
-		"radioGroupItem": "item__1bda4",
-		"radioBar": "radioBar__1bda4",
-		"radioBarInfo": "info__1bda4",
+		// ^^ done ^^ | vv not done vv
+		"radioGroupItem": "item__88a69",
+		"radioBar": "radioBar__88a69",
+		"radioBarInfo": "info__88a69",
 		"radioIconForeground": "radioIconForeground__001a7", // selected radio button's circle inner
-		"radioIndicatorChecked": "radioIndicatorChecked__1bda4",
+		"radioIndicatorChecked": "radioIndicatorChecked__88a69",
 
 		"formNotice": "formNotice_f43ba5", // "Check out our Terms of Service and Privacy Policy", authorized apps box at top | formNoticeBody_f43ba5 formNoticeTitle_f43ba5 icon_f43ba5 whiteText_f43ba5
 
@@ -4201,6 +4404,14 @@ $classes: (
 		"giftPromotionCard": "promotionCard_d4883c",
 
 		"codeRedemptionRedirect": "codeRedemptionRedirect_a706ba",
+
+
+		// shit wot i cant find
+		"divider": "divider__44f7f",
+		"title": "title_b717a1",
+		"box": "box_f8c98c",
+		"profileImageUploader": "imageUploader_e4d0bf",
+
 	),
 	// subset of userSettings
 	"appSettings": (
@@ -5431,20 +5642,22 @@ $classes: (
 			"focused": "focused__3f413", // hover over item
 			"multi": "multi__3f413", // i can't find this class but it's in a rule
 
+			// can be found in settings > profiles > per-server profiles
+			"searchInput": "searchInput__3f413",
+			"iconsContainer": "iconsContainer__3f413",
+			"dropdownIcon": "dropdownIcon__3f413",
+
 			// idk where lmao
 			"searchable": "searchable__3f413",
-			"searchInput": "searchInput__3f413",
 			"editing": "editing__3f413",
 			"label": "label_f6639d",
 			"selectPositionTop": "selectPositionTop__3f413",
 			"disabled": "disabled__3f413",
 			"hidden": "hidden_f6639d",
-			"iconsContainer": "iconsContainer__3f413",
 			"iconsCenter": "iconsCenter__3f413",
 			"placeholder": "placeholder__3f413",
 			"popoutPositionTop": "popoutPositionTop__3f413",
 			"clear": "clear__3f413",
-			"dropdownIcon": "dropdownIcon__3f413",
 			"noResults": "noResults__3f413",
 			"loading": "loading__3f413",
 			"loadingSpinner": "loadingSpinner__3f413",
@@ -5869,7 +6082,7 @@ $classes: (
 				"rowLocked": "soundRowNitroLocked__61424", // on row. has background like section/header
 				"premiumDisabled": "premiumDisabledRefresh__9be63", // only appears in refresh. on button. hover this also gives emojiCircle background gradient
 
-				"upsell": ( // floating thing at bottom that shows up when scrolling
+				"upsell": ( // floating thing at bottom that shows up when scrolling -- might be generic.
 					"container": "upsellContainer__0b69f", // has inline style for transform: translateY(0-120%);opacity: 0-1;
 					"shadow": "upsellContainerShadow__0b69f",
 					"innerFloating": "upsellContainerFloating__0b69f",
@@ -7002,9 +7215,8 @@ $classes: (
 			"loading": "loading__6ef4d",
 			"replyCloseButton": "closeButton_e876a8",
 			"replySeperator": "separator__841c8",
-			"radioItemDisabled": "disabled__1bda4",
+			"radioItemDisabled": "disabled__88a69",
 			"userSettingsProfilePreview": "container__5a2c6",
-			"userSettingsProfilePremiumBackground": "premiumBackground__65c15",
 			"userSettingsFamilyContainers": "container__5dbf8" "container__8cc9a" "container__5b321",
 			"userSettingsFamilyBox": "box_d9914b",
 			"userSettingsFamilyCircle": "circle__8cc9a",
