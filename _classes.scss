@@ -2248,8 +2248,8 @@ $classes: (
 		// appears on right, contains inbox, help link and windows min/max/close buttons
 		"trailing": (
 			"container": "trailing_c38106",
-			"recentsIcon": "clickable_c99c29", // inbox icon
-			"badge": "badge_c99c29", // inbox badge
+			"recentsIcon": "clickable__81391", // inbox icon
+			"badge": "badge__81391", // inbox badge
 			// for the help link, target #{c(topBar trailing container)}>a[href="https://support.discord.com"]
 			"button": "button__85643", // child icons. css has a rule for .visualRefresh .button svg {} -- despite that svg having a class lol
 
@@ -2741,6 +2741,7 @@ $classes: (
 			"scroller": "scroller__99e7c",
 			"headerContainer": "privateChannelsHeaderContainer__99e7c", // Similar to category for servers
 			"friendsButtonContainer": "friendsButtonContainer_e6b769",
+			"sectionDivider": "sectionDivider_e6b769",
 			"headerText": "headerText__99e7c",
 			"inviteButtonIcon": "privateChannelRecipientsInviteButtonIcon__99e7c", // Create new message button; can be used to create group dms. Appears to be nested: div.$this.$clickable.$iconWrapper > svg.$this.$icon
 			"channel": "channel__972a0", // used for groups, individuals, friends+nitro+shop
@@ -2805,6 +2806,21 @@ $classes: (
 				"iconContainer": "@iconContainer__675e5",
 				"icon": "icon_bd6d20", // might be used elsewhere in app
 				"iconCard": "@iconCard__675e5",
+			),
+
+			// when loading in for the first time
+			"loading": (
+				"searchInner": "pcSearchInner__1add6", // child of #{c(sidebar private serachBar)}. empty.
+				"linkList": "pcLinkList__1add6", // child of #{c(sidebar private channels)}. contains link buttons.
+				"linkButton": "pcLinkButton__1add6", // fake button. contains linkIcon and bar
+				"linkIcon": "pcLinkIcon__1add6", // fake icon
+				// there be a divider here; uses #{c(sidebar private sectionDivider)}
+				"dmHeader": "pcDmHeader__1add6", // contains bar and plus icon
+				"plusIcon": "pcPlusIcon__1add6",
+				"dmList": "pcDmList__1add6", // contains dm rows
+				"dmRow": "pcDmRow__1add6", // contains circle and bar
+				"bar": "bar__1add6", // fake bar, has style with width and height
+				"circle": "circle__1add6", // fake circle, has style with width and height
 			),
 		),
 
