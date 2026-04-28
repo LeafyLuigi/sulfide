@@ -2249,6 +2249,8 @@ $classes: (
 		"trailing": (
 			"container": "trailing_c38106",
 			"recentsIcon": "clickable__81391", // inbox icon
+			"recentsIconDisabled": "disabled__81391",
+			"recentsIconSelected": "selected__81391",
 			"badge": "badge__81391", // inbox badge
 			// for the help link, target #{c(topBar trailing container)}>a[href="https://support.discord.com"]
 			"button": "button__85643", // child icons. css has a rule for .visualRefresh .button svg {} -- despite that svg having a class lol
@@ -2287,6 +2289,7 @@ $classes: (
 		"input": "input__4f074",
 		"toolbar": "toolbar__9293f",
 		"iconSelected": "selected__9293f",
+		"iconDisabled": "disabled__9293f",
 		"search": "search__49676", // contains margin
 		"searchInner": "search__97492", // gets open applied to it
 		"searchOpen": "open__97492",
@@ -2417,6 +2420,7 @@ $classes: (
 		// no idea about these
 		"dim": "dim__61c93",
 	),
+	// this section applies to the loading screen and when loading certain elements in
 	"loading": (
 		"container": "container_a2f514",
 		"ready": "ready_a2f514",
@@ -2441,6 +2445,55 @@ $classes: (
 
 		"firefoxFixScrollFlex": "firefoxFixScrollFlex_efbae7",
 		"fixClipping": "fixClipping_efbae7",
+
+		// below for individual elements
+		// a = animation, pulse_(hash)
+		// bg* = background. bgc indicates only color
+		// b* = border top/left/bottom/right color. b* itself is shorthand border
+		// bi* = border inline start/end color
+		// c = color
+
+		"generic": (
+			"bar": "bar__1add6", // has bgc+a | fake bar, has style with width and height
+			"circle": "circle__1add6", // has bgc+a | fake circle, has style with width and height
+			"page": "page__1add6", // has bgc+bt
+			"header": "header__1add6", // has bg+bb
+			"iconWrapper": "iconWrapper__1add6",
+			"title": "title__1add6", // has c
+			"scroll": "scroll__1add6",
+			"card": "card__1add6", // has bgc+a
+		),
+
+		"store": ( // despite pyrite hiding it, it's best to have the classes here
+			"_index": "storePage__1add6", // contains a header and scroll
+			// header contains iconWrapper (contains svg>path[no class]) and title
+			// scroll contains sectionsContainer (sectionsContainer__02f2d), containing storeHero and storeSection
+			"hero": "storeHero__1add6", // contains a few bars
+			"section": "storeSection__1add6", // contains a bar and bentoGrid
+			"bentoGrid": "storeBentoGrid__1add6", // contains some cards with bentoCardTall
+			"bentoCardTall": "storeBentoCardTall__1add6", // matches with card class
+		),
+
+		"privateChannels": (
+			"searchInner": "pcSearchInner__1add6", // has bgc+a | child of #{c(sidebar private serachBar)}. empty.
+			"linkList": "pcLinkList__1add6", // child of #{c(sidebar private channels)}. contains link buttons.
+			"linkButton": "pcLinkButton__1add6", // fake button. contains linkIcon and bar
+			"linkIcon": "pcLinkIcon__1add6", // has bgc+a | fake icon
+			// there be a divider here; uses #{c(sidebar private sectionDivider)}
+			"dmHeader": "pcDmHeader__1add6", // contains bar and plus icon
+			"plusIcon": "pcPlusIcon__1add6", // has bgc+a
+			"dmList": "pcDmList__1add6", // contains dm rows
+			"dmRow": "pcDmRow__1add6", // contains circle and bar
+		),
+		
+		"profilePopout": ( // some classes MIGHT be in the classes for profileModal if that exists
+			"_index": "profilePopout__1add6", // contains banner, avatar, header, tabs, content
+			"banner": "profileBanner__1add6", // has bgc+a
+			"avatar": "profileAvatar__1add6", // has bgc+b*+a
+			"header": "profileHeader__1add6", // contains 2 bars
+			"tabs": "profileTabs__1add6", // has bb | contains 3 bars
+			"content": "profileContent__1add6", // contains 4 bars
+		),
 	),
 	"memberList": (
 		"container": "container_c8ffbb",
@@ -2806,21 +2859,6 @@ $classes: (
 				"iconContainer": "@iconContainer__675e5",
 				"icon": "icon_bd6d20", // might be used elsewhere in app
 				"iconCard": "@iconCard__675e5",
-			),
-
-			// when loading in for the first time
-			"loading": (
-				"searchInner": "pcSearchInner__1add6", // child of #{c(sidebar private serachBar)}. empty.
-				"linkList": "pcLinkList__1add6", // child of #{c(sidebar private channels)}. contains link buttons.
-				"linkButton": "pcLinkButton__1add6", // fake button. contains linkIcon and bar
-				"linkIcon": "pcLinkIcon__1add6", // fake icon
-				// there be a divider here; uses #{c(sidebar private sectionDivider)}
-				"dmHeader": "pcDmHeader__1add6", // contains bar and plus icon
-				"plusIcon": "pcPlusIcon__1add6",
-				"dmList": "pcDmList__1add6", // contains dm rows
-				"dmRow": "pcDmRow__1add6", // contains circle and bar
-				"bar": "bar__1add6", // fake bar, has style with width and height
-				"circle": "circle__1add6", // fake circle, has style with width and height
 			),
 		),
 
