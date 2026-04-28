@@ -2212,7 +2212,7 @@ $classes: (
 		"explorePublicText": "text_a14595",
 		"explorePublicArrow": "arrow_a14595",
 	),
-	// kinda bad name. in desktop visual refresh, appears at the top as the first child under #{c(main base)}.
+	// kinda bad name. appears at the top as the first child under #{c(main base)}.
 	"topBar": (
 		"bar": "bar_c38106",
 		
@@ -2244,6 +2244,14 @@ $classes: (
 		// appears on left, probably contains mac os close/min/fullscreen buttons; cannot test as not on mac
 		"leading": (
 			"container": "leading_c38106",
+			"backForwardButtons": (
+				"_index": "backForwardButtons__63abb",
+				"button": "button__63abb",
+				"back": "back__63abb",
+				"forward": "forward__63abb",
+				"disabled": "disabled__63abb"
+			),
+
 		),
 		// appears on right, contains inbox, help link and windows min/max/close buttons
 		"trailing": (
