@@ -1771,6 +1771,7 @@ $classes: (
 
 		"otherRoles": "otherRoles__71c22", // so many text classes... different group again.
 		"actionButton": "button__71c22", // same line as class above
+		"memberAvatar": "memberAvatar__71c22",
 
 		"noResultsContainer": "noResultsContainer__9c6d0", // on own line for some reason. The children of it are as follows:
 		// div[class] > svg > (wumpus image)
@@ -1859,7 +1860,7 @@ $classes: (
 		"typing": "typing_b88801",
 		"typingText": "text_b88801",
 		"typingDots": "typingDots_b88801",
-		"Dot": "dots__5ad89",
+		"dots": "dots__5ad89", // also used in avatar typing
 		"typingDotsThemed": "themed__5ad89", // found in chatHome's widgets may not apply elsewhere
 
 		"channelAppLauncher": "@channelAppLauncher_e6e74f",
@@ -2156,12 +2157,16 @@ $classes: (
 		"peopleList": "peopleList__5ec2f",
 		"peopleListTitle": "title__1472a",
 		"peopleListItem": "peopleListItem_cc6179",
+		"listItemContents": "listItemContents_fc004c",
+		"userInfo": "userInfo__0a06e",
+		"userInfoAvatar": "avatar__0a06e",
 		"peopleListItemActive": "active_cc6179",
 		"peopleListItemText": "text__0a06e",
 		"peopleListItemDiscordTag": "discordTag__0a06e",
 		"peopleListUsername": "username__0a06e",
 		"peopleListDiscriminator": "discriminator__0a06e",
 		"peopleListBotTag": "botTag__0a06e",
+		"actions": "actions_fc004c",
 		"actionButton": "actionButton_f8fa06",
 		"actionButtonAccept": "actionAccept_f8fa06",
 		"actionButtonDeny": "actionDeny_f8fa06",
@@ -2211,6 +2216,14 @@ $classes: (
 		"explorePublicIcon": "icon_a14595",
 		"explorePublicText": "text_a14595",
 		"explorePublicArrow": "arrow_a14595",
+
+		"activeNow": (
+			"popout": (
+				"memberItem": "memberItem__5017b",
+				"avatar": "avatar__5017b",
+				"unknown": "unknown__5017b", // has background image depending on theme
+			),
+		),
 	),
 	// kinda bad name. appears at the top as the first child under #{c(main base)}.
 	"topBar": (
@@ -2817,7 +2830,7 @@ $classes: (
 			"avatarWithText": "avatarWithText__972a0", // paired with layout below for friends+nitro+shop
 			"layout": "layout__20a53",
 			"highlighted": "highlighted__20a53", // unread, makes channel name white; applied on layout
-			"avatar": "avatar__20a53", // applies to groups, individuals, friends+nitro+shop
+			"avatar": "avatar__20a53", // applies to groups, individuals, friends+nitro+shop, settings>emoji
 			// children of "avatar" include the generic avatar wrapper class or the class below.
 			"linkButtonIcon": "linkButtonIcon__972a0", // used for friends+nitro+shop
 			"newBadge": "newBadge__4ed1a",
@@ -3783,6 +3796,9 @@ $classes: (
 			"connectionsOverlay": "overlay__3b260",
 			"connectionsList": "list__3b260",
 			"connectionsDivider": "divider__3b260",
+			"connectionsRow": "row__89036",
+			"connectionsAvatar": "avatar__89036",
+			"connectionsDetails": "details__89036",
 
 			// individual list for mutual friends/servers
 			"connectionList": "connectionList_a4a127",
@@ -3813,6 +3829,8 @@ $classes: (
 			),
 
 			"desaturateUserColors": "desaturateUserColors__41f68",
+
+			"avatar": "avatar__9ac28", // mutual friend avatar
 		),
 
 		// for status picker, has a bit of overlap with popout
@@ -7442,8 +7460,21 @@ $classes: (
 			"pollCheckboxSelected": "checkboxSelected_f4f0eb",
 			"pollVotesPopoutAnswerScroller": "scroller__01c8c",
 			"pollVotesPopoutVoters": "voters__01c8c",
+			"pollVotesPopoutVoter": "voter__01c8c",
+			"pollVotesPopoutVoterDefault": "voterDefault__01c8c",
+			"pollVotesPopoutVoterFinal": "voterFinal__01c8c",
+			"pollVotesPopoutVoterAvatarContainer": "voterAvatarContainer__01c8c",
 			"pollCreatePopoutAddAnswer": "addAnswerButton_d97f89",
 			"superReactionGlow": "burstGlow__23977",
+
+			"auditlogAvatar": "avatar__43dab",
+			"auditlogFilterAvatar": "avatar__5906b",
+			"stickerUploaderUserAvatar": "userAvatar__83b1d",
+			"soundboardUploaderAvatar": "uploaderAvatar__93d4a",
+			"rolesAvatar": "avatar_e3077c",
+			"inviteAvatar": "avatar__1de14",
+			"bannedUserAvatar": "bannedUserAvatar__4b8d8",
+			"modviewAvatar": "memberAvatar__34940",
 		),
 	),
 
