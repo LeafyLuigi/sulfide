@@ -2741,6 +2741,7 @@ $classes: (
 			"folderIconWrapper": "folderPreviewWrapper__48112",
 			"expandedFolderIconWrapper": "expandedFolderIconWrapper__48112",
 			"stack": "stack_dbd263", // servers in folder
+			"folderIcon": "folderIcon__48112",
 		),
 
 		"dragOver": "dragOver_d144f8",
@@ -3722,6 +3723,7 @@ $classes: (
 		"modal": (
 			"root": "root__24502",
 			"_index": "user-profile-modal",
+			"v2": "user-profile-modal-v2", // there's a v2 for people. bots still use the old root version
 			"headerInner": "headerInner__24502",
 
 			"body": "body__24502",
@@ -6449,6 +6451,16 @@ $classes: (
 			"icon": "vc-dearrow-icon",
 		),
 
+		// better folders - improves how folders are dealt with. has multiple options.
+		// sidebar - whether or not it should be in its own sidebar (this can cause issues!)
+		// close all folders button under home icon
+		// other close/force open options
+		// other options idfc for tbh
+		"betterFolders": (
+			"sidebar": "vc-betterFolders-sidebar",
+			"grid": "vc-betterFolders-sidebar-grid", // hard codes some grid layout stuff when applied to #{c(main base)}
+		),
+
 		// client theme - allows for custom gradient themes akin to an old experiment
 		"clientTheme": (
 			"settings": "vc-clientTheme-settings",
@@ -6674,6 +6686,11 @@ $classes: (
 			"indicator": "vc-typing-indicator",
 			"avatars": "vc-typing-indicator-avatars",
 			"dots": "vc-typing-indicator-dots",
+		),
+
+		// typing tweaks - changes to who's typing
+		"typingTweaks": (
+			"user": "vc-typing-user",
 		),
 
 		// user voice show - server icon has an indicator when someone's in voice
@@ -7475,6 +7492,21 @@ $classes: (
 			"inviteAvatar": "avatar__1de14",
 			"bannedUserAvatar": "bannedUserAvatar__4b8d8",
 			"modviewAvatar": "memberAvatar__34940",
+			"settingsProfileCustomisationTab": "profileCustomizationTab__3cfcf",
+			"settingsProfileCustomisationNameplatePreviewAvatar": "avatar__62b8c",
+			"settingsMyAccountAvatar": "avatar_a9178b",
+			"settingsMyAccountStandingAvatar": "avatar_eb2508",
+			"settingsContentAndSocialUserInfo": "userInfo_a72ffc",
+			"settingsA11yPreviewAvatars": "avatars__6b741",
+			"tooltipAvatarRow": "container__183c2",
+			"tooltipSize16": "size16__183c2",
+			"tooltipSize24": "size24__183c2",
+			"tooltipSize32": "size32__183c2",
+			"tooltipSize56": "size56__183c2",
+			"tooltipActiveVoiceAvatarMasked": "avatarContainerMasked__183c2", // child foreignobject has mask
+			"tooltipActiveVoiceAvatarContainer": "avatarContainer__183c2",
+			"tooltipActiveVoiceAvatarWithBackground": "avatarWithBackground__183c2",
+			"tooltipActiveVoiceAvatar": "avatar__183c2", // img; inline src
 		),
 	),
 
