@@ -3779,6 +3779,9 @@ $classes: (
 		// Panel: Go to the DMs of someone while your screen is larger than
 		// 1132px wide and you've not disabled the panel via header
 		"panel": (
+			"parent": "aside_f58343",
+			"redesign": "user-profile-sidebar-redesign",
+
 			"_index": "user-profile-sidebar",
 			"panel": "@alias profile panel",
 			"container": "container_a823cd",
