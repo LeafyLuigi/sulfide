@@ -3780,7 +3780,12 @@ $classes: (
 		// 1132px wide and you've not disabled the panel via header
 		"panel": (
 			"parent": "aside_f58343",
-			"redesign": "user-profile-sidebar-redesign",
+			"redesign": (
+				"_index": "user-profile-sidebar-redesign",
+				"footer": "redesignFooter__272c7",
+				"descriptionClamp": "descriptionClamp_f5f93a", // might not be redesign only?
+				"maxBioHeight": "maxBioHeight_f5f93a", // same thing, seems to apply whenever
+			),
 
 			"_index": "user-profile-sidebar",
 			"panel": "@alias profile panel",
