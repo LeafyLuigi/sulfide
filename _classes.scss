@@ -1325,6 +1325,9 @@ $classes: (
 		"automodShield": "shieldIcon_b7ab2c",
 
 		"layerWrapper": "chatLayerWrapper__01ae2",
+
+		"codeContainer": "codeContainer__75297",
+		"codeActions": "codeActions__75297",
 	),
 	"pages": (
 		// page itself
@@ -2176,6 +2179,7 @@ $classes: (
 		"addFriendTitle": "title__94b08", // h2
 		"addFriendEmptyState": "emptyState__94b08", // below the grid which was hit with a display none
 		"addFriendInputWrapper": "addFriendInputWrapper__72ba7",
+		"addFriendWumpusWrapper": "addFriendWumpusWrapper__72ba7", // has >img
 
 		"empty": "friendsEmpty_c7ea19",
 		"emptyWrapper": "wrapper__33d12",
@@ -2219,6 +2223,18 @@ $classes: (
 		"explorePublicArrow": "arrow_a14595",
 
 		"activeNow": (
+			"sponsored": ( // quest stuff
+				"wrapper": "wrapper__11054",
+				"foreground": "foreground__11054",
+				"contextMenu": "contextMenu__11054",
+				"submenuIcon": "submenuIcon__11054",
+				"header": "header__11054",
+				"gameTitle": "gameTile__11054",
+				"headerCopy": "headerCopy__11054",
+				"titleOrbIcon": "titleOrbIcon__11054",
+				"callToActions": "ctas__11054",
+				"primaryButtonWrapper": "primaryButtonWrapper__11054",
+			),
 			"popout": (
 				"memberItem": "memberItem__5017b",
 				"avatar": "avatar__5017b",
@@ -2672,6 +2688,8 @@ $classes: (
 		"noResultsImage": "noResultsImage_a98f3b",
 		"emptyResultsText": "emptyResultsText_a98f3b",
 		"noResults": "noResults_a98f3b", // paired with above
+
+		"paginationDock": "paginationDock_a98f3b",
 	),
 	"serverList": (
 		"_index": "guilds__5e434", // class set for suffix appears all over the place
@@ -3382,25 +3400,45 @@ $classes: (
 		"scroller": "scroller_c880e8",
 	),
 	"tooltips": (
-		"tooltip": "tooltip_c36707",
-		"disablePointerEvents": "tooltipDisablePointerEvents_c36707",
-		"content": "tooltipContent_c36707",
-		"contentAllowOverflow": "tooltipContentAllowOverflow_c36707",
-		"top": "tooltipTop_c36707",
-		"right": "tooltipRight_c36707",
-		"bottom": "tooltipBottom_c36707",
-		"left": "tooltipLeft_c36707",
-		"center": "tooltipCenter_c36707",
-		"pointer": "tooltipPointer_c36707",
-		"bg": "tooltipPointerBg_c36707",
+		"_index": "tooltip_fa450d",
+		"tooltip": "@alias tooltips",
+		"disablePointerEvents": "tooltipDisablePointerEvents_fa450d",
+		"content": "tooltipContent_fa450d",
+		"contentAllowOverflow": "tooltipContentAllowOverflow_fa450d",
+		"top": "tooltipTop_fa450d",
+		"right": "tooltipRight_fa450d",
+		"bottom": "tooltipBottom_fa450d",
+		"left": "tooltipLeft_fa450d",
+		"center": "tooltipCenter_fa450d",
+		"pointer": "tooltipPointer_fa450d",
+		"bg": "tooltipPointerBg_fa450d",
 
-		"primary": "tooltipPrimary_c36707",
-		"black": "@tooltipBlack_c36707", // removed
-		"grey": "tooltipGrey_c36707",
-		"brand": "tooltipBrand_c36707",
-		"red": "tooltipRed_c36707",
-		"green": "tooltipGreen_c36707",
-		"yellow": "@tooltipYellow_c36707", // removed
+		"primary": "tooltipPrimary_fa450d",
+		"black": "@tooltipBlack_fa450d", // removed
+		"grey": "tooltipGrey_fa450d",
+		"brand": "tooltipBrand_fa450d",
+		"red": "tooltipRed_fa450d",
+		"green": "tooltipGreen_fa450d",
+		"yellow": "@tooltipYellow_fa450d", // removed
+
+		"caret": (
+			"_index": "caret__0b5f9",
+			"top": "caret--top__0b5f9",
+			"bottom": "caret--bottom__0b5f9",
+			"left": "caret--left__0b5f9",
+			"right": "caret--right__0b5f9",
+
+			// can be combined with either top+bottom or left+right
+			"center": "caret--center__0b5f9",
+			"start": "caret--start__0b5f9",
+			"end": "caret--end__0b5f9",
+
+			"custom": "caret--custom__0b5f9",
+
+			"icon": "caretIcon_fa450d",
+			"fill": "caretFill_fa450d",
+			"stroke": "caretStroke_fa450d",
+		),
 
 		// different css lines
 		"stageListenerPill": "stageListenerPill_b1f768",
@@ -3410,7 +3448,30 @@ $classes: (
 			"caretFill": "caretFill__4e35b", // path
 			"caretStroke": "caretStroke__4e35b", // path again
 			"tooltipContent": "tooltipContent__4e35b",
-		)
+		),
+		"sidebarHover": (
+			"_index": "tooltip_c36707", // has background, color and border in most conditions
+			"disablePointerEvents": "tooltipDisablePointerEvents_c36707",
+			"pointer": "tooltipPointer_c36707",
+
+			"content": "tooltipContent_c36707",
+			"contentAllowOverflow": "tooltipContentAllowOverflow_c36707",
+
+			"top": "tooltipTop_c36707",
+			"bottom": "tooltipBottom_c36707",
+			"center": "tooltipCenter_c36707",
+			"left": "tooltipLeft_c36707",
+			"right": "tooltipRight_c36707",
+
+			// all have a background and color
+			"primary": "tooltipPrimary_c36707",
+			"grey": "tooltipGrey_c36707",
+			"brand": "tooltipBrand_c36707",
+			"red": "tooltipRed_c36707",
+			"green": "tooltipGreen_c36707",
+
+			"pointerBg": "tooltipPointerBg_c36707",
+		),
 	),
 
 	// Profiles are for anything involving an Avatar, Username, #0000 number and optionally customization.
@@ -3916,6 +3977,35 @@ $classes: (
 				"tagChiplet": "tagChiplet_e144e0",
 			),
 		),
+
+		// People paid for it, might as well include it.
+		"frame": (
+			// classes used with panel initially.
+			"custom": "custom-profile-frame", // applied on the equiv of outer. forces a few inline variables, all of which are numbers without a unit:
+			// --custom-profile-frame-container-width
+			// --custom-profile-frame-overflow-top
+			// --custom-profile-frame-overflow-bottom
+			// --custom-profile-frame-overflow-horizontal
+			"container": "profileFrameContainer__7d80f", // contains a few inline variables, same as before all numbers no unit:
+			// --custom-profile-frame-container-width
+			// --custom-profile-frame-overflow-top
+			// --custom-profile-frame-overflow-bottom
+			// --custom-profile-frame-overflow-horizontal
+			"_index": "profileFrame__7d80f", // frame itself
+			"layer": "profileFrameLayer__7d80f",
+			// UNSORTED
+			"front": "front__7d80f",
+			"mask": "profileFrameMask__7d80f",
+			"top": "top__7d80f",
+			"bottom": "bottom__7d80f",
+			"fadeIn": "fadeIn__7d80f", // uses full-motion
+			"back": "back__7d80f",
+			"staple": "staple__7d80f",
+			"rail": "rail__7d80f",
+			"responsive": "responsive__7d80f",
+			"border": "border__7d80f",
+			
+		),
 	),
 
 	// TODO: add the *settings submaps into this in a similar way to modals
@@ -3943,10 +4033,16 @@ $classes: (
 			),
 
 			"info": (
-				"clickable": "clickable__2debe",
-				"_index": "info__2debe",
-				"line": "line__2debe",
-				"versionHash": "versionHash__2debe",
+				"clickable": "clickable__081d7",
+				"compact": "compact__081d7",
+				"_index": "@info__2debe", // REMOVED, use the two above combined instead for entire group
+				"line": "@line__2debe", // REMOVED
+				"versionHash": "versionHash__081d7",
+				"links": ( // contains privacy policy, tos and more
+					"_index": "links_b5b79f",
+					"bullet": "bullet_b5b79f",
+					"moreButton": "moreButton_b5b79f",
+				),
 			),
 		),
 		// general page components
@@ -3961,7 +4057,10 @@ $classes: (
 				"wide": "contentColumnWide__23e6b",
 			),
 			"page": "settingsPage_f131e9",
-			"customScroller": "customScroller__23e6b", // used in the following: server>roles (but not when looking at permissions), server>invites, server>audit log, channel>invites [unchecked: settings>windows, settings>linux]
+			"customColumn": "customColumn__23e6b",
+			// used in the following: server>roles (but not when looking at permissions), server>invites, server>audit log, channel>invites [unchecked: settings>windows, settings>linux]
+			"customContainer": "customContainer__23e6b", 
+			"customScroller": "customScroller__23e6b",
 
 			// these margins aren't used in the sidebar, only in the content area
 			"margin": (
@@ -3984,6 +4083,110 @@ $classes: (
 				"left": (
 					"8": "marginLeft8_fd297e",
 				),
+			),
+
+			// no idea what these are used for exactly
+			"fieldset": "fieldset__7fb92", // used in channel-overview
+			"legend": "legend__7fb92",
+			"description": "description__7fb92",
+			"stack": "stack_dbd263",
+
+			// effectively used as a section grouping within the settings
+			"sectionContainer": (
+				"_index": "container__5a838",
+				"labelContainer": "labelContainer__5a838",
+				"control": "control__5a838",
+				"helperTextContainer": "helperTextContainer__5a838",
+				"description": "description__5a838",
+				"label": "label__5a838",
+				"icon": "icon__5a838",
+				"required": "required__5a838",
+				"statusMessageContainer": "statusMessageContainer__5a838",
+				"badgeContainer": "badgeContainer__5a838",
+			),
+			// called so because it has an input class
+			// NOTE: USED ELSEWHERE.
+			"inputContainer": (
+				"_index": "container__72c38",
+				"input": "input__72c38",
+				"wrapper": "wrapper__72c38",
+			),
+			// called so because it relates to fields which are totally different to inputs i hate naming things
+			"selectContainer": (
+				"field": (
+					"container": "selectFieldContainer__0edde",
+					"fullWidth": "fullWidth__0edde", // used with container
+					"_index": "selectField__0edde",
+					"content": "selectFieldContent__0edde",
+				),
+				"comboBoxInput": (
+					"scroller": "comboBoxInputScroller__0edde",
+					"container": "comboBoxInputContainer__0edde",
+					"_index": "comboBoxInput__0edde",
+				),
+				"isInert": "isInert__0edde", // used with :not(), could be the same as :disabled?
+				"selectButton": "selectButton__0edde",
+				"isFocused": "isFocused__0edde",
+				"wrapTags": "wrapTags__0edde",
+				"multiSelect": "multiSelect__0edde",
+				"multipleValues": "multipleValues__0edde",
+				"placeholder": "placeholder__0edde",
+				"singleSelectOption": "singleSelectOption__0edde",
+				"hasTags": "hasTags__0edde",
+				"chevronButton": "chevronButton__0edde",
+				"loadingSpinner": "loadingSpinner__0edde",
+				"chevronIcon": "chevronIcon__0edde", // has full-motion transition
+				"isOpen": "isOpen__0edde", // used with chevronIcon
+				"clearButton": "clearButton__0edde",
+				"hiddenVisually": "hiddenVisually__0edde", // not used all over thankfully
+				"selectDropdown": "selectDropdown__0edde",
+				"variantUnsupportedPaymentModalCard": "variantUnsupportedPaymentModalCard__0edde",
+			),
+			// called so because it contains a switch
+			"switchContainer": (
+				"_index": "container_a28278",
+				"switchInidcator": "switchIndicator_a28278", // uses inline style for background-color and border
+				"thumb": "thumb_a28278", // child rect has a `fill=rgba(255, 255, 255, 1)`
+			),
+			// called so because they're used for the variable used by pos/warn/info/error
+			"feedbackContainer": (
+				"_index": "container__35859",
+				"hidden": "hidden__35859",
+				"inner": "innerContainer__35859",
+				"icon": "icon__35859",
+				"iconDiv": "iconDiv__35859",
+				"iconDivCenter": "iconDivCenter__35859",
+				"text": "text__35859",
+				"positive": "positive__35859", // gives the box a green look
+				"warning": "warning__35859", // gives the box a yellow look
+				"info": "info__35859", // gives the box a light blue look
+				"error": "error__35859", // gives the box a red look
+				"actionContainer": "actionContainer__35859", // messes with margins
+			),
+			// it resembles a textarea :)
+			"textareaContainer": (
+				"toolbar": "toolbar_bba883", // has ::before
+				"buttons": "buttons_bba883",
+				"staticToolbar": "staticToolbar_bba883",
+				"button": "button_bba883",
+				"staticButtons": "staticButtons_bba883",
+				"emojiButton": "emojiButton_bba883",
+				"divider": "divider_bba883",
+				"buttonInner": "buttonInner_bba883",
+				"icon": "icon_bba883",
+				"staticIcon": "staticIcon_bba883",
+				"staticDivider": "staticDivider_bba883",
+			),
+			// called so because forums have a tags area in overview :)
+			"forumTagsContainer": (
+				"tags": "tags__3f6df",
+				"addTags": "addTags__3f6df",
+				"disabled": "disabled__3f6df",
+				"container": "container__3f6df",
+				"dropIndicatorBefore": "dropIndicatorBefore__3f6df",
+				"dropIndicatorAfter": "dropIndicatorAfter__3f6df",
+
+				// for actual tags classes, see #{c(pages tags)}
 			),
 			
 			// things are split into sections
@@ -4018,9 +4221,234 @@ $classes: (
 			"keybind": "keybind_c2b141",
 		),
 
+		// because one day discord said they'd redo the settings modal and ugh.
+		"user": (
+			"outerContainer": "outerContainer_e44912",
+			"_index": "modal_e44912",
+
+			"sidebar": (
+				"_index": "sidebar__409aa",
+				"fixedContent": "fixedContent__409aa",
+				"searchBarContainer": "searchBarContainer_fffcb4",
+				"emptySearchResultsContainer": "emptySearchResultsContainer_fffcb4",
+				"profileCustomizationTab": "profileCustomizationTab__3cfcf",
+
+				"nav": "nav__409aa",
+				"navScroller": "navScroller__409aa",
+				"section": "section__409aa",
+				"sectionList": "sectionList__409aa",
+				"itemContainer": "itemContainer_caf372",
+				"item": "item_caf372",
+			),
+
+			"content": "content_e9e3ed",
+			"contentHeader": "contentHeader_e9e3ed",
+			"contentBody": "contentBody_e9e3ed",
+		),
+
 		// individual pages are below.
 		// there may be some overlap in which class goes where; these such classes will be moved into a common category.
 		// for pages with a tab bar of sorts at the top (like My Account, Voice & Video), classes will be listed in order from first to last tab
+
+		// SORTING ORDER:
+		// NOTE: child pages (such as "Account Info" under "Account") would follow the parent page order. "related settings" get ignored.
+		// (found by pressing ctrl+comma; historically collectively user settings and app settings)
+		// "Profile Settings" (Click on "edit profiles" in top left of ctrl+comma settings)
+		// "User Settings" (Account, Data & Privacy, Messaging Permissions, Notifications)
+		// Platform-specific settings (Windows, Linux)
+		// "Billing" (Nitro, Server Boost, Subscriptions, etc)
+		// "Experience" (Voice & Video, Appearance, Accessibility, System, Language & Time) - Intentionally excldues system
+		// "Games & Apps" (Registered Games, Activity Privacy, Connected Apps, etc)
+		// "Staff Only" (Expierments, Developer Options, Developer [see note below] ) -- BEST NOT THEME THE FIRST TWO.
+		// (while not under any options, "Developer" and "Log Out" exist. the latter is a modal and can be ignored)
+		//
+		// (server settings)
+		// "[server name]" (Server Profile, Server Tag, Engagement, Boost Perks)
+		// "Expression" (Emoji, Stickers, Soundboard)
+		// "People" (Members, Roles, Invites, Access)
+		// "Apps" (Integrations ONLY)
+		// "Moderation" (Safety Setup, Audit Log, Bans, AutoMod)
+		// Community stuff (Comm. Overview, Onboarding, Server Insights, Welcome Screen, Server Web Page, Monetisation)
+		// Other stuff (Server Boost Status, Server Template)
+		// 
+		// (channel settings) -- in this order: text, forum, voice, stage
+		// Overview
+		// Permissions
+		// Invites
+		// Integrations
+
+		// ✓
+		// ├─ a
+		// │  └─ item
+		// └─ b
+
+		// WHAT'S DONE?
+		// one tick - classes noted
+		// two ticks - classes themed
+		// CONVENTIONAL SETTINGS, ctrl+comma:
+		// -- User Settings --
+		// Profile (pops out own modal; might be better under "profiles" category)
+		// ├─ Main Profile
+		// └─ Nitro Upsell
+
+		// Account
+		// ├─ Info
+		// ├─ Password & Security
+		// ├─ Standing
+		// │  └─ Page
+		// └─ Family Centre
+		//    ├─ Activity
+		//    ├─ My Family
+		//    └─ Settings
+		// Data & Privacy
+		// Messaging Permissions
+		// ├─ Content Filters
+		// ├─ Spam Filters
+		// ├─ Direct Messages
+		// ├─ Friend Requests
+		// ├─ Connected Games
+		// └─ Ignore & Block
+		// Notifications
+		// ├─ Overview
+		// ├─ Sounds
+		// ├─ Badges
+		// ├─ Email
+		// └─ Advanced
+		// -- Platform-specific --
+		// System (from Experience)
+		// ├─ General (Linux)
+		// └─ General (Windows)
+		// Registered Games (Windows, Linux)
+		// ├─ Current Game
+		// └─ Added Games
+		// Game Overlay (Windows)
+		// ├─ Overview
+		// ├─ Voice Widget
+		// └─ Notifications
+		// -- Billing --
+		// Nitro
+		// Server Boost
+		// Subscriptions
+		// Gift Inventory
+		// ├─ Redeem Codes
+		// ├─ The Gifting Badge
+		// └─ Gifts I Purchased
+		// Billing
+		// ├─ Payment Methods
+		// └─ Transaction History
+		// -- Experience --
+		// Voice & Video
+		// ├─ Voice
+		// ├─ Camera
+		// ├─ Streaming
+		// ├─ Soundboard
+		// ├─ Sounds
+		// └─ Advanced
+		// Appearance
+		// ├─ Theme (ignore PREVIEW THEME for now)
+		// ├─ App Icon (ignore PREVIEW ICON for now)
+		// ├─ Messages
+		// ├─ Chat Box
+		// ├─ Search
+		// └─ Streamer Mode
+		// Accessibility
+		// ├─ [preview in top should remain mostly in-tact]
+		// ├─ Text Readability
+		// ├─ Visual Density
+		// ├─ Colour & Contrast
+		// ├─ Reduced Motion
+		// └─ Audio & Screen Reader
+		// System
+		// ├─ Custom Keybinds
+		// └─ Default Keybinds
+		// Language & Time
+		// -- Activity Settings --
+		// Registered Games (would go here)
+		// Activity Privacy
+		// ├─ What Activity I Share
+		// ├─ Where I Share Activity
+		// └─ Who Can Join My Games
+		// Game Overlay (would go here)
+		// Connected Apps
+		// ├─ Connections (ignore the add connection modal)
+		// └─ Authorised Apps
+
+		// Game Overlay (windows)
+		// -- Staff Only --
+		// Experiments (unlikely to be themed)
+		// Developer Options (unlikely to be themed)
+		// ├─ Overrides
+		// ├─ Logging
+		// └─ Design & A11y tools
+		// Developer (under the category but works here)
+
+		// SERVER SETTINGS: (* means not on every sever)
+		// -- (Server Name) --
+		// Server Profile
+		// Server Tag
+		// Engagement
+		// Boost Perks
+		// -- Expression --
+		// Emoji
+		// Stickers
+		// Soundboard
+		// -- People --
+		// Members (this may redirect to the dedicated members page on some servers)
+		// Roles
+		// ├─ (main list)
+		// └─ (editing individual role)
+		// Invites
+		// Access
+		// ├─ ("Invite Only" selected)
+		// ├─ ("Apply to Join" selected)
+		// └─ ("Discoverable" selected)
+		// -- Apps --
+		// Integrations
+		// ├─ Webhooks
+		// ├─ Channels Followed
+		// └─ ("Bots and Apps" item selected)
+		// (App Directory is not included due to it being a link to elsewhere)
+		// -- Moderation --
+		// Safety Setup
+		// ├─ (On its own kind of thing, "AutoMod" is not found here)
+		// ├─ (List of sorts, "AutoMod" is found in list, tho sorted below)
+		// ├─ Raid Protection and CAPTCHA
+		// ├─ DM and Spam Protection
+		// └─ Permissions
+		// Audit Log
+		// Bans
+		// AutoMod* (may be under "Safety Setup" on some servers)
+		// --
+		// Enable Community*
+		// (usually above or below only)
+		// Community Overview*
+		// Onboarding*
+		// ├─ Default Channels
+		// ├─ Questions
+		// └─ Server Guide
+		// Server Insights* (note that "Go to Server Insights" will open its own page in browser)
+		// Welcome Screen*
+		// Server Web Page*
+		// --
+		// Server Template
+		
+		// CHANNEL SETTINGS:
+		// Overview ✓ | contentColumnDefault #overview-tab
+		// Permissions
+		// Invites
+		// Integrations (this MIGHT be a copy of the server settings lot)
+		// ├─ Webhooks
+		// └─ Channels Followed
+
+		// This can be targeted by checking for `#{c(main layer)}[name="CHANNEL_SETTINGS"]`
+		// This also be used to target category settings.
+		"channelSettings": (
+			"overview": (
+				"_index": "#overview-tab", // uses contentColumn and contentColumnDefault, fieldset as only child, stack as only child
+			),
+		),
+
+		// OLD SHIT BELOOWWWWW
 
 		// SORTING ORDER:
 		// (found by pressing ctrl+comma; historically collectively user settings and app settings)
@@ -4720,7 +5148,7 @@ $classes: (
 				"lightbox": "lightbox__40128",
 				"pointerEventsNone": "pointerEventsNone__40128",
 			),
-			"outerContainer": "outerContainer__8a031",
+			"outerContainer": "outerContainer__8a031", // also used for settings big container
 			"container": "container__8a031",
 			"padding-size-sm": "padding-size-sm__8a031",
 			"padding-size-lg": "padding-size-lg__8a031",
@@ -5796,9 +6224,9 @@ $classes: (
 		// You can also think of these as "Has a distinct header"
 		// There seriously might be NOTHING shared
 		"headerDropdown": (
-			"messagesPopoutWrap": "messagesPopoutWrap_e8b59c", // INBOX + PINNED
-			"messagesPopout": "messagesPopout_e8b59c", // INBOX + PINNED
-			"header": "header_e8b59c", // INBOX + UNREAD + PINNED
+			"messagesPopoutWrap": "messagesPopoutWrap__432f4", // INBOX + PINNED
+			"messagesPopout": "messagesPopout__432f4", // INBOX + PINNED
+			"header": "header__432f4", // INBOX + UNREAD + PINNED
 		),
 
 		"inbox": (
@@ -5845,7 +6273,7 @@ $classes: (
 				"close": "closeButton__95796",
 				"messageContainer": "messageContainer__95796",
 				"message": "message__95796",
-				"scrollingFooterWrap": "scrollingFooterWrap_e8b59c",
+				"scrollingFooterWrap": "scrollingFooterWrap__432f4",
 			),
 
 			"unread": (
@@ -5872,18 +6300,18 @@ $classes: (
 		),
 
 		"pinned": (
-			"messageGroup": "messageGroupWrapper_e8b59c",
-			"messageGroupCozy": "messageGroupCozy_e8b59c",
-			"actionButtons": "actionButtons_e8b59c",
-			"jumpButton": "jumpButton_e8b59c",
-			"loading": "loading_e8b59c",
-			"loadingVisible": "visible_e8b59c",
-			"remove": "closeIcon_e8b59c",
-			"emptyPlaceholder": "emptyPlaceholder_e8b59c",
+			"messageGroup": "messageGroupWrapper__432f4",
+			"messageGroupCozy": "messageGroupCozy__432f4",
+			"actionButtons": "actionButtons__432f4",
+			"jumpButton": "@jumpButton__432f4", // uses a combo of #{c(button)} and sm, secondary, hasText
+			"loading": "loading__432f4",
+			"loadingVisible": "visible__432f4",
+			"remove": "@closeIcon__432f4", // uses a combo of #{c(button)} and sm and secondary
+			"emptyPlaceholder": "emptyPlaceholder__432f4",
 			"emptyBottom": "bottom_ac90a2", // in a rule
-			"emptyImage": "image_e8b59c",
-			"emptyBody": "body_e8b59c",
-			"footer": "footer_e8b59c",
+			"emptyImage": "image__432f4",
+			"emptyBody": "body__432f4",
+			"footer": "footer__432f4",
 			"block": "block__30cbe", // discord put this on the rules for some reason? lots of inline
 			"protip": "pro__30cbe", // inline color
 			"tip": "tip__30cbe",
