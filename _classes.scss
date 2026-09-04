@@ -4225,10 +4225,12 @@ $classes: (
 		"user": (
 			"outerContainer": "outerContainer_e44912",
 			"_index": "modal_e44912",
+			"modalContentInner": "modalContentInner_e44912",
 
 			"sidebar": (
 				"_index": "sidebar__409aa",
 				"fixedContent": "fixedContent__409aa",
+				"withShadow": "withShadow__409aa",
 				"searchBarContainer": "searchBarContainer_fffcb4",
 				"emptySearchResultsContainer": "emptySearchResultsContainer_fffcb4",
 				"profileCustomizationTab": "profileCustomizationTab__3cfcf",
@@ -4244,6 +4246,35 @@ $classes: (
 			"content": "content_e9e3ed",
 			"contentHeader": "contentHeader_e9e3ed",
 			"contentBody": "contentBody_e9e3ed",
+
+			"account": (
+				"standing": (
+					// rest are within the page itself
+					"panelGroup": (
+						"panel": "panel__6131a",
+						"scroller": "scroller__6131a",
+						"bottomMarker": "bottomMarker__6131a",
+						"tabBar": "tabBar__6131a",
+						"notice": "notice__6131a",
+						"decorationWrapper": "decorationWrapper__6131a",
+						"sticky": "sticky__6131a",
+						"categories": "categories__6131a",
+						"divider": "divider__6131a",
+					),
+					"markerGroup": (
+						"container": "container_d878e7",
+						"profile": "profile_d878e7",
+						"status": "status_d878e7",
+						"title": "title_d878e7",
+						"health": "health_d878e7",
+						"line": "line_d878e7",
+						"statusOption": "statusOption_d878e7",
+						"statusLabel": "statusLabel_d878e7",
+						"marker": "marker_d878e7",
+						"empty": "empty_d878e7",
+					)
+				),
+			),
 		),
 
 		// individual pages are below.
@@ -4295,7 +4326,7 @@ $classes: (
 		// ├─ Info
 		// ├─ Password & Security
 		// ├─ Standing
-		// │  └─ Page
+		// │  └─ Page ✓✓
 		// └─ Family Centre
 		//    ├─ Activity
 		//    ├─ My Family
