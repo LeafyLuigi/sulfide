@@ -980,7 +980,7 @@ $classes: (
 		"callAvatarMask": "callAvatarMask_f910d0",
 		"voiceAvatar": "voiceAvatar_f910d0",
 		"avatarBorder": "border_f910d0",
-		"avatarSpeaking": "speaking__2f4f7",
+		"avatarSpeaking": "@speaking__2f4f7", // removed class; use [style*="--status-speaking"] instead.
 
 		"videoControls": "videoControls_bfe55a",
 		"controlSection": "controlSection_bfe55a", // both top and bottom are paired with this depending on location
