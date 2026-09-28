@@ -488,7 +488,7 @@ $classes: (
 		// 5 buckets as of 2025-05-17.
 		// 1 "Larger Guild Icons"
 		// 2 "Darker Guild list Background"
-		// 3 "Larger Guild Icons and Darker Guild List Background" 
+		// 3 "Larger Guild Icons and Darker Guild List Background"
 		// 4 "More Distinct Chassis Borders"
 		// 5 "Larger Guild Icons and More Distinct Chassis Borders"
 		"refreshFastFollowAvatars": "refresh-fast-follow-avatars", // 1, 3 and 5
@@ -1026,7 +1026,7 @@ $classes: (
 		"tile": "tile__9d662", // god these names are shit
 		"tileChildFlex": "tile__2f4f7", // contains flex properties
 		"tileChildIdle": "idle__2f4f7",
-		"tileChildBackground": "tile__90dc5", // despite being on the same element as the flex, contains background color 
+		"tileChildBackground": "tile__90dc5", // despite being on the same element as the flex, contains background color
 		"tileChild": "tileChild__2f4f7", // haha fuck you not actually on the same class as the four above
 		"tileContent": "content__2f4f7",
 		"tileBackground": "background_fb62e2", // has inline style background applied to it
@@ -1079,7 +1079,7 @@ $classes: (
 		"headerContainer": "container__05cdc",
 		"rowContainer": "rowContainer__1e702", // child of everywhere content
 		"spaceBetweenTiles": "spaceBetweenTiles_fa73d7", // child, children of tileOuter (see call)
-		"tile": "tile__9d662", // child of call tileInner, not to be confused with every other fucking tile class 
+		"tile": "tile__9d662", // child of call tileInner, not to be confused with every other fucking tile class
 
 		// videoControls, children being gradientContainer+gradientBottom, controlSection[top, bottom]
 		"gradientContainer": "gradientContainer_bfe55a", // child
@@ -1097,7 +1097,7 @@ $classes: (
 		"controlIcon": "controlIcon_f1ceac", // child but not used on leave call button
 		// middle child
 		"containerColumn": "containerColumn_fcb27c", // two children - event prompts and buttonRow
-		"eventPrompts": "eventPrompts_fcb27c", 
+		"eventPrompts": "eventPrompts_fcb27c",
 		"openStageContainer": "container__6b38f",
 		"openStagePulse": "pulse__6b38f",
 		"openStageIcon": "icon__6b38f", // inline background color green
@@ -1107,7 +1107,7 @@ $classes: (
 		"buttonRow": "container_fcb27c",
 		"avControls": "@avControls_fcb27c", // mic, parent to contextMenuContainer + unmaksed
 		"leaveStageButton": "@primaryButtonColor_fcb27c",
-		"buttonWithTextInnerContainer": "@buttonWithTextInnerContainer_fcb27c", 
+		"buttonWithTextInnerContainer": "@buttonWithTextInnerContainer_fcb27c",
 		"buttonWithTextIcon": "@buttonWithTextIcon_fcb27c",
 		"buttonSpacing": "@buttonSpacing_fcb27c",
 		// right
@@ -1190,6 +1190,7 @@ $classes: (
 		"chatContent": "content_f75fb0",
 		"gradient": ( // from alignChatInput experiment
 			"_index": "chatGradient__36d07",
+			"default": "gradientDefault__36d07", // it has a mask.
 			"base": "chatGradientBase__36d07",
 			"typingAtBottom": "chatTypingGradientAtBottom__36d07",
 			"notAtBottom": "chatTypingGradientNotAtBottom__36d07",
@@ -1318,7 +1319,7 @@ $classes: (
 		"compactButton": "compactButton__7ff28", // send wave sticker
 		"welcomeCTA": "welcomeCTA_f5d1e2",
 
-		"channelLinkUserMentionWrapper": "wrapper_cdf8a9",
+		"channelLinkUserMentionWrapper": "wrapper_f61d60", // SERA'S CLASS LIST WILL BREAK THIS ONE.
 
 		"ephemeral": "ephemeral__5126c",
 		"ephemeralAccessories": "ephemeralAccessories_b7ab2c",
@@ -1333,6 +1334,12 @@ $classes: (
 
 		"codeContainer": "codeContainer__75297",
 		"codeActions": "codeActions__75297",
+
+		"emoji": (
+			"container": "emojiContainer__75abc",
+			"containerClickable": "emojiContainerClickable__75abc",
+			"jumbo": "emojiJumbo__75abc",
+		),
 	),
 	"pages": (
 		// page itself
@@ -1389,7 +1396,7 @@ $classes: (
 		"customiseOptions": (
 			"wrapper": "optionButtonWrapper__270d7",
 			"optionButton": "optionButton__270d7",
-			"selected": "selected__270d7", // with option background 
+			"selected": "selected__270d7", // with option background
 			"pressed": "pressed__270d7",
 			"checkIcon": "checkIcon__270d7", // background brand experiment
 			"memberCount": "memberCount__270d7", // background brand experiment
@@ -1402,8 +1409,8 @@ $classes: (
 			"pageBody": "pageBody__5d7c9",
 			"prompt": "prompt__5d7c9", // background primary
 			"promptTitle": "promptTitle__5d7c9",
-			"required": "required__5d7c9", // background accent 
-			"error": "error__5d7c9", 
+			"required": "required__5d7c9", // background accent
+			"error": "error__5d7c9",
 			"promptOptions": "promptOptions__5d7c9",
 			"emptyPage": "emptyPage__5d7c9", // background with dark/light
 			"emptyContainer": "emptyContainer__5d7c9",
@@ -3050,7 +3057,7 @@ $classes: (
 			// The collapsable thing that will hide channels. Not every server has these.
 			"category": (
 				// Used for channel categories (like "Text Channels"
-				"container": "containerDefault__29444", // main container that 
+				"container": "containerDefault__29444", // main container that
 
 				// classes in group below can all appear on the same element
 				"iconVisibility": "iconVisibility__29444",
@@ -3097,8 +3104,8 @@ $classes: (
 				"wrapper": "wrapper__2ea32",
 				"iconVisibility": "iconVisibility_c69b6d", // why are there so many classes
 				"selectedChannel": "selectedChannel_c69b6d", // select a channel
-				"typeDefault": "-typeDefault__2ea32", // [may not exist] regular text channels, forums, 
-				"typeThread": "typeThread__2ea32", // in-channel thread or forum thread; 
+				"typeDefault": "-typeDefault__2ea32", // [may not exist] regular text channels, forums,
+				"typeThread": "typeThread__2ea32", // in-channel thread or forum thread;
 				"typeVoice": "typeVoice__2ea32", // [may not exist] voice + stage channels
 				// These "mode" classes change the text and icon color.
 				"modeMuted": "modeMuted__2ea32", // mute a channel
@@ -3549,26 +3556,8 @@ $classes: (
 		"fullSize": "@alias profile modal",
 		"outer": "outer_c0bea0",
 		"inner": "inner_c0bea0",
+		"isPrivate": "isPrivate_c0bea0", // put on outer class
 		"effects": "profileEffects__0dd08",
-
-		// stuff related to themeColor i guess
-		"themeColor": (
-			"_index": "themeColor_fb7f94",
-			// colors
-			"primary": "primary_fb7f94",
-			"secondary": "secondary_fb7f94",
-			"hoverColor": "hoverColor_fb7f94",
-			"bannerColor": "bannerColor_fb7f94",
-			// elements
-			"button": "button_fb7f94", // message / add friend button
-			"buttonInner": "buttonInner_fb7f94", // button inner
-			"icon": "icon_fb7f94", // icon of message button
-			"banner": "banner_fb7f94",
-			"textBanner": "textBanner_fb7f94",
-			// states
-			"hover": "hover_fb7f94",
-			"visible": "visible_fb7f94",
-		),
 
 		// Discord allow for a few fonts for the username.
 		"fonts": (
@@ -3607,7 +3596,8 @@ $classes: (
 
 		// Banners are in their own line. The SVG Wrapper is in its own line.
 		"banner": (
-			"banner": "banner__68edb",
+			"_index": "banner__68edb",
+			"banner": "@alias profile banner",
 			"gifTag": "gifTag__68edb",
 			"mask": "mask__68edb",
 			"clickable": "clickable__8c853", // ONLY used in the settings area.
@@ -3662,10 +3652,11 @@ $classes: (
 			"focusRing": "focusRing__75742",
 		),
 
-		// actually used on the modal!
+		// actually used on the modal! used on both bots and users
 		"memberSince": (
 			"wrapper": "memberSinceWrapper_c4eb81",
-			"container": "memberSince_c4eb81",
+			"_index": "memberSince_c4eb81",
+			"guildIcon": "guildIcon_c4eb81",
 			"discordIcon": "discordIcon_c4eb81",
 			"divider": "divider_c4eb81",
 		),
@@ -3707,17 +3698,11 @@ $classes: (
 
 			"assets": (
 				"assets": "assets__2ef49",
-				"assetsProfile": "assetsProfile_c1d9fd",
-				"assetsProfileV2": "assetsProfileV2_c1d9fd",
 
 				"largeMask": (
 					"streamPreview": "assetsLargeMaskStreamPreview__2ef49",
-					"userPopout": "assetsLargeMaskUserPopout_c1d9fd",
-					"userPopoutV2": "assetsLargeMaskUserPopoutV2_c1d9fd",
 					"voiceChannel": "assetsLargeMaskVoiceChannel__2ef49",
 					"activityFeed": "assetsLargeMaskActivityFeed__2ef49",
-					"profile": "assetsLargeMaskProfile_c1d9fd",
-					"profileV2": "assetsLargeMaskProfileV2_c1d9fd",
 				),
 
 				"largeImage": (
@@ -3725,39 +3710,21 @@ $classes: (
 					"spotify": "assetsLargeImageSpotify__2ef49",
 					"streamPreview": "assetsLargeImageStreamPreview__2ef49",
 					"streamPreviewXbox": "assetsLargeImageStreamPreviewXbox__2ef49",
-					"userPopout": "assetsLargeImageUserPopout_c1d9fd",
-					"userPopoutV2": "assetsLargeImageUserPopoutV2_c1d9fd",
-					"userPopoutV2Xbox": "assetsLargeImageUserPopoutV2Xbox_c1d9fd",
-					"userPopoutXbox": "assetsLargeImageUserPopoutXbox_c1d9fd",
 					"activityFeed": "assetsLargeImageActivityFeed__2ef49",
 					"activityFeedXbox": "assetsLargeImageActivityFeedXbox__2ef49",
-					"profile": "assetsLargeImageProfile_c1d9fd",
-					"profileV2": "assetsLargeImageProfileV2_c1d9fd",
 					"voiceChannel": "assetsLargeImageVoiceChannel__2ef49",
 					"activityFeedTwitch": "assetsLargeImageActivityFeedTwitch__2ef49",
-					"profileV2Xbox": "assetsLargeImageProfileV2Xbox_c1d9fd",
-					"profileXbox": "assetsLargeImageProfileXbox_c1d9fd",
-					"profileTwitch": "assetsLargeImageProfileTwitch_c1d9fd",
-					"profileV2Twitch": "assetsLargeImageProfileV2Twitch_c1d9fd",
 				),
 
 				"smallImage": (
 					"image": "assetsSmallImage__2ef49",
 					"streamPreview": "assetsSmallImageStreamPreview__2ef49",
-					"userPopout": "assetsSmallImageUserPopout_c1d9fd",
-					"userPopoutV2": "assetsSmallImageUserPopoutV2_c1d9fd",
 					"boiceChannel": "assetsSmallImageVoiceChannel__2ef49",
 					"activityFeed": "assetsSmallImageActivityFeed__2ef49",
-					"profile": "assetsSmallImageProfile_c1d9fd",
-					"profileV2": "assetsSmallImageProfileV2_c1d9fd",
 
 					"withoutLarge": (
 						"activityFeed": "assetsSmallImageActivityFeedWithoutLargeImage__2ef49",
-						"profileV2": "assetsSmallImageProfileV2WithoutLargeImage_c1d9fd",
-						"profile": "assetsSmallImageProfileWithoutLargeImage_c1d9fd",
 						"streamPreview": "assetsSmallImageStreamPreviewWithoutLargeImage__2ef49",
-						"userPopoutV2": "assetsSmallImageUserPopoutV2WithoutLargeImage_c1d9fd",
-						"userPopout": "assetsSmallImageUserPopoutWithoutLargeImage_c1d9fd",
 						"voiceChannel": "assetsSmallImageVoiceChannelWithoutLargeImage__2ef49",
 					),
 				),
@@ -3767,48 +3734,28 @@ $classes: (
 				"content": "content__2ef49",
 				"images": (
 					"activityFeed": "contentImagesActivityFeed__2ef49",
-					"profile": "contentImagesProfile_c1d9fd",
-					"profileV2": "contentImagesProfileV2_c1d9fd",
 					"streamPreview": "contentImagesStreamPreview__2ef49",
-					"userPopout": "contentImagesUserPopout_c1d9fd",
-					"userPopoutV2": "contentImagesUserPopoutV2_c1d9fd",
 					"voiceChannel": "contentImagesVoiceChannel__2ef49",
 				),
 				"noImages": (
 					"activityFeed": "contentNoImagesActivityFeed__2ef49",
-					"profile": "contentNoImagesProfile_c1d9fd",
-					"profileV2": "contentNoImagesProfileV2_c1d9fd",
 					"streamPreview": "contentNoImagesStreamPreview__2ef49",
-					"userPopout": "contentNoImagesUserPopout_c1d9fd",
-					"userPopoutV2": "contentNoImagesUserPopoutV2_c1d9fd",
 					"voiceChannel": "contentNoImagesVoiceChannel__2ef49",
 				),
 				"gameImages": (
-					"profile": "contentGameImageProfile_c1d9fd",
-					"profileV2": "contentGameImageProfileV2_c1d9fd",
 					"streamPreview": "contentGameImageStreamPreview__2ef49",
-					"userPopout": "contentGameImageUserPopout_c1d9fd",
-					"userPopoutV2": "contentGameImageUserPopoutV2_c1d9fd",
 					"voiceChannel": "contentGameImageVoiceChannel__2ef49",
 				),
 			),
 
 			"timeBar": (
 				"activityFeed": "timeBarActivityFeed__2ef49",
-				"profile": "timeBarProfile_c1d9fd",
-				"profileV2": "timeBarProfileV2_c1d9fd",
-				"userPopout": "timeBarUserPopout_c1d9fd",
-				"userPopoutV2": "timeBarUserPopoutV2_c1d9fd",
 				"voiceChannel": "timeBarVoiceChannel__2ef49",
 			),
 
 			"activity": (
 				"activityFeed": "activityActivityFeed__2ef49",
-				"profile": "activityProfile_c1d9fd",
-				"profileV2": "activityProfileV2_c1d9fd",
 				"streamPreview": "activityStreamPreview__2ef49",
-				"userPopout": "activityUserPopout_c1d9fd",
-				"userPopoutV2": "activityUserPopoutV2_c1d9fd",
 			),
 
 			// these were not on the same line tho
@@ -3839,14 +3786,625 @@ $classes: (
 			"textLeftInSingleLine": "textLeftInSingleLine_c8b06d",
 		),
 
+		// Badges
+		// people like to collect them for whatever reason.
+		"badge": (
+			"container": "container__8061a",
+			"managed": "managed__8061a",
+			"hasAppendedEditSlot": "hasAppendedEditSlot__8061a",
+			"editButton": "editButton__8061a",
+			"customizable": "customizable__8061a",
+			"emptyState": "emptyState__8061a",
+			"overflowSlot": "overflowSlot__8061a",
+			"overflowButton": "overflowButton__8061a",
+			"hiddenCount": "hiddenCount__8061a",
+			"editButtonOverlay": "editButtonOverlay__8061a",
+			"editButtonAppended": "editButtonAppended__8061a",
+			"_index": "badge__8061a",
+			"editIcon": "editIcon__8061a",
+			"badgeVectorSrc": "badgeVectorSrc__8061a",
+		),
+
+		// Status Bubble
+		// UserProfileCustomStatusBubble
+		"statusBubble": (
+			"container": "container_ab8609",
+			// above has three variables on it.
+			// --custom-status-bubble-background == defaults to --background-surface-highest
+			// --custom-status-bubble-background-color == defaults to the one above
+			// --custom-status-bubble-overlay-color == [set by dark/light] => 255 255 255 | 0 0 0
+			// background is overwritten when the below class is present during hover.
+			"editable": "editable_ab8609", // applied on container
+			"hoisted": "hoisted_ab8609",
+			"referenceContainer": "referenceContainer_ab8609", // always seems to have visibility: hidden -- setting it to display none causes breakage on your own profile
+			"outer": "outer_ab8609", // has before and after on it, each contain a background and border
+			"inner": "inner_ab8609", // has background
+			"content": "content_ab8609",
+			"clickable": "clickable_ab8609", // can be shared with inner
+			"unclamped": "unclamped_ab8609", // can be shared with content
+			"compactExpanded": "compactExpanded_ab8609", // can be shared with content
+			"referenceMeasurement": "referenceMeasurement_ab8609",
+			"ring": "ring_ab8609",
+			"expandCollapseButton": "expandCollapseButton_ab8609", // has backgrund
+			"expandCollapseButtonFocusRing": "expandCollapseButtonFocusRing_ab8609",
+			"collapseIcon": "collapseIcon_ab8609",
+			"statusText": "statusText_ab8609", // can be future sibling of statusEmoji
+			"statusEmoji": "statusEmoji_ab8609",
+			"addStatusPrompt": "addStatusPrompt_ab8609",
+			"italicPrompt": "italicPrompt_ab8609",
+			"addStatusIcon": "addStatusIcon_ab8609",
+			"addStatusIconColor": "addStatusIconColor_ab8609", // when outer is hovered this has a fill
+
+			// edit own bar thing
+			"editOwnBar": (
+				"_index": "bar_b730cc",
+				"button": "button_b730cc",
+				"customStatus": "custom-status_b730cc",
+				"icon": "icon_b730cc",
+				"overlaySecondary": "overlay-secondary_b730cc",
+
+				// used in same spot, also used alongside #{c(chat buttonWrapper)}
+				"popover": "popover_c97e55",
+				"visible": "visible_c97e55",
+				"hoverIn": "hoverIn_c97e55",
+				"expandable": "expandable_c97e55",
+			)
+		),
+
+		// role stuff -- most of these i've not found! they exist in the code tho
+		"role": (
+			"_index": "role_af3987",
+			"dot": "roleDot_af3987",
+			"connectionRoleIcon": "connectionRoleIcon_af3987",
+			"icon": "roleIcon_af3987",
+			"tag": "roleTag_af3987",
+			"hasRemoveButton": "hasRemoveButton_af3987",
+			"removeButton": "removeButton_af3987",
+			"listContainer": "roleListContainer_af3987",
+			"listContentsInteractive": "listContentsInteractive_af3987",
+			"listContentsStatic": "listContentsStatic_af3987",
+			"name": "roleName_af3987",
+			"pillButton": "pillButton_af3987",
+			"expandButton": "expandButton_af3987",
+			"addButton": "addButton_af3987",
+			"showLabel": "showLabel_af3987",
+		),
+
+		// display name is shared for bot modal and user modal
+		"displayName": (
+			"row": "displayNameRow__26b1f",
+			"lg": "lg__26b1f",
+			"_index": "displayName__26b1f",
+			"noStyles": "noStyles__26b1f",
+
+			// other shit
+			"botTag": "botTag__26b1f",
+			"displayNameTrailing": "displayNameTrailing__26b1f",
+			"clickable": "clickable__26b1f",
+			"usernameAndPronounsRow": "usernameAndPronounsRow__26b1f", // some call it woke
+			"hasPronouns": "hasPronouns__26b1f", // everyone has pronouns, dipshit, it came free with your fucking language
+			"pronounsTooltip": "pronounsTooltip__26b1f",
+			"userTagUsername": "userTagUsername__26b1f",
+			"userTagDiscriminator": "userTagDiscriminator__26b1f",
+			"dotSpacer": "dotSpacer__26b1f",
+			"guildTag": "guildTag__26b1f",
+			"guildTagPill": "guildTagPill__26b1f",
+			"userTag": "userTag__26b1f",
+		),
+
 		// Modal: right click on user in same spots and click "View Profile"
 		"modal": (
-			"root": "root__24502",
 			"_index": "user-profile-modal",
 			"v2": "user-profile-modal-v2", // there's a v2 for people. bots still use the old root version
-			"headerInner": "headerInner__24502",
 
-			"body": "body__24502",
+			"bot": ( // bot profile only stuff
+				"root": "root__24502",
+				"headerInner": "headerInner__24502",
+				"headerButtons": "headerButtons__24502",
+				"messageTextButton": "messageTextButton__24502",
+				"messageIconButton": "messageIconButton__24502",
+				"body": "body__24502",
+				"userInfo": "userInfo__24502",
+
+				// under userInfo
+				"displayName": (
+					"_alias": "profile displayName",
+				),
+
+				// random other classes
+				"wrapper": "wrapper_da5890", // only on its own, holds the "more" button in top
+				"bannerButton": (
+					"_index": "bannerButton_fb7f94", // held by the above class wrapped in a <span>
+					// rest are in same set
+					"disabled": "disabled_fb7f94",
+					"spinner": "spinner_fb7f94",
+					"spinnerInner": "spinnerInner_fb7f94",
+				),
+				"banner": "banner_f7e69e", // ON USER AS WELL
+				"bannerFill": "fill_f7e69e", // uses shared class #{c(profile banner)}
+
+				// BODY
+				"tabBarContainer": "container_d1d9f3", // also contains the bio
+
+				// tabBar
+				"tabBar": "tabBar_d1d9f3",
+				"tabBarItem": "tabBarItem_d1d9f3",
+
+				// BIO
+				"bio": (
+					"scroller": "scroller_fcb628",
+					"connections": "connections_fcb628",
+					"appConnections": "appsConnections_fcb628",
+
+					// each section has these (except icon i've not seen that)
+					// also used in activity page
+					"section": "section_bf424d",
+					"headings": "headings_bf424d",
+					"header": "header_bf424d",
+					"headingIcon": "headingIcon_bf424d",
+
+					// role stuff -- most of these i've not found! they exist in the code tho
+					"role": (
+						"_alias": "profile role",
+					),
+
+					// member since stuff -- used on user as well
+					"memberSince": (
+						"_alias": "profile memberSince",
+					),
+
+					// note stuff. it's on its own.
+					"note": "note_f37d39",
+					"textArea": "textarea__9daae", // it's also on its own
+				),
+
+				// there's likely to be overlap with mutual friends (if it was still accessible) but it's not so
+				// any friend related classes should remain unused because **THEY CANNOT BE ACCESSED**
+				"mutualServers": (
+					"listScroller": "listScroller__9d78f",
+					"empty": (
+						"_index": "empty__9d78f",
+						"icon": "emptyIcon__9d78f",
+						"text": "emptyText__9d78f",
+						"iconFriends": "emptyIconFriends__9d78f",
+						"iconGuilds": "emptyIconGuilds__9d78f",
+						"iconStreamerMode": "emptyIconStreamerMode__9d78f",
+					),
+
+					// another batch of classes -- these are also used on user profiles
+					"row": "row__0a95c",
+					"icon": "icon__0a95c",
+					"noIcon": "noIcon__0a95c",
+					"details": "details__0a95c",
+					"name": "name__0a95c",
+					"avatar": "avatar__0a95c",
+					"nick": "nick__0a95c", // SEEMS UNUSED. when bot has nickname it uses name instead?
+				),
+
+				// data access -- very short this time
+				"data": (
+					"scroller": "scroller__95bea",
+					"row": "row__95bea",
+					"rowIcon": "rowIcon__95bea",
+					"rowText": "rowText__95bea",
+				),
+			),
+
+			"user": (
+				// used for users.
+				"root": (
+					"_index": "root_b92f52",
+					// dunno what these other ones are for but hasPrivateBanner shows up on private accounts
+					"hasPrivateBanner": "hasPrivateBanner_b92f52",
+					"outer": "outer_b92f52",
+					"modalHeaderButtons": "modalHeaderButtons_b92f52",
+					"spinAnimation": "spinAnimation_b92f52",
+				),
+
+				// A WHOLE BUNCH OF CLASSES!
+				// most of these appear to be related to the editing panel on your own profile.
+				"layout": (
+					"container": "layoutContainer__9c3be", // on your own profile this element has more classes on it. this element also has a child that only has `.theme-dark/light.images-dark/light[style=(many vars)]` containing the header button and edit sidebar toggle
+					"editingPanel": (
+						"_index": "editingPanel__9c3be",
+						"enabled": "editingPanelEnabled__9c3be",
+						"expanded": "editingPanelExpanded__9c3be",
+						"slideIn": "editingPanelSlideIn__9c3be",
+						"borderRadiusExpand": "editingPanelBorderRadiusExpand__9c3be",
+						"expandButtonCompact": "editingPanelExpandButtonCompact__9c3be",
+						"expandButtonDefaultContainer": "editingPanelExpandButtonDefaultContainer__9c3be",
+						"expandButtonDefault": "editingPanelExpandButtonDefault__9c3be",
+					),
+					"profile": (
+						"contentOuter": "profileContentOuter__9c3be",
+						"contentInner": "profileContentInner__9c3be",
+						"cardToastContainer": "profileCardToastContainer__9c3be", // the "unable to lead parts of profile" toast DOES NOT APPEAR AS A CHILD TO THIS.
+						"contentColumns": "profileContentColumns__9c3be",
+						"_index": "profile__9c3be",
+						"header": "profileHeader__9c3be",
+						"headerBannerContainer": "profileHeaderBannerContainer__9c3be",
+						"body": "profileBody__9c3be",
+						"overlay": "profileOverlay__9c3be",
+						"banner": "profileBanner__9c3be",
+						"buttons": "profileButtons__9c3be",
+						"rolesSection": "profileRolesSection__9c3be",
+						"appConnections": "profileAppConnections__9c3be",
+					),
+					"isAnimating": "isAnimating__9c3be",
+					"isExpanded": "isExpanded__9c3be",
+					"anchorTabButtonDuringPanelCollapse": "anchorTabButtonDuringPanelCollapse__9c3be",
+					"pendingChangesToolbar": "pendingChangesToolbar__9c3be",
+					"noticeContainer": "noticeContainer__9c3be", // the "unable to load parts of profile" toast appears under this for whatever fucking reason.
+					"backgroundImage": "backgroundImage__9c3be",
+					"compactXs": "compact-xs__9c3be",
+					"compactSm": "compact-sm__9c3be",
+				),
+				// a weird scrim. element seems to be empty a majority of the time
+				"scrim": "scrim__1d703",
+				"scrimIsVisible": "isVisible__1d703",
+				// "Unable to load parts of profile" is the most common thing you'd see for this. see comments above.
+				"toast": (
+					// note that the elements also use part of `#{c(modals toasts *)}` for some stuff
+					"container": "container_a6b6d3",
+					"_index": "content_a6b6d3", // paired with regular `#{c(modals toasts toast)}`
+					"icon": "icon_a6b6d3", // does not use regular toast icon class for whatever reason
+					"actionButton": "actionButton_a6b6d3",
+				),
+				// only on private profiles
+				"private": (
+					"banner": "banner__43147",
+					"bannerText": "text__43147",
+				),
+				
+				///////////////
+				/// REGULAR PROFILE SIDE
+				// HEADER
+				"banner": (
+					"_index": "banner_f7e69e",
+					"fill": "fill_f7e69e",
+					"gifTag": "gifTag_f7e69e",
+				),
+
+				// AVATAR => regular avatar classes
+				
+				// STATUSdragAndDropTarget__62dd3 BUBBLE => profile statusBubble classes
+
+				// BIO HEADER
+				// contains the display name, username, pronouns, tag, badges
+				"userInfo": (
+					"container": "container__9c314", // contains display name -- also parent for the note textarea?
+					"compact": "compact__9c314",
+					"growWidth": "growWidth__9c314",
+					"preview": "preview__9c314",
+					"editable": "editable__9c314",
+					"hasError": "hasError__9c314",
+					"hasWarning": "hasWarning__9c314",
+					"placeholder": "placeholder__9c314",
+					"errorIcon": "errorIcon__9c314",
+					"warningIcon": "warningIcon__9c314",
+					"previewError": "previewError__9c314",
+
+					// under userInfo
+					"displayName": (
+						"_alias": "profile displayName",
+					),
+
+					// info stuff which seems to be just for the username?
+					"info": (
+						"_index": "info_f4bc97", // also used with userTag from displayName
+						"withDisplayNameStyles": "withDisplayNameStyles_f4bc97",
+						"infoSpacing": "infoSpacing_f4bc97",
+						"guildTag": "guildTag_f4bc97",
+						"guildTagChip": "guildTagChip_f4bc97",
+					),
+
+					"badges": (
+						"_alias": "profile badges",
+					),
+				),
+
+				// BIO (likely on panel+popout as well)
+				// ...literally two classes that's it
+				"bio": (
+					"_index": "bio_b40b46", // combined with #{c(chat markup)} as expected
+					"text": "bioText_b40b46",
+				),
+
+				// these be shared with bot
+				// also used in activity page
+				"sectioning": (
+					"section": "section_bf424d",
+					"headings": "headings_bf424d",
+					"header": "header_bf424d",
+					"headingIcon": "headingIcon_bf424d",
+				),
+				"section": "section_be87fd", // IN ITS OWN GROUP, NOT ON BOT PROFILE; also used in activity page
+
+				"memberSince": (
+					"_alias": "profile memberSince"
+				),
+
+				// role
+				"role": (
+					"_alias": "profile role",
+				),
+
+				// connections
+				"connection": (
+					"container": "container__9bfb9",
+					"connectionList": "connectionList__9bfb9",
+					"addConnectionButton": "addConnectionButton__9bfb9",
+					"_index": "connection__9bfb9",
+					"connectionInfo": "connectionInfo__9bfb9",
+					"platformIconContainer": "platformIconContainer__9bfb9",
+					"platformIcon": "platformIcon__9bfb9",
+					"applicationConnectionIcon": "applicationConnectionIcon__9bfb9",
+					"accountName": "accountName__9bfb9",
+					"linkIcon": "linkIcon__9bfb9",
+					"accountNameText": "accountNameText__9bfb9",
+					"platformUrlAnchor": "platformUrlAnchor__9bfb9",
+					"metadata": "metadata__9bfb9",
+					"connectedAppRoleAccountClickable": "connectedAppRoleAccountClickable__9bfb9",
+					"connectedAppRoleAccountPoweredBy": "connectedAppRoleAccountPoweredBy__9bfb9",
+				),
+
+				// note
+				"note": (
+					"_index": "note_eb110a",
+					"old": "oldNote_eb110a", // no idea why this would be used
+				),
+
+				//////
+				/// THE OTHER SIDE SECTION
+				"side": (
+					"_index": "container__37bfc",
+					"tabListScroller": "tabListScroller__37bfc",
+					"tabBarItem": "tabBarItem__37bfc",
+					"newContentDot": "newContentDot__37bfc",
+					"tabBarPanel": "tabBarPanel__37bfc",
+					"tabPanelScroller": "tabPanelScroller__37bfc",
+				),
+				// this entire category is very likely unable to be filled properly.
+				"board": (
+					"scroller": (
+						"_index": "scroller__3b923",
+						"hasToolbar": "hasToolbar__3b923",
+						"editingHeader": "editingHeader__3b923",
+						"ukTeenDisclaimer": "ukTeenDisclaimer__3b923", // nanny state.
+					),
+
+					// despite the category name, the main sortable class is wrapped around stuff on other's profiles
+					"sortable": (
+						"_index": "container__62dd3", // has background and border
+						"dragHandleButton": "dragHandleButton__62dd3",
+						"dragAndDropTarget": "dragAndDropTarget__62dd3",
+						"isDragging": "isDragging__62dd3",
+						"dropIndicatorAfter": "dropIndicatorAfter__62dd3",
+						"dropIndicatorBefore": "dropIndicatorBefore__62dd3",
+
+						// grab button and stuff
+						"button": "button__66b20",
+						"tooltipText": "tooltipText__66b20",
+						"menu": "menu__66b20",
+					),
+
+					"shared": (
+						"headerRow": "headerRow_cf2d33",
+						"title": "title_cf2d33",
+						"actions": "actions_cf2d33",
+						"menuButton": "menuButton_cf2d33",
+					),
+
+					"showcase": (
+						"grid": "grid__9a5c3",
+						"gameWidgetGrid": "gameWidgetGrid__7f3a7",
+
+						"gameSortable": (
+							"container": "container_a62a28",
+							"dragHandleContainer": "dragHandleContainer_a62a28",
+							"dragHandle": "dragHandle_a62a28",
+							"removeGameButton": "removeGameButton_a62a28",
+							"isDragging": "isDragging_a62a28",
+							"dropIndicatorAfter": "dropIndicatorAfter_a62a28",
+							"dropIndicatorBefore": "dropIndicatorBefore_a62a28",
+						),
+						"gameCover": (
+							"_index": "gameCover__1a3d6",
+							"coverContainer": "coverContainer__1a3d6", // has a ::before with a background+box shadow
+							"image": "gameCoverImage__1a3d6",
+							"fallback": "fallback__1a3d6",
+							"clickable": "clickable__1a3d6",
+							"loadingCover": "loadingCover__1a3d6",
+							"hoverActiveEffect": "hoverActiveEffect__1a3d6",
+						),
+
+						"favourite": (
+							// a text-sm/normal_e1364f class is included but fuck that one.
+							"card": "card_e1364f",
+							"removeGameButton": "removeGameButton_e1364f",
+							"dragHandle": "dragHandle_e1364f",
+							"isDragging": "isDragging_e1364f",
+							"clickableText": "clickableText_e1364f",
+							"details": "details_e1364f",
+							"commentIcon": "commentIcon_e1364f",
+							"tags": "tags_e1364f",
+							"comment": "comment_e1364f",
+							"editableCommentText": "editableCommentText_e1364f",
+							"placeholder": "placeholder_e1364f",
+							"dropTarget": "dropTarget_e1364f",
+							"dropIndicatorAfter": "dropIndicatorAfter_e1364f",
+							"dropIndicatorBefore": "dropIndicatorBefore_e1364f",
+							"dragHandleContainer": "dragHandleContainer_e1364f",
+						),
+
+						"tags": (
+							"tagListContainer": "tagListContainer__25a50",
+							"tagList": "tagList__25a50",
+							"disabled": "disabled__25a50",
+							"collapseButton": "collapseButton__25a50",
+							"expandButton": "expandButton__25a50",
+							"caret": "caret__25a50",
+
+							"tag": (
+								"_index": "tag_f7b6a0",
+								"button": "button_f7b6a0",
+								"disabled": "disabled_f7b6a0",
+								"addButton": "addButton_f7b6a0",
+								"removeButton": "removeButton_f7b6a0",
+								"tagsMenu": "tagsMenu_f7b6a0",
+								"filledPill": "filledPill_f7b6a0",
+								"filledTag": "filledTag_f7b6a0",
+								"filledButton": "filledButton_f7b6a0",
+								"filledAddButton": "filledAddButton_f7b6a0",
+								"filledRemoveButton": "filledRemoveButton_f7b6a0",
+							),
+						),
+					),
+
+					// the custom one
+					"widget": (
+						"widgetContainer": "widgetContainer__0ea1a",
+						"subtle": "subtle__0ea1a",
+						"embedded": "embedded__0ea1a",
+						"containerHeader": "containerHeader__0ea1a",
+						"headerTitle": "headerTitle__0ea1a",
+						"clickable": "clickable__0ea1a",
+						"appIcon": "appIcon__0ea1a",
+						"appIconPlaceholder": "appIconPlaceholder__0ea1a",
+						"textPlaceholder": "textPlaceholder__0ea1a",
+						"stillSyncing": "stillSyncing__0ea1a",
+						"footer": "footer__0ea1a",
+						"cta": "cta__0ea1a",
+
+						"root": "root__01fb0",
+						"header": "header__01fb0",
+						"contentContainer": "contentContainer__01fb0",
+						"imageSkeleton": "imageSkeleton__01fb0",
+						"imageGridPositioner": "imageGridPositioner__01fb0",
+						"imageOffsetPositioner": "imageOffsetPositioner__01fb0",
+						"image": "image__01fb0",
+
+						"imageFadeToLeftMask": "imageFadeToLeftMask_f4e2a7",
+
+						"leftInfo": (
+							"title": "title_c7283d",
+							"content": "content_c7283d",
+						),
+
+						"statsGrid": "statsGrid_a0dddb",
+						"stat": (
+							"container": "container__4a231",
+							"value": "value__4a231",
+						),
+					),
+				),
+
+				// another page another set of shit
+				"activity": (
+					"empty": (
+						"_index": "empty_e766f2",
+						"textContainer": "textContainer_e766f2",
+						"connectionPlatforms": "connectionPlatforms_e766f2",
+						"connectionIcon": "connectionIcon_e766f2",
+						"buttonRow": "buttonRow_e766f2",
+					),
+					"scroller": (
+						"_index": "scroller__764cd",
+						"cards": "cards__764cd",
+						"loadingItem": "loadingItem__764cd",
+					),
+					"card": (
+						"_index": "card__39ec2", // shared class with #{c(profile overlay)}
+						"header": "header__39ec2",
+						"headerText": "headerText__39ec2",
+						"headerContextMenu": "headerContextMenu__39ec2",
+						"absolute": "absolute__39ec2",
+						"body": "body__39ec2",
+						"content": "content__39ec2",
+						"details": "details__39ec2",
+						"platformIcon": "platformIcon__39ec2",
+						"actions": "actions__39ec2",
+						"primaryButton": "primaryButton__39ec2",
+						"customButtons": "customButtons__39ec2",
+						"fullWidth": "fullWidth__39ec2",
+						"verticalStackedButtons": "verticalStackedButtons__39ec2",
+						"horizontalWrappingButtons": "horizontalWrappingButtons__39ec2",
+						"badges": "badges__39ec2",
+						"clickableContainer": "clickableContainer__39ec2",
+						"clickableImage": "clickableImage__39ec2", // ::after has background-color
+						"image": "image__39ec2",
+						"clickableText": "clickableText__39ec2",
+						"inline": "inline__39ec2",
+						"gameState": "gameState__39ec2",
+						"guildIcon": "guildIcon__39ec2",
+						"voiceChannel": "voiceChannel__39ec2",
+						"voiceChannelText": "voiceChannelText__39ec2",
+						"voiceIcon": "voiceIcon__39ec2",
+						"voiceChannelHeading": "voiceChannelHeading__39ec2",
+						"guildName": "guildName__39ec2",
+						"voiceChannelDivider": "voiceChannelDivider__39ec2",
+						"voiceChannelOverflowCount": "voiceChannelOverflowCount__39ec2",
+						"contextMenu": "contextMenu__39ec2",
+						"appWidgetPreview": "appWidgetPreview__39ec2",
+
+						"imagePosition": (
+							"clickable": "clickable_ef9ae7",
+							"_index": "imagePosition_ef9ae7",
+							"aspectRatio": "aspectRatio_ef9ae7",
+							"crunchyroll": "crunchyroll_ef9ae7",
+							"imageContainer": "imageContainer_ef9ae7",
+							"contentImage": "contentImage_ef9ae7",
+							"smallImagePosition": "smallImagePosition_ef9ae7",
+							"smallImageContainer": "smallImageContainer_ef9ae7",
+						),
+
+						"badge": (
+							"container": "badgeContainer__635ed",
+							"label": "badgeLabel__635ed",
+							"badgesContainer": "badgesContainer__635ed",
+							"badgesContainerCard": "badgesContainerCard__635ed",
+							"badgesContainerGameProfile": "badgesContainerGameProfile__635ed",
+							"badgesContainerPopout": "badgesContainerPopout__635ed",
+						),
+
+						"progressBar": (
+							"container": "container__8e51c",
+							"text": "text__8e51c",
+							"bar": "bar__8e51c",
+							"progress": "progress__8e51c",
+						),
+					),
+				),
+
+				// moots + shared servers
+				"mutuals": (
+					"scroller": "scroller__28fdc",
+					"friendsLoadingItem": "friendsLoadingItem__28fdc",
+					"guildsLoadingItem": "guildsLoadingItem__28fdc",
+
+					"friendRow": (
+						"_index": "row__89036",
+						"nameplated": "nameplated__89036",
+						"content": "content__89036",
+						"avatar": "avatar__89036",
+						"details": "details__89036",
+						"tag": "tag__89036",
+						"displayName": "displayName__89036",
+						"discriminator": "discriminator__89036",
+					),
+
+					"serverRow":(
+						"_index": "row__0a95c",
+						"icon": "icon__0a95c",
+						"noIcon": "noIcon__0a95c",
+						"details": "details__0a95c",
+						"name": "name__0a95c",
+						"avatar": "avatar__0a95c",
+						"nick": "nick__0a95c",
+					),
+				),
+			),
+
 
 			"usernameContainer": "@alias profile username container",
 			"usernameRow": "@alias profile username usernameRow",
@@ -3877,7 +4435,6 @@ $classes: (
 				"openIcon": "connectedAccountOpenIcon_e6abe8",
 			),
 
-			"listScroller": "listScroller__9d78f",
 			"listRow": "listRow__9d78f",
 			"listAvatar": "listAvatar__9d78f",
 			"listRowContent": "listRowContent__9d78f",
@@ -4062,7 +4619,6 @@ $classes: (
 			"rail": "rail__7d80f",
 			"responsive": "responsive__7d80f",
 			"border": "border__7d80f",
-			
 		),
 	),
 
@@ -4117,7 +4673,7 @@ $classes: (
 			"page": "settingsPage_f131e9",
 			"customColumn": "customColumn__23e6b",
 			// used in the following: server>roles (but not when looking at permissions), server>invites, server>audit log, channel>invites [unchecked: settings>windows, settings>linux]
-			"customContainer": "customContainer__23e6b", 
+			"customContainer": "customContainer__23e6b",
 			"customScroller": "customScroller__23e6b",
 
 			// these margins aren't used in the sidebar, only in the content area
@@ -4703,11 +5259,11 @@ $classes: (
 					"avatar": "avatar_a9178b", // also #{c(avatar wrapper)}
 					"usernameRow": "profileCardUsernameRow_a9178b",
 					"userTag": "userTag_a9178b",
-					"info": "info_f4bc97", // paired with userTag
+					"info": "info_f4bc97", // paired with userTag -- PART OF PROFILE.
 					"overflowMenuButton": "overflowMenuButton_a9178b",
 					"overflowMenuIcon": "overflowMenuIcon_a9178b", // three dots svg
 					"badgeList": "badgeList_a9178b",
-					"badgeListContainer": "container__8061a", // paired with badgeList
+					"badgeListContainer": "container__8061a", // paired with badgeList -- PART OF PROFILE
 					"background": "background_a9178b", // used for the field list -- display name, username, email, phone number
 					"field": (
 						"list": "fieldList_a9178b",
@@ -5439,7 +5995,7 @@ $classes: (
 
 		// Clicking on an invite in your browser while not signed in and being redirected to the app
 		// above: [broken? non-linux only? firefox settings likely]
-		// Not sure how to get this anymore. 
+		// Not sure how to get this anymore.
 		"browserInvite": (
 			"contentWrapper": "contentWrapper__9b0f4",
 			"inviteSplash": "inviteSplash__9b0f4", // has style for background image
@@ -5662,7 +6218,7 @@ $classes: (
 			"categoryHeader": "categoryHeader_d1405b",
 			"autocompleteRowVertical": "autocompleteRowVertical__13533", // class exists, could reside in js. my scraper only scrapes css
 			"clickable": "clickable__13533",
-			"base": "base__13533", // wanna apply theming to this? background-modifier-hover: clickable[aria-disabled=false]>:hover,clickable[aria-selected=true]> 
+			"base": "base__13533", // wanna apply theming to this? background-modifier-hover: clickable[aria-disabled=false]>:hover,clickable[aria-selected=true]>
 			// option does not cover optional stuff
 			"option": "option_a19535",
 			"optionError": "error_a19535",
@@ -5713,7 +6269,7 @@ $classes: (
 			"caret": "caret__66e7e",
 		),
 
-		// Submit feedback in above 
+		// Submit feedback in above
 		"submitFeedback": (
 			// literally on own rule for no margin
 			"title": "title_b6c092",
@@ -5734,12 +6290,15 @@ $classes: (
 		),
 
 		// Time someone out, yes that's really the best way to get these to show up
-		// Or you can switch account 
+		// Or you can switch account
+		// NOTE: these can also appear as part of a user profile
 		"toasts": (
 			"containerTop": "containerTop__45edc", // contains z-index and alignment stuff. rule paired with bottom
 			"containerBottom": "containerBottom__45edc",
 			"toast": "toast__3fde7",
+			"content": "content__3fde7",
 			"icon": "icon__3fde7",
+			"clipIcon": "clipIcon__3fde7", // seems unused
 		),
 
 		// Be in a private call, change region
@@ -5927,7 +6486,7 @@ $classes: (
 			"happy": "emojiHappy__6c12cb",
 		),
 
-		// Click the rocket within the chat bar or 
+		// Click the rocket within the chat bar or
 		// Click the rocket within the panel within the voice panel
 		"activities": (
 			"root": "root__52f07",
@@ -6103,7 +6662,7 @@ $classes: (
 		),
 
 		// Sticker within chatbar combined popout
-		"sticker": (            
+		"sticker": (
 			"wrapper": "wrapper__8ef02", // has ID on it
 			"header": "header__8ef02",
 			"searchWrapper": "wrapper__0c74f",
@@ -6250,7 +6809,7 @@ $classes: (
 
 			// Change status
 			"mainStatusIcon": "mainStatusIcon_ad5fac",
-			"statusItem": "statusItem_ce8328", // within submenu 
+			"statusItem": "statusItem_ce8328", // within submenu
 			"statusMask": "mask_a423bd",
 			"status": "status_a423bd", // inline background color
 		),
@@ -7110,7 +7669,7 @@ $classes: (
 		// fake profile themes - 3y3 encoding my beloved
 		"fptPreview": "vc-fpt-preview",
 
-		// hide media - hide attachments per message 
+		// hide media - hide attachments per message
 		"hideAttachments": (
 			"accessory": "vc-hideAttachments-accessory",
 			"noContent": "vc-hideAttachments-no-content",
@@ -7682,7 +8241,6 @@ $classes: (
 			"serverBoostPageHeaderWave": "headerWave__1dfae",
 			"serverBoostPageBodyWave": "bodyWave__1dfae",
 			"botInviteModalContent": "contentBackground__3d3b0",
-			"userProfileOverlayScroller": "scroller_fcb628",
 			"userProfileNote": "note_fcb628",
 			"discoverCategory": "container__551b0",
 			"discoverCategoryItem": "navItem__551b0",
